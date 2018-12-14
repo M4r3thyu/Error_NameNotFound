@@ -66,13 +66,13 @@ namespace Error_NameNotFound.Model
     {
         public Calliper() : base(1, 1)
         {
-            output[0] = input[0];
+            output = input;
         }
         public bool[] Output
         {
             get
             {
-                output[0] = input[0];
+                output = input;
                 return output;
             }
         }
@@ -221,6 +221,47 @@ namespace Error_NameNotFound.Model
                         merke = false;
                 }
                 output[0] = merke;
+                output[1] = !output[0];
+                return output;
+            }
+        }
+    }
+    class Xor : Bausteine
+    {
+        public Xor() { }
+        public Xor(int input) : base(2, 2)
+        {
+            output[1] = !output[0];
+        }
+        public bool[] Output
+        {
+            get
+            {
+                if (input[0] != input[1])
+                    output[0] = true;
+                else
+                    output[0] = false;
+                output[1] = !output[0];
+                return output;
+            }
+        }
+    }
+
+    class Xnor : Bausteine
+    {
+        public Xnor() { }
+        public Xnor(int input) : base(2, 2)
+        {
+            output[0] = !output[1];
+        }
+        public bool[] Output
+        {
+            get
+            {
+                if (input[0] == input[1])
+                    output[0] = true;
+                else
+                    output[0] = false;
                 output[1] = !output[0];
                 return output;
             }
