@@ -72,6 +72,36 @@ namespace Error_NameNotFound.Model
             }
         }
     }
+    class Not : Bausteine
+    {
+        public Not() : base(1, 1)
+        {
+            output[0] = !input[0];
+        }
+        public bool[] Output
+        {
+            get
+            {
+                output[0] = !input[0];
+                return output;
+            }
+        }
+    }
+    class Light : Bausteine
+    {
+        public Light() : base(1, 1)
+        {
+            output[0] = input[0];
+        }
+        public bool[] Output
+        {
+            get
+            {
+                output[0] = input[0];
+                return output;
+            }
+        }
+    }
     class And : Bausteine
     {
         public And() { }
@@ -159,6 +189,21 @@ namespace Error_NameNotFound.Model
                 }
                 output[0] = merke;
                 output[1] = !output[0];
+                return output;
+            }
+        }
+    }
+    class Lcd8 : Bausteine
+    {
+        public Lcd8() : base(8, 8)
+        {
+            output = input;
+        }
+        public bool[] Output
+        {
+            get
+            {
+                output = input;
                 return output;
             }
         }
