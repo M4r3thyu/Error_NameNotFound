@@ -193,13 +193,13 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class Lcd8 : Bausteine
+    class Lcd7 : Bausteine
     {
-        public Lcd8() : base(8, 8)
-        {
-            output = input;
-        }
-        public bool[] Output
+        public Lcd7() : base(7, 7)              //  _   1
+        {                                       // |_|  3
+            output = input;                     // |_|  3
+        }                                       //    = 7    
+        public bool[] Output                    
         {
             get
             {
