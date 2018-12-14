@@ -66,5 +66,74 @@ namespace Error_NameNotFound.Model
             }
           }
     }
-    
+    class Nand : Bausteine
+    {
+        public Nand() { }
+        public Nand(int input) : base(input, 2)
+        {
+            output[0] = !output[1];
+        }
+        public new bool[] Output
+        {
+            get
+            {
+                bool merke = false;
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if (input[i] == false)
+                        merke = true;
+                }
+                output[0] = merke;
+                output[1] = !output[0];
+                return output;
+            }
+        }
+    }
+    class Or : Bausteine
+    {
+        public Or() { }
+        public Or(int input) : base(input, 2)
+        {
+            output[1] = !output[0];
+        }
+        public new bool[] Output
+        {
+            get
+            {
+                bool merke = false;
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if (input[i] == true)
+                        merke = true;
+                }
+                output[0] = merke;
+                output[1] = !output[0];
+                return output;
+            }
+        }
+    }
+    class Nor : Bausteine
+    {
+        public Nor() { }
+        public Nor(int input) : base(input, 2)
+        {
+            output[0] = !output[1];
+        }
+        public new bool[] Output
+        {
+            get
+            {
+                bool merke = true;
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if (input[i] == true)
+                        merke = false;
+                }
+                output[0] = merke;
+                output[1] = !output[0];
+                return output;
+            }
+        }
+    }
+
 }
