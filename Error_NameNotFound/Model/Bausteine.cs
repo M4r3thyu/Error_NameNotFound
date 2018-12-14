@@ -44,6 +44,34 @@ namespace Error_NameNotFound.Model
             PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
     }
+    class High : Bausteine
+    {
+        public High() : base(0, 1)
+        {
+            output[0] = true;
+        }
+        public bool[] Output
+        {
+            get
+            {
+                return output;
+            }
+        }
+    }
+    class Low : Bausteine
+    {
+        public Low() : base(0, 1)
+        {
+            output[0] = false;
+        }
+        public bool[] Output
+        {
+            get
+            {
+                return output;
+            }
+        }
+    }
     class And : Bausteine
     {
         public And() { }
@@ -51,7 +79,7 @@ namespace Error_NameNotFound.Model
         {
             output[1] = !output[0];
         }
-        public new bool[] Output {
+        public bool[] Output {
             get
             {
                 bool merke = true;
@@ -73,7 +101,7 @@ namespace Error_NameNotFound.Model
         {
             output[0] = !output[1];
         }
-        public new bool[] Output
+        public bool[] Output
         {
             get
             {
@@ -96,7 +124,7 @@ namespace Error_NameNotFound.Model
         {
             output[1] = !output[0];
         }
-        public new bool[] Output
+        public bool[] Output
         {
             get
             {
@@ -119,7 +147,7 @@ namespace Error_NameNotFound.Model
         {
             output[0] = !output[1];
         }
-        public new bool[] Output
+        public bool[] Output
         {
             get
             {
