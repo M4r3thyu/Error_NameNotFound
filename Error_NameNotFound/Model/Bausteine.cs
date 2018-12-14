@@ -269,11 +269,11 @@ namespace Error_NameNotFound.Model
     }
     class Seg7 : Bausteine
     {
-        public Seg7() : base(7, 7)              //  _   1
-        {                                       // |_|  3
-            output = input;                     // |_|  3
-        }                                       //    = 7    
-        public bool[] Output                    
+        public Seg7() : base(7, 7)              //  0_
+        {                                       // 1|2_|3
+            output = input;                     // 4|5_|6
+        }
+        public bool[] Output
         {
             get
             {
@@ -282,5 +282,37 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-
+    class Hex7 : Bausteine
+    {
+        public Hex7() : base(4, 7)              //  0_
+        {                                       // 1|2_|3
+            output = input;                     // 4|5_|6
+        }    
+        public bool[] Output
+        {
+            get
+            {
+                bool merke0 = true;
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if (input[i] == true)
+                        merke0 = false;
+                }
+                if (merke0)
+                {
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = false;
+                    output[3] = true;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = true;
+                    output[7] = true;
+                }
+                output = input;
+                return output;
+            }
+        }
+    }
+    //Missing:  7Hex, Oscillator, Halfadder, Fulladder, all RS's, Register, Counter  ????Logic analyzer
 }
