@@ -44,6 +44,39 @@ namespace Error_NameNotFound.Model
             PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
     }
+    class Button : Bausteine
+    {
+        public Button() : base(1, 1)
+        {
+            output[0] = false;
+        }
+        public bool[] Output
+        {
+            get
+            {
+                if (output[0] == true)
+                    output[0] = false;
+                else
+                    output[0] = true;
+                return output;
+            }
+        }
+    }
+    class Calliper : Bausteine
+    {
+        public Calliper() : base(1, 1)
+        {
+            output[0] = input[0];
+        }
+        public bool[] Output
+        {
+            get
+            {
+                output[0] = input[0];
+                return output;
+            }
+        }
+    }
     class High : Bausteine
     {
         public High() : base(0, 1)
@@ -193,9 +226,9 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class Lcd7 : Bausteine
+    class Seg7 : Bausteine
     {
-        public Lcd7() : base(7, 7)              //  _   1
+        public Seg7() : base(7, 7)              //  _   1
         {                                       // |_|  3
             output = input;                     // |_|  3
         }                                       //    = 7    
