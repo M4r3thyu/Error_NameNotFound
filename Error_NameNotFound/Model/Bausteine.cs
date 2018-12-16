@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Error_NameNotFound.Model
 {
-    class Bausteine : INotifyPropertyChanged
+    abstract class Bausteine : INotifyPropertyChanged
     {
         protected bool[] input;
         protected bool[] output;
@@ -32,49 +33,50 @@ namespace Error_NameNotFound.Model
             {
                 if (input != value)
                 {
-                    input = value;
-                    RaisePropertyChanged("Input");
-                    RaisePropertyChanged("Output");
+                    if(input!=value)
+                    {
+                        input = value;
+                        NotifyPropertyChanged();
+                        ChangeOutput();
+                    }
                 }
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void RaisePropertyChanged(string property)
+        public bool[] Output
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(property));
+            get => output;
+        }
+        abstract protected void ChangeOutput();
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
     class Button : Bausteine
     {
-        public Button() : base(1, 1)
+        public Button() : base(1, 1)            //Input 1 = Taster getrueckt
         {
             output[0] = false;
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                if (output[0] == true)
-                    output[0] = false;
-                else
-                    output[0] = true;
-                return output;
-            }
+            if (output[0] == true)
+                output[0] = false;
+            else
+                output[0] = true;
         }
+        
     }
     class Calliper : Bausteine
     {
-        public Calliper() : base(1, 1)
+        public Calliper() : base(1, 1)          //Input 1 = Taster getrueckt
         {
             output = input;
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                output = input;
-                return output;
-            }
+            output = input;
         }
     }
     class High : Bausteine
@@ -83,12 +85,9 @@ namespace Error_NameNotFound.Model
         {
             output[0] = true;
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                return output;
-            }
+            output[0] = true;
         }
     }
     class Low : Bausteine
@@ -97,12 +96,9 @@ namespace Error_NameNotFound.Model
         {
             output[0] = false;
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                return output;
-            }
+            output[0] = false;
         }
     }
     class Not : Bausteine
@@ -111,195 +107,159 @@ namespace Error_NameNotFound.Model
         {
             output[0] = !input[0];
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                output[0] = !input[0];
-                return output;
-            }
+            output[0] = !input[0];
         }
     }
-    class Light : Bausteine
+    class Light : Bausteine     
     {
-        public Light() : base(1, 1)
+        public Light() : base(1, 1)         //Output 1 = Licht an
         {
             output[0] = input[0];
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                output[0] = input[0];
-                return output;
-            }
+            output[0] = input[0];
         }
     }
     class And : Bausteine
     {
         public And() { }
-        public And(int input) : base(input, 2)
+        public And(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];
         }
-        public bool[] Output {
-            get
+        override protected void ChangeOutput()
+        {
+            bool merke = true;
+            for (int i = 0; i < input.Length; i++)
             {
-                bool merke = true;
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (input[i] == false)
-                        merke = false;
-                }
-                output[0] = merke;
-                output[1] = !output[0];
-                return output;
+                if (input[i] == false)
+                    merke = false;
             }
-          }
+            output[0] = merke;
+            output[1] = !output[0];
+        }
     }
     class Nand : Bausteine
     {
         public Nand() { }
-        public Nand(int input) : base(input, 2)
+        public Nand(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
         {
             output[0] = !output[1];
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
+            bool merke = false;
+            for (int i = 0; i < input.Length; i++)
             {
-                bool merke = false;
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (input[i] == false)
-                        merke = true;
-                }
-                output[0] = merke;
-                output[1] = !output[0];
-                return output;
+                if (input[i] == false)
+                    merke = true;
             }
+            output[0] = merke;
+            output[1] = !output[0];
         }
     }
     class Or : Bausteine
     {
         public Or() { }
-        public Or(int input) : base(input, 2)
+        public Or(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
+            bool merke = false;
+            for (int i = 0; i < input.Length; i++)
             {
-                bool merke = false;
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (input[i] == true)
-                        merke = true;
-                }
-                output[0] = merke;
-                output[1] = !output[0];
-                return output;
+                if (input[i] == true)
+                    merke = true;
             }
+            output[0] = merke;
+            output[1] = !output[0];
         }
     }
     class Nor : Bausteine
     {
         public Nor() { }
-        public Nor(int input) : base(input, 2)
+        public Nor(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
         {
             output[0] = !output[1];
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
+            bool merke = true;
+            for (int i = 0; i < input.Length; i++)
             {
-                bool merke = true;
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (input[i] == true)
-                        merke = false;
-                }
-                output[0] = merke;
-                output[1] = !output[0];
-                return output;
+                if (input[i] == true)
+                    merke = false;
             }
+            output[0] = merke;
+            output[1] = !output[0];
         }
     }
     class Xor : Bausteine
     {
         public Xor() { }
-        public Xor(int input) : base(2, 2)
+        public Xor(int input) : base(2, 2)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                if (input[0] != input[1])
-                    output[0] = true;
-                else
-                    output[0] = false;
-                output[1] = !output[0];
-                return output;
-            }
+            if (input[0] != input[1])
+                output[0] = true;
+            else
+                output[0] = false;
+            output[1] = !output[0];
         }
     }
 
     class Xnor : Bausteine
     {
         public Xnor() { }
-        public Xnor(int input) : base(2, 2)
+        public Xnor(int input) : base(2, 2)      //Output[0] = Normal [1] = Negiert
         {
             output[0] = !output[1];
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                if (input[0] == input[1])
-                    output[0] = true;
-                else
-                    output[0] = false;
-                output[1] = !output[0];
-                return output;
-            }
+            if (input[0] == input[1])
+                output[0] = true;
+            else
+                output[0] = false;
+            output[1] = !output[0];
         }
     }
     class Seg7 : Bausteine
-    {
+    {                                           // Output[] 1= Licht an
         public Seg7() : base(7, 7)              //  0_
         {                                       // 1|2_|3
             output = input;                     // 4|5_|6
         }
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
-            {
-                output = input;
-                return output;
-            }
+            output = input;
         }
     }
     class Hex7 : Bausteine
-    {
+    {                                           // Output[] 1= Licht an
         public Hex7() : base(4, 7)              //  0_
         {                                       // 1|2_|3
             output = input;                     // 4|5_|6
         }    
-        public bool[] Output
+        override protected void ChangeOutput()
         {
-            get
+            int merke = 0;
+            for (int i = 0; i < input.Length; i++)
             {
-                bool merke0 = true;
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (input[i] == true)
-                        merke0 = false;
-                }
-                if (merke0)
-                {
+                if (input[i] == true)
+                    merke = 0;
+            }
+            switch (merke)
+            {
+                case 0:
                     output[0] = true;
                     output[1] = true;
                     output[2] = false;
@@ -308,9 +268,7 @@ namespace Error_NameNotFound.Model
                     output[5] = true;
                     output[6] = true;
                     output[7] = true;
-                }
-                output = input;
-                return output;
+                    break;
             }
         }
     }
