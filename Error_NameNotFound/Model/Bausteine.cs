@@ -33,7 +33,7 @@ namespace Error_NameNotFound.Model
             {
                 if (input != value)
                 {
-                    if(input!=value)
+                    if (input != value)
                     {
                         input = value;
                         NotifyPropertyChanged();
@@ -45,6 +45,11 @@ namespace Error_NameNotFound.Model
         public bool[] Output
         {
             get => output;
+            set
+            {
+                    NotifyPropertyChanged();
+                    output = value;
+            }
         }
         abstract protected void ChangeOutput();
         public event PropertyChangedEventHandler PropertyChanged;
@@ -65,8 +70,9 @@ namespace Error_NameNotFound.Model
                 output[0] = false;
             else
                 output[0] = true;
+            Output = output;
         }
-        
+
     }
     class Calliper : Bausteine
     {
@@ -77,6 +83,7 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             output = input;
+            Output = output;
         }
     }
     class High : Bausteine
@@ -88,6 +95,7 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             output[0] = true;
+            Output = output;
         }
     }
     class Low : Bausteine
@@ -99,6 +107,7 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             output[0] = false;
+            Output = output;
         }
     }
     class Not : Bausteine
@@ -110,9 +119,10 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             output[0] = !input[0];
+            Output = output;
         }
     }
-    class Light : Bausteine     
+    class Light : Bausteine
     {
         public Light() : base(1, 1)         //Output 1 = Licht an
         {
@@ -121,6 +131,7 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             output[0] = input[0];
+            Output = output;
         }
     }
     class And : Bausteine
@@ -140,6 +151,7 @@ namespace Error_NameNotFound.Model
             }
             output[0] = merke;
             output[1] = !output[0];
+            Output = output;
         }
     }
     class Nand : Bausteine
@@ -159,6 +171,7 @@ namespace Error_NameNotFound.Model
             }
             output[0] = merke;
             output[1] = !output[0];
+            Output = output;
         }
     }
     class Or : Bausteine
@@ -178,6 +191,7 @@ namespace Error_NameNotFound.Model
             }
             output[0] = merke;
             output[1] = !output[0];
+            Output = output;
         }
     }
     class Nor : Bausteine
@@ -197,6 +211,7 @@ namespace Error_NameNotFound.Model
             }
             output[0] = merke;
             output[1] = !output[0];
+            Output = output;
         }
     }
     class Xor : Bausteine
@@ -213,6 +228,7 @@ namespace Error_NameNotFound.Model
             else
                 output[0] = false;
             output[1] = !output[0];
+            Output = output;
         }
     }
 
@@ -230,6 +246,7 @@ namespace Error_NameNotFound.Model
             else
                 output[0] = false;
             output[1] = !output[0];
+            Output = output;
         }
     }
     class Seg7 : Bausteine
@@ -241,6 +258,7 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             output = input;
+            Output = output;
         }
     }
     class Hex7 : Bausteine
@@ -248,15 +266,42 @@ namespace Error_NameNotFound.Model
         public Hex7() : base(4, 7)              //  0_
         {                                       // 1|2_|3
             output = input;                     // 4|5_|6
-        }    
+        }
         override protected void ChangeOutput()
         {
             int merke = 0;
-            for (int i = 0; i < input.Length; i++)
-            {
-                if (input[i] == true)
-                    merke = 0;
-            }
+            if (input[0] == false && input[1] == false && input[2] == false && input[3] == false)
+                merke = 0;
+            if (input[0] == true && input[1] == false && input[2] == false && input[3] == false)
+                merke = 1;
+            if (input[0] == false && input[1] == true && input[2] == false && input[3] == false)
+                merke = 2;
+            if (input[0] == true && input[1] == true && input[2] == false && input[3] == false)
+                merke = 3;
+            if (input[0] == false && input[1] == false && input[2] == true && input[3] == false)
+                merke = 4;
+            if (input[0] == true && input[1] == false && input[2] == true && input[3] == false)
+                merke = 5;
+            if (input[0] == false && input[1] == true && input[2] == true && input[3] == false)
+                merke = 6;
+            if (input[0] == true && input[1] == true && input[2] == true && input[3] == false)
+                merke = 7;
+            if (input[0] == false && input[1] == false && input[2] == false && input[3] == true)
+                merke = 8;
+            if (input[0] == true && input[1] == false && input[2] == false && input[3] == true)
+                merke = 9;
+            if (input[0] == false && input[1] == true && input[2] == false && input[3] == true)
+                merke = 10;
+            if (input[0] == true && input[1] == true && input[2] == false && input[3] == true)
+                merke = 11;
+            if (input[0] == false && input[1] == false && input[2] == true && input[3] == true)
+                merke = 12;
+            if (input[0] == true && input[1] == false && input[2] == true && input[3] == true)
+                merke = 13;
+            if (input[0] == false && input[1] == true && input[2] == true && input[3] == true)
+                merke = 14;
+            if (input[0] == true && input[1] == true && input[2] == true && input[3] == true)
+                merke = 15;
             switch (merke)
             {
                 case 0:
@@ -267,10 +312,147 @@ namespace Error_NameNotFound.Model
                     output[4] = true;
                     output[5] = true;
                     output[6] = true;
-                    output[7] = true;
+                    break;
+                case 1:
+                    output[0] = false;
+                    output[1] = false;
+                    output[2] = false;
+                    output[3] = true;
+                    output[4] = false;
+                    output[5] = false;
+                    output[6] = true;
+                    break;
+                case 2:
+                    output[0] = true;
+                    output[1] = false;
+                    output[2] = true;
+                    output[3] = true;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = false;
+                    break;
+                case 3:
+                    output[0] = true;
+                    output[1] = false;
+                    output[2] = true;
+                    output[3] = true;
+                    output[4] = false;
+                    output[5] = true;
+                    output[6] = true;
+                    break;
+                case 4:
+                    output[0] = false;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = true;
+                    output[4] = false;
+                    output[5] = false;
+                    output[6] = true;
+                    break;
+                case 5:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = false;
+                    output[4] = false;
+                    output[5] = true;
+                    output[6] = true;
+                    break;
+                case 6:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = false;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = true;
+                    break;
+                case 7:
+                    output[0] = true;
+                    output[1] = false;
+                    output[2] = false;
+                    output[3] = true;
+                    output[4] = false;
+                    output[5] = false;
+                    output[6] = true;
+                    break;
+                case 8:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = true;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = true;
+                    break;
+                case 9:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = true;
+                    output[4] = false;
+                    output[5] = true;
+                    output[6] = true;
+                    break;
+                case 10:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = true;
+                    output[4] = true;
+                    output[5] = false;
+                    output[6] = true;
+                    break;
+                case 11:
+                    output[0] = false;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = false;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = true;
+                    break;
+                case 12:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = false;
+                    output[3] = false;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = false;
+                    break;
+                case 13:
+                    output[0] = false;
+                    output[1] = false;
+                    output[2] = true;
+                    output[3] = true;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = true;
+                    break;
+                case 14:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = false;
+                    output[4] = true;
+                    output[5] = true;
+                    output[6] = false;
+                    break;
+                case 15:
+                    output[0] = true;
+                    output[1] = true;
+                    output[2] = true;
+                    output[3] = false;
+                    output[4] = true;
+                    output[5] = false;
+                    output[6] = false;
+                    break;
+                default:
                     break;
             }
+            Output = output;
         }
     }
-    //Missing:  7Hex, Oscillator, Halfadder, Fulladder, all RS's, Register, Counter  ????Logic analyzer
+    //Missing:  Oscillator, Halfadder, Fulladder, all RS's, Register, Counter  ????Logic analyzer
 }
