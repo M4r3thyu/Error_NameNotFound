@@ -47,8 +47,8 @@ namespace Error_NameNotFound.Model
             get => output;
             set
             {
-                    NotifyPropertyChanged();
                     output = value;
+                    NotifyPropertyChanged();
             }
         }
         abstract protected void ChangeOutput();
@@ -262,7 +262,7 @@ namespace Error_NameNotFound.Model
         }
     }
     class Hex7 : Bausteine
-    {                                           // Output[] 1= Licht an
+    {                                           // Output[] 1= Licht an Input[] wertichkeit -> 2^0/1/2/3/4
         public Hex7() : base(4, 7)              //  0_
         {                                       // 1|2_|3
             output = input;                     // 4|5_|6
