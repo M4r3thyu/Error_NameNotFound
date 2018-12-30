@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Drawing;
 
 namespace Error_NameNotFound.Model
 {
@@ -12,9 +13,11 @@ namespace Error_NameNotFound.Model
     {
         protected bool[] input;
         protected bool[] output;
+        protected Point position;
         public Bausteine() { }
-        public Bausteine(int input, int output)
+        public Bausteine(int input, int output,Point position)
         {
+            this.position = position;
             this.input = new bool[input];
             this.output = new bool[output];
             for (int i = 0; i < input; i++)
@@ -42,6 +45,19 @@ namespace Error_NameNotFound.Model
                 }
             }
         }
+        public Point Position
+        {
+            get => position;
+            set
+            {
+                if (position != value)
+                {
+                    position = value;
+                    NotifyPropertyChanged();
+                    ChangeOutput();
+                }
+            }
+        }
         public bool[] Output
         {
             get => output;
@@ -60,7 +76,7 @@ namespace Error_NameNotFound.Model
     }
     class Button : Bausteine
     {
-        public Button() : base(1, 1)            //Input 1 = Taster getrueckt
+        public Button(Point position) : base(1, 1, position)            //Input 1 = Taster getrueckt
         {
             output[0] = false;
         }
@@ -76,7 +92,7 @@ namespace Error_NameNotFound.Model
     }
     class Calliper : Bausteine
     {
-        public Calliper() : base(1, 1)          //Input 1 = Taster getrueckt
+        public Calliper(Point position) : base(1, 1, position)          //Input 1 = Taster getrueckt
         {
             output = input;
         }
@@ -88,7 +104,7 @@ namespace Error_NameNotFound.Model
     }
     class High : Bausteine
     {
-        public High() : base(0, 1)
+        public High(Point position) : base(0, 1, position)
         {
             output[0] = true;
         }
@@ -100,7 +116,7 @@ namespace Error_NameNotFound.Model
     }
     class Low : Bausteine
     {
-        public Low() : base(0, 1)
+        public Low(Point position) : base(0, 1, position)
         {
             output[0] = false;
         }
@@ -112,7 +128,7 @@ namespace Error_NameNotFound.Model
     }
     class Not : Bausteine
     {
-        public Not() : base(1, 1)
+        public Not(Point position) : base(1, 1, position)
         {
             output[0] = !input[0];
         }
@@ -124,7 +140,7 @@ namespace Error_NameNotFound.Model
     }
     class Light : Bausteine
     {
-        public Light() : base(1, 1)         //Output 1 = Licht an
+        public Light(Point position) : base(1, 1, position)         //Output 1 = Licht an
         {
             output[0] = input[0];
         }
@@ -137,7 +153,7 @@ namespace Error_NameNotFound.Model
     class And : Bausteine
     {
         public And() { }
-        public And(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
+        public And(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];
         }
@@ -157,7 +173,7 @@ namespace Error_NameNotFound.Model
     class Nand : Bausteine
     {
         public Nand() { }
-        public Nand(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
+        public Nand(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
             output[0] = !output[1];
         }
@@ -177,7 +193,7 @@ namespace Error_NameNotFound.Model
     class Or : Bausteine
     {
         public Or() { }
-        public Or(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
+        public Or(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];
         }
@@ -197,7 +213,7 @@ namespace Error_NameNotFound.Model
     class Nor : Bausteine
     {
         public Nor() { }
-        public Nor(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
+        public Nor(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
             output[0] = !output[1];
         }
@@ -217,7 +233,7 @@ namespace Error_NameNotFound.Model
     class Xor : Bausteine
     {
         public Xor() { }
-        public Xor(int input) : base(2, 2)      //Output[0] = Normal [1] = Negiert
+        public Xor(int input, Point position) : base(2, 2, position)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];
         }
@@ -235,7 +251,7 @@ namespace Error_NameNotFound.Model
     class Xnor : Bausteine
     {
         public Xnor() { }
-        public Xnor(int input) : base(2, 2)      //Output[0] = Normal [1] = Negiert
+        public Xnor(int input, Point position) : base(2, 2, position)      //Output[0] = Normal [1] = Negiert
         {
             output[0] = !output[1];
         }
@@ -251,7 +267,7 @@ namespace Error_NameNotFound.Model
     }
     class Seg7 : Bausteine
     {                                           // Output[] 1= Licht an
-        public Seg7() : base(7, 7)              //  0_
+        public Seg7(Point position) : base(7, 7, position)              //  0_
         {                                       // 1|2_|3
             output = input;                     // 4|5_|6
         }
@@ -263,7 +279,7 @@ namespace Error_NameNotFound.Model
     }
     class Hex7 : Bausteine
     {                                           // Output[] 1= Licht an Input[] wertichkeit -> 2^0/1/2/3/4
-        public Hex7() : base(4, 7)              //  0_
+        public Hex7(Point position) : base(4, 7, position)              //  0_
         {                                       // 1|2_|3
             output = input;                     // 4|5_|6
         }
