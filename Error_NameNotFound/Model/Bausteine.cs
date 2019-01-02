@@ -265,6 +265,145 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
+    class FF_RS : Bausteine
+    {
+        FF_RS(Point position) : base(2, 2, position) // input 0=S, 1=R
+        {
+            output[0] = !output[1];
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[1])
+            {
+                output[0] = false;
+            }
+            else
+            {
+                if (input[0])
+                    output[0] = true;
+            }
+            output[0] = !output[1];
+        }
+    }
+    class FF_RS_c : Bausteine
+    {
+        FF_RS_c(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        {
+            output[0] = !output[1];
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[3])
+            {
+                if (input[1])
+                {
+                    output[0] = false;
+                }
+                else
+                {
+                    if (input[0])
+                        output[0] = true;
+                }
+            }
+            output[0] = !output[1];
+        }
+    }
+    class FF_RS_c_e : Bausteine
+    {
+        private bool ms;
+        FF_RS_c_e(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        {
+            output[0] = !output[1];
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[3])
+            {
+                if (!ms)
+                {
+                    if (input[1])
+                    {
+                        output[0] = false;
+                    }
+                    else
+                    {
+                        if (input[0])
+                            output[0] = true;
+                    }
+                    ms = true;
+                }
+            }
+            else
+            {
+                if (ms)
+                    ms = false;
+            }
+            output[0] = !output[1];
+        }
+    }
+    class FF_RS_c_ms : Bausteine
+    {
+        private bool ms;
+        FF_RS_c_ms(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        {
+            output[0] = !output[1];
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[3])
+                ms = true;
+            else
+            {
+                if (ms)
+                {
+                    if (input[1])
+                    {
+                        output[0] = false;
+                    }
+                    else
+                    {
+                        if (input[0])
+                            output[0] = true;
+                    }
+                    ms = false;
+                }
+            }
+            output[0] = !output[1];
+        }
+    }
+    class FF_RS_c_ms_e : Bausteine
+    {
+        private bool ms;
+        FF_RS_c_ms_e(Point position):base(3,2,position) // input 0=S, 1=R, 2=C
+        {
+            output[0] = !output[1];
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        { 
+            if(input[3])
+                    ms = true;
+            else
+            {
+                if (ms)
+                {
+                    if (input[1])
+                    {
+                        output[0] = false;
+                    }
+                    else
+                    {
+                        if (input[0])
+                            output[0] = true;
+                    }
+                    ms = false;
+                }
+            }
+            output[0] = !output[1];
+        }
+    }
     class Seg7 : Bausteine
     {                                           // Output[] 1= Licht an
         public Seg7(Point position) : base(7, 7, position)              //  0_
