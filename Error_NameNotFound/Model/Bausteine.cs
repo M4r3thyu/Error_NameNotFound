@@ -260,7 +260,7 @@ namespace Error_NameNotFound.Model
     }
     class FF_RS : Bausteine
     {
-        FF_RS(Point position) : base(2, 2, position) // input 0=S, 1=R
+        public FF_RS(Point position) : base(2, 2, position) // input 0=S, 1=R
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }
@@ -288,7 +288,7 @@ namespace Error_NameNotFound.Model
     }
     class FF_RS_c : Bausteine
     {
-        FF_RS_c(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        public FF_RS_c(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }
@@ -320,7 +320,7 @@ namespace Error_NameNotFound.Model
     class FF_RS_c_e : Bausteine
     {
         private bool ms;
-        FF_RS_c_e(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        public FF_RS_c_e(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
             ms = false;
@@ -362,7 +362,7 @@ namespace Error_NameNotFound.Model
     class FF_RS_c_ms : Bausteine
     {
         private bool ms;
-        FF_RS_c_ms(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        public FF_RS_c_ms(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
             ms = false;
@@ -401,7 +401,7 @@ namespace Error_NameNotFound.Model
     class FF_RS_c_ms_e : Bausteine
     {
         private bool ms;
-        FF_RS_c_ms_e(Point position):base(3,2,position) // input 0=S, 1=R, 2=C
+        public FF_RS_c_ms_e(Point position):base(3,2,position) // input 0=S, 1=R, 2=C
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
             ms = false;
@@ -439,7 +439,7 @@ namespace Error_NameNotFound.Model
     }
     class FF_JK_c : Bausteine
     {
-        FF_JK_c(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
+        public FF_JK_c(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
         }
@@ -463,7 +463,7 @@ namespace Error_NameNotFound.Model
     class FF_JK_c_e : Bausteine
     {
         private bool ms;
-        FF_JK_c_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
+        public FF_JK_c_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -496,7 +496,7 @@ namespace Error_NameNotFound.Model
     class FF_JK_c_ms : Bausteine                                                            
     {
         private bool ms;
-        FF_JK_c_ms(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
+        public FF_JK_c_ms(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -527,7 +527,7 @@ namespace Error_NameNotFound.Model
     class FF_JK_c_ms_e : Bausteine
     {
         private bool ms;
-        FF_JK_c_ms_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
+        public FF_JK_c_ms_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -558,7 +558,7 @@ namespace Error_NameNotFound.Model
     class FF_DC_c : Bausteine
     {
         private bool ms;
-        FF_DC_c(Point position) : base(2, 2, position) // input 0=D, 1=C
+        public FF_DC_c(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
         }
@@ -577,7 +577,7 @@ namespace Error_NameNotFound.Model
     class FF_DC_c_e : Bausteine
     {
         private bool ms;
-        FF_DC_c_e(Point position) : base(2, 2, position) // input 0=D, 1=C
+        public FF_DC_c_e(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -601,7 +601,7 @@ namespace Error_NameNotFound.Model
     class FF_DC_c_ms : Bausteine
     {
         private bool ms;
-        FF_DC_c_ms(Point position) : base(2, 2, position) // input 0=D, 1=C
+        public FF_DC_c_ms(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -627,7 +627,7 @@ namespace Error_NameNotFound.Model
     class FF_DC_c_ms_e : Bausteine
     {
         private bool ms;
-        FF_DC_c_ms_e(Point position) : base(2, 2, position) // input 0=D, 1=C
+        public FF_DC_c_ms_e(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -653,7 +653,7 @@ namespace Error_NameNotFound.Model
     class FF_T_c_e : Bausteine
     {
         private bool ms;
-        FF_T_c_e(Point position) : base(1, 2, position) // input 0=T
+        public FF_T_c_e(Point position) : base(1, 2, position) // input 0=T
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -674,7 +674,7 @@ namespace Error_NameNotFound.Model
     class FF_T_c_ms_e : Bausteine
     {
         private bool ms;
-        FF_T_c_ms_e(Point position) : base(1, 2, position) // input 0=T
+        public FF_T_c_ms_e(Point position) : base(1, 2, position) // input 0=T
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
@@ -691,6 +691,57 @@ namespace Error_NameNotFound.Model
                     output[0] = output[1];
                     output[1] = !output[0];
                 }
+            }
+        }
+    }
+    class Halfadder : Bausteine
+    {
+        public Halfadder(Point position) : base(2, 2, position) // input 0=a 1=b output 0=S 1=Cout
+        { }
+        protected override void ChangeOutput()
+        {
+            if (input[0] && input[1])
+            {
+                output[0] = false;
+                output[1] = true;
+            }
+            if (!input[0] && input[1]||input[0]&&!input[1])
+            {
+                output[0] = true;
+                output[1] = false;
+            }
+            if(!input[0]&&!input[1])
+            {
+                output[0] = false;
+                output[1] =false;
+            }
+        }
+    }
+    class Fulladder : Bausteine
+    {
+        public Fulladder(Point position) : base(3, 2, position) // input 0=a 1=b 2=Cin output 0=S 1=Cout
+        { }
+        protected override void ChangeOutput()
+        {
+            if (input[0] && input[1] && input[2])
+            {
+                output[0] = true;
+                output[1] = true;
+            }
+            if (!input[0] && input[0] && input[2] || input[0] && !input[1] && input[2] || input[0] && input[1] && !input[2])
+            {
+                output[0] = false;
+                output[1] = true;
+            }
+            if (!input[0] && !input[0] && input[2] || !input[0] && input[1] && !input[2] || input[0] && !input[1] && !input[2])
+            {
+                output[0] = true;
+                output[1] = false;
+            }
+            if (!input[0] && !input[1] && !input[2])
+            {
+                output[0] = false;
+                output[1] = false;
             }
         }
     }
@@ -899,5 +950,5 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    //Missing:  Oscillator, Halfadder, Fulladder, most RS's, Register, Counter  ????Logic analyzer
+    //Missing:  Oscillator, Register, Counter  ????Logic analyzer
 }
