@@ -14,7 +14,6 @@ namespace Error_NameNotFound.Model
         protected bool[] input;
         protected bool[] output;
         protected Point position;
-        public Bausteine() { }
         public Bausteine(int input, int output,Point position)
         {
             this.position = position;
@@ -130,7 +129,7 @@ namespace Error_NameNotFound.Model
     {
         public Not(Point position) : base(1, 1, position)
         {
-            output[0] = !input[0];
+            output[0] = !input[0];                                  //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
@@ -152,10 +151,9 @@ namespace Error_NameNotFound.Model
     }
     class And : Bausteine
     {
-        public And() { }
         public And(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
-            output[1] = !output[0];
+            output[1] = !output[0];                              //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
@@ -172,10 +170,9 @@ namespace Error_NameNotFound.Model
     }
     class Nand : Bausteine
     {
-        public Nand() { }
         public Nand(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
-            output[0] = !output[1];
+            output[0] = !output[1];                        //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
@@ -192,10 +189,9 @@ namespace Error_NameNotFound.Model
     }
     class Or : Bausteine
     {
-        public Or() { }
         public Or(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
-            output[1] = !output[0];
+            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
@@ -212,10 +208,9 @@ namespace Error_NameNotFound.Model
     }
     class Nor : Bausteine
     {
-        public Nor() { }
         public Nor(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
-            output[0] = !output[1];
+            output[0] = !output[1];                        //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
@@ -232,10 +227,9 @@ namespace Error_NameNotFound.Model
     }
     class Xor : Bausteine
     {
-        public Xor() { }
         public Xor(int input, Point position) : base(2, 2, position)      //Output[0] = Normal [1] = Negiert
         {
-            output[1] = !output[0];
+            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
@@ -250,10 +244,9 @@ namespace Error_NameNotFound.Model
 
     class Xnor : Bausteine
     {
-        public Xnor() { }
         public Xnor(int input, Point position) : base(2, 2, position)      //Output[0] = Normal [1] = Negiert
         {
-            output[0] = !output[1];
+            output[0] = !output[1];                        //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
@@ -269,31 +262,16 @@ namespace Error_NameNotFound.Model
     {
         FF_RS(Point position) : base(2, 2, position) // input 0=S, 1=R
         {
-            output[0] = !output[1];
+            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }
         protected override void ChangeOutput()
         {
-            if (input[1])
+            if (input[1] && input[2])
             {
                 output[0] = false;
+                output[1] = false;
             }
             else
-            {
-                if (input[0])
-                    output[0] = true;
-            }
-            output[0] = !output[1];
-        }
-    }
-    class FF_RS_c : Bausteine
-    {
-        FF_RS_c(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
-        {
-            output[0] = !output[1];
-        }
-        protected override void ChangeOutput()
-        {
-            if (input[3])
             {
                 if (input[1])
                 {
@@ -304,23 +282,26 @@ namespace Error_NameNotFound.Model
                     if (input[0])
                         output[0] = true;
                 }
+                output[1] = !output[0];
             }
-            output[0] = !output[1];
         }
     }
-    class FF_RS_c_e : Bausteine
+    class FF_RS_c : Bausteine
     {
-        private bool ms;
-        FF_RS_c_e(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        FF_RS_c(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
         {
-            output[0] = !output[1];
-            ms = false;
+            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }
         protected override void ChangeOutput()
         {
-            if (input[3])
+            if (input[1] && input[2])
             {
-                if (!ms)
+                output[0] = false;
+                output[1] = false;
+            }
+            else
+            {
+                if (input[3])
                 {
                     if (input[1])
                     {
@@ -331,15 +312,51 @@ namespace Error_NameNotFound.Model
                         if (input[0])
                             output[0] = true;
                     }
-                    ms = true;
+                output[1] = !output[0];
                 }
+            }
+        }
+    }
+    class FF_RS_c_e : Bausteine
+    {
+        private bool ms;
+        FF_RS_c_e(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
+        {
+            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[1] && input[2])
+            {
+                output[0] = false;
+                output[1] = false;
             }
             else
             {
-                if (ms)
-                    ms = false;
+                if (input[3])
+                {
+                    if (!ms)
+                    {
+                        if (input[1])
+                        {
+                            output[0] = false;
+                        }
+                        else
+                        {
+                            if (input[0])
+                                output[0] = true;
+                        }
+                        ms = true;
+                    }
+                output[1] = !output[0];
+                }
+                else
+                {
+                    if (ms)
+                        ms = false;
+                }
             }
-            output[0] = !output[1];
         }
     }
     class FF_RS_c_ms : Bausteine
@@ -347,7 +364,141 @@ namespace Error_NameNotFound.Model
         private bool ms;
         FF_RS_c_ms(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
         {
-            output[0] = !output[1];
+            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[1] && input[2])
+            {
+                output[0] = false;
+                output[1] = false;
+            }
+            else
+            {
+                if (input[3])
+                    ms = true;
+                else
+                {
+                    if (ms)
+                    {
+                        if (input[1])
+                        {
+                            output[0] = false;
+                        }
+                        else
+                        {
+                            if (input[0])
+                                output[0] = true;
+                        }
+                        ms = false;
+                    }
+                output[1] = !output[0];
+                }
+            }
+        }
+    }
+    class FF_RS_c_ms_e : Bausteine
+    {
+        private bool ms;
+        FF_RS_c_ms_e(Point position):base(3,2,position) // input 0=S, 1=R, 2=C
+        {
+            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[1] && input[2])
+            {
+                output[0] = false;
+                output[1] = false;
+            }
+            else
+            {
+                if (input[3])
+                    ms = true;
+                else
+                {
+                    if (ms)
+                    {
+                        if (input[1])
+                        {
+                            output[0] = false;
+                        }
+                        else
+                        {
+                            if (input[0])
+                                output[0] = true;
+                        }
+                        ms = false;
+                    }
+                output[1] = !output[0];
+                }
+            }
+        }
+    }
+    class FF_JK_c : Bausteine
+    {
+        FF_JK_c(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[3])
+            {
+                if (input[0] && input[1])
+                    output[0] = output[1];
+                else
+                {
+                    if (input[1])
+                        output[0] = false;
+                    if (input[0])
+                        output[0] = true;
+                }
+                output[1] = !output[0];
+            }
+        }
+    }
+    class FF_JK_c_e : Bausteine
+    {
+        private bool ms;
+        FF_JK_c_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[3])
+            {
+                if (!ms)
+                {
+                    if (input[0] && input[1])
+                        output[0] = output[1];
+                    else
+                    {
+                        if (input[1])
+                            output[0] = false;
+                        if (input[0])
+                            output[0] = true;
+                    }
+                    ms = true;
+                }
+                else
+                {
+                    ms = false;
+                }
+                output[1] = !output[0];
+            }
+        }
+    }
+    class FF_JK_c_ms : Bausteine                                                            
+    {
+        private bool ms;
+        FF_JK_c_ms(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
         }
         protected override void ChangeOutput()
@@ -358,57 +509,57 @@ namespace Error_NameNotFound.Model
             {
                 if (ms)
                 {
-                    if (input[1])
-                    {
-                        output[0] = false;
-                    }
+                    if (input[0] && input[1])
+                        output[0] = output[1];
                     else
                     {
+                        if (input[1])
+                            output[0] = false;
                         if (input[0])
                             output[0] = true;
                     }
                     ms = false;
                 }
+            output[1] = !output[0];
             }
-            output[0] = !output[1];
         }
     }
-    class FF_RS_c_ms_e : Bausteine
+    class FF_JK_c_ms_e : Bausteine
     {
         private bool ms;
-        FF_RS_c_ms_e(Point position):base(3,2,position) // input 0=S, 1=R, 2=C
+        FF_JK_c_ms_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
         {
-            output[0] = !output[1];
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
         }
         protected override void ChangeOutput()
-        { 
-            if(input[3])
-                    ms = true;
+        {
+            if (input[3])
+                ms = true;
             else
             {
                 if (ms)
                 {
-                    if (input[1])
-                    {
-                        output[0] = false;
-                    }
+                    if (input[0] && input[1])
+                        output[0] = output[1];
                     else
                     {
+                        if (input[1])
+                            output[0] = false;
                         if (input[0])
                             output[0] = true;
                     }
                     ms = false;
                 }
+            output[1] = !output[0];
             }
-            output[0] = !output[1];
         }
     }
     class Seg7 : Bausteine
-    {                                           // Output[] 1= Licht an
-        public Seg7(Point position) : base(7, 7, position)              //  0_
-        {                                       // 1|2_|3
-            output = input;                     // 4|5_|6
+    {                                                                   // Output[] 1 = Licht an
+        public Seg7(Point position) : base(7, 7, position)              //   0_
+        {                                                               // 1|2_|3
+            output = input;                                             // 4|5_|6
         }
         override protected void ChangeOutput()
         {
@@ -609,5 +760,5 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    //Missing:  Oscillator, Halfadder, Fulladder, all RS's, Register, Counter  ????Logic analyzer
+    //Missing:  Oscillator, Halfadder, Fulladder, most RS's, Register, Counter  ????Logic analyzer
 }
