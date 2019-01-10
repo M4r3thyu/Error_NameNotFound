@@ -558,13 +558,13 @@ namespace Error_NameNotFound.Model
     class FF_DC_c : Bausteine
     {
         private bool ms;
-        FF_DC_c(Point position) : base(2, 2, position) // input 0=D, 2=C
+        FF_DC_c(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
         }
         protected override void ChangeOutput()
         {
-            if (input[2])
+            if (input[1])
             {
                 if (input[0])
                     output[0] = true;
@@ -577,14 +577,14 @@ namespace Error_NameNotFound.Model
     class FF_DC_c_e : Bausteine
     {
         private bool ms;
-        FF_DC_c_e(Point position) : base(2, 2, position) // input 0=D, 2=C
+        FF_DC_c_e(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
         }
         protected override void ChangeOutput()
         {
-            if (input[2])
+            if (input[1])
                 if (!ms)
                 {
                     if (input[0])
@@ -601,14 +601,14 @@ namespace Error_NameNotFound.Model
     class FF_DC_c_ms : Bausteine
     {
         private bool ms;
-        FF_DC_c_ms(Point position) : base(2, 2, position) // input 0=D, 2=C
+        FF_DC_c_ms(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
         }
         protected override void ChangeOutput()
         {
-            if (input[2])
+            if (input[1])
                 ms = true;
             else
             {
@@ -627,14 +627,14 @@ namespace Error_NameNotFound.Model
     class FF_DC_c_ms_e : Bausteine
     {
         private bool ms;
-        FF_DC_c_ms_e(Point position) : base(2, 2, position) // input 0=D, 2=C
+        FF_DC_c_ms_e(Point position) : base(2, 2, position) // input 0=D, 1=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
             ms = false;
         }
         protected override void ChangeOutput()
         {
-            if (input[2])
+            if (input[1])
                 ms = true;
             else
             {
@@ -645,6 +645,50 @@ namespace Error_NameNotFound.Model
                     else
                         output[0] = false;
                     ms = false;
+                    output[1] = !output[0];
+                }
+            }
+        }
+    }
+    class FF_T_c_e : Bausteine
+    {
+        private bool ms;
+        FF_T_c_e(Point position) : base(1, 2, position) // input 0=T
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[0])
+                if (!ms)
+                {
+                    ms = true;
+                    output[0] = output[1];
+                    output[1] = !output[0];
+                }
+                else
+                    ms = false;
+        }
+    }
+    class FF_T_c_ms_e : Bausteine
+    {
+        private bool ms;
+        FF_T_c_ms_e(Point position) : base(1, 2, position) // input 0=T
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[0])
+                ms = true;
+            else
+            {
+                if (ms)
+                {
+                    ms = false;
+                    output[0] = output[1];
                     output[1] = !output[0];
                 }
             }
