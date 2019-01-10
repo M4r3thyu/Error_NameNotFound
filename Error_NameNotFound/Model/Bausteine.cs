@@ -312,7 +312,7 @@ namespace Error_NameNotFound.Model
                         if (input[0])
                             output[0] = true;
                     }
-                output[1] = !output[0];
+                    output[1] = !output[0];
                 }
             }
         }
@@ -348,8 +348,8 @@ namespace Error_NameNotFound.Model
                                 output[0] = true;
                         }
                         ms = true;
+                        output[1] = !output[0];
                     }
-                output[1] = !output[0];
                 }
                 else
                 {
@@ -392,8 +392,8 @@ namespace Error_NameNotFound.Model
                                 output[0] = true;
                         }
                         ms = false;
+                        output[1] = !output[0];
                     }
-                output[1] = !output[0];
                 }
             }
         }
@@ -431,8 +431,8 @@ namespace Error_NameNotFound.Model
                                 output[0] = true;
                         }
                         ms = false;
+                        output[1] = !output[0];
                     }
-                output[1] = !output[0];
                 }
             }
         }
@@ -484,12 +484,12 @@ namespace Error_NameNotFound.Model
                             output[0] = true;
                     }
                     ms = true;
+                    output[1] = !output[0];
                 }
                 else
                 {
                     ms = false;
                 }
-                output[1] = !output[0];
             }
         }
     }
@@ -519,8 +519,8 @@ namespace Error_NameNotFound.Model
                             output[0] = true;
                     }
                     ms = false;
+                    output[1] = !output[0];
                 }
-            output[1] = !output[0];
             }
         }
     }
@@ -550,8 +550,103 @@ namespace Error_NameNotFound.Model
                             output[0] = true;
                     }
                     ms = false;
+                    output[1] = !output[0];
                 }
-            output[1] = !output[0];
+            }
+        }
+    }
+    class FF_DC_c : Bausteine
+    {
+        private bool ms;
+        FF_DC_c(Point position) : base(2, 2, position) // input 0=D, 2=C
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[2])
+            {
+                if (input[0])
+                    output[0] = true;
+                else
+                    output[0] = false;
+                output[1] = !output[0];
+            }
+        }
+    }
+    class FF_DC_c_e : Bausteine
+    {
+        private bool ms;
+        FF_DC_c_e(Point position) : base(2, 2, position) // input 0=D, 2=C
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[2])
+                if (!ms)
+                {
+                    if (input[0])
+                        output[0] = true;
+                    else
+                        output[0] = false;
+                    ms = true;
+                    output[1] = !output[0];
+                }
+            else
+                ms = false;
+        }
+    }
+    class FF_DC_c_ms : Bausteine
+    {
+        private bool ms;
+        FF_DC_c_ms(Point position) : base(2, 2, position) // input 0=D, 2=C
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[2])
+                ms = true;
+            else
+            {
+                if (ms)
+                {
+                    if (input[0])
+                        output[0] = true;
+                    else
+                        output[0] = false;
+                    ms = false;
+                    output[1] = !output[0];
+                }
+            }
+        }
+    }
+    class FF_DC_c_ms_e : Bausteine
+    {
+        private bool ms;
+        FF_DC_c_ms_e(Point position) : base(2, 2, position) // input 0=D, 2=C
+        {
+            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            ms = false;
+        }
+        protected override void ChangeOutput()
+        {
+            if (input[2])
+                ms = true;
+            else
+            {
+                if (ms)
+                {
+                    if (input[0])
+                        output[0] = true;
+                    else
+                        output[0] = false;
+                    ms = false;
+                    output[1] = !output[0];
+                }
             }
         }
     }
