@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using System.Threading;
 
 namespace Error_NameNotFound.Model
 {
@@ -53,7 +54,6 @@ namespace Error_NameNotFound.Model
                 {
                     position = value;
                     NotifyPropertyChanged();
-                    ChangeOutput();
                 }
             }
         }
@@ -123,6 +123,31 @@ namespace Error_NameNotFound.Model
         {
             output[0] = false;
             Output = output;
+        }
+    }
+    class Oscillator:LogicGates
+    {
+        private Thread t;
+        private int timeout;
+        public Oscillator(Point position) : base(2, 1, position)
+        {
+            t = new Thread(new ThreadStart(ChangeOutput));
+            t.Start();
+        }
+
+        public int Timeout
+        {
+            get { return timeout; }
+            set { timeout = value; }
+        }
+
+        protected override void ChangeOutput()
+        {
+            while(true)
+            {
+            output[0] = !output[0];
+            Thread.Sleep(timeout);
+            }
         }
     }
     class Not : LogicGates
@@ -950,5 +975,5 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    //Missing:  Oscillator, Register, Counter  ????Logic analyzer
+    //Missing:  Register, Counter  ????Logic analyzer
 }
