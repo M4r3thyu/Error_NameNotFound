@@ -9,12 +9,12 @@ using System.Drawing;
 
 namespace Error_NameNotFound.Model
 {
-    abstract class Bausteine : INotifyPropertyChanged
+    abstract class LogicGates : INotifyPropertyChanged
     {
         protected bool[] input;
         protected bool[] output;
         protected Point position;
-        public Bausteine(int input, int output,Point position)
+        public LogicGates(int input, int output,Point position)
         {
             this.position = position;
             this.input = new bool[input];
@@ -73,7 +73,7 @@ namespace Error_NameNotFound.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-    class Button : Bausteine
+    class Button : LogicGates
     {
         public Button(Point position) : base(1, 1, position)            //Input 1 = Taster getrueckt
         {
@@ -89,7 +89,7 @@ namespace Error_NameNotFound.Model
         }
 
     }
-    class Calliper : Bausteine
+    class Calliper : LogicGates
     {
         public Calliper(Point position) : base(1, 1, position)          //Input 1 = Taster getrueckt
         {
@@ -101,7 +101,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class High : Bausteine
+    class High : LogicGates
     {
         public High(Point position) : base(0, 1, position)
         {
@@ -113,7 +113,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Low : Bausteine
+    class Low : LogicGates
     {
         public Low(Point position) : base(0, 1, position)
         {
@@ -125,7 +125,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Not : Bausteine
+    class Not : LogicGates
     {
         public Not(Point position) : base(1, 1, position)
         {
@@ -137,7 +137,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Light : Bausteine
+    class Light : LogicGates
     {
         public Light(Point position) : base(1, 1, position)         //Output 1 = Licht an
         {
@@ -149,7 +149,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class And : Bausteine
+    class And : LogicGates
     {
         public And(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
@@ -168,7 +168,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Nand : Bausteine
+    class Nand : LogicGates
     {
         public Nand(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
@@ -187,7 +187,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Or : Bausteine
+    class Or : LogicGates
     {
         public Or(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
@@ -206,7 +206,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Nor : Bausteine
+    class Nor : LogicGates
     {
         public Nor(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
         {
@@ -225,7 +225,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Xor : Bausteine
+    class Xor : LogicGates
     {
         public Xor(int input, Point position) : base(2, 2, position)      //Output[0] = Normal [1] = Negiert
         {
@@ -242,7 +242,7 @@ namespace Error_NameNotFound.Model
         }
     }
 
-    class Xnor : Bausteine
+    class Xnor : LogicGates
     {
         public Xnor(int input, Point position) : base(2, 2, position)      //Output[0] = Normal [1] = Negiert
         {
@@ -258,7 +258,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class FF_RS : Bausteine
+    class FF_RS : LogicGates
     {
         public FF_RS(Point position) : base(2, 2, position) // input 0=S, 1=R
         {
@@ -286,7 +286,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_RS_c : Bausteine
+    class FF_RS_c : LogicGates
     {
         public FF_RS_c(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
         {
@@ -317,7 +317,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_RS_c_e : Bausteine
+    class FF_RS_c_e : LogicGates
     {
         private bool ms;
         public FF_RS_c_e(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
@@ -359,7 +359,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_RS_c_ms : Bausteine
+    class FF_RS_c_ms : LogicGates
     {
         private bool ms;
         public FF_RS_c_ms(Point position) : base(3, 2, position) // input 0=S, 1=R, 2=C
@@ -398,7 +398,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_RS_c_ms_e : Bausteine
+    class FF_RS_c_ms_e : LogicGates
     {
         private bool ms;
         public FF_RS_c_ms_e(Point position):base(3,2,position) // input 0=S, 1=R, 2=C
@@ -437,7 +437,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_JK_c : Bausteine
+    class FF_JK_c : LogicGates
     {
         public FF_JK_c(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
         {
@@ -460,7 +460,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_JK_c_e : Bausteine
+    class FF_JK_c_e : LogicGates
     {
         private bool ms;
         public FF_JK_c_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
@@ -493,7 +493,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_JK_c_ms : Bausteine                                                            
+    class FF_JK_c_ms : LogicGates                                                            
     {
         private bool ms;
         public FF_JK_c_ms(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
@@ -524,7 +524,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_JK_c_ms_e : Bausteine
+    class FF_JK_c_ms_e : LogicGates
     {
         private bool ms;
         public FF_JK_c_ms_e(Point position) : base(3, 2, position) // input 0=J, 1=K, 2=C
@@ -555,7 +555,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_DC_c : Bausteine
+    class FF_DC_c : LogicGates
     {
         private bool ms;
         public FF_DC_c(Point position) : base(2, 2, position) // input 0=D, 1=C
@@ -574,7 +574,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_DC_c_e : Bausteine
+    class FF_DC_c_e : LogicGates
     {
         private bool ms;
         public FF_DC_c_e(Point position) : base(2, 2, position) // input 0=D, 1=C
@@ -598,7 +598,7 @@ namespace Error_NameNotFound.Model
                 ms = false;
         }
     }
-    class FF_DC_c_ms : Bausteine
+    class FF_DC_c_ms : LogicGates
     {
         private bool ms;
         public FF_DC_c_ms(Point position) : base(2, 2, position) // input 0=D, 1=C
@@ -624,7 +624,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_DC_c_ms_e : Bausteine
+    class FF_DC_c_ms_e : LogicGates
     {
         private bool ms;
         public FF_DC_c_ms_e(Point position) : base(2, 2, position) // input 0=D, 1=C
@@ -650,7 +650,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class FF_T_c_e : Bausteine
+    class FF_T_c_e : LogicGates
     {
         private bool ms;
         public FF_T_c_e(Point position) : base(1, 2, position) // input 0=T
@@ -671,7 +671,7 @@ namespace Error_NameNotFound.Model
                     ms = false;
         }
     }
-    class FF_T_c_ms_e : Bausteine
+    class FF_T_c_ms_e : LogicGates
     {
         private bool ms;
         public FF_T_c_ms_e(Point position) : base(1, 2, position) // input 0=T
@@ -694,7 +694,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class Halfadder : Bausteine
+    class Halfadder : LogicGates
     {
         public Halfadder(Point position) : base(2, 2, position) // input 0=a 1=b output 0=S 1=Cout
         { }
@@ -717,7 +717,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class Fulladder : Bausteine
+    class Fulladder : LogicGates
     {
         public Fulladder(Point position) : base(3, 2, position) // input 0=a 1=b 2=Cin output 0=S 1=Cout
         { }
@@ -745,7 +745,7 @@ namespace Error_NameNotFound.Model
             }
         }
     }
-    class Seg7 : Bausteine
+    class Seg7 : LogicGates
     {                                                                   // Output[] 1 = Licht an
         public Seg7(Point position) : base(7, 7, position)              //   0_
         {                                                               // 1|2_|3
@@ -757,7 +757,7 @@ namespace Error_NameNotFound.Model
             Output = output;
         }
     }
-    class Hex7 : Bausteine
+    class Hex7 : LogicGates
     {                                           // Output[] 1= Licht an Input[] wertichkeit -> 2^0/1/2/3/4
         public Hex7(Point position) : base(4, 7, position)              //  0_
         {                                       // 1|2_|3
