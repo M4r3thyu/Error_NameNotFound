@@ -69,7 +69,71 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Bausteine.cs" />
+    <Compile Include="Model\And.cs" />
+    <Compile Include="Model\Button.cs" />
+    <Compile Include="Model\Calliper.cs" />
+    <Compile Include="Model\FF_DC_c.cs" />
+    <Compile Include="Model\FF_DC_c_e.cs" />
+    <Compile Include="Model\FF_DC_c_ms.cs" />
+    <Compile Include="Model\FF_DC_c_ms_e.cs" />
+    <Compile Include="Model\FF_JK_c.cs" />
+    <Compile Include="Model\FF_JK_c_e.cs" />
+    <Compile Include="Model\FF_JK_c_e_r.cs" />
+    <Compile Include="Model\FF_JK_c_e_s.cs" />
+    <Compile Include="Model\FF_JK_c_e_s_r.cs" />
+    <Compile Include="Model\FF_JK_c_ms.cs" />
+    <Compile Include="Model\FF_JK_c_ms_e.cs" />
+    <Compile Include="Model\FF_JK_c_ms_e_r.cs" />
+    <Compile Include="Model\FF_JK_c_ms_e_s.cs" />
+    <Compile Include="Model\FF_JK_c_ms_e_s_r.cs" />
+    <Compile Include="Model\FF_JK_c_ms_r.cs" />
+    <Compile Include="Model\FF_JK_c_ms_s.cs" />
+    <Compile Include="Model\FF_JK_c_ms_s_r.cs" />
+    <Compile Include="Model\FF_JK_c_r.cs" />
+    <Compile Include="Model\FF_JK_c_s.cs" />
+    <Compile Include="Model\FF_JK_c_s_r.cs" />
+    <Compile Include="Model\FF_RS.cs" />
+    <Compile Include="Model\FF_RS_c.cs" />
+    <Compile Include="Model\FF_RS_c_e.cs" />
+    <Compile Include="Model\FF_RS_c_e_r.cs" />
+    <Compile Include="Model\FF_RS_c_e_s.cs" />
+    <Compile Include="Model\FF_RS_c_e_s_r.cs" />
+    <Compile Include="Model\FF_RS_c_ms.cs" />
+    <Compile Include="Model\FF_RS_c_ms_e.cs" />
+    <Compile Include="Model\FF_RS_c_ms_e_s.cs" />
+    <Compile Include="Model\FF_RS_c_ms_e_s_r.cs" />
+    <Compile Include="Model\FF_RS_c_ms_r.cs" />
+    <Compile Include="Model\FF_RS_c_ms_s.cs" />
+    <Compile Include="Model\FF_RS_c_ms_s_r.cs" />
+    <Compile Include="Model\FF_RS_c_r.cs" />
+    <Compile Include="Model\FF_RS_c_s.cs" />
+    <Compile Include="Model\FF_RS_c_s_r.cs" />
+    <Compile Include="Model\FF_RS_r.cs" />
+    <Compile Include="Model\FF_RS_s.cs" />
+    <Compile Include="Model\FF_RS_s_r.cs" />
+    <Compile Include="Model\FF_T_c_e.cs" />
+    <Compile Include="Model\FF_T_c_e_r.cs" />
+    <Compile Include="Model\FF_T_c_e_s.cs" />
+    <Compile Include="Model\FF_T_c_e_s_r.cs" />
+    <Compile Include="Model\FF_T_c_ms_e.cs" />
+    <Compile Include="Model\FF_T_c_ms_e_r.cs" />
+    <Compile Include="Model\FF_T_c_ms_e_s.cs" />
+    <Compile Include="Model\FF_T_c_ms_e_s_r.cs" />
+    <Compile Include="Model\Fulladder.cs" />
+    <Compile Include="Model\Halfadder.cs" />
+    <Compile Include="Model\Hex7.cs" />
+    <Compile Include="Model\High.cs" />
+    <Compile Include="Model\Light.cs" />
+    <Compile Include="Model\LogicGates.cs" />
+    <Compile Include="Model\Low.cs" />
+    <Compile Include="Model\Nand.cs" />
+    <Compile Include="Model\Nor.cs" />
+    <Compile Include="Model\Not.cs" />
+    <Compile Include="Model\Or.cs" />
+    <Compile Include="Model\Oscillator.cs" />
+    <Compile Include="Model\Seg7.cs" />
+    <Compile Include="Model\Xnor.cs" />
+    <Compile Include="Model\XOr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -87,6 +151,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="Model\FF_RS_c_ms_e_r.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
