@@ -8,9 +8,9 @@ using System.Drawing;
 
 namespace Error_NameNotFound.Model
 {
-    class Register : LogicGates
+    class Counter : LogicGates
     {
-        public Register(int input, int output, Point position) : base(input, output, position) // input 0=C, 1=M, 2=R 3=1D
+        public Counter(int input, int output, Point position) : base(input, output, position) // input 0=C, 1=M, 2=R
         {
         }
         protected override void ChangeOutput()
@@ -30,9 +30,14 @@ namespace Error_NameNotFound.Model
                     {
                         for (int i = 0; i < output.Length - 1; i++)
                         {
-                            output[i + 1] = output[i];
+                            if (output[i] == true)
+                                output[i] = false;
+                            else
+                            {
+                                output[i] = true;
+                                break;
+                            }
                         }
-                        output[0] = input[3];
                     }
                     else
                     {
