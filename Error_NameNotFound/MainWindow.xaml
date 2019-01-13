@@ -17,8 +17,9 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <views:Menubar Grid.Row="0" Grid.ColumnSpan="2"/>
-        <views:Quickbar Grid.Row="1" Grid.ColumnSpan="2"/>
-        <views:Toolbox Grid.Row="2"/>
+        <views:Menubar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <views:Quickbar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <views:Toolbox Grid.Row="2" Grid.Column="0"/>
+        <views:Workspace Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </Window>

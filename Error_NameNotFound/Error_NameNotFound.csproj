@@ -71,6 +71,9 @@
     <Compile Include="Views\Toolbox.xaml.cs">
       <DependentUpon>Toolbox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Workspace.xaml.cs">
+      <DependentUpon>Workspace.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Toolbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Workspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
