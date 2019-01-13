@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Error_NameNotFound.Views
 {
     /// <summary>
-    /// Interaktionslogik für Toolbar.xaml
+    /// Interaction logic for Quickbar.xaml
     /// </summary>
-    public partial class Toolbar : UserControl
+    public partial class Quickbar : UserControl
     {
-        public Toolbar()
+        public Quickbar()
         {
             InitializeComponent();
         }

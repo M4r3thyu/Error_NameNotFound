@@ -17,12 +17,8 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <materialDesign:Card Grid.Row="0" Grid.ColumnSpan="2">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="15" FontSize="10">Datei Bearbeiten Ansicht etc.</TextBlock>
-        </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Grid.ColumnSpan="2">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10">Schnellsuchleiste</TextBlock>
-        </materialDesign:Card>
-        <views:Toolbar Grid.Row="2"/>
+        <views:Menubar Grid.Row="0" Grid.ColumnSpan="2"/>
+        <views:Quickbar Grid.Row="1" Grid.ColumnSpan="2"/>
+        <views:Toolbox Grid.Row="2"/>
     </Grid>
 </Window>
