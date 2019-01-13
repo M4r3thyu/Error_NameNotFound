@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Error_NameNotFound.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Error_NameNotFound"
         mc:Ignorable="d"
         Title="ERROR: Name not Found">
     <Grid>
@@ -23,6 +24,10 @@
         <materialDesign:Card Grid.Row="1" Grid.ColumnSpan="2">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10">Schnellsuchleiste</TextBlock>
         </materialDesign:Card>
-        <views:Toolbar Grid.Row="2"/>
+
+        <Canvas Grid.Row="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" Grid.Column="1">
+            <local:AND Canvas.Left="30" Canvas.Top="30"></local:AND>
+        </Canvas>
+        <views:Toolbar Grid.Row="2" />
     </Grid>
 </Window>
