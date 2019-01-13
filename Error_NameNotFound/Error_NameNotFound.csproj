@@ -62,12 +62,104 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\Button.xaml.cs">
+      <DependentUpon>Button.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Calliper.xaml.cs">
+      <DependentUpon>Calliper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Fulladder.xaml.cs">
+      <DependentUpon>Fulladder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Halfadder.xaml.cs">
+      <DependentUpon>Halfadder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\HEX7.xaml.cs">
+      <DependentUpon>HEX7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\High.xaml.cs">
+      <DependentUpon>High.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Light.xaml.cs">
+      <DependentUpon>Light.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Low.xaml.cs">
+      <DependentUpon>Low.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\NAND.xaml.cs">
+      <DependentUpon>NAND.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\NOR.xaml.cs">
+      <DependentUpon>NOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\OR.xaml.cs">
+      <DependentUpon>OR.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AND.xaml.cs">
       <DependentUpon>AND.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Oscillator.xaml.cs">
+      <DependentUpon>Oscillator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Seg7.xaml.cs">
+      <DependentUpon>Seg7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\XNOR.xaml.cs">
+      <DependentUpon>XNOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\XOR.xaml.cs">
+      <DependentUpon>XOR.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Toolbar.xaml.cs">
       <DependentUpon>Toolbar.xaml</DependentUpon>
     </Compile>
+    <Page Include="ViewModel\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Calliper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Fulladder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Halfadder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\HEX7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\High.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Low.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\NAND.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\NOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\OR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewModel\AND.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +176,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ViewModel\Oscillator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Seg7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\XNOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\XOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Toolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
