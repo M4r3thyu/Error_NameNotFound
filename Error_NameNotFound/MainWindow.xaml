@@ -13,8 +13,14 @@
         <materialDesign:Card Margin="0,15,0,0">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10">Schnellsuchleiste</TextBlock>
         </materialDesign:Card>
-        <materialDesign:Card Margin="0,32,669,0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100" BorderBrush="Black">
+        <materialDesign:Card Margin="0,32,669,0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10" Margin="34,185,0,185">Bausteine</TextBlock>
         </materialDesign:Card>
+        <Button Content="AND" Margin="10,46,682,377" Height="Auto" FontSize="15">
+
+        </Button>
+        <Canvas Margin="100,32,0,0">
+            
+        </Canvas>
     </Grid>
 </Window>
