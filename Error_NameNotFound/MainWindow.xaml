@@ -6,15 +6,14 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="ERROR: Name not Found">
-    <Grid>
+    <Grid MinHeight="450" MinWidth="700">
         <materialDesign:Card>
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="15" FontSize="10">Datei Bearbeiten Ansicht etc.</TextBlock>
         </materialDesign:Card>
         <materialDesign:Card Margin="0,15,0,0">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10">Schnellsuchleiste</TextBlock>
         </materialDesign:Card>
-        <materialDesign:Card Margin="0,32,669,0">
-            <RowDefinition Height="auto"/>
+        <materialDesign:Card Margin="0,32,669,0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100" BorderBrush="Black">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10" Margin="34,185,0,185">Bausteine</TextBlock>
         </materialDesign:Card>
     </Grid>
