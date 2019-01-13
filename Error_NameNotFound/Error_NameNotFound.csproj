@@ -63,9 +63,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Releasedate.cs" />
-    <Compile Include="Views\Bausteine.xaml.cs">
-      <DependentUpon>Bausteine.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Easteregg.xaml.cs">
       <DependentUpon>Easteregg.xaml</DependentUpon>
     </Compile>
@@ -93,10 +90,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Bausteine.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Easteregg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
