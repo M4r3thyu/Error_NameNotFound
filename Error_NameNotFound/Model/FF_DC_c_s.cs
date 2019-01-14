@@ -10,6 +10,7 @@ namespace Error_NameNotFound.Model
 {
     class FF_DC_c_s : LogicGates
     {
+        private bool ms;
         public FF_DC_c_s(Point position) : base(3, 2, position) // input 0=D, 1=C 2=set
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
