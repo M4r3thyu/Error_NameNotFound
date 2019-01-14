@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:views="clr-namespace:Error_NameNotFound.Designs"
         mc:Ignorable="d"
         Title="ERROR: Name not Found">
     <Grid MinHeight="450" MinWidth="700">
@@ -19,14 +18,14 @@
         <Button Height="80" Width="70" Margin="10,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="../Error_NameNotFound/Designs/And.png" HorizontalAlignment="Center"></Image>
+                    <Image Source="../Error_NameNotFound;component/Designs/And.png" HorizontalAlignment="Center"></Image>
                 </ControlTemplate>
             </Button.Template>
         </Button>
         <Button Height="80" Width="70" Margin="10,138,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="../Error_NameNotFound/Designs/Or.png" HorizontalAlignment="Center"></Image>
+                    <Image Source="../Error_NameNotFound;component/Designs/Or.png" HorizontalAlignment="Center"></Image>
                 </ControlTemplate>
             </Button.Template>
 

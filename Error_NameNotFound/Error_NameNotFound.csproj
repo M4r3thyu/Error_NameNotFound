@@ -181,9 +181,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Designs\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Designs\Or.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Designs\And.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
