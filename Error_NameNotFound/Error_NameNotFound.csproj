@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Releasedate.cs" />
+    <Compile Include="ViewModel\Workspace_vm.cs" />
     <Compile Include="Views\Easteregg.xaml.cs">
       <DependentUpon>Easteregg.xaml</DependentUpon>
     </Compile>
@@ -217,8 +218,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
