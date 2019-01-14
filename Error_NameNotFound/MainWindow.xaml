@@ -18,10 +18,7 @@
         <materialDesign:Card VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100" Grid.Row="2">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10" Margin="34,185,0,185">Bausteine</TextBlock>
         </materialDesign:Card>
-        <Button Grid.Row="2" Grid.Column="0"  x:Name="AND" Content="AND" Margin="0,0,0,441.6"/>
-        <Button Grid.Row="2" Grid.Column="0"  x:Name="OR" Content="Or" Margin="0,32,0,409.6"/>
-        <Canvas Grid.Row="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <local:AND Canvas.Left="30" Canvas.Top="30"></local:AND>
+        
         <materialDesign:Card Margin="0,32,0,0" VerticalAlignment="Stretch" MinWidth="100" HorizontalAlignment="Left" Width="101">
         </materialDesign:Card>
         <Button Height="80" Width="70" Margin="10,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -31,16 +28,15 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Height="80" Width="70" Margin="10,138,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Height="80" Width="70" Margin="10,138,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="../Error_NameNotFound;component/Designs/Or.png" HorizontalAlignment="Center"></Image>
                 </ControlTemplate>
             </Button.Template>
-
         </Button>
-        <Canvas Margin="100,32,0,0">
-
+        <Canvas Grid.Row="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <local:AND Canvas.Left="30" Canvas.Top="30"></local:AND>
         </Canvas>
     </Grid>
 </Window>
