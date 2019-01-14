@@ -8,17 +8,8 @@
         xmlns:local="clr-namespace:Error_NameNotFound"
         mc:Ignorable="d"
         Title="ERROR: Name not Found">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <materialDesign:Card Grid.Row="0" Grid.ColumnSpan="2">
+    <Grid MinHeight="450" MinWidth="700">
+        <materialDesign:Card>
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="15" FontSize="10">Datei Bearbeiten Ansicht etc.</TextBlock>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1" Grid.ColumnSpan="2">
@@ -31,6 +22,25 @@
         <Button Grid.Row="2" Grid.Column="0"  x:Name="OR" Content="Or" Margin="0,32,0,409.6"/>
         <Canvas Grid.Row="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <local:AND Canvas.Left="30" Canvas.Top="30"></local:AND>
+        <materialDesign:Card Margin="0,32,0,0" VerticalAlignment="Stretch" MinWidth="100" HorizontalAlignment="Left" Width="101">
+        </materialDesign:Card>
+        <Button Height="80" Width="70" Margin="10,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Error_NameNotFound;component/Designs/And.png" HorizontalAlignment="Center"></Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Height="80" Width="70" Margin="10,138,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Error_NameNotFound;component/Designs/Or.png" HorizontalAlignment="Center"></Image>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+        <Canvas Margin="100,32,0,0">
+
         </Canvas>
     </Grid>
 </Window>
