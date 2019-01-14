@@ -34,9 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +62,528 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
+      <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_e_s.xaml.cs">
+      <DependentUpon>FF_DC_c_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_e.xaml.cs">
+      <DependentUpon>FF_DC_c_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Button.xaml.cs">
+      <DependentUpon>Button.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Calliper.xaml.cs">
+      <DependentUpon>Calliper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c.xaml.cs">
+      <DependentUpon>FF_DC_c.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_e_r.xaml.cs">
+      <DependentUpon>FF_DC_c_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms.xaml.cs">
+      <DependentUpon>FF_DC_c_ms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms_e.xaml.cs">
+      <DependentUpon>FF_DC_c_ms_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms_e_r.xaml.cs">
+      <DependentUpon>FF_DC_c_ms_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms_e_s.xaml.cs">
+      <DependentUpon>FF_DC_c_ms_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms_e_s_r.xaml.cs">
+      <DependentUpon>FF_DC_c_ms_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms_r.xaml.cs">
+      <DependentUpon>FF_DC_c_ms_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms_s.xaml.cs">
+      <DependentUpon>FF_DC_c_ms_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_ms_s_r.xaml.cs">
+      <DependentUpon>FF_DC_c_ms_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_r.xaml.cs">
+      <DependentUpon>FF_DC_c_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_s.xaml.cs">
+      <DependentUpon>FF_DC_c_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_DC_c_s_r.xaml.cs">
+      <DependentUpon>FF_DC_c_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c.xaml.cs">
+      <DependentUpon>FF_JK_c.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_e.xaml.cs">
+      <DependentUpon>FF_JK_c_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_e_r.xaml.cs">
+      <DependentUpon>FF_JK_c_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_e_s.xaml.cs">
+      <DependentUpon>FF_JK_c_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_e_s_r.xaml.cs">
+      <DependentUpon>FF_JK_c_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms.xaml.cs">
+      <DependentUpon>FF_JK_c_ms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms_e.xaml.cs">
+      <DependentUpon>FF_JK_c_ms_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms_e_r.xaml.cs">
+      <DependentUpon>FF_JK_c_ms_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms_e_s.xaml.cs">
+      <DependentUpon>FF_JK_c_ms_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms_e_s_r.xaml.cs">
+      <DependentUpon>FF_JK_c_ms_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms_r.xaml.cs">
+      <DependentUpon>FF_JK_c_ms_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms_s.xaml.cs">
+      <DependentUpon>FF_JK_c_ms_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_ms_s_r.xaml.cs">
+      <DependentUpon>FF_JK_c_ms_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_r.xaml.cs">
+      <DependentUpon>FF_JK_c_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_s.xaml.cs">
+      <DependentUpon>FF_JK_c_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_JK_c_s_r.xaml.cs">
+      <DependentUpon>FF_JK_c_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS.xaml.cs">
+      <DependentUpon>FF_RS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c.xaml.cs">
+      <DependentUpon>FF_RS_c.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_e.xaml.cs">
+      <DependentUpon>FF_RS_c_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_e_r.xaml.cs">
+      <DependentUpon>FF_RS_c_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_e_s.xaml.cs">
+      <DependentUpon>FF_RS_c_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_e_s_r.xaml.cs">
+      <DependentUpon>FF_RS_c_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms.xaml.cs">
+      <DependentUpon>FF_RS_c_ms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms_e.xaml.cs">
+      <DependentUpon>FF_RS_c_ms_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms_e_r.xaml.cs">
+      <DependentUpon>FF_RS_c_ms_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms_e_s.xaml.cs">
+      <DependentUpon>FF_RS_c_ms_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms_e_s_r.xaml.cs">
+      <DependentUpon>FF_RS_c_ms_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms_r.xaml.cs">
+      <DependentUpon>FF_RS_c_ms_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms_s.xaml.cs">
+      <DependentUpon>FF_RS_c_ms_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_ms_s_r.xaml.cs">
+      <DependentUpon>FF_RS_c_ms_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_r.xaml.cs">
+      <DependentUpon>FF_RS_c_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_s.xaml.cs">
+      <DependentUpon>FF_RS_c_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_c_s_r.xaml.cs">
+      <DependentUpon>FF_RS_c_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_r.xaml.cs">
+      <DependentUpon>FF_RS_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_s.xaml.cs">
+      <DependentUpon>FF_RS_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_RS_s_r.xaml.cs">
+      <DependentUpon>FF_RS_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_e.xaml.cs">
+      <DependentUpon>FF_T_c_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_e_r.xaml.cs">
+      <DependentUpon>FF_T_c_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_e_s.xaml.cs">
+      <DependentUpon>FF_T_c_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_e_s_r.xaml.cs">
+      <DependentUpon>FF_T_c_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_ms_e.xaml.cs">
+      <DependentUpon>FF_T_c_ms_e.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_ms_e_r.xaml.cs">
+      <DependentUpon>FF_T_c_ms_e_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_ms_e_s.xaml.cs">
+      <DependentUpon>FF_T_c_ms_e_s.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FF_T_c_ms_e_s_r.xaml.cs">
+      <DependentUpon>FF_T_c_ms_e_s_r.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Fulladder.xaml.cs">
+      <DependentUpon>Fulladder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Halfadder.xaml.cs">
+      <DependentUpon>Halfadder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\HEX7.xaml.cs">
+      <DependentUpon>HEX7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\High.xaml.cs">
+      <DependentUpon>High.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Light.xaml.cs">
+      <DependentUpon>Light.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Low.xaml.cs">
+      <DependentUpon>Low.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\NAND.xaml.cs">
+      <DependentUpon>NAND.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\NOR.xaml.cs">
+      <DependentUpon>NOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\OR.xaml.cs">
+      <DependentUpon>OR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AND.xaml.cs">
+      <DependentUpon>AND.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Oscillator.xaml.cs">
+      <DependentUpon>Oscillator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Seg7.xaml.cs">
+      <DependentUpon>Seg7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\XNOR.xaml.cs">
+      <DependentUpon>XNOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\XOR.xaml.cs">
+      <DependentUpon>XOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Toolbar.xaml.cs">
+      <DependentUpon>Toolbar.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ViewModel\FF_DC_c_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Calliper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_ms_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_DC_c_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_ms_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_JK_c_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_ms_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_c_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_RS_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_ms_e.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_ms_e_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_ms_e_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\FF_T_c_ms_e_s_r.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Fulladder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Halfadder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\HEX7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\High.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Low.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\NAND.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\NOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\OR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\AND.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +596,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ViewModel\Oscillator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Seg7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\XNOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\XOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Toolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\And.cs" />
@@ -165,6 +718,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Compile Include="Model\FF_RS_c_ms_e_r.cs" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -174,8 +728,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
-    <Folder Include="Views\" />
+    <Resource Include="ViewModel\FF_DC_c_r.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ViewModel\FF_DC_C_ratxt.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
