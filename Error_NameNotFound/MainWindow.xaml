@@ -14,9 +14,20 @@
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10">Schnellsuchleiste</TextBlock>
         </materialDesign:Card>
         <materialDesign:Card Margin="0,32,0,0" VerticalAlignment="Stretch" MinWidth="100" HorizontalAlignment="Left" Width="101">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10" Margin="0,224,10,231" HorizontalAlignment="Right" Width="70">Bausteine</TextBlock>
         </materialDesign:Card>
-        <Button Content="AND" Height="80" Width="67" FontSize="15" Margin="10,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button Height="80" Width="70" Margin="10,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Error_NameNotFound/Designs/And.png" HorizontalAlignment="Center"></Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Height="80" Width="70" Margin="10,138,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Error_NameNotFound/Designs/Or.png" HorizontalAlignment="Center"></Image>
+                </ControlTemplate>
+            </Button.Template>
 
         </Button>
         <Canvas Margin="100,32,0,0">
