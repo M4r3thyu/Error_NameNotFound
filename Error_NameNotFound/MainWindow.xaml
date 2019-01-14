@@ -24,7 +24,7 @@
         <Border Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Bottom"/>
         <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Height="17" FontSize="10" > Schnellsuchleiste</TextBlock>
         <Border Grid.ColumnSpan="3" Grid.Row="1" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Bottom"/>
-
+        <views:Easteregg Grid.Column="2" HorizontalAlignment="Right" Width="25" Grid.Row="1"/>
         <GridSplitter HorizontalAlignment="Right" 
                   VerticalAlignment="Stretch"
                       Grid.Row="2"

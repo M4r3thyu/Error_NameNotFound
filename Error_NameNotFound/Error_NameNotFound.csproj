@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Releasedate.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>
     </Compile>
@@ -287,11 +288,15 @@
     <Compile Include="ViewModel\Seg7.xaml.cs">
       <DependentUpon>Seg7.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Workspace_vm.cs" />
     <Compile Include="ViewModel\XNOR.xaml.cs">
       <DependentUpon>XNOR.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\XOR.xaml.cs">
       <DependentUpon>XOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Easteregg.xaml.cs">
+      <DependentUpon>Easteregg.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Toolbar.xaml.cs">
       <DependentUpon>Toolbar.xaml</DependentUpon>
@@ -616,6 +621,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewModel\XOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Easteregg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
