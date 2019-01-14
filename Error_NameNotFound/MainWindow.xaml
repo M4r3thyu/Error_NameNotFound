@@ -9,26 +9,29 @@
         mc:Ignorable="d"
         Title="ERROR: Name not Found">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <materialDesign:Card Grid.Row="0" Grid.ColumnSpan="2">
+        <materialDesign:Card>
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="15" FontSize="10">Datei Bearbeiten Ansicht etc.</TextBlock>
         </materialDesign:Card>
-        <materialDesign:Card Grid.Row="1" Grid.ColumnSpan="2">
+        <materialDesign:Card>
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10">Schnellsuchleiste</TextBlock>
         </materialDesign:Card>
-        <materialDesign:Card VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100" Grid.Row="2">
+        <materialDesign:Card VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100" >
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Height="17" FontSize="10" Margin="34,185,0,185">Bausteine</TextBlock>
         </materialDesign:Card>
-        <Button Grid.Row="2" Grid.Column="0"  x:Name="AND" Content="AND" Margin="0,0,0,441.6"/>
-        <Button Grid.Row="2" Grid.Column="0"  x:Name="OR" Content="Or" Margin="0,32,0,409.6"/>
+        <Button Height="80" Width="70" Margin="10,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Error_NameNotFound/Designs/And.png" HorizontalAlignment="Center"></Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Height="80" Width="70" Margin="10,138,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Error_NameNotFound/Designs/Or.png" HorizontalAlignment="Center"></Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
         <Canvas Grid.Row="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <local:AND Canvas.Left="30" Canvas.Top="30"></local:AND>
         </Canvas>
