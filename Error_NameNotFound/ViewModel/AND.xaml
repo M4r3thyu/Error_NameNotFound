@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Rectangle Width="100" Height="100" Fill="BlueViolet" Name="ANDUI"></Rectangle>
+        <Image Width="100" Height="100"   Name="ANDUI"></Image>
     </Grid>
 </UserControl>
