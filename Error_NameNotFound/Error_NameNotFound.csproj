@@ -181,6 +181,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Designs\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Views\" />
   </ItemGroup>
