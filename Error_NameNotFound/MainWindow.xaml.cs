@@ -32,6 +32,14 @@ namespace Error_NameNotFound
             Canvas.SetLeft(_AND, 30);
             Canvas.SetTop(_AND, 30);
         }
+        private void OR_Button_CLicked(object sender, RoutedEventArgs e)
+        {
+
+            OR _OR = new OR();
+            Workspace.Children.Add(_OR);
+            Canvas.SetLeft(_OR, 30);
+            Canvas.SetTop(_OR, 30);
+        }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("Object"))
