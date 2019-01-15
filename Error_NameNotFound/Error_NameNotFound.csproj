@@ -62,6 +62,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Counter.cs" />
+    <Compile Include="Model\Counter_ms.cs" />
+    <Compile Include="Model\Register_ms.cs" />
     <Compile Include="Model\Releasedate.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>

@@ -69,8 +69,8 @@ namespace Error_NameNotFound
                 if (_parent != null)
                 {
                     Point dropPoint = e.GetPosition(this.Workspace);
-                    dropPoint.X = (Convert.ToInt32(dropPoint.X) / (25 * zoomlvl)) * 25.0 * zoomlvl;
-                    dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / (25 * zoomlvl)) * 25.0 * zoomlvl;
+                    dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
+                    dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
                     if (e.KeyStates == DragDropKeyStates.ControlKey &&
                         e.AllowedEffects.HasFlag(DragDropEffects.Copy))
                     {
