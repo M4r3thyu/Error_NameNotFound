@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-        <Label Name="Easteregglabel" Height="auto" Width="auto" FontSize="10" Margin="0" FontWeight="Thin"/>
+        <Label Name="Easteregglabel" Height="20" FontSize="8" Margin="0,0,0,0" FontWeight="Thin" HorizontalAlignment="Right" Width="25"/>
     </Grid>
 </UserControl>

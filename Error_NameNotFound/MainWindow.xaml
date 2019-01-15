@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Error_NameNotFound.Views"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Error_NameNotFound"
         mc:Ignorable="d"
         Title="ERROR: Name not Found">
@@ -15,27 +14,23 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="75" MaxWidth="200"/>
+            <ColumnDefinition Width="100" MinWidth="75" MaxWidth="200"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Height="17" FontSize="10" > Datei | Bearbeiten | Ansicht | etc.</TextBlock>
-        <Border Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Bottom"/>
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Height="17" FontSize="10" > Schnellsuchleiste</TextBlock>
-        <Border Grid.ColumnSpan="3" Grid.Row="1" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Bottom"/>
-        <views:Easteregg Grid.Column="2" HorizontalAlignment="Right" Width="25" Grid.Row="1"/>
-        <GridSplitter HorizontalAlignment="Right" 
-                  VerticalAlignment="Stretch"
-                      Grid.Row="2"
-                  Grid.Column="1" ResizeBehavior="PreviousAndNext"
-                  Width="5" Background="#FFBCBCBC"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Height="20" FontSize="15" > Datei | Bearbeiten | Ansicht | etc.</TextBlock>
+        <Border Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Height="20" FontSize="15" > Schnellsuchleiste</TextBlock>
+        <Border Grid.ColumnSpan="3" Grid.Row="1" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
+        <views:Easteregg Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Right"/>
+        
+        <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="3" Background="DarkSlateGray"/>
         
         <views:Workspace Grid.Row="2" Grid.Column="2"/>
-        <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="0,2,0,0" VerticalAlignment="Top"  Name="AND_button" Click="AND_Button_CLicked"/>
-        <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="0,33,0,0" VerticalAlignment="Top" Name="OR_button" Click="OR_Button_CLicked"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="0,0,0,0" VerticalAlignment="Top"  Name="AND_button" Click="AND_Button_CLicked" Height="25" BorderBrush="LightSlateGray"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="0,24,0,0" VerticalAlignment="Top" Name="OR_button" Click="OR_Button_CLicked" Height="25" BorderBrush="LightSlateGray"/>
         <Canvas Grid.Row="2" Grid.Column="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-          
         </Canvas>
     </Grid>
 </Window>
