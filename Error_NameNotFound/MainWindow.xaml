@@ -32,10 +32,10 @@
                   Width="5" Background="#FFBCBCBC"/>
         
         <views:Workspace Grid.Row="2" Grid.Column="2"/>
-        <Button Grid.Row="2" Grid.Column="0"  x:Name="AND" Content="AND" Margin="0,2,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Row="2" Grid.Column="0"  x:Name="OR" Content="Or" Margin="0,33,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="0,2,0,0" VerticalAlignment="Top"  Name="AND_button" Click="AND_Button_CLicked"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="0,33,0,0" VerticalAlignment="Top" Name="OR_button" Click="OR_Button_CLicked"/>
         <Canvas Grid.Row="2" Grid.Column="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <local:AND Canvas.Left="30" Canvas.Top="30"></local:AND>
+          
         </Canvas>
     </Grid>
 </Window>
