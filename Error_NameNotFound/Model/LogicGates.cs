@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace Error_NameNotFound.Model
 {
-    abstract class LogicGates : INotifyPropertyChanged
+    abstract class LogicGates : Basemodel
     {
         protected bool[] input;
         protected bool[] output;
@@ -66,11 +66,5 @@ namespace Error_NameNotFound.Model
             }
         }
         abstract protected void ChangeOutput();
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
-    //Missing:  Register, Counter  ????Logic analyzer
 }

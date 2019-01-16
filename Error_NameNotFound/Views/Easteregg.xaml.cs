@@ -24,11 +24,6 @@ namespace Error_NameNotFound.Views
         public Easteregg()
         {
             InitializeComponent();
-            Easteregglabel.Content = null;
-        }
-        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Easteregglabel.Content = Convert.ToInt32(Releasedate.Days_Releasedate());
         }
     }
 }

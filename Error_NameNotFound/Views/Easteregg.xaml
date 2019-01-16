@@ -4,9 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Error_NameNotFound.Views"
+             xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-        <Label Name="Easteregglabel" Height="20" FontSize="8" Margin="0,0,0,0" FontWeight="Thin" HorizontalAlignment="Right" Width="25"/>
+    <UserControl.DataContext>
+        <vm:Easteregg_vm/>
+    </UserControl.DataContext>
+    <Grid>
+        <Label Content="{Binding Content}" Name="Easteregglabel" Height="20" FontSize="8" Margin="0,0,0,0" FontWeight="Thin" HorizontalAlignment="Right" Width="25">
+            <Label.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding ClickCommand}" />
+            </Label.InputBindings>
+        </Label>
     </Grid>
 </UserControl>
