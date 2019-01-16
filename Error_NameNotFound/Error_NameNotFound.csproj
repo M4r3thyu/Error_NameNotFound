@@ -68,7 +68,7 @@
     <Compile Include="Model\Register_ms.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="Model\Releasedate.cs" />
-    <Compile Include="ViewModel\Easteregg_vm.cs" />
+    <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>
     </Compile>
@@ -301,8 +301,8 @@
     <Compile Include="ViewModel\XOR.xaml.cs">
       <DependentUpon>XOR.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Easteregg.xaml.cs">
-      <DependentUpon>Easteregg.xaml</DependentUpon>
+    <Compile Include="Views\Releasedate_v.xaml.cs">
+      <DependentUpon>Releasedate_v.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Toolbar.xaml.cs">
       <DependentUpon>Toolbar.xaml</DependentUpon>
@@ -630,7 +630,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Easteregg.xaml">
+    <Page Include="Views\Releasedate_v.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

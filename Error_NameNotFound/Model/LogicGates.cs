@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace Error_NameNotFound.Model
 {
-    abstract class LogicGates : Basemodel
+    abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
     {
         protected bool[] input;
         protected bool[] output;

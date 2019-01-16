@@ -8,9 +8,9 @@ using Error_NameNotFound.Model;
 
 namespace Error_NameNotFound.ViewModel
 {
-    class Easteregg_vm:Basemodel
+    class Releasedate_vm:Basemodel
     {
-        public Easteregg_vm()
+        public Releasedate_vm()
         {
             content = "";
         }

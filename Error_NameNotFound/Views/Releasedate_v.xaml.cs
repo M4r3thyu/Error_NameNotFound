@@ -19,9 +19,9 @@ namespace Error_NameNotFound.Views
     /// <summary>
     /// Interaction logic for Easteregg.xaml
     /// </summary>
-    public partial class Easteregg : UserControl
+    public partial class Releasedate_v : UserControl
     {
-        public Easteregg()
+        public Releasedate_v()
         {
             InitializeComponent();
         }
