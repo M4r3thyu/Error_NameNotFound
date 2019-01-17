@@ -27,14 +27,13 @@ namespace Error_NameNotFound.ViewModel
         {
             get { if (clickCommand == null)
                 {
-                    clickCommand = new RelayCommand(c => Save());
+                    clickCommand = new RelayCommand(c => Release());
                 } return clickCommand; }
             set { clickCommand = value; }
         }
-        private void Save()
+        private void Release()
         {
             Content = Convert.ToInt32(Releasedate.Days_Releasedate())+"";
         }
-
     }
 }

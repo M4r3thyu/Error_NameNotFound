@@ -294,7 +294,7 @@
     <Compile Include="ViewModel\Seg7.xaml.cs">
       <DependentUpon>Seg7.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Workspace_vm.cs" />
+    <Compile Include="ViewModel\Save_Button_vm.cs" />
     <Compile Include="ViewModel\XNOR.xaml.cs">
       <DependentUpon>XNOR.xaml</DependentUpon>
     </Compile>
@@ -304,11 +304,8 @@
     <Compile Include="Views\Releasedate_v.xaml.cs">
       <DependentUpon>Releasedate_v.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Toolbar.xaml.cs">
-      <DependentUpon>Toolbar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Workspace.xaml.cs">
-      <DependentUpon>Workspace.xaml</DependentUpon>
+    <Compile Include="Views\Save_Button.xaml.cs">
+      <DependentUpon>Save_Button.xaml</DependentUpon>
     </Compile>
     <Page Include="ViewModel\FF_DC_c_e_s_r.xaml">
       <SubType>Designer</SubType>
@@ -634,11 +631,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Toolbar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Workspace.xaml">
+    <Page Include="Views\Save_Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Error_NameNotFound.Views"
+        xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
         xmlns:local="clr-namespace:Error_NameNotFound"
         mc:Ignorable="d"
         Title="ERROR: Name not Found">
@@ -30,7 +31,7 @@
         <Border Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
         
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Height="20"  Orientation="Horizontal">
-            <Button Width="10" Background="LightSlateGray" Margin="3">save</Button>
+            <views:Save_Button Width="10" Background="LightSlateGray" Margin="3" />
             <Button Width="10" Background="LightSlateGray" Margin="3">Load</Button>
         </StackPanel>
         <views:Releasedate_v Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Right"/>

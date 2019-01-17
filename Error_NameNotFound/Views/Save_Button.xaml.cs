@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Error_NameNotFound.Views
 {
     /// <summary>
-    /// Interaction logic for Workspace.xaml
+    /// Interaction logic for Save_Button.xaml
     /// </summary>
-    public partial class Workspace : UserControl
+    public partial class Save_Button : UserControl
     {
-        public Workspace()
+        public Save_Button()
         {
             InitializeComponent();
         }
