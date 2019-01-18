@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
-    abstract class LogicGates : INotifyPropertyChanged
+    abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
     {
         protected bool[] input;
         protected bool[] output;
@@ -27,6 +28,7 @@ namespace Error_NameNotFound.Model
             {
                 this.output[i] = false;
             }
+            Save_Button_vm.save.Add(this);
         }
         public bool[] Input
         {
@@ -66,11 +68,5 @@ namespace Error_NameNotFound.Model
             }
         }
         abstract protected void ChangeOutput();
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
-    //Missing:  Register, Counter  ????Logic analyzer
 }

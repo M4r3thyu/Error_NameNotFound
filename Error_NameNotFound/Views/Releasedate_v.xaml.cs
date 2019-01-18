@@ -12,15 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Error_NameNotFound.Model;
 
 namespace Error_NameNotFound.Views
 {
     /// <summary>
-    /// Interaktionslogik für Toolbar.xaml
+    /// Interaction logic for Easteregg.xaml
     /// </summary>
-    public partial class Toolbar : UserControl
+    public partial class Releasedate_v : UserControl
     {
-        public Toolbar()
+        public Releasedate_v()
         {
             InitializeComponent();
         }

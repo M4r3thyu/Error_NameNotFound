@@ -20,13 +20,13 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static double zoomlvl = 1;
         public MainWindow()
         {
             InitializeComponent();
         }
         private void AND_Button_CLicked(object sender, RoutedEventArgs e)
         {
-
             AND _AND = new AND();
             Workspace.Children.Add(_AND);
             Canvas.SetLeft(_AND, 30);
@@ -58,24 +58,21 @@ namespace Error_NameNotFound
         }
         private void canvas_Drop(object sender, DragEventArgs e)
         {
-
                 Canvas _canvas = (Canvas)sender;
                 UIElement _element = (UIElement)e.Data.GetData("Object");
-
             if (_canvas != null && _element != null)
             {
                 Canvas _parent = (Canvas)VisualTreeHelper.GetParent(_element);
-
                 if (_parent != null)
                 {
                     Point dropPoint = e.GetPosition(this.Workspace);
-
+                    dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
+                    dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
                     if (e.KeyStates == DragDropKeyStates.ControlKey &&
                         e.AllowedEffects.HasFlag(DragDropEffects.Copy))
                     {
                         AND _and = new AND((AND)_element);
                         _canvas.Children.Add(_and);
-
                         Canvas.SetLeft(_and, dropPoint.X - 50);
                         Canvas.SetTop(_and, dropPoint.Y - 50);
                         // set the value to return to the DoDragDrop call
@@ -90,7 +87,6 @@ namespace Error_NameNotFound
                         // set the value to return to the DoDragDrop call
                         e.Effects = DragDropEffects.Move;
                     }
-
                 }
             }
         }

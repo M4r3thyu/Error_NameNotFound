@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Image Source="/Error_NameNotFound;component/Designs/Or.png" HorizontalAlignment="Center" Name="ORUI" Width="100"></Image>
+        <Image Width="100" Height="100"  Name="ORUI" Source="/Error_NameNotFound;component/Pictures/Or.png"></Image>
     </Grid>
 </UserControl>

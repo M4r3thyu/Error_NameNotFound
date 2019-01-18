@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Error_NameNotFound.ViewModel;
+using Error_NameNotFound.Model;
+using System.Drawing;
 
 namespace Error_NameNotFound
 {
@@ -29,6 +32,9 @@ namespace Error_NameNotFound
             InitializeComponent();
             this.ANDUI.Height = g.ANDUI.Height;
             this.ANDUI.Width = g.ANDUI.Height;
+            System.Drawing.Point position = new System.Drawing.Point(25,25);
+            And x = new And(2,position);
+            Save_Button_vm.save.Add(x);
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {

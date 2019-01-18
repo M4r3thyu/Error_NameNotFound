@@ -62,6 +62,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Basemodel.cs" />
+    <Compile Include="Model\Counter.cs" />
+    <Compile Include="Model\Counter_ms.cs" />
+    <Compile Include="Model\Register_ms.cs" />
+    <Compile Include="Model\RelayCommand.cs" />
+    <Compile Include="Model\Releasedate.cs" />
+    <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>
     </Compile>
@@ -287,14 +294,18 @@
     <Compile Include="ViewModel\Seg7.xaml.cs">
       <DependentUpon>Seg7.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Save_Button_vm.cs" />
     <Compile Include="ViewModel\XNOR.xaml.cs">
       <DependentUpon>XNOR.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\XOR.xaml.cs">
       <DependentUpon>XOR.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Toolbar.xaml.cs">
-      <DependentUpon>Toolbar.xaml</DependentUpon>
+    <Compile Include="Views\Releasedate_v.xaml.cs">
+      <DependentUpon>Releasedate_v.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Save_Button.xaml.cs">
+      <DependentUpon>Save_Button.xaml</DependentUpon>
     </Compile>
     <Page Include="ViewModel\FF_DC_c_e_s_r.xaml">
       <SubType>Designer</SubType>
@@ -616,7 +627,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Toolbar.xaml">
+    <Page Include="Views\Releasedate_v.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Save_Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -729,10 +744,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Designs\Or.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Designs\And.png" />
+    <Resource Include="Pictures\And.png" />
+    <Resource Include="Pictures\Or.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
