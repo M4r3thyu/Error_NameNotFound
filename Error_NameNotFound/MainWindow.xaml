@@ -45,7 +45,7 @@
             <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" Name="OR_button" Click="OR_Button_CLicked" Height="25" BorderBrush="LightSlateGray"/>
         </StackPanel>
         
-        <Canvas Grid.Row="2" Grid.Column="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Canvas Grid.Row="2" Grid.Column="2" Name="Workspace" Background="White" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         
         </Canvas>
     </Grid>

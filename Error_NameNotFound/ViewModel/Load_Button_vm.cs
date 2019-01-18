@@ -12,7 +12,6 @@ namespace Error_NameNotFound.ViewModel
 {
     class Load_Button_vm:Basemodel
     {
-        private static string dir;
         private static string serializationFile;
         public Load_Button_vm()
         {
@@ -35,7 +34,7 @@ namespace Error_NameNotFound.ViewModel
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
-               dir = File.ReadAllText(openFileDialog.FileName);
+                serializationFile = File.ReadAllText(openFileDialog.FileName);
             //deserialize
             using (Stream stream = File.Open(serializationFile, FileMode.Open))
             {
