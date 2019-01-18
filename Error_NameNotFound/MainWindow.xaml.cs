@@ -20,7 +20,6 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static double zoomlvl = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -57,8 +56,8 @@ namespace Error_NameNotFound
         }
         private void canvas_Drop(object sender, DragEventArgs e)
         {
-                Canvas _canvas = (Canvas)sender;
-                UIElement _element = (UIElement)e.Data.GetData("Object");
+            Canvas _canvas = (Canvas)sender;
+            UIElement _element = (UIElement)e.Data.GetData("Object");
             if (_canvas != null && _element != null)
             {
                 Canvas _parent = (Canvas)VisualTreeHelper.GetParent(_element);
@@ -88,6 +87,12 @@ namespace Error_NameNotFound
                     }
                 }
             }
+        }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog dialog = new PrintDialog();
+            if (dialog.ShowDialog() == true)
+            { dialog.PrintVisual(Workspace, "Workspace"); }
         }
     }
 }
