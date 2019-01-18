@@ -23,9 +23,9 @@
         <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Height="20" Orientation="Horizontal"> 
             <Menu>
                 <MenuItem Header="File" Height="20" Background="LightGray">
-                    <MenuItem Header="Open"/>
-                    <MenuItem Header="Save"/>
-                    <MenuItem Header="Print"  Click="MenuItem_Click"/>
+                    <MenuItem Header="Open" Click="Load"/>
+                    <MenuItem Header="Save" Click="Save"/>
+                    <MenuItem Header="Print"  Click="Print"/>
                 </MenuItem> 
             </Menu> 
         </StackPanel>

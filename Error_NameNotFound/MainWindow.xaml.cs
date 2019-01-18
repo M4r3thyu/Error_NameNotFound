@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +10,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Error_NameNotFound
 {
@@ -88,11 +92,69 @@ namespace Error_NameNotFound
                 }
             }
         }
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Print(object sender, RoutedEventArgs e)
         {
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() == true)
             { dialog.PrintVisual(Workspace, "Workspace"); }
+        }
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "Text Files(*.xaml)|*.xaml|All(*.*)|*"
+            };
+            if (dialog.ShowDialog() == true)
+            {
+                FileStream fs = File.Open(dialog.FileName, FileMode.Create);
+                XamlWriter.Save(Workspace, fs);
+                fs.Close();
+            }
+            /*
+            string test;
+             
+           StringBuilder outstr = new StringBuilder();
+           XmlWriterSettings settings = new XmlWriterSettings();
+           settings.Indent = true;
+           settings.OmitXmlDeclaration = true;
+           XamlDesignerSerializationManager dsm = new XamlDesignerSerializationManager(XmlWriter.Create(outstr, settings));
+           dsm.XamlWriterMode = XamlWriterMode.Expression;
+           XamlWriter.Save(Workspace, dsm);
+           test = outstr.ToString();
+           if (dialog.ShowDialog() == true)
+           {
+               File.WriteAllText(dialog.FileName, test);
+           }*/
+        }
+        private void Load(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
+                    Canvas savedCanvas = XamlReader.Load(fs) as Canvas;
+            fs.Close();
+            this.Workspace.Children.Add(savedCanvas);
+            }
+            /*
+            using (FileStream stream = File.Open("d:\\test.xaml", FileMode.Open, FileAccess.Read))
+            {
+                // Load the saved panel
+                InkCanvas savedCanvas = XamlReader.Load(stream) as InkCanvas;
+                // Set the properties on the selected canvas
+                Workspace.Background = savedCanvas.Background;
+                // Set the strokes
+                //Workspace.Children = savedCanvas.Children;
+                // Get the child elements
+                List<UIElement> elements = new List<UIElement>();
+                foreach (UIElement element in savedCanvas.Children)
+                    elements.Add(element);
+                Workspace.Children.Clear();
+                savedCanvas.Children.Clear();
+                // Set the child elements
+                for (int x = 0; x < elements.Count; x++)
+                    Workspace.Children.Add(elements[x]);
+            }*/
         }
     }
 }
