@@ -23,14 +23,20 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class AND : UserControl
     {
+        private static int anzahl=0;
+        private string imagename;
         public AND()
         {
             InitializeComponent();
+            anzahl++;
+            imagename = "ANDUI" + Convert.ToString(anzahl);
         }
         public AND(AND g) :this()
         {
+            this.ANDUI.Name = "ANDUI";
             this.ANDUI.Height = g.ANDUI.Height;
             this.ANDUI.Width = g.ANDUI.Height;
+            this.ANDUI.Name = imagename;
             System.Drawing.Point position = new System.Drawing.Point(25,25);
             And x = new And(2,position);
             Save_Button_vm.save.Add(x);
@@ -41,10 +47,11 @@ namespace Error_NameNotFound
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 // Package the data.
+                this.ANDUI.Name = "ANDUI";
                 DataObject data = new DataObject();
                 data.SetData("Double", ANDUI.Height);
                 data.SetData("Object", this);
-
+                this.ANDUI.Name = imagename;
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
             }

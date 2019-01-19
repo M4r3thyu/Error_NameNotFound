@@ -24,17 +24,14 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<UserControl> gate;
         public MainWindow()
         {
             InitializeComponent();
-            gate = new List<UserControl>();
         }
         private void AND_Button_CLicked(object sender, RoutedEventArgs e)
         {
             AND _AND = new AND();
-            gate.Add(_AND);
-            Workspace.Children.Add(gate[gate.LastIndexOf(_AND)]);
+            Workspace.Children.Add(_AND);
             Canvas.SetLeft(_AND, 30);
             Canvas.SetTop(_AND, 30);
         }
