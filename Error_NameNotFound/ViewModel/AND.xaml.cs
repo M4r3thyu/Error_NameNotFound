@@ -23,13 +23,15 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class AND : UserControl
     {
+        private static int anzahl=0;
         public AND()
         {
             InitializeComponent();
+            anzahl++;
+            Name = "ANDUI_" + Convert.ToString(anzahl);
         }
-        public AND(AND g)
+        public AND(AND g):this()
         {
-            InitializeComponent();
             this.ANDUI.Height = g.ANDUI.Height;
             this.ANDUI.Width = g.ANDUI.Height;
             System.Drawing.Point position = new System.Drawing.Point(25,25);
