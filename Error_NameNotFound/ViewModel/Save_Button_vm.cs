@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Error_NameNotFound.Model;
 using System.IO;
 using System.Windows.Input;
+using Microsoft.Win32;
 
 namespace Error_NameNotFound.ViewModel
 {
@@ -13,8 +14,8 @@ namespace Error_NameNotFound.ViewModel
     class Save_Button_vm:Basemodel
     {
         public static List<LogicGates> save;
-        static string dir;
-        static string serializationFile;
+        private static string dir;
+        private static string serializationFile;
         public Save_Button_vm()
         {
             dir = @"C:\test";
@@ -36,12 +37,23 @@ namespace Error_NameNotFound.ViewModel
         }
         public void Serializ()
         {
-            //serialize
-            using (Stream stream = File.Open(serializationFile, FileMode.Create))
+            string fileText = "Your output text";
+
+            SaveFileDialog dialog = new SaveFileDialog()
             {
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                bformatter.Serialize(stream, save);
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                File.WriteAllText(dialog.FileName, fileText);
             }
+            //serialize
+            //   using (Stream stream = File.Open(serializationFile, FileMode.Create))
+            // {
+            //       var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            //       bformatter.Serialize(stream, save);
+            //   }
         }
         public void Deserializ()
         {

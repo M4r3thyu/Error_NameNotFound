@@ -23,8 +23,9 @@
         <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Height="20" Orientation="Horizontal"> 
             <Menu>
                 <MenuItem Header="File" Height="20" Background="LightGray">
-                    <MenuItem Header="Open"/>
-                    <MenuItem Header="Save"/>
+                    <MenuItem Header="Open" Click="Load"/>
+                    <MenuItem Header="Save" Click="Save"/>
+                    <MenuItem Header="Print"  Click="Print"/>
                 </MenuItem> 
             </Menu> 
         </StackPanel>
@@ -32,7 +33,7 @@
         
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Height="20"  Orientation="Horizontal">
             <views:Save_Button Width="10" Background="LightSlateGray" Margin="3" />
-            <Button Width="10" Background="LightSlateGray" Margin="3">Load</Button>
+            <views:Load_Button Width="10" Background="LightSlateGray" Margin="3" />
         </StackPanel>
         <views:Releasedate_v Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Right"/>
         <Border Grid.ColumnSpan="3" Grid.Row="1" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
@@ -44,7 +45,8 @@
             <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" Name="OR_button" Click="OR_Button_CLicked" Height="25" BorderBrush="LightSlateGray"/>
         </StackPanel>
         
-        <Canvas Grid.Row="2" Grid.Column="2" Name="Workspace" Background="WhiteSmoke" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Canvas Grid.Row="2" Grid.Column="2" Name="Workspace" Background="White" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        
         </Canvas>
     </Grid>
 </Window>

@@ -68,6 +68,7 @@
     <Compile Include="Model\Register_ms.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="Model\Releasedate.cs" />
+    <Compile Include="ViewModel\Load_Button_vm.cs" />
     <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>
@@ -300,6 +301,9 @@
     </Compile>
     <Compile Include="ViewModel\XOR.xaml.cs">
       <DependentUpon>XOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Load_Button.xaml.cs">
+      <DependentUpon>Load_Button.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Releasedate_v.xaml.cs">
       <DependentUpon>Releasedate_v.xaml</DependentUpon>
@@ -624,6 +628,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewModel\XOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Load_Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
