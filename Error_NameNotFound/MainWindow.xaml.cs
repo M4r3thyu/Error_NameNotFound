@@ -101,61 +101,46 @@ namespace Error_NameNotFound
         }
         private void Save(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog dialog = new SaveFileDialog()
+            try
             {
-                Filter = "Text Files(*.xaml)|*.xaml|All(*.*)|*"
-            };
-            if (dialog.ShowDialog() == true)
-            {
-                FileStream fs = File.Open(dialog.FileName, FileMode.Create);
-                XamlWriter.Save(Workspace, fs);
-                fs.Close();
+                SaveFileDialog dialog = new SaveFileDialog()
+                {
+                    Filter = "Text Files(*.xaml)|*.xaml|All(*.*)|*"
+                };
+                if (dialog.ShowDialog() == true)
+                {
+                    FileStream fs = File.Open(dialog.FileName, FileMode.Create);
+                    XamlWriter.Save(Workspace, fs);
+                    fs.Close();
+                }
             }
-            /*
-            string test;
-             
-           StringBuilder outstr = new StringBuilder();
-           XmlWriterSettings settings = new XmlWriterSettings();
-           settings.Indent = true;
-           settings.OmitXmlDeclaration = true;
-           XamlDesignerSerializationManager dsm = new XamlDesignerSerializationManager(XmlWriter.Create(outstr, settings));
-           dsm.XamlWriterMode = XamlWriterMode.Expression;
-           XamlWriter.Save(Workspace, dsm);
-           test = outstr.ToString();
-           if (dialog.ShowDialog() == true)
-           {
-               File.WriteAllText(dialog.FileName, test);
-           }*/
+            catch (Exception x)
+            {
+                MessageBox.Show("Unhandled Error occoured /n" + x.Message);
+            }
         }
         private void Load(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
+            try
             {
-                FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
                     Canvas savedCanvas = XamlReader.Load(fs) as Canvas;
-            fs.Close();
-            this.Workspace.Children.Add(savedCanvas);
+                    fs.Close();
+                    this.Workspace.Children.Clear();
+                    this.Workspace.Children.Add(savedCanvas);
+                }
             }
-            /*
-            using (FileStream stream = File.Open("d:\\test.xaml", FileMode.Open, FileAccess.Read))
+            catch (XamlParseException)
             {
-                // Load the saved panel
-                InkCanvas savedCanvas = XamlReader.Load(stream) as InkCanvas;
-                // Set the properties on the selected canvas
-                Workspace.Background = savedCanvas.Background;
-                // Set the strokes
-                //Workspace.Children = savedCanvas.Children;
-                // Get the child elements
-                List<UIElement> elements = new List<UIElement>();
-                foreach (UIElement element in savedCanvas.Children)
-                    elements.Add(element);
-                Workspace.Children.Clear();
-                savedCanvas.Children.Clear();
-                // Set the child elements
-                for (int x = 0; x < elements.Count; x++)
-                    Workspace.Children.Add(elements[x]);
-            }*/
+                MessageBox.Show("Wrong File");
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Unhandled Error occoured /n" + x.Message);
+            }
         }
     }
 }
