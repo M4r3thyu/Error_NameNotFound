@@ -35,7 +35,7 @@ namespace Error_NameNotFound
         {
             this.ANDUI.Name = "ANDUI";
             this.ANDUI.Height = g.ANDUI.Height;
-            this.ANDUI.Width = g.ANDUI.Height;
+            this.ANDUI.Width = g.ANDUI.Width;
             this.ANDUI.Name = imagename;
             System.Drawing.Point position = new System.Drawing.Point(25,25);
             And x = new And(2,position);
