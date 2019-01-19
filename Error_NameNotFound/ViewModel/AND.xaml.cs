@@ -28,7 +28,7 @@ namespace Error_NameNotFound
         {
             InitializeComponent();
             anzahl++;
-            Name += anzahl;
+            Name = "ANDUI_" + Convert.ToString(anzahl);
         }
         public AND(AND g) :this()
         {
