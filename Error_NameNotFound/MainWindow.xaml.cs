@@ -24,16 +24,23 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static UserControl draggeditem;
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void AND_Button_CLicked(object sender, RoutedEventArgs e)
+        private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            AND _AND = new AND();
-            Workspace.Children.Add(_AND);
-            Canvas.SetLeft(_AND, 30);
-            Canvas.SetTop(_AND, 30);
+            draggeditem = new AND();
+
+            if (draggeditem != null)
+            {
+                DragDrop.DoDragDrop(draggeditem, draggeditem.Content, DragDropEffects.Copy);
+            }
+        }
+        public static void SetDraggedItem(UserControl newdraggeditem)
+        {
+            draggeditem = newdraggeditem;
         }
         private void OR_Button_CLicked(object sender, RoutedEventArgs e)
         {
@@ -61,37 +68,45 @@ namespace Error_NameNotFound
         }
         private void canvas_Drop(object sender, DragEventArgs e)
         {
-            Canvas _canvas = (Canvas)sender;
-            UIElement _element = (UIElement)e.Data.GetData("Object");
-            if (_canvas != null && _element != null)
-            {
-                Canvas _parent = (Canvas)VisualTreeHelper.GetParent(_element);
-                if (_parent != null)
-                {
-                    Point dropPoint = e.GetPosition(this.Workspace);
-                    dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
-                    dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
-                    if (e.KeyStates == DragDropKeyStates.ControlKey &&
-                        e.AllowedEffects.HasFlag(DragDropEffects.Copy))
-                    {
-                        AND _and = new AND((AND)_element);
-                        _canvas.Children.Add(_and);
-                        Canvas.SetLeft(_and, dropPoint.X - 50);
-                        Canvas.SetTop(_and, dropPoint.Y - 50);
-                        // set the value to return to the DoDragDrop call
-                        e.Effects = DragDropEffects.Copy;
-                    }
-                    else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
-                    {
-                        _parent.Children.Remove(_element);
-                        _canvas.Children.Add(_element);
-                        Canvas.SetLeft(_element, dropPoint.X - 50);
-                        Canvas.SetTop(_element, dropPoint.Y - 50);
-                        // set the value to return to the DoDragDrop call
-                        e.Effects = DragDropEffects.Move;
-                    }
-                }
-            }
+            Point dropPoint = e.GetPosition(this.Workspace);
+
+            UserControl gate = new AND();
+            gate.Content = draggeditem.Content;
+            Workspace.Children.Add(gate);
+
+            Canvas.SetLeft(gate, dropPoint.X - 50);
+            Canvas.SetTop(gate, dropPoint.Y - 50);
+            //Canvas _canvas = (Canvas)sender;
+            //UIElement _element = (UIElement)e.Data.GetData("Object");
+            //if (_canvas != null && _element != null)
+            //{
+            //    Canvas _parent = (Canvas)VisualTreeHelper.GetParent(_element);
+            //    if (_parent != null)
+            //    {
+            //        Point dropPoint = e.GetPosition(this.Workspace);
+            //        dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
+            //        dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
+            //        if (e.KeyStates == DragDropKeyStates.ControlKey &&
+            //            e.AllowedEffects.HasFlag(DragDropEffects.Copy))
+            //        {
+            //            AND _and = new AND((AND)_element);
+            //            _canvas.Children.Add(_and);
+            //            Canvas.SetLeft(_and, dropPoint.X - 50);
+            //            Canvas.SetTop(_and, dropPoint.Y - 50);
+            //            // set the value to return to the DoDragDrop call
+            //            e.Effects = DragDropEffects.Copy;
+            //        }
+            //        else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+            //        {
+            //            _parent.Children.Remove(_element);
+            //            _canvas.Children.Add(_element);
+            //            Canvas.SetLeft(_element, dropPoint.X - 50);
+            //            Canvas.SetTop(_element, dropPoint.Y - 50);
+            //            // set the value to return to the DoDragDrop call
+            //            e.Effects = DragDropEffects.Move;
+            //        }
+            //    }
+            //}
         }
         private void Print(object sender, RoutedEventArgs e)
         {

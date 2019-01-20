@@ -30,28 +30,40 @@ namespace Error_NameNotFound
             InitializeComponent();
             anzahl++;
             imagename = "ANDUI" + Convert.ToString(anzahl);
+            ANDUI.Height = 100;
+            ANDUI.Width = 100;
+            ANDUI.Name = imagename;
         }
         public AND(AND g) :this()
         {
-            this.ANDUI.Name = "ANDUI";
-            this.ANDUI.Height = g.ANDUI.Height;
-            this.ANDUI.Width = g.ANDUI.Width;
-            this.ANDUI.Name = imagename;
+            ANDUI.Name = "ANDUI";
+            ANDUI.Height = g.ANDUI.Height;
+            ANDUI.Width = g.ANDUI.Width;
+            ANDUI.Name = imagename;
             System.Drawing.Point position = new System.Drawing.Point(25,25);
             And x = new And(2,position);
             Save_Button_vm.save.Add(x);
         }
+        public double GetANDUI_Height()
+        {
+            double heightsave;
+            ANDUI.Name = "ANDUI";
+            heightsave = ANDUI.Height;
+            ANDUI.Name = imagename;
+            return heightsave;
+        }
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+            MainWindow.SetDraggedItem(this);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 // Package the data.
-                this.ANDUI.Name = "ANDUI";
+                ANDUI.Name = "ANDUI";
                 DataObject data = new DataObject();
                 data.SetData("Double", ANDUI.Height);
                 data.SetData("Object", this);
-                this.ANDUI.Name = imagename;
+                ANDUI.Name = imagename;
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
             }
