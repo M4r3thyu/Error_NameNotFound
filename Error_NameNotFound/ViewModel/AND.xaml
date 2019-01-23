@@ -5,9 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Error_NameNotFound"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
         <Image Width="100" Height="100"   Name="ANDUI" Source="/Error_NameNotFound;component/Pictures/And.png"></Image>
-
+        <Button Width="10" Height="10" Margin="10,10,80,80" Name="input0" Click="Input0_Click"/>
+        <Button Width="10" Height="10" Margin="10,80,80,10" Name="input1" Click="Input1_Click"/>
+        <Button Width="10" Height="10" Margin="80,10,10,80" Name="output0" Click="Output0_Click"/>
+        <Button Width="10" Height="10" Margin="80,80,10,10" Name="output1" Click="Output1_Click"/>
     </Grid>
 </UserControl>
