@@ -96,5 +96,25 @@ namespace Error_NameNotFound
             }
             e.Handled = true;
         }
+
+        private void Input0_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Input1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Output0_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Output1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
