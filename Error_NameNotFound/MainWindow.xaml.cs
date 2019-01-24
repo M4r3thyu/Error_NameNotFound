@@ -169,65 +169,34 @@ namespace Error_NameNotFound
                     this.Workspace.Children.Clear();
                     gate=new List<UserControl>();
                     int gateindex = 0;
-                    string text = File.ReadAllText(openFileDialog.FileName) as string;
-                    string[] splittext=text.Split(' ');
+                    string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
+                    string[] loadsplit=Loadfiletext.Split(' ');
                     string[] merker;
-                    bool pos = false;
                     double canvas_Left = 0, canvas_Top = 0;
-                    for (int i = 0; i < splittext.Length;i++)
+                    for (int i = 9; i < loadsplit.Length;i++)
                     {
-                        if (splittext[i].Contains("Canvas.Left="))
+                        if (loadsplit[i].Contains("Canvas.Left="))
                         {
-                            merker = splittext[i].Split('"');
-                            for (int x = 0; x < merker.Length; x++)
-                            {
-                                if (merker[x] == "Canvas.Left=" && !pos)
-                                {
-                                    pos = true;
-                                }
-                                else
-                                {
-                                    if (pos)
-                                    {
-                                        canvas_Left = double.Parse(merker[x]);
-                                        break;
-                                    }
-                                }
-                            }
-                            pos = false;
+                            merker = loadsplit[i].Split('"');
+                            canvas_Left = double.Parse(merker[1]);
                         }
-                        if (splittext[i].Contains("Canvas.Top="))
+                        if (loadsplit[i].Contains("Canvas.Top="))
                         {
-                            merker = splittext[i].Split('"');
-                            for (int x = 0; x < merker.Length; x++)
-                            {
-                                if (merker[x] == "Canvas.Top=" && !pos)
-                                {
-                                    pos = true;
-                                }
-                                else
-                                {
-                                    if (pos)
-                                    {
-                                        canvas_Top = double.Parse(merker[x]);
-                                        break;
-                                    }
-                                }
-                            }
-                            pos = false;
+                            merker = loadsplit[i].Split('"');
+                            canvas_Top = double.Parse(merker[1]);
                         }
-                        if (splittext[i].Contains("Name="))
+                        switch (loadsplit[i])
                         {
-
-                            if (splittext[i].StartsWith("Name=\"AND"))
-                            {
-                                AND _and = new AND(gateindex);
-                                gate.Add(_and);
-                                Workspace.Children.Add(gate[gateindex]);
-                                Canvas.SetLeft(gate[gateindex],  canvas_Left);
-                                Canvas.SetTop(gate[gateindex], canvas_Top);
-                                gateindex++;
-                            }                          
+                            case "Name=\"ANDUI\"":
+                                    AND _and = new AND(gateindex);
+                                    gate.Add(_and);
+                                    Workspace.Children.Add(gate[gateindex]);
+                                    Canvas.SetLeft(gate[gateindex],  canvas_Left);
+                                    Canvas.SetTop(gate[gateindex], canvas_Top);
+                                    gateindex++;
+                                break;
+                            default:
+                                break;
                         }
                     }
                 }
