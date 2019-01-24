@@ -173,23 +173,65 @@ namespace Error_NameNotFound
                     int anzahl_objecte = savedCanvas.Children.Count;
                     string text = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] splittext=text.Split(' ');
-                    string[] merker = new string[anzahl_objecte];
+                    string[] merker;
+                    bool pos = false;
+                    double canvas_Left = 0, canvas_Top = 0;
                     for (int i = 0; i < splittext.Length;i++)
                     {
+                        if (splittext[i].Contains("Canvas.Left="))
+                        {
+                            merker = splittext[i].Split('"');
+                            for (int x = 0; x < merker.Length; x++)
+                            {
+                                if (merker[x] == "Canvas.Left=" && !pos)
+                                {
+                                    pos = true;
+                                }
+                                else
+                                {
+                                    if (pos)
+                                    {
+                                        canvas_Left = double.Parse(merker[x]);
+                                        break;
+                                    }
+                                }
+                            }
+                            pos = false;
+                        }
+                        if (splittext[i].Contains("Canvas.Top="))
+                        {
+                            merker = splittext[i].Split('"');
+                            for (int x = 0; x < merker.Length; x++)
+                            {
+                                if (merker[x] == "Canvas.Top=" && !pos)
+                                {
+                                    pos = true;
+                                }
+                                else
+                                {
+                                    if (pos)
+                                    {
+                                        canvas_Top = double.Parse(merker[x]);
+                                        break;
+                                    }
+                                }
+                            }
+                            pos = false;
+                        }
                         if (splittext[i].Contains("Name="))
                         {
-                            if(splittext[i].StartsWith("Name=\"AND"))
+
+                            if (splittext[i].StartsWith("Name=\"AND"))
                             {
                                 AND _and = new AND(gateindex);
                                 gate.Add(_and);
                                 Workspace.Children.Add(gate[gateindex]);
-                                Canvas.SetLeft(gate[gateindex],  - 50);
-                                Canvas.SetTop(gate[gateindex],  - 50);
+                                Canvas.SetLeft(gate[gateindex],  canvas_Left);
+                                Canvas.SetTop(gate[gateindex], canvas_Top);
                                 gateindex++;
                             }                          
                         }
                     }
-                    this.Workspace.Children.Add(savedCanvas);
                 }
             }
             catch (XamlParseException)
@@ -198,7 +240,7 @@ namespace Error_NameNotFound
             }
             catch (Exception x)
             {
-                MessageBox.Show("Unhandled Error occoured /n" + x.Message);
+                MessageBox.Show("Unhandled Error occoured \n" + x.Message);
             }
         }
     }
