@@ -168,6 +168,22 @@ namespace Error_NameNotFound
                     Canvas savedCanvas = XamlReader.Load(fs) as Canvas;
                     fs.Close();
                     this.Workspace.Children.Clear();
+                    int anzahl_objecte = savedCanvas.Children.Count;
+                    AND _and = new AND();
+                    string text = File.ReadAllText(openFileDialog.FileName) as string;
+                    string[] splittext=text.Split(' ');
+                    string[] merker = new string[anzahl_objecte];
+                    for (int i = 0; i < splittext.Length;i++)
+                    {
+                        if (splittext[i].Contains("Name="))
+                        {
+                            if(splittext[i].StartsWith("Name=\"AND"))
+                            {
+
+                                MessageBox.Show(splittext[i]);
+                            }
+                        }
+                    }
                     this.Workspace.Children.Add(savedCanvas);
                 }
             }
