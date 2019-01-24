@@ -37,6 +37,7 @@ namespace Error_NameNotFound
         {
             this.id = id;
             imagename = "ANDUI" + Convert.ToString(id);
+            ANDUI.Name = imagename;
         }
         public AND(AND g) :this()
         {
