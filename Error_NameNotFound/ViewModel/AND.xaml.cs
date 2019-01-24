@@ -25,14 +25,18 @@ namespace Error_NameNotFound
     {
         private static int anzahl=0;
         private string imagename;
+        private int id;
         public AND()
         {
             InitializeComponent();
+            id = 0;
             anzahl++;
-            imagename = "ANDUI" + Convert.ToString(anzahl);
-            ANDUI.Height = 100;
-            ANDUI.Width = 100;
-            ANDUI.Name = imagename;
+            imagename = "ANDUI" + Convert.ToString(id);
+        }
+        public AND(int id) :this()
+        {
+            this.id = id;
+            imagename = "ANDUI" + Convert.ToString(id);
         }
         public AND(AND g) :this()
         {
@@ -43,6 +47,10 @@ namespace Error_NameNotFound
             System.Drawing.Point position = new System.Drawing.Point(25,25);
             And x = new And(2,position);
             Save_Button_vm.save.Add(x);
+        }
+        public int Id
+        {
+            get => id;
         }
         public double GetANDUI_Height()
         {
@@ -55,9 +63,9 @@ namespace Error_NameNotFound
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            MainWindow.SetDraggedItem(this);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
+                MainWindow.Setcurrentgate(id);
                 // Package the data.
                 ANDUI.Name = "ANDUI";
                 DataObject data = new DataObject();
@@ -65,7 +73,7 @@ namespace Error_NameNotFound
                 data.SetData("Object", this);
                 ANDUI.Name = imagename;
                 // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
             }
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)

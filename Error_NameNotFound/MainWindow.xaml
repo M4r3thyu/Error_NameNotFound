@@ -39,15 +39,10 @@
         <Border Grid.ColumnSpan="3" Grid.Row="1" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
         
         <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="3" Background="DarkSlateGray"/>
-        
+
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
-            <StackPanel.Resources>
-                <Style TargetType="{x:Type Button}">
-                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="Button_PreviewMouseLeftButtonDown" />
-                </Style>
-            </StackPanel.Resources>
-            <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="2" VerticalAlignment="Top"  Name="AND_button" Height="25" BorderBrush="LightSlateGray"/>
-            <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" Name="OR_button" Click="OR_Button_CLicked" Height="25" BorderBrush="LightSlateGray"/>
+            <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="AND_Button_PreviewMouseLeftButtonDown"  Name="AND_button" Height="25" BorderBrush="LightSlateGray"/>
+            <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" Name="OR_button" Height="25" BorderBrush="LightSlateGray"/>
         </StackPanel>
         
         <Canvas Grid.Row="2" Grid.Column="2" Name="Workspace" Background="White" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

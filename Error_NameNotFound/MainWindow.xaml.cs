@@ -24,31 +24,28 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static UserControl draggeditem;
+        private static List<UserControl> gate = new List<UserControl>();
+        public static int currentgate=0;
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        public static void Setcurrentgate(int id)
         {
-            draggeditem = new AND();
-
-            if (draggeditem != null)
+            currentgate=id;
+        }
+        private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            int id=0;
+            foreach (UserControl element in gate)
+                id++;
+            AND _and = new AND(id);
+            gate.Add(_and);
+            currentgate = _and.Id;
+            if (gate[currentgate] != null)
             {
-                DragDrop.DoDragDrop(draggeditem, draggeditem.Content, DragDropEffects.Copy);
+                DragDrop.DoDragDrop(gate[currentgate], gate[currentgate], DragDropEffects.Copy);
             }
-        }
-        public static void SetDraggedItem(UserControl newdraggeditem)
-        {
-            draggeditem = newdraggeditem;
-        }
-        private void OR_Button_CLicked(object sender, RoutedEventArgs e)
-        {
-
-            OR _OR = new OR();
-            Workspace.Children.Add(_OR);
-            Canvas.SetLeft(_OR, 30);
-            Canvas.SetTop(_OR, 30);
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
@@ -68,14 +65,40 @@ namespace Error_NameNotFound
         }
         private void canvas_Drop(object sender, DragEventArgs e)
         {
-            Point dropPoint = e.GetPosition(this.Workspace);
+            //Point dropPoint = e.GetPosition(this.Workspace);
 
-            UserControl gate = new AND();
-            gate.Content = draggeditem.Content;
-            Workspace.Children.Add(gate);
+            //UserControl gate = new AND();
+            //gate.Content = draggeditem.GetGateData();
+            //Workspace.Children.Add(gate);
 
-            Canvas.SetLeft(gate, dropPoint.X - 50);
-            Canvas.SetTop(gate, dropPoint.Y - 50);
+            //Canvas.SetLeft(gate, dropPoint.X - 50);
+            //Canvas.SetTop(gate, dropPoint.Y - 50);
+
+            Canvas _canvas = (Canvas)sender;
+            if(_canvas!=null&& gate[currentgate] != null)
+            {
+                Point dropPoint = e.GetPosition(this.Workspace);
+                dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
+                dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
+
+                if (e.Effects.HasFlag(DragDropEffects.Copy))
+                {
+                    Workspace.Children.Add(gate[currentgate]);
+                    Canvas.SetLeft(gate[currentgate], dropPoint.X - 50);
+                    Canvas.SetTop(gate[currentgate], dropPoint.Y - 50);
+                    // set the value to return to the DoDragDrop call
+                    e.Effects = DragDropEffects.Copy;
+                }
+                else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+                {
+                    Canvas.SetLeft(gate[currentgate], dropPoint.X - 50);
+                    Canvas.SetTop(gate[currentgate], dropPoint.Y - 50);
+                    // set the value to return to the DoDragDrop call
+                    e.Effects = DragDropEffects.Move;
+                }
+                
+            }
+
             //Canvas _canvas = (Canvas)sender;
             //UIElement _element = (UIElement)e.Data.GetData("Object");
             //if (_canvas != null && _element != null)
