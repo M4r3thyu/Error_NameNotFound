@@ -24,24 +24,28 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static List<UserControl> gate = new List<UserControl>();
+        public static int currentgate=0;
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void AND_Button_CLicked(object sender, RoutedEventArgs e)
+        public static void Setcurrentgate(int id)
         {
-            AND _AND = new AND();
-            Workspace.Children.Add(_AND);
-            Canvas.SetLeft(_AND, 30);
-            Canvas.SetTop(_AND, 30);
+            currentgate=id;
         }
-        private void OR_Button_CLicked(object sender, RoutedEventArgs e)
+        private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
-            OR _OR = new OR();
-            Workspace.Children.Add(_OR);
-            Canvas.SetLeft(_OR, 30);
-            Canvas.SetTop(_OR, 30);
+            int id=0;
+            foreach (UserControl element in gate)
+                id++;
+            AND _and = new AND(id);
+            gate.Add(_and);
+            currentgate = _and.Id;
+            if (gate[currentgate] != null)
+            {
+                DragDrop.DoDragDrop(gate[currentgate], gate[currentgate], DragDropEffects.Copy);
+            }
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
@@ -61,37 +65,71 @@ namespace Error_NameNotFound
         }
         private void canvas_Drop(object sender, DragEventArgs e)
         {
+            //Point dropPoint = e.GetPosition(this.Workspace);
+
+            //UserControl gate = new AND();
+            //gate.Content = draggeditem.GetGateData();
+            //Workspace.Children.Add(gate);
+
+            //Canvas.SetLeft(gate, dropPoint.X - 50);
+            //Canvas.SetTop(gate, dropPoint.Y - 50);
+
             Canvas _canvas = (Canvas)sender;
-            UIElement _element = (UIElement)e.Data.GetData("Object");
-            if (_canvas != null && _element != null)
+            if(_canvas!=null&& gate[currentgate] != null)
             {
-                Canvas _parent = (Canvas)VisualTreeHelper.GetParent(_element);
-                if (_parent != null)
+                Point dropPoint = e.GetPosition(this.Workspace);
+                dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
+                dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
+
+                if (e.Effects.HasFlag(DragDropEffects.Copy))
                 {
-                    Point dropPoint = e.GetPosition(this.Workspace);
-                    dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
-                    dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
-                    if (e.KeyStates == DragDropKeyStates.ControlKey &&
-                        e.AllowedEffects.HasFlag(DragDropEffects.Copy))
-                    {
-                        AND _and = new AND((AND)_element);
-                        _canvas.Children.Add(_and);
-                        Canvas.SetLeft(_and, dropPoint.X - 50);
-                        Canvas.SetTop(_and, dropPoint.Y - 50);
-                        // set the value to return to the DoDragDrop call
-                        e.Effects = DragDropEffects.Copy;
-                    }
-                    else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
-                    {
-                        _parent.Children.Remove(_element);
-                        _canvas.Children.Add(_element);
-                        Canvas.SetLeft(_element, dropPoint.X - 50);
-                        Canvas.SetTop(_element, dropPoint.Y - 50);
-                        // set the value to return to the DoDragDrop call
-                        e.Effects = DragDropEffects.Move;
-                    }
+                    Workspace.Children.Add(gate[currentgate]);
+                    Canvas.SetLeft(gate[currentgate], dropPoint.X - 50);
+                    Canvas.SetTop(gate[currentgate], dropPoint.Y - 50);
+                    // set the value to return to the DoDragDrop call
+                    e.Effects = DragDropEffects.Copy;
                 }
+                else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+                {
+                    Canvas.SetLeft(gate[currentgate], dropPoint.X - 50);
+                    Canvas.SetTop(gate[currentgate], dropPoint.Y - 50);
+                    // set the value to return to the DoDragDrop call
+                    e.Effects = DragDropEffects.Move;
+                }
+                
             }
+
+            //Canvas _canvas = (Canvas)sender;
+            //UIElement _element = (UIElement)e.Data.GetData("Object");
+            //if (_canvas != null && _element != null)
+            //{
+            //    Canvas _parent = (Canvas)VisualTreeHelper.GetParent(_element);
+            //    if (_parent != null)
+            //    {
+            //        Point dropPoint = e.GetPosition(this.Workspace);
+            //        dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
+            //        dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
+            //        if (e.KeyStates == DragDropKeyStates.ControlKey &&
+            //            e.AllowedEffects.HasFlag(DragDropEffects.Copy))
+            //        {
+            //            AND _and = new AND((AND)_element);
+            //            _canvas.Children.Add(_and);
+            //            Canvas.SetLeft(_and, dropPoint.X - 50);
+            //            Canvas.SetTop(_and, dropPoint.Y - 50);
+            //            // set the value to return to the DoDragDrop call
+            //            e.Effects = DragDropEffects.Copy;
+            //        }
+            //        else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+            //        {
+            //            _parent.Children.Remove(_element);
+            //            _canvas.Children.Add(_element);
+            //            Canvas.SetLeft(_element, dropPoint.X - 50);
+            //            Canvas.SetTop(_element, dropPoint.Y - 50);
+            //            // set the value to return to the DoDragDrop call
+            //            e.Effects = DragDropEffects.Move;
+            //        }
+            //    }
+            //}
         }
         private void Print(object sender, RoutedEventArgs e)
         {
@@ -130,7 +168,70 @@ namespace Error_NameNotFound
                     Canvas savedCanvas = XamlReader.Load(fs) as Canvas;
                     fs.Close();
                     this.Workspace.Children.Clear();
-                    this.Workspace.Children.Add(savedCanvas);
+                    gate=new List<UserControl>();
+                    int gateindex = 0;
+                    int anzahl_objecte = savedCanvas.Children.Count;
+                    string text = File.ReadAllText(openFileDialog.FileName) as string;
+                    string[] splittext=text.Split(' ');
+                    string[] merker;
+                    bool pos = false;
+                    double canvas_Left = 0, canvas_Top = 0;
+                    for (int i = 0; i < splittext.Length;i++)
+                    {
+                        if (splittext[i].Contains("Canvas.Left="))
+                        {
+                            merker = splittext[i].Split('"');
+                            for (int x = 0; x < merker.Length; x++)
+                            {
+                                if (merker[x] == "Canvas.Left=" && !pos)
+                                {
+                                    pos = true;
+                                }
+                                else
+                                {
+                                    if (pos)
+                                    {
+                                        canvas_Left = double.Parse(merker[x]);
+                                        break;
+                                    }
+                                }
+                            }
+                            pos = false;
+                        }
+                        if (splittext[i].Contains("Canvas.Top="))
+                        {
+                            merker = splittext[i].Split('"');
+                            for (int x = 0; x < merker.Length; x++)
+                            {
+                                if (merker[x] == "Canvas.Top=" && !pos)
+                                {
+                                    pos = true;
+                                }
+                                else
+                                {
+                                    if (pos)
+                                    {
+                                        canvas_Top = double.Parse(merker[x]);
+                                        break;
+                                    }
+                                }
+                            }
+                            pos = false;
+                        }
+                        if (splittext[i].Contains("Name="))
+                        {
+
+                            if (splittext[i].StartsWith("Name=\"AND"))
+                            {
+                                AND _and = new AND(gateindex);
+                                gate.Add(_and);
+                                Workspace.Children.Add(gate[gateindex]);
+                                Canvas.SetLeft(gate[gateindex],  canvas_Left);
+                                Canvas.SetTop(gate[gateindex], canvas_Top);
+                                gateindex++;
+                            }                          
+                        }
+                    }
                 }
             }
             catch (XamlParseException)
@@ -139,7 +240,7 @@ namespace Error_NameNotFound
             }
             catch (Exception x)
             {
-                MessageBox.Show("Unhandled Error occoured /n" + x.Message);
+                MessageBox.Show("Unhandled Error occoured \n" + x.Message);
             }
         }
     }
