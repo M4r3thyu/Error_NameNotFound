@@ -24,27 +24,27 @@ namespace Error_NameNotFound
     public partial class AND : UserControl
     {
         private static int anzahl=0;
-        private string imagename;
+        //private string imagename;
         private int id;
         public AND()
         {
             InitializeComponent();
             id = 0;
             anzahl++;
-            imagename = "ANDUI" + Convert.ToString(id);
+      //      imagename = "ANDUI" + Convert.ToString(id);
         }
         public AND(int id) :this()
         {
             this.id = id;
-            imagename = "ANDUI" + Convert.ToString(id);
-            ANDUI.Name = imagename;
+       //     imagename = "ANDUI" + Convert.ToString(id);
+    //        ANDUI.Name = imagename;
         }
         public AND(AND g) :this()
         {
             ANDUI.Name = "ANDUI";
             ANDUI.Height = g.ANDUI.Height;
             ANDUI.Width = g.ANDUI.Width;
-            ANDUI.Name = imagename;
+          //  ANDUI.Name = imagename;
             System.Drawing.Point position = new System.Drawing.Point(25,25);
             And x = new And(2,position);
             Save_Button_vm.save.Add(x);
@@ -58,7 +58,7 @@ namespace Error_NameNotFound
             double heightsave;
             ANDUI.Name = "ANDUI";
             heightsave = ANDUI.Height;
-            ANDUI.Name = imagename;
+          //  ANDUI.Name = imagename;
             return heightsave;
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -72,7 +72,7 @@ namespace Error_NameNotFound
                 DataObject data = new DataObject();
                 data.SetData("Double", ANDUI.Height);
                 data.SetData("Object", this);
-                ANDUI.Name = imagename;
+              //  ANDUI.Name = imagename;
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
             }

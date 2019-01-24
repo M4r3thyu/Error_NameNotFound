@@ -165,12 +165,10 @@ namespace Error_NameNotFound
                 if (openFileDialog.ShowDialog() == true)
                 {
                     FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
-                    Canvas savedCanvas = XamlReader.Load(fs) as Canvas;
                     fs.Close();
                     this.Workspace.Children.Clear();
                     gate=new List<UserControl>();
                     int gateindex = 0;
-                    int anzahl_objecte = savedCanvas.Children.Count;
                     string text = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] splittext=text.Split(' ');
                     string[] merker;
