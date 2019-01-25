@@ -99,26 +99,42 @@ namespace Error_NameNotFound
 
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
-            LogicGates.gates_logic[id].Input[0] = LogicGates.gates_logic[connection].Output[outputnr];
             LogicGates.gates_logic[id].Connection(connection, 0, outputnr);
+            LogicGates.gates_logic[id].Inputset(LogicGates.gates_logic[connection].Output[outputnr], 0);
+            if (LogicGates.gates_logic[id].Input[0])
+                input0.Background = System.Windows.Media.Brushes.Red;
+            else
+                input0.Background = System.Windows.Media.Brushes.MediumPurple;
         }
 
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
-            LogicGates.gates_logic[id].Input[1] = LogicGates.gates_logic[connection].Output[outputnr];
             LogicGates.gates_logic[id].Connection(connection, 1, outputnr);
+            LogicGates.gates_logic[id].Inputset(LogicGates.gates_logic[connection].Output[outputnr],1);
+            if (LogicGates.gates_logic[id].Input[1])
+                input1.Background = System.Windows.Media.Brushes.Red;
+            else
+                input1.Background = System.Windows.Media.Brushes.MediumPurple;
         }
 
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             connection = id;
             outputnr = 0;
+            if (LogicGates.gates_logic[id].Output[0])
+                output0.Background = System.Windows.Media.Brushes.Red;
+            else
+                output0.Background = System.Windows.Media.Brushes.MediumPurple;
         }
 
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
             connection = id;
             outputnr = 1;
+            if (LogicGates.gates_logic[id].Output[1])
+                output1.Background = System.Windows.Media.Brushes.Red;
+            else
+                output1.Background = System.Windows.Media.Brushes.MediumPurple;
         }
     }
 }

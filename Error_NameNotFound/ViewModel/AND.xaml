@@ -4,13 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Error_NameNotFound"
+             xmlns:converter="clr-namespace:Error_NameNotFound.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
+    <UserControl.Resources>
+        <converter:BooltoColorConverter x:Key="converter" />
+    </UserControl.Resources>
     <Grid>
         <Image Width="100" Height="100"   Name="ANDUI" Source="/Error_NameNotFound;component/Pictures/And.png"></Image>
-        <Button Width="10" Height="10" Margin="10,10,80,80" Name="input0" Click="Input0_Click"/>
-        <Button Width="10" Height="10" Margin="10,80,80,10" Name="input1" Click="Input1_Click"/>
-        <Button Width="10" Height="10" Margin="80,10,10,80" Name="output0" Click="Output0_Click"/>
-        <Button Width="10" Height="10" Margin="80,80,10,10" Name="output1" Click="Output1_Click"/>
+        <Button Width="10" Height="10" Margin="10,10,80,80" Name="input0" Click="Input0_Click" />
+        <!-- Background="{Binding  LogicGates.gates_logic[{Binding id}].Input[0],Converter={StaticResource converter}}"-->
+        <Button Width="10" Height="10" Margin="10,80,80,10" Name="input1" Click="Input1_Click" />
+        <!-- Background="{Binding  LogicGates.gates_logic[{Binding id}].Input[1],Converter={StaticResource converter}}"-->
+        <Button Width="10" Height="10" Margin="80,10,10,80" Name="output0" Click="Output0_Click" />
+        <!-- Background="{Binding  LogicGates.gates_logic[{Binding id}].Output[0],Converter={StaticResource converter}}" -->
+        <Button Width="10" Height="10" Margin="80,80,10,10" Name="output1" Click="Output1_Click" />
+        <!-- Background="{Binding  LogicGates.gates_logic[{Binding id}].Output[1],Converter={StaticResource converter}}" -->
     </Grid>
 </UserControl>

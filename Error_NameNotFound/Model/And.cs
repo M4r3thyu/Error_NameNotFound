@@ -18,14 +18,13 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             bool merke = true;
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < input.Count; i++)
             {
                 if (input[i] == false)
                     merke = false;
             }
             output[0] = merke;
             output[1] = !output[0];
-            Output = output;
         }
     }
 }

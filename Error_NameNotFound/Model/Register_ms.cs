@@ -19,7 +19,7 @@ namespace Error_NameNotFound.Model
         {
             if (input[2])
             {
-                for (int i = 0; i < output.Length; i++)
+                for (int i = 0; i < output.Count; i++)
                 {
                     output[i] = false;
                 }
@@ -32,7 +32,7 @@ namespace Error_NameNotFound.Model
                     {
                         if (!input[1])
                         {
-                            for (int i = 0; i < output.Length - 1; i++)
+                            for (int i = 0; i < output.Count - 1; i++)
                             {
                                 output[i + 1] = output[i];
                             }
@@ -40,7 +40,7 @@ namespace Error_NameNotFound.Model
                         }
                         else
                         {
-                            for (int i = 3; i < input.Length; i++)
+                            for (int i = 3; i < input.Count; i++)
                             {
                                 output[i - 3] = input[i];
                             }

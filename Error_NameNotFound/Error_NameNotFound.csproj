@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\BooltoColorConverter.cs" />
     <Compile Include="Model\Basemodel.cs" />
     <Compile Include="Model\Counter.cs" />
     <Compile Include="Model\Counter_ms.cs" />

@@ -21,7 +21,6 @@ namespace Error_NameNotFound.Model
                 output[0] = false;
             else
                 output[0] = true;
-            Output = output;
         }
     }
 }

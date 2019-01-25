@@ -18,7 +18,7 @@ namespace Error_NameNotFound.Model
         override protected void ChangeOutput()
         {
             bool merke = false;
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < input.Count; i++)
             {
                 if (input[i] == true)
                     merke = true;

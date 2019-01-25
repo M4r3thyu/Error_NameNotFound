@@ -146,7 +146,7 @@ namespace Error_NameNotFound
             {
                 SaveFileDialog dialog = new SaveFileDialog()
                 {
-                    Filter = "Text Files(*.xaml)|*.xaml|All(*.*)|*"
+                    Filter = "Xaml Files(*.xaml)|*.xaml|All(*.*)|*"
                 };
                 if (dialog.ShowDialog() == true)
                 {
