@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Not : LogicGates
     {
-        public Not(Point position) : base(1, 1, position)
+        public Not() : base(1, 1)
         {
             output[0] = !input[0];                                  //output[0] = Q output[1] = !Q
         }

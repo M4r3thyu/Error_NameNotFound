@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using Error_NameNotFound.Model;
 
 namespace Error_NameNotFound
 {
@@ -24,7 +25,7 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static List<UserControl> gate = new List<UserControl>();
+        private static List<UserControl> gates_UI = new List<UserControl>();
         public static int currentgate=0;
         public MainWindow()
         {
@@ -37,14 +38,16 @@ namespace Error_NameNotFound
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             int id=0;
-            foreach (UserControl element in gate)
+            foreach (UserControl element in gates_UI)
                 id++;
             AND _and = new AND(id);
-            gate.Add(_and);
+            gates_UI.Add(_and);
+            And l_and = new And(2);
+            LogicGates.gates_logic.Add(l_and);
             currentgate = _and.Id;
-            if (gate[currentgate] != null)
+            if (gates_UI[currentgate] != null)
             {
-                DragDrop.DoDragDrop(gate[currentgate], gate[currentgate], DragDropEffects.Copy);
+                DragDrop.DoDragDrop(gates_UI[currentgate], gates_UI[currentgate], DragDropEffects.Copy);
             }
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
@@ -75,7 +78,7 @@ namespace Error_NameNotFound
             //Canvas.SetTop(gate, dropPoint.Y - 50);
 
             Canvas _canvas = (Canvas)sender;
-            if(_canvas!=null&& gate[currentgate] != null)
+            if(_canvas!=null&& gates_UI[currentgate] != null)
             {
                 Point dropPoint = e.GetPosition(this.Workspace);
                 dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
@@ -83,16 +86,16 @@ namespace Error_NameNotFound
 
                 if (e.Effects.HasFlag(DragDropEffects.Copy))
                 {
-                    Workspace.Children.Add(gate[currentgate]);
-                    Canvas.SetLeft(gate[currentgate], dropPoint.X - 50);
-                    Canvas.SetTop(gate[currentgate], dropPoint.Y - 50);
+                    Workspace.Children.Add(gates_UI[currentgate]);
+                    Canvas.SetLeft(gates_UI[currentgate], dropPoint.X - 50);
+                    Canvas.SetTop(gates_UI[currentgate], dropPoint.Y - 50);
                     // set the value to return to the DoDragDrop call
                     e.Effects = DragDropEffects.Copy;
                 }
                 else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                 {
-                    Canvas.SetLeft(gate[currentgate], dropPoint.X - 50);
-                    Canvas.SetTop(gate[currentgate], dropPoint.Y - 50);
+                    Canvas.SetLeft(gates_UI[currentgate], dropPoint.X - 50);
+                    Canvas.SetTop(gates_UI[currentgate], dropPoint.Y - 50);
                     // set the value to return to the DoDragDrop call
                     e.Effects = DragDropEffects.Move;
                 }
@@ -167,13 +170,13 @@ namespace Error_NameNotFound
                     FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
                     fs.Close();
                     this.Workspace.Children.Clear();
-                    gate=new List<UserControl>();
+                    gates_UI=new List<UserControl>();
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] loadsplit=Loadfiletext.Split(' ');
                     string[] merker;
                     double canvas_Left = 0, canvas_Top = 0;
-                    for (int i = 9; i < loadsplit.Length;i++)
+                    for (int i = 10; i < loadsplit.Length;i++)
                     {
                         if (loadsplit[i].Contains("Canvas.Left="))
                         {
@@ -188,11 +191,13 @@ namespace Error_NameNotFound
                         switch (loadsplit[i])
                         {
                             case "Name=\"ANDUI\"":
+                                    And l_and = new And(2);
+                                    LogicGates.gates_logic.Add(l_and);
                                     AND _and = new AND(gateindex);
-                                    gate.Add(_and);
-                                    Workspace.Children.Add(gate[gateindex]);
-                                    Canvas.SetLeft(gate[gateindex],  canvas_Left);
-                                    Canvas.SetTop(gate[gateindex], canvas_Top);
+                                    gates_UI.Add(_and);
+                                    Workspace.Children.Add(gates_UI[gateindex]);
+                                    Canvas.SetLeft(gates_UI[gateindex],  canvas_Left);
+                                    Canvas.SetTop(gates_UI[gateindex], canvas_Top);
                                     gateindex++;
                                 break;
                             default:

@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Seg7 : LogicGates
     {                                                                   // Output[] 1 = Licht an
-        public Seg7(Point position) : base(7, 7, position)              //   0_
+        public Seg7() : base(7, 7)              //   0_
         {                                                               // 1|2_|3
             output = input;                                             // 4|5_|6
         }

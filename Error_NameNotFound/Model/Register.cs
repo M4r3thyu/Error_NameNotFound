@@ -10,7 +10,7 @@ namespace Error_NameNotFound.Model
 {
     class Register : LogicGates
     {
-        public Register(int input, int output, Point position) : base(input, output, position) // input 0=C, 1=M, 2=R 3=1D
+        public Register(int input, int output) : base(input, output) // input 0=C, 1=M, 2=R 3=1D
         {
         }
         protected override void ChangeOutput()

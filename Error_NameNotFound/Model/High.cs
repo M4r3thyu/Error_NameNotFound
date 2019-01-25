@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class High : LogicGates
     {
-        public High(Point position) : base(0, 1, position)
+        public High() : base(0, 1)
         {
             output[0] = true;
         }

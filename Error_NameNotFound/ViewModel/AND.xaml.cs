@@ -23,31 +23,31 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class AND : UserControl
     {
-        private static int anzahl=0;
+        private static int connection, outputnr;
+        private static int anzahl = 0;
         //private string imagename;
         private int id;
         public AND()
         {
             InitializeComponent();
             id = 0;
+            connection = 0;
+            outputnr = 0;
             anzahl++;
-      //      imagename = "ANDUI" + Convert.ToString(id);
+            //      imagename = "ANDUI" + Convert.ToString(id);
         }
-        public AND(int id) :this()
+        public AND(int id) : this()
         {
             this.id = id;
-       //     imagename = "ANDUI" + Convert.ToString(id);
-    //        ANDUI.Name = imagename;
+            //     imagename = "ANDUI" + Convert.ToString(id);
+            //        ANDUI.Name = imagename;
         }
-        public AND(AND g) :this()
+        public AND(AND g) : this()
         {
-            ANDUI.Name = "ANDUI";
+            //  ANDUI.Name = "ANDUI";
             ANDUI.Height = g.ANDUI.Height;
             ANDUI.Width = g.ANDUI.Width;
-          //  ANDUI.Name = imagename;
-            System.Drawing.Point position = new System.Drawing.Point(25,25);
-            And x = new And(2,position);
-            Save_Button_vm.save.Add(x);
+            //  ANDUI.Name = imagename;
         }
         public int Id
         {
@@ -56,9 +56,9 @@ namespace Error_NameNotFound
         public double GetANDUI_Height()
         {
             double heightsave;
-            ANDUI.Name = "ANDUI";
+            //ANDUI.Name = "ANDUI";
             heightsave = ANDUI.Height;
-          //  ANDUI.Name = imagename;
+            //  ANDUI.Name = imagename;
             return heightsave;
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -68,11 +68,11 @@ namespace Error_NameNotFound
             {
                 MainWindow.Setcurrentgate(id);
                 // Package the data.
-                ANDUI.Name = "ANDUI";
+                //  ANDUI.Name = "ANDUI";
                 DataObject data = new DataObject();
                 data.SetData("Double", ANDUI.Height);
                 data.SetData("Object", this);
-              //  ANDUI.Name = imagename;
+                //  ANDUI.Name = imagename;
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
             }
@@ -99,22 +99,26 @@ namespace Error_NameNotFound
 
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
-            
+            LogicGates.gates_logic[id].Input[0] = LogicGates.gates_logic[connection].Output[outputnr];
+            LogicGates.gates_logic[id].Connection(connection, 0, outputnr);
         }
 
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
-
+            LogicGates.gates_logic[id].Input[1] = LogicGates.gates_logic[connection].Output[outputnr];
+            LogicGates.gates_logic[id].Connection(connection, 1, outputnr);
         }
 
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
-
+            connection = id;
+            outputnr = 0;
         }
 
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
-
+            connection = id;
+            outputnr = 1;
         }
     }
 }

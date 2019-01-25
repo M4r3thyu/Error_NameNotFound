@@ -12,12 +12,16 @@ namespace Error_NameNotFound.Model
 {
     abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
     {
+        public static List<LogicGates> gates_logic = new List<LogicGates>();
         protected bool[] input;
         protected bool[] output;
-        protected Point position;
-        public LogicGates(int input, int output,Point position)
+        private int inputid, connectorid, outputid;
+        public LogicGates(int input, int output/*,Point position*/)
         {
-            this.position = position;
+            //this.position = position;
+            inputid = 0;
+            connectorid = 0;
+            outputid = 0;
             this.input = new bool[input];
             this.output = new bool[output];
             for (int i = 0; i < input; i++)
@@ -28,7 +32,6 @@ namespace Error_NameNotFound.Model
             {
                 this.output[i] = false;
             }
-            Save_Button_vm.save.Add(this);
         }
         public bool[] Input
         {
@@ -46,7 +49,7 @@ namespace Error_NameNotFound.Model
                 }
             }
         }
-        public Point Position
+        /*public Point Position
         {
             get => position;
             set
@@ -57,15 +60,22 @@ namespace Error_NameNotFound.Model
                     NotifyPropertyChanged();
                 }
             }
-        }
+        }*/
         public bool[] Output
         {
-            get => output;
+            get =>output;
             set
             {
-                    output = value;
-                    NotifyPropertyChanged();
+                output = value;
+                gates_logic[connectorid].Input[inputid] = output[outputid];
+                NotifyPropertyChanged();
             }
+        }
+        public void Connection(int connectorid, int inputid, int outputid)
+        {
+            this.connectorid = connectorid;
+            this.inputid = inputid;
+            this.outputid = outputid;
         }
         abstract protected void ChangeOutput();
     }

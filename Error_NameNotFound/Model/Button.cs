@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Button : LogicGates
     {
-        public Button(Point position) : base(1, 1, position)            //Input 1 = Taster getrueckt
+        public Button() : base(1, 1)            //Input 1 = Taster getrueckt
         {
             output[0] = false;
         }
