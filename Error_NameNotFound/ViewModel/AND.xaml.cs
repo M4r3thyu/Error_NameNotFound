@@ -67,6 +67,7 @@ namespace Error_NameNotFound
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 MainWindow.Setcurrentgate(id);
+                MainWindow.SetGateFromButton(false);
                 // Package the data.
                 //  ANDUI.Name = "ANDUI";
                 DataObject data = new DataObject();
@@ -74,7 +75,7 @@ namespace Error_NameNotFound
                 data.SetData("Object", this);
                 //  ANDUI.Name = imagename;
                 // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
