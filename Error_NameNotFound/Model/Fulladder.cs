@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Fulladder : LogicGates
     {
-        public Fulladder() : base(3, 2) // input 0=a 1=b 2=Cin output 0=S 1=Cout
+        public Fulladder(int id) : base(3, 2,id) // input 0=a 1=b 2=Cin output 0=S 1=Cout
         { }
         protected override void ChangeOutput()
         {

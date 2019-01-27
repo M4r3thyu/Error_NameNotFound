@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
     class Register_ms : LogicGates
     {
         private bool ms;
-        public Register_ms(int input, int output) : base(input, output) // input 0=C, 1=M, 2=R 3=1D
+        public Register_ms(int input, int output, int id) : base(input, output,id) // input 0=C, 1=M, 2=R 3=1D
         {
             ms = false;
         }

@@ -23,18 +23,19 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class AND : UserControl
     {
-        private static int connection, outputnr;
+        private static int inoutid = 0, portnr = 0, inout = 0;
         private static int anzahl = 0;
         //private string imagename;
         private int id;
+        And l_and;
         public AND()
         {
             InitializeComponent();
             id = 0;
-            connection = 0;
-            outputnr = 0;
             anzahl++;
             //      imagename = "ANDUI" + Convert.ToString(id);
+            l_and = new And(2, id, this);
+            LogicGates.gates_logic.Add(l_and);
         }
         public AND(int id) : this()
         {
@@ -100,38 +101,103 @@ namespace Error_NameNotFound
 
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
-            LogicGates.gates_logic[id].Connection(connection, 0, outputnr);
-            LogicGates.gates_logic[id].Inputset(LogicGates.gates_logic[connection].Output[outputnr], 0);
-            if (LogicGates.gates_logic[id].Input[0])
-                input0.Background = System.Windows.Media.Brushes.Red;
-            else
-                input0.Background = System.Windows.Media.Brushes.MediumPurple;
+            switch (inout)
+            {
+                case 0:
+                    inoutid = id;
+                    portnr = 0;
+                    inout = 2;
+                    input0.Background = System.Windows.Media.Brushes.Yellow;
+                    break;
+                case 1:                 //output id             inportid  inportnr  ouportnr        
+                    LogicGates.gates_logic[inoutid].Connection(id, 0,        portnr);
+                    //LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    inout = 0;
+                    break;
+                default:
+                    inout = 0;
+                    break;
+            }
         }
 
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
-            LogicGates.gates_logic[id].Connection(connection, 1, outputnr);
-            LogicGates.gates_logic[id].Inputset(LogicGates.gates_logic[connection].Output[outputnr],1);
-            if (LogicGates.gates_logic[id].Input[1])
-                input1.Background = System.Windows.Media.Brushes.Red;
-            else
-                input1.Background = System.Windows.Media.Brushes.MediumPurple;
+            switch (inout)
+            {
+                case 0:
+                    inoutid = id;
+                    portnr = 1;
+                    inout = 2;
+                    input1.Background = System.Windows.Media.Brushes.Yellow;
+                    break;
+                case 1:
+                    LogicGates.gates_logic[inoutid].Connection(id, 1, portnr);
+                    //LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    inout = 0;
+                    break;
+                default:
+                    inout = 0;
+                    break;
+            }
         }
 
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            connection = id;
-            outputnr = 0;
+            switch (inout)
+            {
+                case 0:
+                    inoutid = id;
+                    portnr = 0;
+                    inout = 1;
+                    output0.Background = System.Windows.Media.Brushes.Yellow;
+                    break;
+                case 2:
+                    LogicGates.gates_logic[id].Connection(inoutid, portnr, 0);
+                    // LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    inout = 0;
+                    break;
+                default:
+                    inout = 0;
+                    break;
+            }
+        }
+        private void Output1_Click(object sender, RoutedEventArgs e)
+        {
+            switch (inout)
+            {
+                case 0:
+                    inoutid = id;
+                    portnr = 1;
+                    inout = 1;
+                    output1.Background = System.Windows.Media.Brushes.Yellow;
+                    break;
+                case 2:
+                    LogicGates.gates_logic[id].Connection(inoutid, portnr, 1);
+                    // LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    inout = 0;
+                    break;
+                default:
+                    inout = 0;
+                    break;
+            }
+        }
+        public void ChangeColorInOut()
+        {
+            if (LogicGates.gates_logic[id].Input[0])
+                input0.Background = System.Windows.Media.Brushes.Red;
+            else
+                input0.Background = System.Windows.Media.Brushes.MediumPurple;
+
+            if (LogicGates.gates_logic[id].Input[1])
+                input1.Background = System.Windows.Media.Brushes.Red;
+            else
+                input1.Background = System.Windows.Media.Brushes.MediumPurple;
+
             if (LogicGates.gates_logic[id].Output[0])
                 output0.Background = System.Windows.Media.Brushes.Red;
             else
                 output0.Background = System.Windows.Media.Brushes.MediumPurple;
-        }
 
-        private void Output1_Click(object sender, RoutedEventArgs e)
-        {
-            connection = id;
-            outputnr = 1;
             if (LogicGates.gates_logic[id].Output[1])
                 output1.Background = System.Windows.Media.Brushes.Red;
             else

@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Calliper : LogicGates
     {
-        public Calliper() : base(1, 1)          //Input 1 = Taster getrueckt
+        public Calliper(int id) : base(1, 1,id)          //Input 1 = Taster getrueckt
         {
             output = input;
         }

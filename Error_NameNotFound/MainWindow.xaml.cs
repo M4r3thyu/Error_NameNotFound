@@ -47,8 +47,6 @@ namespace Error_NameNotFound
                 id++;
             AND _and = new AND(id);
             gates_UI.Add(_and);
-            And l_and = new And(2);
-            LogicGates.gates_logic.Add(l_and);
             currentGate = _and.Id;
             if (gates_UI[currentGate] != null)
             {
@@ -97,8 +95,6 @@ namespace Error_NameNotFound
                             id++;
                         AND _and = new AND(id);
                         gates_UI.Add(_and);
-                        And l_and = new And(2);
-                        LogicGates.gates_logic.Add(l_and);
                         currentGate = _and.Id;
                         Workspace.Children.Add(gates_UI[currentGate]);
                         Canvas.SetLeft(gates_UI[currentGate], dropPoint.X - 50);
@@ -154,6 +150,7 @@ namespace Error_NameNotFound
                     fs.Close();
                     this.Workspace.Children.Clear();
                     gates_UI=new List<UserControl>();
+                    LogicGates.gates_logic = new List<LogicGates>();
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] loadsplit=Loadfiletext.Split(' ');
@@ -174,8 +171,6 @@ namespace Error_NameNotFound
                         switch (loadsplit[i])
                         {
                             case "Name=\"ANDUI\"":
-                                    And l_and = new And(2);
-                                    LogicGates.gates_logic.Add(l_and);
                                     AND _and = new AND(gateindex);
                                     gates_UI.Add(_and);
                                     Workspace.Children.Add(gates_UI[gateindex]);

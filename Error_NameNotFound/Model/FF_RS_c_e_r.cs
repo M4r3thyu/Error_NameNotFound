@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
     class FF_RS_c_e_r : LogicGates
     {
         private bool ms;
-        public FF_RS_c_e_r() : base(5, 2) // input 0=S, 1=R, 2=C 3=reset
+        public FF_RS_c_e_r(int id) : base(5, 2,id) // input 0=S, 1=R, 2=C 3=reset
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
             ms = false;

@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class FF_RS : LogicGates
     {
-        public FF_RS() : base(2, 2) // input 0=S, 1=R
+        public FF_RS(int id) : base(2, 2,id) // input 0=S, 1=R
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }

@@ -14,15 +14,18 @@ namespace Error_NameNotFound.Model
     abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
+        protected int id; //inputid;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
-        private int inputid, connectorid, outputid;
-        public LogicGates(int input, int output/*,Point position*/)
+        protected List<int> inportid, outportnr,inportnr;
+        public LogicGates(int input, int output, int id)
         {
-            //this.position = position;
-            inputid = 0;
-            connectorid = 0;
-            outputid = 0;
+            //inputid = new int[input];
+            inportid = new List<int>();
+            outportnr = new List<int>();
+            inportnr = new List<int>();
+            // inputid = 0;
+            this.id = id;
             this.input = new ObservableCollection<bool>();
             this.output = new ObservableCollection<bool>();
             for (int i = 0; i < input; i++)
@@ -48,35 +51,25 @@ namespace Error_NameNotFound.Model
         {
             this.input[id] = input;
             ChangeOutput();
+
             NotifyPropertyChanged("Input");
         }
-        /*public Point Position
-        {
-            get => position;
-            set
-            {
-                if (position != value)
-                {
-                    position = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }*/
         public ObservableCollection<bool> Output
         {
-            get =>output;
+            get => output;
             set
             {
                 output = value;
-                gates_logic[connectorid].Input[inputid] = output[outputid];
+                //gates_logic[connectorid].Input[inputid] = output[outputid];
                 NotifyPropertyChanged();
             }
         }
-        public void Connection(int connectorid, int inputid, int outputid)
+        public void Connection(int inportid, int inportnr, int outportnr)
         {
-            this.connectorid = connectorid;
-            this.inputid = inputid;
-            this.outputid = outputid;
+            this.inportid.Add(inportid);
+            this.inportnr.Add(inportnr);
+            this.outportnr.Add(outportnr);
+            ChangeOutput();
         }
         abstract protected void ChangeOutput();
     }

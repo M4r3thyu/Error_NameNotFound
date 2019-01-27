@@ -10,7 +10,7 @@ namespace Error_NameNotFound.Model
 {
     class Counter : LogicGates
     {
-        public Counter(int input, int output) : base(input, output) // input 0=C, 1=M, 2=R
+        public Counter(int input, int output,int id) : base(input, output,id) // input 0=C, 1=M, 2=R
         {
         }
         protected override void ChangeOutput()

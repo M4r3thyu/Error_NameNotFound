@@ -12,7 +12,7 @@ namespace Error_NameNotFound.Model
 {
     class Xor : LogicGates
     {
-        public Xor(int input) : base(2, 2)      //Output[0] = Normal [1] = Negiert
+        public Xor(int input, int id) : base(2, 2,id)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }

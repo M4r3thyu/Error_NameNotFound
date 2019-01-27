@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Low : LogicGates
     {
-        public Low() : base(0, 1)
+        public Low(int id) : base(0, 1,id)
         {
             output[0] = false;
         }

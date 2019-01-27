@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Or : LogicGates
     {
-        public Or(int input) : base(input, 2)      //Output[0] = Normal [1] = Negiert
+        public Or(int input, int id) : base(input, 2,id)      //Output[0] = Normal [1] = Negiert
         {
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }

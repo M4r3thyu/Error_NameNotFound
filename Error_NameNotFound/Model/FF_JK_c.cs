@@ -10,7 +10,7 @@ namespace Error_NameNotFound.Model
 {
     class FF_JK_c : LogicGates
     {
-        public FF_JK_c() : base(3, 2) // input 0=J, 1=K, 2=C
+        public FF_JK_c(int id) : base(3, 2,id) // input 0=J, 1=K, 2=C
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
         }

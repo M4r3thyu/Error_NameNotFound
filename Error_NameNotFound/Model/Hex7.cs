@@ -11,7 +11,7 @@ namespace Error_NameNotFound.Model
 {
     class Hex7 : LogicGates
     {                                           // Output[] 1= Licht an Input[] wertichkeit -> 2^0/1/2/3/4
-        public Hex7() : base(4, 7)              //  0_
+        public Hex7(int id) : base(4, 7,id)              //  0_
         {                                       // 1|2_|3
             output = input;                     // 4|5_|6
         }
