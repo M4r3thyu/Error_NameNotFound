@@ -79,19 +79,28 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            if (MainWindow.GateDelete)
+            {
+                MainWindow.RemoveGate(id);
+            }
+        }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
             // These Effects values are set in the drop target's
             // DragOver event handler.
-            if (e.Effects.HasFlag(DragDropEffects.Copy))
+            if (e.Effects.HasFlag(DragDropEffects.Copy) | e.Effects.HasFlag(DragDropEffects.Move))
             {
-                Mouse.SetCursor(Cursors.Cross);
+                Mouse.SetCursor(new Cursor(Application.GetResourceStream(new Uri("Views/And.cur", UriKind.Relative)).Stream));
+                //Mouse.SetCursor(Cursors.Cross);
             }
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
+            //else if (e.Effects.HasFlag(DragDropEffects.Move))
+            //{
+            //    Mouse.SetCursor(Cursors.Hand);
+            //}
             else
             {
                 Mouse.SetCursor(Cursors.No);
