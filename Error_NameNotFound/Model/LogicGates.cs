@@ -14,10 +14,11 @@ namespace Error_NameNotFound.Model
     abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
+        private static List<string> connections = new List<string>();
         protected int id; //inputid;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
-        protected List<int> inportid, outportnr,inportnr;
+        protected List<int> inportid, outportnr, inportnr;
         public LogicGates(int input, int output, int id)
         {
             //inputid = new int[input];
@@ -69,7 +70,31 @@ namespace Error_NameNotFound.Model
             this.inportid.Add(inportid);
             this.inportnr.Add(inportnr);
             this.outportnr.Add(outportnr);
+            string save = "| " + id + " " + inportid + " " + inportnr + " " + outportnr + " ";
+            bool check = true;
+            for (int i = 0; i < connections.Count; i++)
+            {
+                if (connections[i].Contains(" " + inportid + " " + inportnr))
+                {
+                    connections[i] = save;
+                    check = false;
+                }
+            }
+            if (check)
+                connections.Add(save);
             ChangeOutput();
+        }
+        public static string Connections
+        {
+            get
+            {
+                string allconnections = "| ouputid  inportid inportnr outportnr ";
+                for (int i = 0; i < connections.Count; i++)
+                {
+                    allconnections = allconnections + connections[i];
+                }
+                return allconnections;
+            }
         }
         abstract protected void ChangeOutput();
     }

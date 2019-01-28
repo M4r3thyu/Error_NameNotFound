@@ -131,7 +131,11 @@ namespace Error_NameNotFound
                 {
                     FileStream fs = File.Open(dialog.FileName, FileMode.Create);
                     XamlWriter.Save(Workspace, fs);
+                    string connections = "";
+                    connections = LogicGates.Connections;
                     fs.Close();
+                    File.AppendAllText(dialog.FileName, connections);
+                    
                 }
             }
             catch (Exception x)
@@ -153,7 +157,8 @@ namespace Error_NameNotFound
                     LogicGates.gates_logic = new List<LogicGates>();
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
-                    string[] loadsplit=Loadfiletext.Split(' ');
+                    string[] connections = Loadfiletext.Split('|');
+                    string[] loadsplit=connections[0].Split(' ');
                     string[] merker;
                     double canvas_Left = 0, canvas_Top = 0;
                     for (int i = 10; i < loadsplit.Length;i++)
@@ -181,6 +186,13 @@ namespace Error_NameNotFound
                             default:
                                 break;
                         }
+                    }
+                    for (int i = 2; i < connections.Length; i++)
+                    {
+                        string[] call=null;
+                        call=connections[i].Split(' ');
+                        //                   //output id                                inportid                    inportnr                ouportnr        
+                        LogicGates.gates_logic[Convert.ToInt32(call[1])].Connection(Convert.ToInt32(call[2]), Convert.ToInt32(call[3]), Convert.ToInt32(call[4]));
                     }
                 }
             }
