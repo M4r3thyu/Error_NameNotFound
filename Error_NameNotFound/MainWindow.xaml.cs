@@ -27,7 +27,7 @@ namespace Error_NameNotFound
     {
         private static List<UserControl> gates_UI = new List<UserControl>();
         public static int currentGate=0;
-        private static bool gateFromButton=false;
+        private static bool gateFromButton=false, gateDelete=false;
         public MainWindow()
         {
             InitializeComponent();
@@ -39,6 +39,11 @@ namespace Error_NameNotFound
         public static void SetGateFromButton(bool i)
         {
             gateFromButton = i;
+        }
+        public static bool GateDelete
+        {
+            get => gateDelete;
+            set => gateDelete = value;
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -112,6 +117,23 @@ namespace Error_NameNotFound
                 }
                 
             }
+        }
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (GateDelete)
+            {
+                GateDelete = false;
+            }
+            else
+            {
+                GateDelete = true;
+            }
+        }
+        public static void RemoveGate(int id)
+        {
+            currentGate = id;
+            Canvas Workspace = (Canvas)gates_UI[currentGate].Parent;
+            Workspace.Children.Remove(gates_UI[currentGate]);
         }
         private void Print(object sender, RoutedEventArgs e)
         {
