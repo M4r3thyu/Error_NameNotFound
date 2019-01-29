@@ -10,7 +10,7 @@ namespace Error_NameNotFound.Model
 {
     class Halfadder : LogicGates
     {
-        public Halfadder(Point position) : base(2, 2, position) // input 0=a 1=b output 0=S 1=Cout
+        public Halfadder(int id) : base(2, 2,id) // input 0=a 1=b output 0=S 1=Cout
         { }
         protected override void ChangeOutput()
         {

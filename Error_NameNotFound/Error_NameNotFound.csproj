@@ -62,12 +62,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\BooltoColorConverter.cs" />
     <Compile Include="Model\Basemodel.cs" />
     <Compile Include="Model\Counter.cs" />
     <Compile Include="Model\Counter_ms.cs" />
     <Compile Include="Model\Register_ms.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="Model\Releasedate.cs" />
+    <Compile Include="ViewModel\Delete_Button.cs" />
     <Compile Include="ViewModel\Load_Button_vm.cs" />
     <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
@@ -750,10 +752,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Pictures\And.png" />
     <Resource Include="Pictures\Or.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\And.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

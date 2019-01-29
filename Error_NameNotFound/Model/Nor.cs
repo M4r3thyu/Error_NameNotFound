@@ -11,14 +11,14 @@ namespace Error_NameNotFound.Model
 {
     class Nor : LogicGates
     {
-        public Nor(int input, Point position) : base(input, 2, position)      //Output[0] = Normal [1] = Negiert
+        public Nor(int input, int id) : base(input, 2,id)      //Output[0] = Normal [1] = Negiert
         {
             output[0] = !output[1];                        //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
         {
             bool merke = true;
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < input.Count; i++)
             {
                 if (input[i] == true)
                     merke = false;

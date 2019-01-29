@@ -14,7 +14,7 @@ namespace Error_NameNotFound.Model
     {
         private Thread t;
         private int timeout;
-        public Oscillator(Point position) : base(2, 1, position)
+        public Oscillator(int id) : base(2, 1,id)
         {
             t = new Thread(new ThreadStart(ChangeOutput));
             t.Start();

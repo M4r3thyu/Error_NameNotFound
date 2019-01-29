@@ -10,7 +10,7 @@ namespace Error_NameNotFound.Model
 {
     class FF_JK_c_r : LogicGates
     {
-        public FF_JK_c_r(Point position) : base(4, 2, position) // input 0=J, 1=K, 2=C 3=reset
+        public FF_JK_c_r(int id) : base(4, 2,id) // input 0=J, 1=K, 2=C 3=reset
         {
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
         }
