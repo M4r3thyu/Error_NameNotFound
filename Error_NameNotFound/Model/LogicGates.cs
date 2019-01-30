@@ -15,7 +15,7 @@ namespace Error_NameNotFound.Model
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         private static List<string> connections = new List<string>();
-        protected int id; //inputid;
+        public int id; //inputid;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
         protected List<int> inportid, outportnr, inportnr;
@@ -88,7 +88,7 @@ namespace Error_NameNotFound.Model
         {
             get
             {
-                string allconnections = "| ouputid  inportid inportnr outportnr ";
+                string allconnections = "| ouputid  inputid inportnr outportnr ";
                 for (int i = 0; i < connections.Count; i++)
                 {
                     allconnections = allconnections + connections[i];

@@ -26,15 +26,15 @@ namespace Error_NameNotFound
     public partial class MainWindow : Window
     {
         private static List<UserControl> gates_UI = new List<UserControl>();
-        public static int currentGate=0;
-        private static bool gateFromButton=false, gateDelete=false;
+        public static int currentGate = 0;
+        private static bool gateFromButton = false, gateDelete = false;
         public MainWindow()
         {
             InitializeComponent();
         }
         public static void Setcurrentgate(int id)
         {
-            currentGate=id;
+            currentGate = id;
         }
         public static void SetGateFromButton(bool i)
         {
@@ -47,7 +47,7 @@ namespace Error_NameNotFound
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            int id=0;
+            int id = 0;
             foreach (UserControl element in gates_UI)
                 id++;
             AND _and = new AND(id);
@@ -78,7 +78,7 @@ namespace Error_NameNotFound
         private void canvas_Drop(object sender, DragEventArgs e)
         {
             Canvas _canvas = (Canvas)sender;
-            if(_canvas!=null&& gates_UI[currentGate] != null)
+            if (_canvas != null && gates_UI[currentGate] != null)
             {
                 Point dropPoint = e.GetPosition(this.Workspace);
                 dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
@@ -115,7 +115,7 @@ namespace Error_NameNotFound
                         e.Effects = DragDropEffects.Move;
                     }
                 }
-                
+
             }
         }
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
@@ -134,6 +134,7 @@ namespace Error_NameNotFound
             currentGate = id;
             Canvas Workspace = (Canvas)gates_UI[currentGate].Parent;
             Workspace.Children.Remove(gates_UI[currentGate]);
+            LogicGates.gates_logic.Remove(LogicGates.gates_logic[currentGate]);
         }
         private void Print(object sender, RoutedEventArgs e)
         {
@@ -157,7 +158,7 @@ namespace Error_NameNotFound
                     connections = LogicGates.Connections;
                     fs.Close();
                     File.AppendAllText(dialog.FileName, connections);
-                    
+
                 }
             }
             catch (Exception x)
@@ -175,15 +176,15 @@ namespace Error_NameNotFound
                     FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
                     fs.Close();
                     this.Workspace.Children.Clear();
-                    gates_UI=new List<UserControl>();
+                    gates_UI = new List<UserControl>();
                     LogicGates.gates_logic = new List<LogicGates>();
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] connections = Loadfiletext.Split('|');
-                    string[] loadsplit=connections[0].Split(' ');
+                    string[] loadsplit = connections[0].Split(' ');
                     string[] merker;
                     double canvas_Left = 0, canvas_Top = 0;
-                    for (int i = 10; i < loadsplit.Length;i++)
+                    for (int i = 10; i < loadsplit.Length; i++)
                     {
                         if (loadsplit[i].Contains("Canvas.Left="))
                         {
@@ -198,12 +199,12 @@ namespace Error_NameNotFound
                         switch (loadsplit[i])
                         {
                             case "Name=\"ANDUI\"":
-                                    AND _and = new AND(gateindex);
-                                    gates_UI.Add(_and);
-                                    Workspace.Children.Add(gates_UI[gateindex]);
-                                    Canvas.SetLeft(gates_UI[gateindex],  canvas_Left);
-                                    Canvas.SetTop(gates_UI[gateindex], canvas_Top);
-                                    gateindex++;
+                                AND _and = new AND(gateindex);
+                                gates_UI.Add(_and);
+                                Workspace.Children.Add(gates_UI[gateindex]);
+                                Canvas.SetLeft(gates_UI[gateindex], canvas_Left);
+                                Canvas.SetTop(gates_UI[gateindex], canvas_Top);
+                                gateindex++;
                                 break;
                             default:
                                 break;
@@ -211,10 +212,11 @@ namespace Error_NameNotFound
                     }
                     for (int i = 2; i < connections.Length; i++)
                     {
-                        string[] call=null;
-                        call=connections[i].Split(' ');
+                        string[] call = null;
+                        call = connections[i].Split(' ');
                         //                   //output id                                inportid                    inportnr                ouportnr        
                         LogicGates.gates_logic[Convert.ToInt32(call[1])].Connection(Convert.ToInt32(call[2]), Convert.ToInt32(call[3]), Convert.ToInt32(call[4]));
+                        var temp = LogicGates.gates_logic.Where(c => c.id == Convert.ToInt32(call[1]));
                     }
                 }
             }
