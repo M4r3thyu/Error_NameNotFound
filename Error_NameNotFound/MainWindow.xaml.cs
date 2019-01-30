@@ -51,6 +51,7 @@ namespace Error_NameNotFound
             foreach (UserControl element in gates_UI)
                 id++;
             AND _and = new AND(id);
+            _and.Name = "ANDUI";
             gates_UI.Add(_and);
             currentGate = _and.Id;
             if (gates_UI[currentGate] != null)
@@ -153,11 +154,23 @@ namespace Error_NameNotFound
                 if (dialog.ShowDialog() == true)
                 {
                     FileStream fs = File.Open(dialog.FileName, FileMode.Create);
-                    XamlWriter.Save(Workspace, fs);
-                    string connections = "";
-                    connections = LogicGates.Connections;
+                    // XamlWriter.Save(Workspace, fs);
                     fs.Close();
-                    File.AppendAllText(dialog.FileName, connections);
+                    string bausteine = " |  index left top";
+                    for (int i = 0; i < gates_UI.Count; i++)
+                    {
+                        bausteine += " " + i + " ";
+                        bausteine += Canvas.GetLeft(gates_UI[i]);
+                        bausteine += " ";
+                        bausteine += Canvas.GetTop(gates_UI[i]);
+                        bausteine += " ";
+                        bausteine += gates_UI[i].Name;
+                        bausteine += " | ";
+                    }
+                    string connections = " ";
+                    connections = LogicGates.Connections;
+                    string save = bausteine + " $ " + connections;
+                    File.AppendAllText(dialog.FileName, save);
 
                 }
             }
@@ -180,25 +193,25 @@ namespace Error_NameNotFound
                     LogicGates.gates_logic = new List<LogicGates>();
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
-                    string[] connections = Loadfiletext.Split('|');
-                    string[] loadsplit = connections[0].Split(' ');
+                    string[] loadsplit = Loadfiletext.Split('$');
+                    string[] bausteine = loadsplit[0].Split('|');
+                    string[] connections = loadsplit[1].Split('|');
                     string[] merker;
                     double canvas_Left = 0, canvas_Top = 0;
-                    for (int i = 10; i < loadsplit.Length; i++)
+                    for (int i = 2; i < bausteine.Length; i++)
                     {
-                        if (loadsplit[i].Contains("Canvas.Left="))
+                        merker = bausteine[i].Split(' ');
+                        if (merker[3] == "NaN")
+                            canvas_Left = 9999999;
+                        else
+                            canvas_Left = double.Parse(merker[3]);
+                        if (merker[4] == "NaN")
+                            canvas_Top = 9999999;
+                        else
+                            canvas_Top = double.Parse(merker[4]);
+                        switch (merker[5])
                         {
-                            merker = loadsplit[i].Split('"');
-                            canvas_Left = double.Parse(merker[1]);
-                        }
-                        if (loadsplit[i].Contains("Canvas.Top="))
-                        {
-                            merker = loadsplit[i].Split('"');
-                            canvas_Top = double.Parse(merker[1]);
-                        }
-                        switch (loadsplit[i])
-                        {
-                            case "Name=\"ANDUI\"":
+                            case "ANDUI":
                                 AND _and = new AND(gateindex);
                                 gates_UI.Add(_and);
                                 Workspace.Children.Add(gates_UI[gateindex]);
