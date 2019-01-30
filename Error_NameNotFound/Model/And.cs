@@ -37,8 +37,17 @@ namespace Error_NameNotFound.Model
             v_AND.ChangeColorInOut();
             for (int i = 0; i < connections.Count; i += 4)
             {
-                if (connections[i] == id)
-                    gates_logic[connections[i + 2]].Inputset(output[connections[i + 1]], connections[i + 3]);
+                //connections.Add(id);
+                //connections.Add(onr);
+                //connections.Add(iid);
+                //connections.Add(inr);
+                //var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == i);
+                //if (temp!=null)
+                if(connections[i]==id)
+                {
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]);
+                    temp.Inputset(output[connections[i + 1]], connections[i + 3]);
+                }
             }
         }
         public override void ChangeColor()

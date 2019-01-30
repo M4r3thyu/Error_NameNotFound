@@ -15,7 +15,7 @@ namespace Error_NameNotFound.Model
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         protected static List<int> connections = new List<int>();
-        protected int id;
+        public int id;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
         public LogicGates(int input, int output, int id)

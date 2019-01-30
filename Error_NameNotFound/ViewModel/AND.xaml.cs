@@ -27,7 +27,7 @@ namespace Error_NameNotFound
         private static int anzahl = 0;
         //private string imagename;
         private int id;
-        And l_and;
+        private And l_and;
         public AND()
         {
             InitializeComponent();
@@ -121,8 +121,8 @@ namespace Error_NameNotFound
                     input0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:                 //output id             inportid  inportnr  ouportnr        
-                    bool ant = LogicGates.gates_logic[inoutid].Connection(id, 0, portnr);
-                    inout = 0;
+                    var temp = LogicGates.gates_logic.First(c => c.id == inout);
+                    bool ant = temp.Connection(id, 0, portnr);
                     if (!ant)
                         LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
@@ -144,7 +144,8 @@ namespace Error_NameNotFound
                     input1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:
-                    bool ant = LogicGates.gates_logic[inoutid].Connection(id, 1, portnr);
+                    var temp = LogicGates.gates_logic.First(c => c.id == inout);
+                    bool ant = temp.Connection(id, 1, portnr);
                     inout = 0;
                     if (!ant)
                         LogicGates.gates_logic[inoutid].ChangeColor();
@@ -167,7 +168,31 @@ namespace Error_NameNotFound
                     output0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
-                    bool ant = LogicGates.gates_logic[id].Connection(inoutid, portnr, 0);
+                    var temp = LogicGates.gates_logic.First(c => c.id == id);
+                    bool ant = temp.Connection(inoutid, portnr, 0);
+                    inout = 0;
+                    if (!ant)
+                        LogicGates.gates_logic[inoutid].ChangeColor();
+                    break;
+                default:
+                    inout = 0;
+                    LogicGates.gates_logic[inoutid].ChangeColor();
+                    break;
+            }
+        }
+        private void Output1_Click(object sender, RoutedEventArgs e)
+        {
+            switch (inout)
+            {
+                case 0:
+                    inoutid = id;
+                    portnr = 1;
+                    inout = 1;
+                    output1.Background = System.Windows.Media.Brushes.Yellow;
+                    break;
+                case 2:
+                    var temp = LogicGates.gates_logic.First(c => c.id == id);
+                    bool ant = temp.Connection(inoutid, portnr, 1);
                     inout = 0;
                     if (!ant)
                         LogicGates.gates_logic[inoutid].ChangeColor();
@@ -189,28 +214,6 @@ namespace Error_NameNotFound
             LogicGates.gates_logic[id].DelConnections(id, 1);
         }
 
-        private void Output1_Click(object sender, RoutedEventArgs e)
-        {
-            switch (inout)
-            {
-                case 0:
-                    inoutid = id;
-                    portnr = 1;
-                    inout = 1;
-                    output1.Background = System.Windows.Media.Brushes.Yellow;
-                    break;
-                case 2:
-                    bool ant = LogicGates.gates_logic[id].Connection(inoutid, portnr, 1);
-                    inout = 0;
-                    if (!ant)
-                        LogicGates.gates_logic[inoutid].ChangeColor();
-                    break;
-                default:
-                    inout = 0;
-                    LogicGates.gates_logic[inoutid].ChangeColor();
-                    break;
-            }
-        }
         public void ChangeColorInOut()
         {
             if (LogicGates.gates_logic[id].Input[0])
