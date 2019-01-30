@@ -216,7 +216,7 @@ namespace Error_NameNotFound
                         call = connections[i].Split(' ');
                         //                   //output id                                inportid                    inportnr                ouportnr        
                         LogicGates.gates_logic[Convert.ToInt32(call[1])].Connection(Convert.ToInt32(call[2]), Convert.ToInt32(call[3]), Convert.ToInt32(call[4]));
-                        var temp = LogicGates.gates_logic.Where(c => c.id == Convert.ToInt32(call[1]));
+                        //var temp = LogicGates.gates_logic.Where(c => c.id == Convert.ToInt32(call[1]));
                     }
                 }
             }

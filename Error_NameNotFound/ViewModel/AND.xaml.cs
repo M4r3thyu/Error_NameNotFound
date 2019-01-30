@@ -34,14 +34,16 @@ namespace Error_NameNotFound
             id = 0;
             anzahl++;
             //      imagename = "ANDUI" + Convert.ToString(id);
-            l_and = new And(2, id, this);
-            LogicGates.gates_logic.Add(l_and);
+
         }
         public AND(int id) : this()
         {
             this.id = id;
             //     imagename = "ANDUI" + Convert.ToString(id);
             //        ANDUI.Name = imagename;
+            l_and = new And(2, id, this);
+            LogicGates.gates_logic.Add(l_and);
+            ChangeColorInOut();
         }
         public AND(AND g) : this()
         {
@@ -119,12 +121,14 @@ namespace Error_NameNotFound
                     input0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:                 //output id             inportid  inportnr  ouportnr        
-                    LogicGates.gates_logic[inoutid].Connection(id, 0,        portnr);
-                    //LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    bool ant = LogicGates.gates_logic[inoutid].Connection(id, 0, portnr);
                     inout = 0;
+                    if (!ant)
+                        LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
                 default:
                     inout = 0;
+                    LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
             }
         }
@@ -140,12 +144,14 @@ namespace Error_NameNotFound
                     input1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:
-                    LogicGates.gates_logic[inoutid].Connection(id, 1, portnr);
-                    //LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    bool ant = LogicGates.gates_logic[inoutid].Connection(id, 1, portnr);
                     inout = 0;
+                    if (!ant)
+                        LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
                 default:
                     inout = 0;
+                    LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
             }
         }
@@ -161,15 +167,28 @@ namespace Error_NameNotFound
                     output0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
-                    LogicGates.gates_logic[id].Connection(inoutid, portnr, 0);
-                    // LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    bool ant = LogicGates.gates_logic[id].Connection(inoutid, portnr, 0);
                     inout = 0;
+                    if (!ant)
+                        LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
                 default:
                     inout = 0;
+                    LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
             }
         }
+
+        private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
+        {
+            LogicGates.gates_logic[id].DelConnections(id, 0);
+        }
+
+        private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
+        {
+            LogicGates.gates_logic[id].DelConnections(id, 1);
+        }
+
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
             switch (inout)
@@ -181,12 +200,14 @@ namespace Error_NameNotFound
                     output1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
-                    LogicGates.gates_logic[id].Connection(inoutid, portnr, 1);
-                    // LogicGates.gates_logic[connection].Inputset(LogicGates.gates_logic[id].Output[outputnr], 1);
+                    bool ant = LogicGates.gates_logic[id].Connection(inoutid, portnr, 1);
                     inout = 0;
+                    if (!ant)
+                        LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
                 default:
                     inout = 0;
+                    LogicGates.gates_logic[inoutid].ChangeColor();
                     break;
             }
         }

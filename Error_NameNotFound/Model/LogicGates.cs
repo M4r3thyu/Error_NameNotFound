@@ -14,18 +14,12 @@ namespace Error_NameNotFound.Model
     abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
-        private static List<string> connections = new List<string>();
-        public int id; //inputid;
+        protected static List<int> connections = new List<int>();
+        protected int id;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
-        protected List<int> inportid, outportnr, inportnr;
         public LogicGates(int input, int output, int id)
         {
-            //inputid = new int[input];
-            inportid = new List<int>();
-            outportnr = new List<int>();
-            inportnr = new List<int>();
-            // inputid = 0;
             this.id = id;
             this.input = new ObservableCollection<bool>();
             this.output = new ObservableCollection<bool>();
@@ -48,12 +42,15 @@ namespace Error_NameNotFound.Model
                 ChangeOutput();
             }
         }
-        public void Inputset(bool input, int id)
+        public void Inputset(bool input, int inr)
         {
-            this.input[id] = input;
-            ChangeOutput();
+            if (this.input[inr] != input)
+            {
+                this.input[inr] = input;
+                ChangeOutput();
+                NotifyPropertyChanged("Input");
+            }
 
-            NotifyPropertyChanged("Input");
         }
         public ObservableCollection<bool> Output
         {
@@ -65,37 +62,62 @@ namespace Error_NameNotFound.Model
                 NotifyPropertyChanged();
             }
         }
-        public void Connection(int inportid, int inportnr, int outportnr)
+        public bool Connection(int iid, int inr, int onr)
         {
-            this.inportid.Add(inportid);
-            this.inportnr.Add(inportnr);
-            this.outportnr.Add(outportnr);
-            string save = "| " + id + " " + inportid + " " + inportnr + " " + outportnr + " ";
-            bool check = true;
-            for (int i = 0; i < connections.Count; i++)
+            bool merke = true;
+            for (int i = 2; i < connections.Count; i += 4)
             {
-                if (connections[i].Contains(" " + inportid + " " + inportnr))
+                if (connections[i] == iid && connections[i + 1] == inr)
                 {
-                    connections[i] = save;
-                    check = false;
+                    merke = false;
+                    break;
                 }
             }
-            if (check)
-                connections.Add(save);
-            ChangeOutput();
+            if (merke)
+            {
+                connections.Add(id);
+                connections.Add(onr);
+                connections.Add(iid);
+                connections.Add(inr);
+                ChangeOutput();
+                return true;
+            }
+            ChangeColor();
+            return false;
+        }
+        public void DelConnections(int iid, int inr)
+        {
+            for (int i = 2; i < connections.Count; i += 4)
+            {
+                if (connections[i] == iid && connections[i + 1] == inr)
+                {
+                    connections.RemoveAt(i - 2);
+                    connections.RemoveAt(i - 2);
+                    connections.RemoveAt(i - 2);
+                    connections.RemoveAt(i - 2);
+                    basevalue(inr);
+                    break;
+                }
+            }
         }
         public static string Connections
         {
             get
             {
-                string allconnections = "| ouputid  inputid inportnr outportnr ";
+                string allconnections = "| ouputid  outportnr inputid inportnr ";
                 for (int i = 0; i < connections.Count; i++)
                 {
-                    allconnections = allconnections + connections[i];
+                    if (i % 4 == 0)
+                        allconnections = allconnections + " | ";
+                    allconnections = allconnections + connections[i] + " ";
                 }
                 return allconnections;
             }
         }
+        virtual public void ChangeColor()
+        { }
+        virtual protected void basevalue(int inr)
+        { }
         abstract protected void ChangeOutput();
     }
 }

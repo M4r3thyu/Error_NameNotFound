@@ -8,9 +8,9 @@
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
         <Image Width="100" Height="100"   Name="ANDUI" Source="/Error_NameNotFound;component/Pictures/And.png"></Image>
-        <Button Width="10" Height="10" Margin="10,10,80,80" Name="input0" Click="Input0_Click" />
-        <Button Width="10" Height="10" Margin="10,80,80,10" Name="input1" Click="Input1_Click" />
-        <Button Width="10" Height="10" Margin="80,10,10,80" Name="output1" Click="Output1_Click" />
-        <Button Width="10" Height="10" Margin="80,80,10,10" Name="output0" Click="Output0_Click" />
+        <Button Width="10" Height="10" Margin="10,10,80,80" Name="input0" Click="Input0_Click" MouseRightButtonDown="DelConnection_Input0"/>
+        <Button Width="10" Height="10" Margin="10,80,80,10" Name="input1" Click="Input1_Click" MouseRightButtonDown="DelConnection_Input1"/>
+        <Button Width="10" Height="10" Margin="80,10,10,80" Name="output1" Click="Output1_Click"/>
+        <Button Width="10" Height="10" Margin="80,80,10,10" Name="output0" Click="Output0_Click"/>
     </Grid>
 </UserControl>
