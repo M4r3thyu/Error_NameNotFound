@@ -14,7 +14,7 @@ namespace Error_NameNotFound.Model
     abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
-        protected static List<int> connections = new List<int>();
+        public static List<int> connections = new List<int>();
         public int id;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
@@ -112,6 +112,29 @@ namespace Error_NameNotFound.Model
                     allconnections = allconnections + connections[i] + " ";
                 }
                 return allconnections;
+            }
+        }
+        public static void Remove_connections(int id)
+        {
+            for (int i = 0; i < connections.Count-3; i += 4)
+            {
+                if (id == connections[i])
+                {
+                    connections.RemoveAt(i);
+                    connections.RemoveAt(i + 1);
+                    connections.RemoveAt(i + 2);
+                    connections.RemoveAt(i + 3);
+                }
+            }
+            for (int i = 2; i < connections.Count; i += 4)
+            {
+                if (id == connections[i])
+                {
+                    connections.RemoveAt(i - 2);
+                    connections.RemoveAt(i - 2);
+                    connections.RemoveAt(i - 2);
+                    connections.RemoveAt(i - 2);
+                }
             }
         }
         virtual public void ChangeColor()

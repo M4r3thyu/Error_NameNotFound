@@ -121,10 +121,13 @@ namespace Error_NameNotFound
                     input0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:                 //output id             inportid  inportnr  ouportnr        
-                    var temp = LogicGates.gates_logic.First(c => c.id == inout);
-                    bool ant = temp.Connection(id, 0, portnr);
-                    if (!ant)
-                        LogicGates.gates_logic[inoutid].ChangeColor();
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == inout);
+                    if (temp != null)
+                    {
+                        bool ant = temp.Connection(id, 0, portnr);
+                        if (!ant)
+                            LogicGates.gates_logic[inoutid].ChangeColor();
+                    }
                     break;
                 default:
                     inout = 0;
@@ -144,11 +147,14 @@ namespace Error_NameNotFound
                     input1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:
-                    var temp = LogicGates.gates_logic.First(c => c.id == inout);
-                    bool ant = temp.Connection(id, 1, portnr);
-                    inout = 0;
-                    if (!ant)
-                        LogicGates.gates_logic[inoutid].ChangeColor();
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == inout);
+                    if (temp != null)
+                    {
+                        bool ant = temp.Connection(id, 1, portnr);
+                        inout = 0;
+                        if (!ant)
+                            LogicGates.gates_logic[inoutid].ChangeColor();
+                    }
                     break;
                 default:
                     inout = 0;
@@ -168,11 +174,14 @@ namespace Error_NameNotFound
                     output0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
-                    var temp = LogicGates.gates_logic.First(c => c.id == id);
-                    bool ant = temp.Connection(inoutid, portnr, 0);
-                    inout = 0;
-                    if (!ant)
-                        LogicGates.gates_logic[inoutid].ChangeColor();
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                    if (temp != null)
+                    {
+                        bool ant = temp.Connection(inoutid, portnr, 0);
+                        inout = 0;
+                        if (!ant)
+                            LogicGates.gates_logic[inoutid].ChangeColor();
+                    }
                     break;
                 default:
                     inout = 0;
@@ -191,11 +200,14 @@ namespace Error_NameNotFound
                     output1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
-                    var temp = LogicGates.gates_logic.First(c => c.id == id);
-                    bool ant = temp.Connection(inoutid, portnr, 1);
-                    inout = 0;
-                    if (!ant)
-                        LogicGates.gates_logic[inoutid].ChangeColor();
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                    if (temp != null)
+                    {
+                        bool ant = temp.Connection(inoutid, portnr, 1);
+                        if (!ant)
+                            LogicGates.gates_logic[inoutid].ChangeColor();
+                        inout = 0;
+                    }
                     break;
                 default:
                     inout = 0;
@@ -216,22 +228,22 @@ namespace Error_NameNotFound
 
         public void ChangeColorInOut()
         {
-            if (LogicGates.gates_logic[id].Input[0])
+            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
                 input0.Background = System.Windows.Media.Brushes.Red;
             else
                 input0.Background = System.Windows.Media.Brushes.MediumPurple;
 
-            if (LogicGates.gates_logic[id].Input[1])
+            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
                 input1.Background = System.Windows.Media.Brushes.Red;
             else
                 input1.Background = System.Windows.Media.Brushes.MediumPurple;
 
-            if (LogicGates.gates_logic[id].Output[0])
+            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
                 output0.Background = System.Windows.Media.Brushes.Red;
             else
                 output0.Background = System.Windows.Media.Brushes.MediumPurple;
 
-            if (LogicGates.gates_logic[id].Output[1])
+            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
                 output1.Background = System.Windows.Media.Brushes.Red;
             else
                 output1.Background = System.Windows.Media.Brushes.MediumPurple;

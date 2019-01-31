@@ -46,7 +46,10 @@ namespace Error_NameNotFound.Model
                 if(connections[i]==id)
                 {
                     var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]);
+                    if (temp.Input[connections[i+3]]!=output[connections[i+1]])
+                    {
                     temp.Inputset(output[connections[i + 1]], connections[i + 3]);
+                    }
                 }
             }
         }

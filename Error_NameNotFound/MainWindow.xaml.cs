@@ -26,7 +26,6 @@ namespace Error_NameNotFound
     public partial class MainWindow : Window
     {
         private static List<UserControl> gates_UI = new List<UserControl>();
-        private static List<int> gates_UI_id = new List<int>();
         public static int currentGate = 0;
         private static bool gateFromButton = true, gateDelete = false;
         public MainWindow()
@@ -54,7 +53,6 @@ namespace Error_NameNotFound
             AND _and = new AND(id);
             _and.Name = "ANDUI";
             gates_UI.Add(_and);
-            gates_UI_id.Add(_and.Id);
             currentGate = _and.Id;
             if (gates_UI[currentGate] != null)
             {
@@ -103,7 +101,6 @@ namespace Error_NameNotFound
                             id++;
                         AND _and = new AND(id);
                         gates_UI.Add(_and);
-                        gates_UI_id.Add(_and.Id);
                         currentGate = _and.Id;
                         Workspace.Children.Add(gates_UI[currentGate]);
                         Canvas.SetLeft(gates_UI[currentGate], dropPoint.X - 50);
@@ -138,8 +135,8 @@ namespace Error_NameNotFound
             currentGate = id;
             Canvas Workspace = (Canvas)gates_UI[currentGate].Parent;
             Workspace.Children.Remove(gates_UI[currentGate]);
-            gates_UI_id.RemoveAt(currentGate);
-            LogicGates.gates_logic.Remove(LogicGates.gates_logic[currentGate]);
+            LogicGates.gates_logic.Remove(LogicGates.gates_logic.FirstOrDefault(c=> c.id ==currentGate));
+            LogicGates.Remove_connections(currentGate);
         }
         private void Print(object sender, RoutedEventArgs e)
         {
@@ -197,6 +194,7 @@ namespace Error_NameNotFound
                     this.Workspace.Children.Clear();
                     gates_UI = new List<UserControl>();
                     LogicGates.gates_logic = new List<LogicGates>();
+                    LogicGates.connections = new List<int>();
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] loadsplit = Loadfiletext.Split('$');
@@ -222,7 +220,6 @@ namespace Error_NameNotFound
                                 case "ANDUI":
                                     AND _and = new AND(gateindex);
                                     gates_UI.Add(_and);
-                                    gates_UI_id.Add(_and.Id);
                                     Workspace.Children.Add(gates_UI[gateindex]);
                                     Canvas.SetLeft(gates_UI[gateindex], canvas_Left);
                                     Canvas.SetTop(gates_UI[gateindex], canvas_Top);
