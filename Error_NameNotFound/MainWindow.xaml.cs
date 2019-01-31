@@ -47,18 +47,15 @@ namespace Error_NameNotFound
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            int id = 0;
-            foreach (UserControl element in gates_UI)
-                id++;
-            AND _and = new AND(id);
+            AND _and = new AND(currentGate);
             _and.Name = "ANDUI";
             gates_UI.Add(_and);
-            currentGate = _and.Id;
             if (gates_UI[currentGate] != null)
             {
                 DragDrop.DoDragDrop(gates_UI[currentGate], gates_UI[currentGate], DragDropEffects.Copy);
                 gateFromButton = true;
             }
+            currentGate++;
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {

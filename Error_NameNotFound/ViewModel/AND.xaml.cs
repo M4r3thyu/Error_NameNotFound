@@ -121,7 +121,7 @@ namespace Error_NameNotFound
                     input0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:                 //output id             inportid  inportnr  ouportnr        
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == inout);
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == inoutid);
                     if (temp != null)
                     {
                         bool ant = temp.Connection(id, 0, portnr);
@@ -147,7 +147,7 @@ namespace Error_NameNotFound
                     input1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 1:
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == inout);
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == inoutid);
                     if (temp != null)
                     {
                         bool ant = temp.Connection(id, 1, portnr);
