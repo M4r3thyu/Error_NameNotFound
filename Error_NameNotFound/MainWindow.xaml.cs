@@ -132,8 +132,11 @@ namespace Error_NameNotFound
             currentGate = id;
             Canvas Workspace = (Canvas)gates_UI[currentGate].Parent;
             Workspace.Children.Remove(gates_UI[currentGate]);
-            LogicGates.gates_logic.Remove(LogicGates.gates_logic.FirstOrDefault(c=> c.id ==currentGate));
+            var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == currentGate);
             LogicGates.Remove_connections(currentGate);
+            LogicGates.gates_logic.Remove(temp);
+            LogicGates.inout = 0;
+
         }
         private void Print(object sender, RoutedEventArgs e)
         {

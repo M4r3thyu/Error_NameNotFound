@@ -34,24 +34,8 @@ namespace Error_NameNotFound.Model
             }
             output[0] = merke;
             output[1] = !output[0];
-            v_AND.ChangeColorInOut();
-            for (int i = 0; i < connections.Count; i += 4)
-            {
-                //connections.Add(id);
-                //connections.Add(onr);
-                //connections.Add(iid);
-                //connections.Add(inr);
-                //var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == i);
-                //if (temp!=null)
-                if(connections[i]==id)
-                {
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]);
-                    if (temp.Input[connections[i+3]]!=output[connections[i+1]])
-                    {
-                    temp.Inputset(output[connections[i + 1]], connections[i + 3]);
-                    }
-                }
-            }
+            Connectedset(id);
+            ChangeColor();
         }
         public override void ChangeColor()
         {

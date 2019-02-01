@@ -15,6 +15,7 @@ namespace Error_NameNotFound.Model
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         public static List<int> connections = new List<int>();
+        public static int inoutid = 0, portnr = 0, inout = 0;
         public int id;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
@@ -114,26 +115,51 @@ namespace Error_NameNotFound.Model
                 return allconnections;
             }
         }
+        protected void Connectedset(int id)
+        {
+            for (int i = 0; i < connections.Count; i += 4)
+            {
+                //connections.Add(id);
+                //connections.Add(onr);
+                //connections.Add(iid);
+                //connections.Add(inr);
+                //var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == i);
+                //if (temp!=null)
+                if (connections[i] == id)
+                {
+                    var temp1 = LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]);
+                    var temp2 = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                    if (temp1.Input[connections[i + 3]] != output[connections[i + 1]])
+                    {
+                        temp1.Inputset(temp2.output[connections[i + 1]], connections[i + 3]);
+                    }
+                }
+            }
+        }
         public static void Remove_connections(int id)
         {
             for (int i = 0; i < connections.Count-3; i += 4)
             {
                 if (id == connections[i])
                 {
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i-2]).basevalue(connections[i+3]);
                     connections.RemoveAt(i);
-                    connections.RemoveAt(i + 1);
-                    connections.RemoveAt(i + 2);
-                    connections.RemoveAt(i + 3);
+                    connections.RemoveAt(i);
+                    connections.RemoveAt(i);
+                    connections.RemoveAt(i);
+                    i -= 4;
                 }
             }
             for (int i = 2; i < connections.Count; i += 4)
             {
                 if (id == connections[i])
                 {
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i-2]).basevalue(connections[i+1]);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
+                    i -= 4;
                 }
             }
         }
