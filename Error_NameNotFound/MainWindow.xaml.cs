@@ -26,7 +26,7 @@ namespace Error_NameNotFound
     public partial class MainWindow : Window
     {
         private static List<UserControl> gates_UI = new List<UserControl>();
-        public static int currentGate = 0;
+        public static int currentGate = 0, id=0;
         private static bool gateFromButton = true, gateDelete = false;
         public MainWindow()
         {
@@ -47,7 +47,8 @@ namespace Error_NameNotFound
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            AND _and = new AND(currentGate);
+            AND _and = new AND(id);
+            id++;
             _and.Name = "ANDUI";
             gates_UI.Add(_and);
             if (gates_UI[currentGate] != null)
@@ -93,10 +94,9 @@ namespace Error_NameNotFound
                 {
                     if (e.KeyStates == DragDropKeyStates.ControlKey && e.Effects.HasFlag(DragDropEffects.Copy))
                     {
-                        int id = 0;
-                        foreach (UserControl element in gates_UI)
-                            id++;
+
                         AND _and = new AND(id);
+                        id++;
                         gates_UI.Add(_and);
                         currentGate = _and.Id;
                         Workspace.Children.Add(gates_UI[currentGate]);
@@ -192,6 +192,7 @@ namespace Error_NameNotFound
                     gates_UI = new List<UserControl>();
                     LogicGates.gates_logic = new List<LogicGates>();
                     LogicGates.connections = new List<int>();
+                    id = 0;
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] loadsplit = Loadfiletext.Split('$');
@@ -202,6 +203,7 @@ namespace Error_NameNotFound
                     for (int i = 2; i < bausteine.Length - 1; i++)
                     {
                         merker = bausteine[i].Split(' ');
+                        id= Convert.ToInt32(merker[2]);
                         if (merker[3] == "NaN")
                             canvas_Left = 9999999;
                         else
@@ -215,7 +217,8 @@ namespace Error_NameNotFound
                             switch (merker[5])
                             {
                                 case "ANDUI":
-                                    AND _and = new AND(gateindex);
+                                    AND _and = new AND(id);
+                                    id++;
                                     gates_UI.Add(_and);
                                     Workspace.Children.Add(gates_UI[gateindex]);
                                     Canvas.SetLeft(gates_UI[gateindex], canvas_Left);
