@@ -759,5 +759,8 @@
   <ItemGroup>
     <Resource Include="Views\And.cur" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Delete-Cursor.cur" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
