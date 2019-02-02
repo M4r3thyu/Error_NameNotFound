@@ -58,6 +58,25 @@ namespace Error_NameNotFound
             }
             currentGate++;
         }
+        private void canvas_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (GateDelete)
+            {
+                if (this.Cursor != Cursors.Wait)
+                    Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
+            }
+
+        }
+        private void canvas_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (GateDelete)
+            {
+                if (this.Cursor != Cursors.Wait)
+
+                    Mouse.OverrideCursor = Cursors.Arrow;
+            }
+
+        }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("Object"))
@@ -74,6 +93,7 @@ namespace Error_NameNotFound
                 }
             }
         }
+
         private void canvas_Drop(object sender, DragEventArgs e)
         {
             Canvas _canvas = (Canvas)sender;
