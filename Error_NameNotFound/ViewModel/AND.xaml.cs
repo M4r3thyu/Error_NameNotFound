@@ -24,7 +24,6 @@ namespace Error_NameNotFound
     public partial class AND : UserControl
     {
         private static int anzahl = 0;
-        private static bool in0 = false, in1 = false;
         //private string imagename;
         private int id;
         private And l_and;
@@ -116,23 +115,24 @@ namespace Error_NameNotFound
             switch (LogicGates.inout)
             {
                 case 0:
-                    if (!in0)
+                    LogicGates.inid = id;
+                    LogicGates.innr = 0;
+                    if(!LogicGates.gates_logic.FirstOrDefault(c =>c.id==id).in0)
                     {
-                        LogicGates.inid = id;
-                        LogicGates.innr = 0;
                         LogicGates.inout = 2;
                         input0.Background = System.Windows.Media.Brushes.Yellow;
                     }
+                    
                     break;
                 case 1:                 //output id             inportid  inportnr  ouportnr     
-                    if (!in0)
+                    if (!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).in0)
                     {
                         LogicGates.inid = id;
                         LogicGates.innr = 0;
                         var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
                         if (temp != null)
                         {
-                            in0 = temp.Connection();
+                            temp.Connection();
                         }
                     }
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
@@ -151,23 +151,23 @@ namespace Error_NameNotFound
             switch (LogicGates.inout)
             {
                 case 0:
-                    if (!in1)
-                    {
                         LogicGates.inid = id;
                         LogicGates.innr = 1;
+                    if (!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).in1)
+                    {
                         LogicGates.inout = 2;
                         input1.Background = System.Windows.Media.Brushes.Yellow;
                     }
                     break;
                 case 1:
-                    if (!in1)
+                    if (!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).in1)
                     {
                         LogicGates.inid = id;
                         LogicGates.innr = 1;
                         var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
                         if (temp != null)
                         {
-                            in1 = temp.Connection();
+                            temp.Connection();
                         }
                     }
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
@@ -243,12 +243,10 @@ namespace Error_NameNotFound
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
-            in0 = false;
         }
 
         private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
         {
-            in1 = false;
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
         }
 

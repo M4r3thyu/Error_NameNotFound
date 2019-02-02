@@ -16,11 +16,20 @@ namespace Error_NameNotFound.Model
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         public static List<int> connections = new List<int>();
         public static int outid = 0, outnr = 0, inid = 0, innr = 0, inout = 0;
+        public bool in0, in1, in2, in3, in4, in5, in6, in7;
         public int id;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
         public LogicGates(int input, int output, int id)
         {
+            in0 = false;
+            in1 = false;
+            in2 = false;
+            in3 = false;
+            in4 = false;
+            in5 = false;
+            in6 = false;
+            in7 = false;
             this.id = id;
             this.input = new ObservableCollection<bool>();
             this.output = new ObservableCollection<bool>();
@@ -77,6 +86,7 @@ namespace Error_NameNotFound.Model
             }
             if (merke)
             {
+                LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in0 = true;
                 connections.Add(outid);
                 connections.Add(outnr);
                 connections.Add(inid);
@@ -94,6 +104,35 @@ namespace Error_NameNotFound.Model
             {
                 if (connections[i] == iid && connections[i + 1] == inr)
                 {
+                    switch (innr)
+                    {
+                        case 0:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in0 = false;
+                            break;
+                        case 1:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in1 = false;
+                            break;
+                        case 2:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in2 = false;
+                            break;
+                        case 3:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in3 = false;
+                            break;
+                        case 4:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in4 = false;
+                            break;
+                        case 5:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in5 = false;
+                            break;
+                        case 6:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in6 = false;
+                            break;
+                        case 7:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in7 = false;
+                            break;
+                        default:
+                            break;
+                    }
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
@@ -103,20 +142,7 @@ namespace Error_NameNotFound.Model
                 }
             }
         }
-        public static string Connections
-        {
-            get
-            {
-                string allconnections = "| ouputid  outportnr inputid inportnr ";
-                for (int i = 0; i < connections.Count; i++)
-                {
-                    if (i % 4 == 0)
-                        allconnections = allconnections + " | ";
-                    allconnections = allconnections + connections[i] + " ";
-                }
-                return allconnections;
-            }
-        }
+
         protected void Connectedset(int id)
         {
             for (int i = 0; i < connections.Count; i += 4)
@@ -136,6 +162,21 @@ namespace Error_NameNotFound.Model
                         temp1.Inputset(temp2.output[connections[i + 1]], connections[i + 3]);
                     }
                 }
+            }
+        }
+
+        public static string Connections
+        {
+            get
+            {
+                string allconnections = "| ouputid  outportnr inputid inportnr ";
+                for (int i = 0; i < connections.Count; i++)
+                {
+                    if (i % 4 == 0)
+                        allconnections = allconnections + " | ";
+                    allconnections = allconnections + connections[i] + " ";
+                }
+                return allconnections;
             }
         }
         public static void Remove_connections(int id)
