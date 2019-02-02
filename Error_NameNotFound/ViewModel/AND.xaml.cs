@@ -24,6 +24,7 @@ namespace Error_NameNotFound
     public partial class AND : UserControl
     {
         private static int anzahl = 0;
+        private static bool in0 = false, in1 = false;
         //private string imagename;
         private int id;
         private And l_and;
@@ -115,24 +116,32 @@ namespace Error_NameNotFound
             switch (LogicGates.inout)
             {
                 case 0:
-                    LogicGates.inoutid = id;
-                    LogicGates.portnr = 0;
-                    LogicGates.inout = 2;
-                    input0.Background = System.Windows.Media.Brushes.Yellow;
-                    break;
-                case 1:                 //output id             inportid  inportnr  ouportnr        
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inoutid);
-                    if (temp != null)
+                    if (!in0)
                     {
-                        bool ant = temp.Connection(id, 0, LogicGates.portnr);
-                        if (!ant)
-                            LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                        LogicGates.inid = id;
+                        LogicGates.innr = 0;
+                        LogicGates.inout = 2;
+                        input0.Background = System.Windows.Media.Brushes.Yellow;
                     }
+                    break;
+                case 1:                 //output id             inportid  inportnr  ouportnr     
+                    if (!in0)
+                    {
+                        LogicGates.inid = id;
+                        LogicGates.innr = 0;
+                        var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
+                        if (temp != null)
+                        {
+                            in0 = temp.Connection();
+                        }
+                    }
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     LogicGates.inout = 0;
                     break;
                 default:
                     LogicGates.inout = 0;
-                    LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     break;
             }
         }
@@ -142,24 +151,32 @@ namespace Error_NameNotFound
             switch (LogicGates.inout)
             {
                 case 0:
-                    LogicGates.inoutid = id;
-                    LogicGates.portnr = 1;
-                    LogicGates.inout = 2;
-                    input1.Background = System.Windows.Media.Brushes.Yellow;
+                    if (!in1)
+                    {
+                        LogicGates.inid = id;
+                        LogicGates.innr = 1;
+                        LogicGates.inout = 2;
+                        input1.Background = System.Windows.Media.Brushes.Yellow;
+                    }
                     break;
                 case 1:
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inoutid);
-                    if (temp != null)
+                    if (!in1)
                     {
-                        bool ant = temp.Connection(id, 1, LogicGates.portnr);
-                        if (!ant)
-                            LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                        LogicGates.inid = id;
+                        LogicGates.innr = 1;
+                        var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
+                        if (temp != null)
+                        {
+                            in1 = temp.Connection();
+                        }
                     }
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     LogicGates.inout = 0;
                     break;
                 default:
                     LogicGates.inout = 0;
-                    LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     break;
             }
         }
@@ -169,24 +186,27 @@ namespace Error_NameNotFound
             switch (LogicGates.inout)
             {
                 case 0:
-                    LogicGates.inoutid = id;
-                    LogicGates.portnr = 0;
+                    LogicGates.outid = id;
+                    LogicGates.outnr = 0;
                     LogicGates.inout = 1;
                     output0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                    LogicGates.outid = id;
+                    LogicGates.outnr = 0;
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
                     if (temp != null)
                     {
-                        bool ant = temp.Connection(LogicGates.inoutid, LogicGates.portnr, 0);
+                        bool ant = temp.Connection();
                         if (!ant)
-                            LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     }
                     LogicGates.inout = 0;
                     break;
                 default:
                     LogicGates.inout = 0;
-                    LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     break;
             }
         }
@@ -195,24 +215,27 @@ namespace Error_NameNotFound
             switch (LogicGates.inout)
             {
                 case 0:
-                    LogicGates.inoutid = id;
-                    LogicGates.portnr = 1;
+                    LogicGates.outid = id;
+                    LogicGates.outnr = 1;
                     LogicGates.inout = 1;
                     output1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                    LogicGates.outid = id;
+                    LogicGates.outnr = 1;
+                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
                     if (temp != null)
                     {
-                        bool ant = temp.Connection(LogicGates.inoutid, LogicGates.portnr, 1);
+                        bool ant = temp.Connection();
                         if (!ant)
-                            LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     }
                     LogicGates.inout = 0;
                     break;
                 default:
                     LogicGates.inout = 0;
-                    LogicGates.gates_logic[LogicGates.inoutid].ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     break;
             }
         }
@@ -220,10 +243,12 @@ namespace Error_NameNotFound
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
+            in0 = false;
         }
 
         private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
         {
+            in1 = false;
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
         }
 

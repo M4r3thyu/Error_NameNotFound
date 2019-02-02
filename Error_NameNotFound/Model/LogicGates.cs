@@ -15,7 +15,7 @@ namespace Error_NameNotFound.Model
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         public static List<int> connections = new List<int>();
-        public static int inoutid = 0, portnr = 0, inout = 0;
+        public static int outid = 0, outnr = 0, inid = 0, innr = 0, inout = 0;
         public int id;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
@@ -63,12 +63,13 @@ namespace Error_NameNotFound.Model
                 NotifyPropertyChanged();
             }
         }
-        public bool Connection(int iid, int inr, int onr)
+
+        public bool Connection()
         {
             bool merke = true;
             for (int i = 2; i < connections.Count; i += 4)
             {
-                if (connections[i] == iid && connections[i + 1] == inr)
+                if (connections[i] == inid && connections[i + 1] == innr)
                 {
                     merke = false;
                     break;
@@ -76,16 +77,17 @@ namespace Error_NameNotFound.Model
             }
             if (merke)
             {
-                connections.Add(id);
-                connections.Add(onr);
-                connections.Add(iid);
-                connections.Add(inr);
+                connections.Add(outid);
+                connections.Add(outnr);
+                connections.Add(inid);
+                connections.Add(innr);
                 ChangeOutput();
                 return true;
             }
             ChangeColor();
             return false;
         }
+
         public void DelConnections(int iid, int inr)
         {
             for (int i = 2; i < connections.Count; i += 4)

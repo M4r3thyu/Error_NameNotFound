@@ -223,14 +223,15 @@ namespace Error_NameNotFound
                                     AND _and = new AND(id);
                                     id++;
                                     gates_UI.Add(_and);
-                                    Workspace.Children.Add(gates_UI[gateindex]);
-                                    Canvas.SetLeft(gates_UI[gateindex], canvas_Left);
-                                    Canvas.SetTop(gates_UI[gateindex], canvas_Top);
-                                    gateindex++;
+
                                     break;
                                 default:
                                     break;
                             }
+                            Workspace.Children.Add(gates_UI[gateindex]);
+                            Canvas.SetLeft(gates_UI[gateindex], canvas_Left);
+                            Canvas.SetTop(gates_UI[gateindex], canvas_Top);
+                            gateindex++;
                         }
                     }
                     for (int i = 2; i < connections.Length; i++)
@@ -238,8 +239,12 @@ namespace Error_NameNotFound
                         string[] call = null;
                         call = connections[i].Split(' ');
                         var temp = LogicGates.gates_logic.First(c => c.id == Convert.ToInt32(call[1]));
+                        LogicGates.outid = Convert.ToInt32(call[1]);
+                        LogicGates.outnr = Convert.ToInt32(call[2]);
+                        LogicGates.inid = Convert.ToInt32(call[3]);
+                        LogicGates.innr = Convert.ToInt32(call[4]);
                         if (temp != null)
-                            temp.Connection(Convert.ToInt32(call[3]), Convert.ToInt32(call[4]), Convert.ToInt32(call[2]));
+                            temp.Connection();
                         //                   //output id                                inportid                    inportnr                ouportnr     
                         // LogicGates.gates_logic[Convert.ToInt32(call[1])].Connection(Convert.ToInt32(call[2]), Convert.ToInt32(call[3]), Convert.ToInt32(call[4]));
                     }
