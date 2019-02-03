@@ -158,15 +158,17 @@ namespace Error_NameNotFound
             LogicGates.inout = 0;
 
         }
+
         private void Print(object sender, RoutedEventArgs e)
         {
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() == true)
             { dialog.PrintVisual(Workspace, "Workspace"); }
         }
+
         private void Save(object sender, RoutedEventArgs e)
         {
-            try
+           // try
             {
                 SaveFileDialog dialog = new SaveFileDialog()
                 {
@@ -178,7 +180,7 @@ namespace Error_NameNotFound
                     // XamlWriter.Save(Workspace, fs);
                     fs.Close();
                     string bausteine = " |  index left top | ";
-                    for (int i = 0; i < gates_UI.Count; i++)
+                    for (int i = 0; i < LogicGates.gates_logic.Count; i++)
                     {
                         var temp = gates_UI[i];
 
@@ -197,9 +199,9 @@ namespace Error_NameNotFound
 
                 }
             }
-            catch (Exception x)
+            //catch (Exception x)
             {
-                MessageBox.Show("Unhandled Error occoured /n" + x.Message);
+           //     MessageBox.Show("Unhandled Error occoured /n" + x.Message);
             }
         }
         private void Load(object sender, RoutedEventArgs e)
