@@ -73,7 +73,7 @@ namespace Error_NameNotFound
             {
                 if (this.Cursor != Cursors.Wait)
 
-                    Mouse.OverrideCursor = Cursors.Arrow;
+                    Mouse.OverrideCursor = null;
             }
 
         }
