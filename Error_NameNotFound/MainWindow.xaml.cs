@@ -168,7 +168,7 @@ namespace Error_NameNotFound
 
         private void Save(object sender, RoutedEventArgs e)
         {
-           // try
+            try
             {
                 SaveFileDialog dialog = new SaveFileDialog()
                 {
@@ -199,9 +199,9 @@ namespace Error_NameNotFound
 
                 }
             }
-            //catch (Exception x)
+            catch (Exception x)
             {
-           //     MessageBox.Show("Unhandled Error occoured /n" + x.Message);
+                MessageBox.Show("Unhandled Error occoured \n" + x.Message);
             }
         }
         private void Load(object sender, RoutedEventArgs e)
