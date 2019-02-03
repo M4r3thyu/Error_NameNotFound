@@ -185,7 +185,36 @@ namespace Error_NameNotFound.Model
             {
                 if (id == connections[i])
                 {
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i-2]).basevalue(connections[i+3]);
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i+2]).basevalue(connections[i+3]);
+                    switch (innr)
+                    {
+                        case 0:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in0 = false;
+                            break;
+                        case 1:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in1 = false;
+                            break;
+                        case 2:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in2 = false;
+                            break;
+                        case 3:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in3 = false;
+                            break;
+                        case 4:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in4 = false;
+                            break;
+                        case 5:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in5 = false;
+                            break;
+                        case 6:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in6 = false;
+                            break;
+                        case 7:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).in7 = false;
+                            break;
+                        default:
+                            break;
+                    }
                     connections.RemoveAt(i);
                     connections.RemoveAt(i);
                     connections.RemoveAt(i);
@@ -197,7 +226,36 @@ namespace Error_NameNotFound.Model
             {
                 if (id == connections[i])
                 {
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i-2]).basevalue(connections[i+1]);
+                    switch (innr)
+                    {
+                        case 0:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in0 = false;
+                            break;
+                        case 1:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in1 = false;
+                            break;
+                        case 2:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in2 = false;
+                            break;
+                        case 3:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in3 = false;
+                            break;
+                        case 4:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in4 = false;
+                            break;
+                        case 5:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in5 = false;
+                            break;
+                        case 6:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in6 = false;
+                            break;
+                        case 7:
+                            LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).in7 = false;
+                            break;
+                        default:
+                            break;
+                    }
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).basevalue(connections[i+1]);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
