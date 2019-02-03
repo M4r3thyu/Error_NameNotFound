@@ -33,6 +33,7 @@ namespace Error_NameNotFound
             InitializeComponent();
             id = 0;
             anzahl++;
+            Name = "ANDUI";
             //      imagename = "ANDUI" + Convert.ToString(id);
 
         }
@@ -44,13 +45,6 @@ namespace Error_NameNotFound
             l_and = new And(2, id, this);
             LogicGates.gates_logic.Add(l_and);
             ChangeColorInOut();
-        }
-        public AND(AND g) : this()
-        {
-            //  ANDUI.Name = "ANDUI";
-            ANDUI.Height = g.ANDUI.Height;
-            ANDUI.Width = g.ANDUI.Width;
-            //  ANDUI.Name = imagename;
         }
         public int Id
         {
@@ -97,12 +91,7 @@ namespace Error_NameNotFound
             if (e.Effects.HasFlag(DragDropEffects.Copy) | e.Effects.HasFlag(DragDropEffects.Move))
             {
                 Mouse.SetCursor(new Cursor(Application.GetResourceStream(new Uri("Views/And.cur", UriKind.Relative)).Stream));
-                //Mouse.SetCursor(Cursors.Cross);
             }
-            //else if (e.Effects.HasFlag(DragDropEffects.Move))
-            //{
-            //    Mouse.SetCursor(Cursors.Hand);
-            //}
             else
             {
                 Mouse.SetCursor(Cursors.No);
