@@ -104,6 +104,7 @@ namespace Error_NameNotFound
                 dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
                 if (gateFromButton)
                 {
+                    currentGate = id - 1;
                     Workspace.Children.Add(gates_UI[currentGate]);
                     Canvas.SetLeft(gates_UI[currentGate], dropPoint.X - 50);
                     Canvas.SetTop(gates_UI[currentGate], dropPoint.Y - 50);
