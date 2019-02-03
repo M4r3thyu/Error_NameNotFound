@@ -32,8 +32,8 @@
         <Border Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Height="20"  Orientation="Horizontal">
-            <views:Save_Button Width="10" Background="LightSlateGray" Margin="3" />
-            <views:Load_Button Width="10" Background="LightSlateGray" Margin="3" />
+            <Button Width="10" Background="LightSlateGray" Margin="3" Click="Save" />
+            <Button Width="10" Background="LightSlateGray" Margin="3" Click="Load"/>
             <Button Click="Delete_Button_Click" Width="10" Background="Red" Margin="3"></Button>
         </StackPanel>
         <views:Releasedate_v Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Right"/>
