@@ -11,17 +11,18 @@ using System.Collections.ObjectModel;
 
 namespace Error_NameNotFound.Model
 {
-    abstract class LogicGates : Basemodel //Stuff that still has to be done is Saveing/Loading, Connections between Logicgates (including Grid), MVVM Integration
+    abstract class LogicGates : Basemodel
     {
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         public static List<int> connections = new List<int>();
-        public static int outid = 0, outnr = 0, inid = 0, innr = 0, inout = 0;
+        public static int outid = 0, outnr = 0, inid = 0, innr = 0, in_or_out = 0;
         public bool in0, in1, in2, in3, in4, in5, in6, in7;
-        public int id;
+        public int id, prozessnr;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
         public LogicGates(int input, int output, int id)
         {
+            prozessnr = 0;
             in0 = false;
             in1 = false;
             in2 = false;
@@ -143,29 +144,29 @@ namespace Error_NameNotFound.Model
             }
         }
 
-        protected void Connectedset(int id)
-        {
-            for (int i = 0; i < connections.Count; i += 4)
-            {
-                //connections.Add(id);
-                //connections.Add(onr);
-                //connections.Add(iid);
-                //connections.Add(inr);
-                //var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == i);
-                //if (temp!=null)
-                if (connections[i] == id)
-                {
-                    var temp1 = LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]);
-                    var temp2 = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-                    if (temp1.Input[connections[i + 3]] != output[connections[i + 1]])
-                    {
-                        temp1.Inputset(temp2.output[connections[i + 1]], connections[i + 3]);
-                    }
-                }
-            }
-        }
+        //protected void Connectedset(int id)
+        //{
+        //    for (int i = 0; i < connections.Count; i += 4)
+        //    {
+        //        //connections.Add(id);
+        //        //connections.Add(onr);
+        //        //connections.Add(iid);
+        //        //connections.Add(inr);
+        //        //var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == i);
+        //        //if (temp!=null)
+        //        if (connections[i] == id)
+        //        {
+        //            var temp1 = LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]);
+        //            var temp2 = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+        //            if (temp1.Input[connections[i + 3]] != output[connections[i + 1]])
+        //            {
+        //                temp1.Inputset(temp2.output[connections[i + 1]], connections[i + 3]);
+        //            }
+        //        }
+        //    }
+        //}
 
-        public static string Connections
+        public static string Get_Connections
         {
             get
             {

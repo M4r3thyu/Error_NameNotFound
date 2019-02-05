@@ -66,6 +66,7 @@
     <Compile Include="Model\Basemodel.cs" />
     <Compile Include="Model\Counter.cs" />
     <Compile Include="Model\Counter_ms.cs" />
+    <Compile Include="Model\Prozesstoken.cs" />
     <Compile Include="Model\Register_ms.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="Model\Releasedate.cs" />

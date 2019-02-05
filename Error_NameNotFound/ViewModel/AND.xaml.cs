@@ -101,14 +101,14 @@ namespace Error_NameNotFound
 
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.inout)
+            switch (LogicGates.in_or_out)
             {
                 case 0:
                     LogicGates.inid = id;
                     LogicGates.innr = 0;
                     if(!LogicGates.gates_logic.FirstOrDefault(c =>c.id==id).in0)
                     {
-                        LogicGates.inout = 2;
+                        LogicGates.in_or_out = 2;
                         input0.Background = System.Windows.Media.Brushes.Yellow;
                     }
                     
@@ -125,10 +125,10 @@ namespace Error_NameNotFound
                         }
                     }
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     break;
                 default:
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     break;
@@ -137,14 +137,14 @@ namespace Error_NameNotFound
 
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.inout)
+            switch (LogicGates.in_or_out)
             {
                 case 0:
                         LogicGates.inid = id;
                         LogicGates.innr = 1;
                     if (!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).in1)
                     {
-                        LogicGates.inout = 2;
+                        LogicGates.in_or_out = 2;
                         input1.Background = System.Windows.Media.Brushes.Yellow;
                     }
                     break;
@@ -160,10 +160,10 @@ namespace Error_NameNotFound
                         }
                     }
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     break;
                 default:
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     break;
@@ -172,12 +172,12 @@ namespace Error_NameNotFound
 
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.inout)
+            switch (LogicGates.in_or_out)
             {
                 case 0:
                     LogicGates.outid = id;
                     LogicGates.outnr = 0;
-                    LogicGates.inout = 1;
+                    LogicGates.in_or_out = 1;
                     output0.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
@@ -190,10 +190,10 @@ namespace Error_NameNotFound
                         if (!ant)
                             LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     }
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     break;
                 default:
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     break;
@@ -201,12 +201,12 @@ namespace Error_NameNotFound
         }
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.inout)
+            switch (LogicGates.in_or_out)
             {
                 case 0:
                     LogicGates.outid = id;
                     LogicGates.outnr = 1;
-                    LogicGates.inout = 1;
+                    LogicGates.in_or_out = 1;
                     output1.Background = System.Windows.Media.Brushes.Yellow;
                     break;
                 case 2:
@@ -219,10 +219,10 @@ namespace Error_NameNotFound
                         if (!ant)
                             LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     }
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     break;
                 default:
-                    LogicGates.inout = 0;
+                    LogicGates.in_or_out = 0;
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
                     break;
@@ -241,6 +241,9 @@ namespace Error_NameNotFound
 
         public void ChangeColorInOut()
         {
+            Dispatcher.Invoke(() =>
+            {
+                // Set property or change UI compomponents.              
             if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
                 input0.Background = System.Windows.Media.Brushes.Red;
             else
@@ -260,6 +263,7 @@ namespace Error_NameNotFound
                 output1.Background = System.Windows.Media.Brushes.Red;
             else
                 output1.Background = System.Windows.Media.Brushes.MediumPurple;
+            });
         }
     }
 }

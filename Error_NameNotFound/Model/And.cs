@@ -34,7 +34,6 @@ namespace Error_NameNotFound.Model
             }
             output[0] = merke;
             output[1] = !output[0];
-            Connectedset(id);
             ChangeColor();
         }
         public override void ChangeColor()

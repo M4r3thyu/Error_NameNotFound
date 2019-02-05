@@ -156,7 +156,7 @@ namespace Error_NameNotFound
             var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == currentGate);
             LogicGates.Remove_connections(currentGate);
             LogicGates.gates_logic.Remove(temp);
-            LogicGates.inout = 0;
+            LogicGates.in_or_out = 0;
 
         }
 
@@ -165,6 +165,12 @@ namespace Error_NameNotFound
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() == true)
             { dialog.PrintVisual(Workspace, "Workspace"); }
+        }
+
+        private void Prozess_Button(object sender, RoutedEventArgs e)
+        {
+            Prozesstoken test = new Prozesstoken(id);
+            id++;
         }
 
         private void Save(object sender, RoutedEventArgs e)
@@ -194,7 +200,7 @@ namespace Error_NameNotFound
                         bausteine += " | ";
                     }
                     string connections = " ";
-                    connections = LogicGates.Connections;
+                    connections = LogicGates.Get_Connections;
                     string save = bausteine + " $ " + connections;
                     File.AppendAllText(dialog.FileName, save);
 
