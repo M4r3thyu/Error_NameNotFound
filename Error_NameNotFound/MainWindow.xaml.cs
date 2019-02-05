@@ -26,7 +26,7 @@ namespace Error_NameNotFound
     public partial class MainWindow : Window
     {
         private static List<UserControl> gates_UI = new List<UserControl>();
-        public static int currentGate = 0, id=0;
+        public static int currentGate = 0, id=0, prozessid=1;
         private static bool gateFromButton = true, gateDelete = false;
         public MainWindow()
         {
@@ -169,8 +169,8 @@ namespace Error_NameNotFound
 
         private void Prozess_Button(object sender, RoutedEventArgs e)
         {
-            Prozesstoken test = new Prozesstoken(id);
-            id++;
+            Prozesstoken test = new Prozesstoken(prozessid);
+            prozessid++;
         }
 
         private void Save(object sender, RoutedEventArgs e)

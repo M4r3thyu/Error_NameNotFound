@@ -187,7 +187,7 @@ namespace Error_NameNotFound
                     if (temp != null)
                     {
                         bool ant = temp.Connection();
-                        if (!ant)
+                        
                             LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
                     }
                     LogicGates.in_or_out = 0;
