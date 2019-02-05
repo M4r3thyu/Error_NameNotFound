@@ -28,6 +28,7 @@ namespace Error_NameNotFound
         private static List<UserControl> gates_UI = new List<UserControl>();
         public static int currentGate = 0, id=0, prozessid=1;
         private static bool gateFromButton = true, gateDelete = false;
+        private Image previousPreviewImage;
         public MainWindow()
         {
             InitializeComponent();
@@ -79,6 +80,10 @@ namespace Error_NameNotFound
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
+            if (previousPreviewImage != null)
+            {
+                Workspace.Children.Remove(previousPreviewImage);
+            }
             if (e.Data.GetDataPresent("Object"))
             {
                 // These Effects values are used in the drag source's
@@ -92,22 +97,39 @@ namespace Error_NameNotFound
                     e.Effects = DragDropEffects.Move;
                 }
             }
+            Point previewDropPoint = e.GetPosition(Workspace);
+            previewDropPoint.X = (Convert.ToInt32(previewDropPoint.X) / 25) * 25.0;
+            previewDropPoint.Y = (Convert.ToInt32(previewDropPoint.Y) / 25) * 25.0;
+            BitmapImage previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
+            Image previewImage = new Image();
+            previewImage.Source = previewBitmap;
+            previewImage.Height = 100;
+            previewImage.Width = 100;
+            Canvas.SetLeft(previewImage, previewDropPoint.X);
+            Canvas.SetTop(previewImage, previewDropPoint.Y);
+            Workspace.Children.Add(previewImage);
+            previousPreviewImage =previewImage;
+        
         }
 
         private void canvas_Drop(object sender, DragEventArgs e)
         {
+            if (previousPreviewImage != null)
+            {
+                Workspace.Children.Remove(previousPreviewImage);
+            }
             Canvas _canvas = (Canvas)sender;
             if (_canvas != null && gates_UI[currentGate] != null)
             {
-                Point dropPoint = e.GetPosition(this.Workspace);
+                Point dropPoint = e.GetPosition(Workspace);
                 dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
                 dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
                 if (gateFromButton)
                 {
                     currentGate = id - 1;
                     Workspace.Children.Add(gates_UI[currentGate]);
-                    Canvas.SetLeft(gates_UI[currentGate], dropPoint.X - 50);
-                    Canvas.SetTop(gates_UI[currentGate], dropPoint.Y - 50);
+                    Canvas.SetLeft(gates_UI[currentGate], dropPoint.X);
+                    Canvas.SetTop(gates_UI[currentGate], dropPoint.Y);
                     // set the value to return to the DoDragDrop call
                     e.Effects = DragDropEffects.Copy;
                 }
@@ -121,15 +143,15 @@ namespace Error_NameNotFound
                         gates_UI.Add(_and);
                         currentGate = _and.Id;
                         Workspace.Children.Add(gates_UI[currentGate]);
-                        Canvas.SetLeft(gates_UI[currentGate], dropPoint.X - 50);
-                        Canvas.SetTop(gates_UI[currentGate], dropPoint.Y - 50);
+                        Canvas.SetLeft(gates_UI[currentGate], dropPoint.X);
+                        Canvas.SetTop(gates_UI[currentGate], dropPoint.Y);
                         // set the value to return to the DoDragDrop call
                         e.Effects = DragDropEffects.Copy;
                     }
                     else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                     {
-                        Canvas.SetLeft(gates_UI[currentGate], dropPoint.X - 50);
-                        Canvas.SetTop(gates_UI[currentGate], dropPoint.Y - 50);
+                        Canvas.SetLeft(gates_UI[currentGate], dropPoint.X);
+                        Canvas.SetTop(gates_UI[currentGate], dropPoint.Y);
                         // set the value to return to the DoDragDrop call
                         e.Effects = DragDropEffects.Move;
                     }
