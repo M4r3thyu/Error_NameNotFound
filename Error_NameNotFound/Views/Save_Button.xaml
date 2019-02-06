@@ -14,7 +14,7 @@
         <Button>
             <Button.InputBindings>
                 <MouseBinding Gesture="LeftClick" Command="{Binding ClickCommand}"/>
-            </Button.InputBindings> />
+            </Button.InputBindings>
         </Button>
     </Grid>
 </UserControl>

@@ -7,11 +7,13 @@ using Error_NameNotFound.Model;
 using System.IO;
 using System.Windows.Input;
 using Microsoft.Win32;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace Error_NameNotFound.ViewModel
 {
     [Serializable]
-    class Save_Button_vm:Basemodel
+    class Save_Button_vm : Basemodel
     {
         public static List<LogicGates> save;
         private static string dir;
@@ -29,39 +31,48 @@ namespace Error_NameNotFound.ViewModel
             {
                 if (clickCommand == null)
                 {
-                    clickCommand = new RelayCommand(c => Serializ());
+                    clickCommand = new RelayCommand(c => Save());
                 }
                 return clickCommand;
             }
             set { clickCommand = value; }
         }
-        public void Serializ()
+        private void Save()
         {
-            string fileText = "Your output text";
-
-            SaveFileDialog dialog = new SaveFileDialog()
+            try
             {
-                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
-            };
+                SaveFileDialog dialog = new SaveFileDialog()
+                {
+                    Filter = "Xaml Files(*.logic)|*.logic|All(*.*)|*"
+                };
+                if (dialog.ShowDialog() == true)
+                {
+                    FileStream fs = File.Open(dialog.FileName, FileMode.Create);
+                    // XamlWriter.Save(Workspace, fs);
+                    fs.Close();
+                    string bausteine = " |  index left top | ";
+                    for (int i = 0; i < LogicGates.gates_logic.Count; i++)
+                    {
+                        var temp = MainWindow.gates_UI[i];
 
-            if (dialog.ShowDialog() == true)
-            {
-                File.WriteAllText(dialog.FileName, fileText);
+                        bausteine += " " + LogicGates.gates_logic[i].id + " ";
+                        bausteine += Canvas.GetLeft(MainWindow.gates_UI[i]);
+                        bausteine += " ";
+                        bausteine += Canvas.GetTop(MainWindow.gates_UI[i]);
+                        bausteine += " ";
+                        bausteine += MainWindow.gates_UI[i].Name;
+                        bausteine += " | ";
+                    }
+                    string connections = " ";
+                    connections = LogicGates.Get_Connections;
+                    string save = bausteine + " $ " + connections;
+                    File.AppendAllText(dialog.FileName, save);
+
+                }
             }
-            //serialize
-            //   using (Stream stream = File.Open(serializationFile, FileMode.Create))
-            // {
-            //       var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            //       bformatter.Serialize(stream, save);
-            //   }
-        }
-        public void Deserializ()
-        {
-            //deserialize
-            using (Stream stream = File.Open(serializationFile, FileMode.Open))
+            catch (Exception x)
             {
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                save = (List<LogicGates>)bformatter.Deserialize(stream);
+                MessageBox.Show("Unhandled Error occoured \n" + x.Message);
             }
         }
     }

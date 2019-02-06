@@ -25,13 +25,15 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static List<UserControl> gates_UI = new List<UserControl>();
-        public static int currentGate = 0, id=0, prozessid=1;
+        public static List<UserControl> gates_UI = new List<UserControl>();
+        public static int currentGate = 0, id = 0, prozessid = 1;
+        public static Canvas GetCanvas;
         private static bool gateFromButton = true, gateDelete = false;
         private Image previousPreviewImage;
         public MainWindow()
         {
             InitializeComponent();
+            GetCanvas = Workspace;
         }
         public static void Setcurrentgate(int id)
         {
@@ -108,8 +110,8 @@ namespace Error_NameNotFound
             Canvas.SetLeft(previewImage, previewDropPoint.X);
             Canvas.SetTop(previewImage, previewDropPoint.Y);
             Workspace.Children.Add(previewImage);
-            previousPreviewImage =previewImage;
-        
+            previousPreviewImage = previewImage;
+
         }
 
         private void canvas_Drop(object sender, DragEventArgs e)
@@ -193,122 +195,6 @@ namespace Error_NameNotFound
         {
             Prozesstoken test = new Prozesstoken(prozessid);
             prozessid++;
-        }
-
-        private void Save(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                SaveFileDialog dialog = new SaveFileDialog()
-                {
-                    Filter = "Xaml Files(*.logic)|*.logic|All(*.*)|*"
-                };
-                if (dialog.ShowDialog() == true)
-                {
-                    FileStream fs = File.Open(dialog.FileName, FileMode.Create);
-                    // XamlWriter.Save(Workspace, fs);
-                    fs.Close();
-                    string bausteine = " |  index left top | ";
-                    for (int i = 0; i < LogicGates.gates_logic.Count; i++)
-                    {
-                        var temp = gates_UI[i];
-
-                        bausteine += " " + LogicGates.gates_logic[i].id + " ";
-                        bausteine += Canvas.GetLeft(gates_UI[i]);
-                        bausteine += " ";
-                        bausteine += Canvas.GetTop(gates_UI[i]);
-                        bausteine += " ";
-                        bausteine += gates_UI[i].Name;
-                        bausteine += " | ";
-                    }
-                    string connections = " ";
-                    connections = LogicGates.Get_Connections;
-                    string save = bausteine + " $ " + connections;
-                    File.AppendAllText(dialog.FileName, save);
-
-                }
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Unhandled Error occoured \n" + x.Message);
-            }
-        }
-        private void Load(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
-                    fs.Close();
-                    this.Workspace.Children.Clear();
-                    gates_UI = new List<UserControl>();
-                    LogicGates.gates_logic = new List<LogicGates>();
-                    LogicGates.connections = new List<int>();
-                    id = 0;
-                    int gateindex = 0;
-                    string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
-                    string[] loadsplit = Loadfiletext.Split('$');
-                    string[] bausteine = loadsplit[0].Split('|');
-                    string[] connections = loadsplit[1].Split('|');
-                    string[] merker;
-                    double canvas_Left = 0, canvas_Top = 0;
-                    for (int i = 2; i < bausteine.Length - 1; i++)
-                    {
-                        merker = bausteine[i].Split(' ');
-                        id= Convert.ToInt32(merker[2]);
-                        if (merker[3] == "NaN")
-                            canvas_Left = 9999999;
-                        else
-                            canvas_Left = double.Parse(merker[3]);
-                        if (merker[4] == "NaN")
-                            canvas_Top = 9999999;
-                        else
-                            canvas_Top = double.Parse(merker[4]);
-                        if (canvas_Top != 9999999)
-                        {
-                            switch (merker[5])
-                            {
-                                case "ANDUI":
-                                    AND _and = new AND(id);
-                                    id++;
-                                    gates_UI.Add(_and);
-
-                                    break;
-                                default:
-                                    break;
-                            }
-                            Workspace.Children.Add(gates_UI[gateindex]);
-                            Canvas.SetLeft(gates_UI[gateindex], canvas_Left);
-                            Canvas.SetTop(gates_UI[gateindex], canvas_Top);
-                            gateindex++;
-                        }
-                    }
-                    for (int i = 2; i < connections.Length; i++)
-                    {
-                        string[] call = null;
-                        call = connections[i].Split(' ');
-                        var temp = LogicGates.gates_logic.First(c => c.id == Convert.ToInt32(call[1]));
-                        LogicGates.outid = Convert.ToInt32(call[1]);
-                        LogicGates.outnr = Convert.ToInt32(call[2]);
-                        LogicGates.inid = Convert.ToInt32(call[3]);
-                        LogicGates.innr = Convert.ToInt32(call[4]);
-                        if (temp != null)
-                            temp.Connection();
-                        //                   //output id                                inportid                    inportnr                ouportnr     
-                        // LogicGates.gates_logic[Convert.ToInt32(call[1])].Connection(Convert.ToInt32(call[2]), Convert.ToInt32(call[3]), Convert.ToInt32(call[4]));
-                    }
-                }
-            }
-            catch (XamlParseException)
-            {
-                MessageBox.Show("Wrong File");
-            }
-            catch (Exception x)
-            {
-                MessageBox.Show("Unhandled Error occoured \n" + x.Message);
-            }
         }
     }
 }
