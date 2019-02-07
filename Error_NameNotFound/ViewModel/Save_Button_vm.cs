@@ -15,14 +15,8 @@ namespace Error_NameNotFound.ViewModel
     [Serializable]
     class Save_Button_vm : Basemodel
     {
-        public static List<LogicGates> save;
-        private static string dir;
-        private static string serializationFile;
         public Save_Button_vm()
         {
-            dir = @"C:\test";
-            serializationFile = Path.Combine(dir, "save.bin");
-            save = new List<LogicGates>();
         }
         private ICommand clickCommand;
         public ICommand ClickCommand

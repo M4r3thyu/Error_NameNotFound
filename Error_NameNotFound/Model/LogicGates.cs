@@ -16,6 +16,7 @@ namespace Error_NameNotFound.Model
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         public static List<int> connections = new List<int>();
         public static int outid = 0, outnr = 0, inid = 0, innr = 0, in_or_out = 0;
+        private static bool muell = false; 
         public bool in0, in1, in2, in3, in4, in5, in6, in7;
         public int id, prozessnr;
         protected ObservableCollection<bool> input;
@@ -87,7 +88,7 @@ namespace Error_NameNotFound.Model
             }
             if (merke)
             {
-                LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in0 = true;
+                Inenabled(innr, inid) = true;
                 connections.Add(outid);
                 connections.Add(outnr);
                 connections.Add(inid);
@@ -97,6 +98,30 @@ namespace Error_NameNotFound.Model
             }
             ChangeColor();
             return false;
+        }
+        public static ref bool Inenabled(int innr,int inid)
+        {
+            switch (innr)
+            {
+                case 0:
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in0;
+                case 1:
+                   return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in1;
+                case 2:
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in2;
+                case 3:
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in3;
+                case 4:
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in4;
+                case 5:
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in5;
+                case 6:
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in6;
+                case 7:
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in7;
+                default:
+                    return ref muell;
+            }
         }
 
         public void DelConnections(int iid, int inr)

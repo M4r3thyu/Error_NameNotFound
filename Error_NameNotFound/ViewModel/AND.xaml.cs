@@ -106,132 +106,30 @@ namespace Error_NameNotFound
 
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.in_or_out)
-            {
-                case 0:
-                    LogicGates.inid = id;
-                    LogicGates.innr = 0;
-                    if(!LogicGates.gates_logic.FirstOrDefault(c =>c.id==id).in0)
-                    {
-                        LogicGates.in_or_out = 2;
-                        input0.Background = System.Windows.Media.Brushes.Yellow;
-                    }
-                    
-                    break;
-                case 1:                 //output id             inportid  inportnr  ouportnr     
-                    if (!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).in0)
-                    {
-                        LogicGates.inid = id;
-                        LogicGates.innr = 0;
-                        var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
-                        if (temp != null)
-                        {
-                            temp.Connection();
-                        }
-                    }
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.in_or_out = 0;
-                    break;
-                default:
-                    LogicGates.in_or_out = 0;
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
-                    break;
-            }
+            bool success = Inputbutton_vm.Input_Click(id, 0);
+            if (success)
+                input0.Background = System.Windows.Media.Brushes.Yellow;
         }
 
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.in_or_out)
-            {
-                case 0:
-                        LogicGates.inid = id;
-                        LogicGates.innr = 1;
-                    if (!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).in1)
-                    {
-                        LogicGates.in_or_out = 2;
-                        input1.Background = System.Windows.Media.Brushes.Yellow;
-                    }
-                    break;
-                case 1:
-                    if (!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).in1)
-                    {
-                        LogicGates.inid = id;
-                        LogicGates.innr = 1;
-                        var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
-                        if (temp != null)
-                        {
-                            temp.Connection();
-                        }
-                    }
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.in_or_out = 0;
-                    break;
-                default:
-                    LogicGates.in_or_out = 0;
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
-                    break;
-            }
+            bool success = Inputbutton_vm.Input_Click(id, 1);
+            if (success)
+                input1.Background = System.Windows.Media.Brushes.Yellow;
         }
 
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.in_or_out)
-            {
-                case 0:
-                    LogicGates.outid = id;
-                    LogicGates.outnr = 0;
-                    LogicGates.in_or_out = 1;
-                    output0.Background = System.Windows.Media.Brushes.Yellow;
-                    break;
-                case 2:
-                    LogicGates.outid = id;
-                    LogicGates.outnr = 0;
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
-                    if (temp != null)
-                    {
-                        bool ant = temp.Connection();
-                        
-                            LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
-                    }
-                    LogicGates.in_or_out = 0;
-                    break;
-                default:
-                    LogicGates.in_or_out = 0;
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    break;
-            }
+            bool sucess = Outputbutton_vm.Output_Click(id, 0);
+            if (sucess)
+                output0.Background = System.Windows.Media.Brushes.Yellow;
+
         }
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
-            switch (LogicGates.in_or_out)
-            {
-                case 0:
-                    LogicGates.outid = id;
-                    LogicGates.outnr = 1;
-                    LogicGates.in_or_out = 1;
-                    output1.Background = System.Windows.Media.Brushes.Yellow;
-                    break;
-                case 2:
-                    LogicGates.outid = id;
-                    LogicGates.outnr = 1;
-                    var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid);
-                    if (temp != null)
-                    {
-                        bool ant = temp.Connection();
-                        if (!ant)
-                            LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
-                    }
-                    LogicGates.in_or_out = 0;
-                    break;
-                default:
-                    LogicGates.in_or_out = 0;
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    break;
-            }
+            bool sucess = Outputbutton_vm.Output_Click(id, 1);
+            if (sucess)
+                output1.Background = System.Windows.Media.Brushes.Yellow;
         }
 
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
