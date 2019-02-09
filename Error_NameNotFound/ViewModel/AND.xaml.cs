@@ -23,7 +23,7 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class AND : UserControl
     {
-        private static int anzahl = 0;
+        //private static int anzahl = 0;
         //private string imagename;
         private int id;
         private And l_and;
@@ -32,10 +32,9 @@ namespace Error_NameNotFound
 
             InitializeComponent();
             id = 0;
-            anzahl++;
+            //anzahl++;
             Name = "ANDUI";
             //      imagename = "ANDUI" + Convert.ToString(id);
-
         }
         public AND(int id) : this()
         {
@@ -102,7 +101,6 @@ namespace Error_NameNotFound
             }
             e.Handled = true;
         }
-
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
             bool success = Inputbutton_vm.Input_Click(id, 0);

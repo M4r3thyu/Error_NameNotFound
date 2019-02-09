@@ -36,7 +36,6 @@ namespace Error_NameNotFound
         {
             InitializeComponent();
             GetCanvas = Workspace;
-            previewImage = null;
         }
         public static void Setcurrentgate(int id)
         {
@@ -64,13 +63,25 @@ namespace Error_NameNotFound
             }
             currentGate++;
         }
+        private void Button_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LogicButton _button = new LogicButton(id);
+            id++;
+            _button.Name = "ButtonUI";
+            gates_UI.Add(_button);
+            if (gates_UI[currentGate] != null)
+            {
+                DragDrop.DoDragDrop(gates_UI[currentGate], gates_UI[currentGate], DragDropEffects.Copy);
+                gateFromButton = true;
+            }
+            currentGate++;
+        }
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
         {
             if (GateDelete)
             {
                     Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
             }
-
         }
         private void canvas_MouseLeave(object sender, MouseEventArgs e)
         {
@@ -84,11 +95,6 @@ namespace Error_NameNotFound
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
-
-            //if (previousPreviewImage != null)
-            //{
-            //    Workspace.Children.Remove(previousPreviewImage);
-            //}
             if (e.Data.GetDataPresent("Object"))
             {
                 // These Effects values are used in the drag source's
@@ -128,16 +134,11 @@ namespace Error_NameNotFound
         }
         private void canvas_Drop(object sender, DragEventArgs e)
         {
-            //if (previousPreviewImage != null)
-            //{
-            //    Workspace.Children.Remove(previousPreviewImage);
-            //}
             Workspace.Children.Remove(previewImage);
             previewImage = null;
             Canvas _canvas = (Canvas)sender;
             if (_canvas != null && gates_UI[currentGate] != null)
-            {
-                
+            {               
                 if (gateFromButton)
                 {
                     currentGate = id - 1;
@@ -170,7 +171,6 @@ namespace Error_NameNotFound
                         e.Effects = DragDropEffects.Move;
                     }
                 }
-
             }
         }
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
@@ -193,16 +193,13 @@ namespace Error_NameNotFound
             LogicGates.Remove_connections(currentGate);
             LogicGates.gates_logic.Remove(temp);
             LogicGates.in_or_out = 0;
-
         }
-
         private void Print(object sender, RoutedEventArgs e)
         {
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() == true)
             { dialog.PrintVisual(Workspace, "Workspace"); }
         }
-
         private void Prozess_Button(object sender, RoutedEventArgs e)
         {
             Prozesstoken test = new Prozesstoken(prozessid);

@@ -74,6 +74,9 @@
     <Compile Include="ViewModel\Delete_Button.cs" />
     <Compile Include="ViewModel\Inputbutton_vm.cs" />
     <Compile Include="ViewModel\Load_Button_vm.cs" />
+    <Compile Include="ViewModel\LogicButton.xaml.cs">
+      <DependentUpon>LogicButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>
@@ -83,9 +86,6 @@
     </Compile>
     <Compile Include="ViewModel\FF_DC_c_e.xaml.cs">
       <DependentUpon>FF_DC_c_e.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Button.xaml.cs">
-      <DependentUpon>Button.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Calliper.xaml.cs">
       <DependentUpon>Calliper.xaml</DependentUpon>
@@ -325,10 +325,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewModel\FF_DC_c_e.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ViewModel\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -584,6 +580,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewModel\LogicButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewModel\Low.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -764,6 +764,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Delete-Cursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\LogicButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
