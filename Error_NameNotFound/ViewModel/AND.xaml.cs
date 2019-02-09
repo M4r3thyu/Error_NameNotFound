@@ -87,15 +87,14 @@ namespace Error_NameNotFound
         {
             base.OnGiveFeedback(e);
             // These Effects values are set in the drop target's
-            // DragOver event handler.
-            //if (e.Effects.HasFlag(DragDropEffects.Copy) | e.Effects.HasFlag(DragDropEffects.Move))
-            //{
-            //    Mouse.SetCursor(new Cursor(Application.GetResourceStream(new Uri("Views/And.cur", UriKind.Relative)).Stream));
-            //}
-            if (e.Effects.HasFlag(DragDropEffects.Copy)) ;
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
+            // DragOver event handler.     
+            if (e.Effects.HasFlag(DragDropEffects.Move))
             {
                 Mouse.SetCursor(Cursors.Hand);
+            }
+            else if (e.Effects.HasFlag(DragDropEffects.Copy))
+            {
+                Mouse.SetCursor(Cursors.Cross);
             }
             else
             {

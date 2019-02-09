@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using Error_NameNotFound.Model;
+using System.Threading;
 
 namespace Error_NameNotFound
 {
@@ -29,11 +30,13 @@ namespace Error_NameNotFound
         public static int currentGate = 0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
         private static bool gateFromButton = true, gateDelete = false;
-        private Image previousPreviewImage;
+        private Image previewImage;
+        private Point dropPoint;
         public MainWindow()
         {
             InitializeComponent();
             GetCanvas = Workspace;
+            previewImage = null;
         }
         public static void Setcurrentgate(int id)
         {
@@ -65,27 +68,27 @@ namespace Error_NameNotFound
         {
             if (GateDelete)
             {
-                if (this.Cursor != Cursors.Wait)
                     Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
             }
 
         }
         private void canvas_MouseLeave(object sender, MouseEventArgs e)
         {
+            Workspace.Children.Remove(previewImage);
+            previewImage = null;
             if (GateDelete)
             {
-                if (this.Cursor != Cursors.Wait)
-
                     Mouse.OverrideCursor = null;
             }
 
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
-            if (previousPreviewImage != null)
-            {
-                Workspace.Children.Remove(previousPreviewImage);
-            }
+
+            //if (previousPreviewImage != null)
+            //{
+            //    Workspace.Children.Remove(previousPreviewImage);
+            //}
             if (e.Data.GetDataPresent("Object"))
             {
                 // These Effects values are used in the drag source's
@@ -99,33 +102,42 @@ namespace Error_NameNotFound
                     e.Effects = DragDropEffects.Move;
                 }
             }
-            Point previewDropPoint = e.GetPosition(Workspace);
-            previewDropPoint.X = (Convert.ToInt32(previewDropPoint.X) / 25) * 25.0;
-            previewDropPoint.Y = (Convert.ToInt32(previewDropPoint.Y) / 25) * 25.0;
-            BitmapImage previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
-            Image previewImage = new Image();
-            previewImage.Source = previewBitmap;
-            previewImage.Height = 100;
-            previewImage.Width = 100;
-            Canvas.SetLeft(previewImage, previewDropPoint.X);
-            Canvas.SetTop(previewImage, previewDropPoint.Y);
-            Workspace.Children.Add(previewImage);
-            previousPreviewImage = previewImage;
 
+            dropPoint = e.GetPosition(Workspace);
+            dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
+            dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
+            if (previewImage == null)
+            {
+                BitmapImage previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
+                previewImage = new Image();
+                previewImage.Source = previewBitmap;
+                previewImage.Height = 100;
+                previewImage.Width = 100;
+                Canvas.SetLeft(previewImage, dropPoint.X);
+                Canvas.SetTop(previewImage, dropPoint.Y);
+                Workspace.Children.Add(previewImage);
+            }
+            else
+            {
+                Canvas.SetLeft(previewImage, dropPoint.X);
+                Canvas.SetTop(previewImage, dropPoint.Y);
+            }
+
+            
+            
         }
-
         private void canvas_Drop(object sender, DragEventArgs e)
         {
-            if (previousPreviewImage != null)
-            {
-                Workspace.Children.Remove(previousPreviewImage);
-            }
+            //if (previousPreviewImage != null)
+            //{
+            //    Workspace.Children.Remove(previousPreviewImage);
+            //}
+            Workspace.Children.Remove(previewImage);
+            previewImage = null;
             Canvas _canvas = (Canvas)sender;
             if (_canvas != null && gates_UI[currentGate] != null)
             {
-                Point dropPoint = e.GetPosition(Workspace);
-                dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
-                dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
+                
                 if (gateFromButton)
                 {
                     currentGate = id - 1;
