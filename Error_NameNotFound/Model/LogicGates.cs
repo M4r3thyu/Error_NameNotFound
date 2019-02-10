@@ -93,7 +93,10 @@ namespace Error_NameNotFound.Model
                 connections.Add(outnr);
                 connections.Add(inid);
                 connections.Add(innr);
-                ChangeOutput();
+                prozessnr = MainWindow.prozessid;
+                Prozesstoken start = new Prozesstoken(MainWindow.prozessid);
+                MainWindow.prozessid++;
+                // ChangeOutput();
                 return true;
             }
             ChangeColor();

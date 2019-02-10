@@ -24,6 +24,7 @@ namespace Error_NameNotFound
     public partial class LogicButton : UserControl
     {
         private int id;
+        private l_Button l_button;
                 //private And l_and;
         public LogicButton()
         {
@@ -34,9 +35,10 @@ namespace Error_NameNotFound
         public LogicButton(int id) : this()
         {
             this.id = id;
+            l_button = new l_Button(id, this);
             //l_and = new And(2, id, this);
-            //LogicGates.gates_logic.Add(l_and);
-            //ChangeColorInOut();
+            LogicGates.gates_logic.Add(l_button);
+            ChangeColorInOut();
         }
         public int Id
         {
@@ -89,6 +91,31 @@ namespace Error_NameNotFound
                 Mouse.SetCursor(Cursors.No);
             }
             e.Handled = true;
+        }
+
+        private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            l_button.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
+           
+        }
+
+        private void Output0_Click(object sender, RoutedEventArgs e)
+        {
+            bool sucess = Outputbutton_vm.Output_Click(id, 0);
+            if (sucess)
+                output0.Background = System.Windows.Media.Brushes.Yellow;
+        }
+
+        public void ChangeColorInOut()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                // Set property or change UI compomponents.              
+                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
+                    output0.Background = System.Windows.Media.Brushes.Red;
+                else
+                    output0.Background = System.Windows.Media.Brushes.MediumPurple;
+            });
         }
     }
 }

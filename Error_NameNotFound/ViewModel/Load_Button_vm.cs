@@ -71,13 +71,17 @@ namespace Error_NameNotFound.ViewModel
                             {
                                 case "ANDUI":
                                     AND _and = new AND(MainWindow.id);
-                                    MainWindow.id++;
                                     MainWindow.gates_UI.Add(_and);
-
+                                    break;
+                                case "ButtonUI":
+                                    LogicButton _logicbutton = new LogicButton(MainWindow.id);
+                                    MainWindow.gates_UI.Add(_logicbutton);
                                     break;
                                 default:
                                     break;
                             }
+                            
+                            MainWindow.id++;
                             MainWindow.GetCanvas.Children.Add(MainWindow.gates_UI[gateindex]);
                             Canvas.SetLeft(MainWindow.gates_UI[gateindex], canvas_Left);
                             Canvas.SetTop(MainWindow.gates_UI[gateindex], canvas_Top);

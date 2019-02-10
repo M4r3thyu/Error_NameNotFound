@@ -200,10 +200,5 @@ namespace Error_NameNotFound
             if (dialog.ShowDialog() == true)
             { dialog.PrintVisual(Workspace, "Workspace"); }
         }
-        private void Prozess_Button(object sender, RoutedEventArgs e)
-        {
-            Prozesstoken test = new Prozesstoken(prozessid);
-            prozessid++;
-        }
     }
 }

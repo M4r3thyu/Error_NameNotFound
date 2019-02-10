@@ -651,7 +651,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\And.cs" />
-    <Compile Include="Model\Button.cs" />
+    <Compile Include="Model\l_Button.cs" />
     <Compile Include="Model\Calliper.cs" />
     <Compile Include="Model\FF_DC_c.cs" />
     <Compile Include="Model\FF_DC_c_e.cs" />
