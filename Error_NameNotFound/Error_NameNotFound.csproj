@@ -650,7 +650,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\And.cs" />
+    <Compile Include="Model\L_And.cs" />
     <Compile Include="Model\l_Button.cs" />
     <Compile Include="Model\Calliper.cs" />
     <Compile Include="Model\FF_DC_c.cs" />

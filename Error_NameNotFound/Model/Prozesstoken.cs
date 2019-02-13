@@ -8,6 +8,7 @@ namespace Error_NameNotFound.Model
 {
     class Prozesstoken
     {
+        private bool same;
         private Thread t;
         private int timeout, prozessnr;
         public Prozesstoken(int prozessnr)
@@ -22,6 +23,7 @@ namespace Error_NameNotFound.Model
             timeout = 10;
             while (true)
             {
+                same = true;
                 var temp2 = LogicGates.gates_logic.FindAll(c => c.prozessnr == prozessnr);
                 if (temp2 != null)
                 {
@@ -43,9 +45,12 @@ namespace Error_NameNotFound.Model
                                     temp1.Inputset(temp2[x].Output[LogicGates.connections[i + 1]], LogicGates.connections[i + 3]);
                                     temp1.prozessnr = prozessnr;
                                 }
+                                if (temp1 == temp2[x])
+                                    same = false;
                             }
                         }
-                        temp2[x].prozessnr = 0;
+                        if(same)
+                            temp2[x].prozessnr = 0;
                     }
                 }
                 else

@@ -9,10 +9,10 @@ using System.Drawing;
 
 namespace Error_NameNotFound.Model
 {
-    class And : LogicGates
+    class L_And : LogicGates
     {
         public AND v_AND;
-        public And(int input, int id, AND v_AND) : base(input, 2, id)      //Output[0] = Normal [1] = Negiert
+        public L_And(int input, int id, AND v_AND) : base(input, 2, id)      //Output[0] = Normal [1] = Negiert
         {
             this.v_AND = v_AND;
             output[0] = !output[1];                              //output[0] = Q output[1] = !Q

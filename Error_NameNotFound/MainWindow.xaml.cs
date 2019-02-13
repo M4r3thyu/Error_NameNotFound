@@ -50,12 +50,9 @@ namespace Error_NameNotFound
             get => gateDelete;
             set => gateDelete = value;
         }
-        private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void GeneratePreview()
         {
-            AND _and = new AND(id);
             id++;
-            _and.Name = "ANDUI";
-            gates_UI.Add(_and);
             if (gates_UI[currentGate] != null)
             {
                 DragDrop.DoDragDrop(gates_UI[currentGate], gates_UI[currentGate], DragDropEffects.Copy);
@@ -63,18 +60,17 @@ namespace Error_NameNotFound
             }
             currentGate++;
         }
+        private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            AND _and = new AND(id);
+            gates_UI.Add(_and);
+            GeneratePreview();
+        }
         private void Button_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             LogicButton _button = new LogicButton(id);
-            id++;
-            _button.Name = "ButtonUI";
             gates_UI.Add(_button);
-            if (gates_UI[currentGate] != null)
-            {
-                DragDrop.DoDragDrop(gates_UI[currentGate], gates_UI[currentGate], DragDropEffects.Copy);
-                gateFromButton = true;
-            }
-            currentGate++;
+            GeneratePreview();
         }
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
         {

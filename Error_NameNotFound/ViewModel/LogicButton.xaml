@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:Error_NameNotFound.ViewModel"
              xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="100">
+             d:DesignHeight="50" d:DesignWidth="50">
     <Grid>
-        <Image Width="100" Height="100" Name="ButtonUI" Source="/Error_NameNotFound;component/Pictures/LogicButton.png" MouseDown="ButtonUI_MouseDown"/>
-        <Button Width="10" Height="10" Name="output0" Click="Output0_Click" Margin="97,45,-7,45"/>
+        <Image Width="50" Height="50" Name="ButtonUI" Source="/Error_NameNotFound;component/Pictures/LogicButton.png" MouseDown="ButtonUI_MouseDown"/>
+        <Button Width="10" Height="10" Name="output0" Click="Output0_Click" Margin="45,20,-5,20"/>
     </Grid>
 </UserControl>

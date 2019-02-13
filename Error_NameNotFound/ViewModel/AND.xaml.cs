@@ -26,7 +26,7 @@ namespace Error_NameNotFound
         //private static int anzahl = 0;
         //private string imagename;
         private int id;
-        private And l_and;
+        private L_And l_and;
         public AND()
         {
 
@@ -41,7 +41,7 @@ namespace Error_NameNotFound
             this.id = id;
             //     imagename = "ANDUI" + Convert.ToString(id);
             //        ANDUI.Name = imagename;
-            l_and = new And(2, id, this);
+            l_and = new L_And(2, id, this);
             LogicGates.gates_logic.Add(l_and);
             ChangeColorInOut();
         }

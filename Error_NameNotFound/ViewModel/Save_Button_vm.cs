@@ -44,7 +44,7 @@ namespace Error_NameNotFound.ViewModel
                     FileStream fs = File.Open(dialog.FileName, FileMode.Create);
                     // XamlWriter.Save(Workspace, fs);
                     fs.Close();
-                    string bausteine = " |  index left top | ";
+                    string bausteine = " |  index left top Name | ";
                     for (int i = 0; i < LogicGates.gates_logic.Count; i++)
                     {
                         var temp = MainWindow.gates_UI[i];
