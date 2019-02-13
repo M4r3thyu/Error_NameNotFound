@@ -24,7 +24,7 @@ namespace Error_NameNotFound
     public partial class LogicButton : UserControl
     {
         private int id;
-        private l_Button l_button;
+        private L_Button l_button;
                 //private And l_and;
         public LogicButton()
         {
@@ -35,7 +35,7 @@ namespace Error_NameNotFound
         public LogicButton(int id) : this()
         {
             this.id = id;
-            l_button = new l_Button(id, this);
+            l_button = new L_Button(id, this);
             //l_and = new And(2, id, this);
             LogicGates.gates_logic.Add(l_button);
             ChangeColorInOut();
