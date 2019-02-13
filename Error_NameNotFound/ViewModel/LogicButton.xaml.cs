@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Error_NameNotFound.ViewModel;
 using Error_NameNotFound.Model;
 using System.Drawing;
+using Error_NameNotFound.ViewModel.Outsourced_Drag_and_drop_funktions;
 
 namespace Error_NameNotFound
 {
@@ -46,9 +47,7 @@ namespace Error_NameNotFound
         }
         public double GetANDUI_Height()
         {
-            double heightsave;
-            heightsave = ButtonUI.Height;
-            return heightsave;
+            return ButtonUI.Height;
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -68,44 +67,42 @@ namespace Error_NameNotFound
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            if (MainWindow.GateDelete)
-            {
-                MainWindow.RemoveGate(id);
-            }
+            Outsourced_d_and_d.OnMouseLeftButtonDown(id);
+            //if (MainWindow.GateDelete)
+            //{
+            //    MainWindow.RemoveGate(id);
+            //}
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
             // These Effects values are set in the drop target's
             // DragOver event handler.     
-            if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
-            else if (e.Effects.HasFlag(DragDropEffects.Copy))
-            {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
-            e.Handled = true;
+            Outsourced_d_and_d.OnGiveFeedback(e);
+            //if (e.Effects.HasFlag(DragDropEffects.Move))
+            //{
+            //    Mouse.SetCursor(Cursors.Hand);
+            //}
+            //else if (e.Effects.HasFlag(DragDropEffects.Copy))
+            //{
+            //    Mouse.SetCursor(Cursors.Cross);
+            //}
+            //else
+            //{
+            //    Mouse.SetCursor(Cursors.No);
+            //}
+            //e.Handled = true;
         }
-
         private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
         {
             l_button.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
-           
         }
-
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             bool sucess = Outputbutton_vm.Output_Click(id, 0);
             if (sucess)
                 output0.Background = System.Windows.Media.Brushes.Yellow;
         }
-
         public void ChangeColorInOut()
         {
             Dispatcher.Invoke(() =>

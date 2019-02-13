@@ -77,6 +77,7 @@
     <Compile Include="ViewModel\LogicButton.xaml.cs">
       <DependentUpon>LogicButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Outsourced_Drag_and_drop_funktions\Outsourced_d_and_d.cs" />
     <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>

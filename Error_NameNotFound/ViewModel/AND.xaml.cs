@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Error_NameNotFound.ViewModel;
 using Error_NameNotFound.Model;
 using System.Drawing;
+using Error_NameNotFound.ViewModel.Outsourced_Drag_and_drop_funktions;
 
 namespace Error_NameNotFound
 {
@@ -51,11 +52,7 @@ namespace Error_NameNotFound
         }
         public double GetANDUI_Height()
         {
-            double heightsave;
-            //ANDUI.Name = "ANDUI";
-            heightsave = ANDUI.Height;
-            //  ANDUI.Name = imagename;
-            return heightsave;
+            return ANDUI.Height;
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -65,11 +62,9 @@ namespace Error_NameNotFound
                 MainWindow.Setcurrentgate(id);
                 MainWindow.SetGateFromButton(false);
                 // Package the data.
-                //  ANDUI.Name = "ANDUI";
                 DataObject data = new DataObject();
                 data.SetData("Double", ANDUI.Height);
                 data.SetData("Object", this);
-                //  ANDUI.Name = imagename;
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
@@ -77,29 +72,31 @@ namespace Error_NameNotFound
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            if (MainWindow.GateDelete)
-            {
-                MainWindow.RemoveGate(id);
-            }
+            Outsourced_d_and_d.OnMouseLeftButtonDown(id);
+            //if (MainWindow.GateDelete)
+            //{
+            //    MainWindow.RemoveGate(id);
+            //}
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
             // These Effects values are set in the drop target's
             // DragOver event handler.     
-            if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
-            else if (e.Effects.HasFlag(DragDropEffects.Copy))
-            {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
-            e.Handled = true;
+            Outsourced_d_and_d.OnGiveFeedback(e);
+            //if (e.Effects.HasFlag(DragDropEffects.Move))
+            //{
+            //    Mouse.SetCursor(Cursors.Hand);
+            //}
+            //else if (e.Effects.HasFlag(DragDropEffects.Copy))
+            //{
+            //    Mouse.SetCursor(Cursors.Cross);
+            //}
+            //else
+            //{
+            //    Mouse.SetCursor(Cursors.No);
+            //}
+            //e.Handled = true;
         }
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
@@ -107,20 +104,17 @@ namespace Error_NameNotFound
             if (success)
                 input0.Background = System.Windows.Media.Brushes.Yellow;
         }
-
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
             bool success = Inputbutton_vm.Input_Click(id, 1);
             if (success)
                 input1.Background = System.Windows.Media.Brushes.Yellow;
         }
-
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             bool sucess = Outputbutton_vm.Output_Click(id, 0);
             if (sucess)
                 output0.Background = System.Windows.Media.Brushes.Yellow;
-
         }
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
@@ -128,17 +122,14 @@ namespace Error_NameNotFound
             if (sucess)
                 output1.Background = System.Windows.Media.Brushes.Yellow;
         }
-
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
         }
-
         private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
         }
-
         public void ChangeColorInOut()
         {
             Dispatcher.Invoke(() =>

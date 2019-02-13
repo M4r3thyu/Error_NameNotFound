@@ -87,7 +87,6 @@ namespace Error_NameNotFound
             {
                     Mouse.OverrideCursor = null;
             }
-
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
@@ -104,7 +103,6 @@ namespace Error_NameNotFound
                     e.Effects = DragDropEffects.Move;
                 }
             }
-
             dropPoint = e.GetPosition(Workspace);
             dropPoint.X = (Convert.ToInt32(dropPoint.X) / 25) * 25.0;
             dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
@@ -124,9 +122,6 @@ namespace Error_NameNotFound
                 Canvas.SetLeft(previewImage, dropPoint.X);
                 Canvas.SetTop(previewImage, dropPoint.Y);
             }
-
-            
-            
         }
         private void canvas_Drop(object sender, DragEventArgs e)
         {
@@ -171,14 +166,7 @@ namespace Error_NameNotFound
         }
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (GateDelete)
-            {
-                GateDelete = false;
-            }
-            else
-            {
-                GateDelete = true;
-            }
+            GateDelete = !GateDelete;
         }
         public static void RemoveGate(int id)
         {
