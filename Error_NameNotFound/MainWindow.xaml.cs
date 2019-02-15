@@ -29,6 +29,7 @@ namespace Error_NameNotFound
         public static List<UserControl> gates_UI = new List<UserControl>();
         public static int currentGate = 0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
+        private static string gateType="AND";
         private static bool gateFromButton = true, gateDelete = false;
         private Image previewImage;
         private Point dropPoint;
@@ -50,6 +51,11 @@ namespace Error_NameNotFound
             get => gateDelete;
             set => gateDelete = value;
         }
+        public static string GateType
+        {
+            get => gateType;
+            set => gateType = value;
+        }
         private void GeneratePreview()
         {
             id++;
@@ -63,12 +69,14 @@ namespace Error_NameNotFound
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AND _and = new AND(id);
+            gateType = "AND";
             gates_UI.Add(_and);
             GeneratePreview();
         }
-        private void Button_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LogicButton_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             LogicButton _button = new LogicButton(id);
+            gateType = "LogicButton";
             gates_UI.Add(_button);
             GeneratePreview();
         }
@@ -108,7 +116,19 @@ namespace Error_NameNotFound
             dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
             if (previewImage == null)
             {
-                BitmapImage previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
+                BitmapImage previewBitmap;
+                switch (gateType)
+                {
+                    case "AND":
+                        previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
+                        break;
+                    case "LogicButton":
+                        previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton.png", UriKind.Absolute));
+                        break;
+                    default:
+                        previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
+                        break;               
+                }
                 previewImage = new Image();
                 previewImage.Source = previewBitmap;
                 previewImage.Height = 100;

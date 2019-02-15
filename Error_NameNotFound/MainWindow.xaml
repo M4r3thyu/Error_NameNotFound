@@ -50,7 +50,7 @@
         <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="3" Background="DarkSlateGray"/>
 
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
-            <Button Grid.Row="2" Grid.Column="0" Content="Button" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Button_Button_PreviewMouseLeftButtonDown"  Name="Button_button" Height="25" BorderBrush="LightSlateGray"/>
+            <Button Grid.Row="2" Grid.Column="0" Content="Button" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="LogicButton_Button_PreviewMouseLeftButtonDown"  Name="Button_button" Height="25" BorderBrush="LightSlateGray"/>
             <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="AND_Button_PreviewMouseLeftButtonDown"  Name="AND_button" Height="25" BorderBrush="LightSlateGray"/>
             <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" Name="OR_button" Height="25" BorderBrush="LightSlateGray"/>
         </StackPanel>

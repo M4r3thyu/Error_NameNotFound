@@ -61,6 +61,7 @@ namespace Error_NameNotFound
             {
                 MainWindow.Setcurrentgate(id);
                 MainWindow.SetGateFromButton(false);
+                MainWindow.GateType = "AND";
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", ANDUI.Height);

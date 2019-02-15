@@ -56,6 +56,7 @@ namespace Error_NameNotFound
             {
                 MainWindow.Setcurrentgate(id);
                 MainWindow.SetGateFromButton(false);
+                MainWindow.GateType = "LogicButton";
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", ButtonUI.Height);
