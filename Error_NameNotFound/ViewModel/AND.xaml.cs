@@ -82,22 +82,7 @@ namespace Error_NameNotFound
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
-            // These Effects values are set in the drop target's
-            // DragOver event handler.     
             Outsourced_d_and_d.OnGiveFeedback(e);
-            //if (e.Effects.HasFlag(DragDropEffects.Move))
-            //{
-            //    Mouse.SetCursor(Cursors.Hand);
-            //}
-            //else if (e.Effects.HasFlag(DragDropEffects.Copy))
-            //{
-            //    Mouse.SetCursor(Cursors.Cross);
-            //}
-            //else
-            //{
-            //    Mouse.SetCursor(Cursors.No);
-            //}
-            //e.Handled = true;
         }
         private void Input0_Click(object sender, RoutedEventArgs e)
         {

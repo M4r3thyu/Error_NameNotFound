@@ -29,7 +29,7 @@ namespace Error_NameNotFound
         public static List<UserControl> gates_UI = new List<UserControl>();
         public static int currentGate = 0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
-        private static string gateType="AND";
+        private static string gateType;
         private static bool gateFromButton = true, gateDelete = false;
         private Image previewImage;
         private Point dropPoint;
