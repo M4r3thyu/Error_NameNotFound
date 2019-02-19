@@ -18,14 +18,14 @@
         <Button Height="80" Width="70" Margin="10,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="../Error_NameNotFound;component/Designs/And.png" HorizontalAlignment="Center"></Image>
+                    <Image Source="../Error_NameNotFound;component/Designs/elements/andConnectors2.png" HorizontalAlignment="Center"></Image>
                 </ControlTemplate>
             </Button.Template>
         </Button>
         <Button Height="80" Width="70" Margin="10,138,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="../Error_NameNotFound;component/Designs/Or.png" HorizontalAlignment="Center"></Image>
+                    <Image Source="../Error_NameNotFound;component/Designs/elements/orConnectors2.png" HorizontalAlignment="Center"></Image>
                 </ControlTemplate>
             </Button.Template>
 
