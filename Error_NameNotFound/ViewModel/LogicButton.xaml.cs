@@ -15,39 +15,28 @@ using System.Windows.Shapes;
 using Error_NameNotFound.ViewModel;
 using Error_NameNotFound.Model;
 using System.Drawing;
-using Error_NameNotFound.ViewModel.Outsourced_Drag_and_drop_funktions;
+using System.Windows.Threading;
 
 namespace Error_NameNotFound
 {
     /// <summary>
     /// Interaction logic for LogicButton.xaml
     /// </summary>
-    public partial class LogicButton : UserControl
+    public partial class LogicButton : Logicgatescontrol
     {
-        private int id;
         private L_Button l_button;
-                //private And l_and;
-        public LogicButton()
+        public LogicButton() :base()
         {
             InitializeComponent();
-            id = 0;
             Name = "ButtonUI";
         }
-        public LogicButton(int id) : this()
+        public LogicButton(int id) : base(id)
         {
-            this.id = id;
+            InitializeComponent();
+            Name = "ButtonUI";
             l_button = new L_Button(id, this);
-            //l_and = new And(2, id, this);
             LogicGates.gates_logic.Add(l_button);
             ChangeColorInOut();
-        }
-        public int Id
-        {
-            get => id;
-        }
-        public double GetANDUI_Height()
-        {
-            return ButtonUI.Height;
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -65,35 +54,6 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            Outsourced_d_and_d.OnMouseLeftButtonDown(id);
-            //if (MainWindow.GateDelete)
-            //{
-            //    MainWindow.RemoveGate(id);
-            //}
-        }
-        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
-        {
-            base.OnGiveFeedback(e);
-            // These Effects values are set in the drop target's
-            // DragOver event handler.     
-            Outsourced_d_and_d.OnGiveFeedback(e);
-            //if (e.Effects.HasFlag(DragDropEffects.Move))
-            //{
-            //    Mouse.SetCursor(Cursors.Hand);
-            //}
-            //else if (e.Effects.HasFlag(DragDropEffects.Copy))
-            //{
-            //    Mouse.SetCursor(Cursors.Cross);
-            //}
-            //else
-            //{
-            //    Mouse.SetCursor(Cursors.No);
-            //}
-            //e.Handled = true;
-        }
         private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
         {
             l_button.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
@@ -104,7 +64,7 @@ namespace Error_NameNotFound
             if (sucess)
                 output0.Background = System.Windows.Media.Brushes.Yellow;
         }
-        public void ChangeColorInOut()
+        public override void ChangeColorInOut()
         {
             Dispatcher.Invoke(() =>
             {

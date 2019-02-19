@@ -30,7 +30,7 @@ namespace Error_NameNotFound
         public static int currentGate = 0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
         private static string gateType;
-        private static bool gateFromButton = true, gateDelete = false;
+        private static bool gateFromButton, gateDelete = false;
         private Image previewImage;
         private Point dropPoint;
         public MainWindow()
@@ -58,13 +58,12 @@ namespace Error_NameNotFound
         }
         private void GeneratePreview()
         {
+            gateFromButton = true;
             id++;
             if (gates_UI[currentGate] != null)
             {
                 DragDrop.DoDragDrop(gates_UI[currentGate], gates_UI[currentGate], DragDropEffects.Copy);
-                gateFromButton = true;
             }
-            currentGate++;
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

@@ -15,44 +15,28 @@ using System.Windows.Shapes;
 using Error_NameNotFound.ViewModel;
 using Error_NameNotFound.Model;
 using System.Drawing;
-using Error_NameNotFound.ViewModel.Outsourced_Drag_and_drop_funktions;
+using System.Windows.Threading;
 
 namespace Error_NameNotFound
 {
     /// <summary>
     /// Interaction logic for AND.xaml
     /// </summary>
-    public partial class AND : UserControl
+    public partial class AND : Logicgatescontrol
     {
-        //private static int anzahl = 0;
-        //private string imagename;
-        private int id;
         private L_And l_and;
-        public AND()
+        public AND() :base()
         {
-
             InitializeComponent();
-            id = 0;
-            //anzahl++;
             Name = "ANDUI";
-            //      imagename = "ANDUI" + Convert.ToString(id);
         }
-        public AND(int id) : this()
+        public AND(int id) : base(id)
         {
-            this.id = id;
-            //     imagename = "ANDUI" + Convert.ToString(id);
-            //        ANDUI.Name = imagename;
+            InitializeComponent();
+            Name = "ANDUI";
             l_and = new L_And(2, id, this);
             LogicGates.gates_logic.Add(l_and);
             ChangeColorInOut();
-        }
-        public int Id
-        {
-            get => id;
-        }
-        public double GetANDUI_Height()
-        {
-            return ANDUI.Height;
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -70,20 +54,7 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            Outsourced_d_and_d.OnMouseLeftButtonDown(id);
-            //if (MainWindow.GateDelete)
-            //{
-            //    MainWindow.RemoveGate(id);
-            //}
-        }
-        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
-        {
-            base.OnGiveFeedback(e);
-            Outsourced_d_and_d.OnGiveFeedback(e);
-        }
+
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
             bool success = Inputbutton_vm.Input_Click(id, 0);
@@ -116,7 +87,7 @@ namespace Error_NameNotFound
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
         }
-        public void ChangeColorInOut()
+        public override void ChangeColorInOut()
         {
             Dispatcher.Invoke(() =>
             {
