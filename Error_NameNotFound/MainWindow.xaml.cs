@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using Error_NameNotFound.Model;
+using Error_NameNotFound.ViewModel;
 using System.Threading;
 
 namespace Error_NameNotFound
@@ -26,7 +27,7 @@ namespace Error_NameNotFound
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static List<UserControl> gates_UI = new List<UserControl>();
+        public static List<Logicgatescontrol> gates_UI = new List<Logicgatescontrol>();
         public static int currentGate = 0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
         private static string gateType;
@@ -115,23 +116,29 @@ namespace Error_NameNotFound
             dropPoint.Y = (Convert.ToInt32(dropPoint.Y) / 25) * 25.0;
             if (previewImage == null)
             {
+                previewImage = new Image();
                 BitmapImage previewBitmap;
                 switch (gateType)
                 {
                     case "AND":
                         previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
+                        previewImage.Source = previewBitmap;
+                        previewImage.Height = 100;
+                        previewImage.Width = 100;
                         break;
                     case "LogicButton":
                         previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton.png", UriKind.Absolute));
+                        previewImage.Source = previewBitmap;
+                        previewImage.Height = 50;
+                        previewImage.Width = 50;
                         break;
                     default:
                         previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
+                        previewImage.Source = previewBitmap;
+                        previewImage.Height = 100;
+                        previewImage.Width = 100;
                         break;               
                 }
-                previewImage = new Image();
-                previewImage.Source = previewBitmap;
-                previewImage.Height = 100;
-                previewImage.Width = 100;
                 Canvas.SetLeft(previewImage, dropPoint.X);
                 Canvas.SetTop(previewImage, dropPoint.Y);
                 Workspace.Children.Add(previewImage);
