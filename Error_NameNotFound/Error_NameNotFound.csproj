@@ -71,6 +71,9 @@
     <Compile Include="Model\Gates\L_Register_ms.cs" />
     <Compile Include="Model\RelayCommand.cs" />
     <Compile Include="Model\Releasedate.cs" />
+    <Compile Include="ViewModel\Cable.xaml.cs">
+      <DependentUpon>Cable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Delete_Button.cs" />
     <Compile Include="ViewModel\Inputbutton_vm.cs" />
     <Compile Include="ViewModel\Load_Button_vm.cs" />
@@ -318,6 +321,10 @@
     <Compile Include="Views\Save_Button.xaml.cs">
       <DependentUpon>Save_Button.xaml</DependentUpon>
     </Compile>
+    <Page Include="ViewModel\Cable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ViewModel\FF_DC_c_e_s_r.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

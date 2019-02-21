@@ -60,6 +60,7 @@ namespace Error_NameNotFound
             bool success = Inputbutton_vm.Input_Click(id, 0);
             if (success)
                 input0.Background = System.Windows.Media.Brushes.Yellow;
+            StartCableDrag();
         }
         private void Input1_Click(object sender, RoutedEventArgs e)
         {

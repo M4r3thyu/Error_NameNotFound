@@ -61,5 +61,25 @@ namespace Error_NameNotFound.ViewModel
             e.Handled = true;
         }
         public virtual void ChangeColorInOut() { }
+        public void StartCableDrag()
+        {
+            MainWindow.CableDrag = true;
+            Cable _cable = new Cable();
+
+            DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
+        }
+        public void StartCableDrag(double X12, double Y12)
+        {
+            MainWindow.CableDrag = true;
+            Cable _cable = new Cable();
+
+            _cable.SetXY(X12, Y12, X12, Y12);
+            DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
+        }
+        public void StopCableDrag()
+        {
+
+        }
+
     }
 }
