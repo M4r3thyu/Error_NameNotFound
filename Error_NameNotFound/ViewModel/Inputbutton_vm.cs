@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Error_NameNotFound.ViewModel
 {
-    class Inputbutton_vm 
+    class Inputbutton_vm
     {
         public Inputbutton_vm() { }
         public static bool Input_Click(int id, int innr)
@@ -18,7 +18,7 @@ namespace Error_NameNotFound.ViewModel
                 case 0:
                     LogicGates.inid = id;
                     LogicGates.innr = innr;
-                    if (!LogicGates.Inenabled(innr,id))
+                    if (!LogicGates.Inenabled(innr, id))
                     {
                         LogicGates.in_or_out = 2;
                         return true;

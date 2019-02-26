@@ -16,12 +16,12 @@ namespace Error_NameNotFound.Model
         public static List<LogicGates> gates_logic = new List<LogicGates>();
         public static List<int> connections = new List<int>();
         public static int outid = 0, outnr = 0, inid = 0, innr = 0, in_or_out = 0;
-        private static bool muell = false; 
+        private static bool muell = false;
         public bool in0, in1, in2, in3, in4, in5, in6, in7;
         public int id, prozessnr;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
-        public LogicGates(int input, int output, int id)
+        public LogicGates(int input, int output, int id)        //Konstruktor benötigt eine inputanzahl, eine outputanzahl, eine einzigartige id
         {
             prozessnr = 0;
             in0 = false;
@@ -35,11 +35,11 @@ namespace Error_NameNotFound.Model
             this.id = id;
             this.input = new ObservableCollection<bool>();
             this.output = new ObservableCollection<bool>();
-            for (int i = 0; i < input; i++)
+            for (int i = 0; i < input; i++)                     //setze alle inputs nach anzahl inputs standartmäßig auf false
             {
                 this.input.Add(false);
             }
-            for (int i = 0; i < output; i++)
+            for (int i = 0; i < output; i++)                    //setze alle outputs nach anzahl outputs standartmäßig auf false
             {
                 this.output.Add(false);
             }
@@ -70,12 +70,11 @@ namespace Error_NameNotFound.Model
             set
             {
                 output = value;
-                //gates_logic[connectorid].Input[inputid] = output[outputid];
                 NotifyPropertyChanged();
             }
         }
 
-        public bool Connection()
+        public bool Connection()                                    // erstelle eine verbindung zwischen Bausteinen, falls der eingang noch keine verbindung hat
         {
             bool merke = true;
             for (int i = 2; i < connections.Count; i += 4)
@@ -89,10 +88,10 @@ namespace Error_NameNotFound.Model
             if (merke)
             {
                 Inenabled(innr, inid) = true;
-                connections.Add(outid);
-                connections.Add(outnr);
-                connections.Add(inid);
-                connections.Add(innr);
+                connections.Add(outid); //      0 = connection output id = outid
+                connections.Add(outnr); //      1 = connection output nr = outnr
+                connections.Add(inid);  //      2 = connection input id  = inid
+                connections.Add(innr);  //      3 = connection input nr  = innr
                 prozessnr = MainWindow.prozessid;
                 Prozesstoken start = new Prozesstoken(MainWindow.prozessid);
                 MainWindow.prozessid++;
@@ -102,14 +101,14 @@ namespace Error_NameNotFound.Model
             ChangeColor();
             return false;
         }
-        public static ref bool Inenabled(int innr,int inid)
+        public static ref bool Inenabled(int innr, int inid)                             //merker ob eingang bereits benutzt oder nicht
         {
             switch (innr)
             {
                 case 0:
                     return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in0;
                 case 1:
-                   return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in1;
+                    return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in1;
                 case 2:
                     return ref LogicGates.gates_logic.FirstOrDefault(c => c.id == inid).in2;
                 case 3:
@@ -127,13 +126,13 @@ namespace Error_NameNotFound.Model
             }
         }
 
-        public void DelConnections(int iid, int inr)
+        public void DelConnections(int iid, int inr)                            //Lösche verbindung, die mit dem eingang zu tun haben, wenn vorhanden und setze eingangsmerker auf false
         {
             for (int i = 2; i < connections.Count; i += 4)
             {
                 if (connections[i] == iid && connections[i + 1] == inr)
                 {
-                    switch (innr)
+                    switch (inr)
                     {
                         case 0:
                             LogicGates.gates_logic.FirstOrDefault(c => c.id == iid).in0 = false;
@@ -172,29 +171,7 @@ namespace Error_NameNotFound.Model
             }
         }
 
-        //protected void Connectedset(int id)
-        //{
-        //    for (int i = 0; i < connections.Count; i += 4)
-        //    {
-        //        //connections.Add(id);
-        //        //connections.Add(onr);
-        //        //connections.Add(iid);
-        //        //connections.Add(inr);
-        //        //var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == i);
-        //        //if (temp!=null)
-        //        if (connections[i] == id)
-        //        {
-        //            var temp1 = LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]);
-        //            var temp2 = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-        //            if (temp1.Input[connections[i + 3]] != output[connections[i + 1]])
-        //            {
-        //                temp1.Inputset(temp2.output[connections[i + 1]], connections[i + 3]);
-        //            }
-        //        }
-        //    }
-        //}
-
-        public static string Get_Connections
+        public static string Get_Connections                //übergabewert für das speichern von verbindungen
         {
             get
             {
@@ -208,13 +185,13 @@ namespace Error_NameNotFound.Model
                 return allconnections;
             }
         }
-        public static void Remove_connections(int id)
+        public static void Remove_connections(int id)               //löscht alle verbindngen die mit diesem baustein zu tun haben
         {
-            for (int i = 0; i < connections.Count-3; i += 4)
+            for (int i = 0; i < connections.Count - 3; i += 4)
             {
                 if (id == connections[i])
                 {
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i+2]).basevalue(connections[i+3]);
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i + 2]).basevalue(connections[i + 3]);
                     switch (innr)
                     {
                         case 0:
@@ -284,7 +261,7 @@ namespace Error_NameNotFound.Model
                         default:
                             break;
                     }
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).basevalue(connections[i+1]);
+                    LogicGates.gates_logic.FirstOrDefault(c => c.id == connections[i]).basevalue(connections[i + 1]);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);
                     connections.RemoveAt(i - 2);

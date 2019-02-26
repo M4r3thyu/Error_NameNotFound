@@ -25,7 +25,7 @@ namespace Error_NameNotFound
     public partial class AND : Logicgatescontrol
     {
         private L_And l_and;
-        public AND() :base()
+        public AND() : base()
         {
             InitializeComponent();
             Name = "ANDUI";
@@ -60,7 +60,7 @@ namespace Error_NameNotFound
             bool success = Inputbutton_vm.Input_Click(id, 0);
             if (success)
                 input0.Background = System.Windows.Media.Brushes.Yellow;
-            StartCableDrag();
+            //StartCableDrag();
         }
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
@@ -93,25 +93,25 @@ namespace Error_NameNotFound
             Dispatcher.Invoke(() =>
             {
                 // Set property or change UI compomponents.              
-            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                input0.Background = System.Windows.Media.Brushes.Red;
-            else
-                input0.Background = System.Windows.Media.Brushes.MediumPurple;
+                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
+                    input0.Background = System.Windows.Media.Brushes.Red;
+                else
+                    input0.Background = System.Windows.Media.Brushes.MediumPurple;
 
-            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
-                input1.Background = System.Windows.Media.Brushes.Red;
-            else
-                input1.Background = System.Windows.Media.Brushes.MediumPurple;
+                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
+                    input1.Background = System.Windows.Media.Brushes.Red;
+                else
+                    input1.Background = System.Windows.Media.Brushes.MediumPurple;
 
-            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                output0.Background = System.Windows.Media.Brushes.Red;
-            else
-                output0.Background = System.Windows.Media.Brushes.MediumPurple;
+                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
+                    output0.Background = System.Windows.Media.Brushes.Red;
+                else
+                    output0.Background = System.Windows.Media.Brushes.MediumPurple;
 
-            if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                output1.Background = System.Windows.Media.Brushes.Red;
-            else
-                output1.Background = System.Windows.Media.Brushes.MediumPurple;
+                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
+                    output1.Background = System.Windows.Media.Brushes.Red;
+                else
+                    output1.Background = System.Windows.Media.Brushes.MediumPurple;
             });
         }
     }

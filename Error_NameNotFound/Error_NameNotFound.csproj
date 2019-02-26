@@ -66,7 +66,7 @@
     <Compile Include="Model\Basemodel.cs" />
     <Compile Include="Model\Gates\L_Counter.cs" />
     <Compile Include="Model\Gates\L_Counter_ms.cs" />
-    <Compile Include="Model\Outputbutton_vm.cs" />
+    <Compile Include="ViewModel\Outputbutton_vm.cs" />
     <Compile Include="Model\Prozesstoken.cs" />
     <Compile Include="Model\Gates\L_Register_ms.cs" />
     <Compile Include="Model\RelayCommand.cs" />
@@ -81,7 +81,6 @@
       <DependentUpon>LogicButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Logicgatescontrol.cs" />
-    <Compile Include="ViewModel\Outsourced_Drag_and_drop_funktions\Outsourced_d_and_d.cs" />
     <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\FF_DC_c_e_s_r.xaml.cs">
       <DependentUpon>FF_DC_c_e_s_r.xaml</DependentUpon>

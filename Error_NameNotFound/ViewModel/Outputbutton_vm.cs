@@ -17,8 +17,8 @@ namespace Error_NameNotFound.Model
                     LogicGates.outnr = outnr;
                     LogicGates.in_or_out = 1;
                     return true;
-                    //output0.Background = System.Windows.Media.Brushes.Yellow;
-                    break;
+                //output0.Background = System.Windows.Media.Brushes.Yellow;
+                //break;
                 case 2:
                     LogicGates.outid = id;
                     LogicGates.outnr = outnr;
