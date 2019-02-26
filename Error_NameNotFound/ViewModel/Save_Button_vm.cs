@@ -45,7 +45,7 @@ namespace Error_NameNotFound.ViewModel
                     // XamlWriter.Save(Workspace, fs);
                     fs.Close();
                     string bausteine = " |  index left top Name | ";
-                    for (int i = 0; i < LogicGates.gates_logic.Count; i++)
+                    for (int i = 0; i < MainWindow.gates_UI.Count ; i++)//LogicGates.gates_logic.Count
                     {
                         var temp = MainWindow.gates_UI[i];
 
