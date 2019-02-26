@@ -76,9 +76,9 @@ namespace Error_NameNotFound.ViewModel
             _cable.SetXY(X12, Y12, X12, Y12);
             DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
         }
-        public void StopCableDrag()
+        public void StopCableDrag(object sender, DragEventArgs e)
         {
-
+            MainWindow.CableDrag = false;
         }
 
     }

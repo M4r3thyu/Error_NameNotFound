@@ -28,10 +28,12 @@ namespace Error_NameNotFound
     public partial class MainWindow : Window
     {
         public static List<Logicgatescontrol> gates_UI = new List<Logicgatescontrol>();
+        public static List<Cable> cables = new List<Cable>();
         public static int currentGate = 0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
         private static string gateType;
         private static bool gateFromButton, gateDelete = false,cableDrag=false,cable_xy=false;
+        private double cableX1, cableY1;
         private Image previewImage;
         private Line previewCable;
         private Point gateDropPoint,cableDropPoint;
@@ -112,8 +114,13 @@ namespace Error_NameNotFound
                 if (previewCable == null)
                 {
                     previewCable = new Line();
+
                     previewCable.X1 = cableDropPoint.X;
                     previewCable.Y1 = cableDropPoint.Y;
+
+                    cableX1 = previewCable.X1;
+                    cableY1 = previewCable.Y1;
+
                     previewCable.X2 = cableDropPoint.X;
                     previewCable.Y2 = cableDropPoint.Y;
                     Workspace.Children.Add(previewCable);
@@ -184,6 +191,10 @@ namespace Error_NameNotFound
             {
                 Workspace.Children.Remove(previewCable);
                 previewCable = null;
+
+                Cable _cable = new Cable();
+                _cable.SetXY(cableX1,cableY1,cableDropPoint.X,cableDropPoint.Y);
+                Workspace.Children.Add(_cable);
             }
             else
             {
