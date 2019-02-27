@@ -24,6 +24,14 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
         }
+        public Cable(double X1, double Y1, double X2, double Y2)
+        {
+            InitializeComponent();
+            CableUI.X1 = X1;
+            CableUI.Y1 = Y1;
+            CableUI.X2 = X2;
+            CableUI.Y2 = Y2;
+        }
         public void SetXY(double X1, double Y1, double X2, double Y2)
         {
             CableUI.X1 = X1;

@@ -33,14 +33,23 @@ namespace Error_NameNotFound
         public static Canvas GetCanvas;
         private static string gateType;
         private static bool gateFromButton, gateDelete = false,cableDrag=false,cable_xy=false;
-        private double cableX1, cableY1;
+        private static double cableX1, cableY1;
         private Image previewImage;
-        private Line previewCable;
         private Point gateDropPoint,cableDropPoint;
         public MainWindow()
         {
             InitializeComponent();
             GetCanvas = Workspace;
+        }
+        public static double CableX1
+        {
+            get => cableX1;
+            set => cableX1 = value;
+        }
+        public static double CableY1
+        {
+            get => cableY1;
+            set => cableY1 = value;
         }
         public static void Setcurrentgate(int id)
         {
@@ -108,28 +117,7 @@ namespace Error_NameNotFound
         {
             if (cableDrag)
             {
-                cableDropPoint = e.GetPosition(Workspace);
-                cableDropPoint.X = (Convert.ToInt32(gateDropPoint.X) / 25) * 25.0;
-                cableDropPoint.Y = (Convert.ToInt32(gateDropPoint.Y) / 25) * 25.0;
-                if (previewCable == null)
-                {
-                    previewCable = new Line();
-
-                    previewCable.X1 = cableDropPoint.X;
-                    previewCable.Y1 = cableDropPoint.Y;
-
-                    cableX1 = previewCable.X1;
-                    cableY1 = previewCable.Y1;
-
-                    previewCable.X2 = cableDropPoint.X;
-                    previewCable.Y2 = cableDropPoint.Y;
-                    Workspace.Children.Add(previewCable);
-                }
-                else
-                {
-                    previewCable.X2 = cableDropPoint.X;
-                    previewCable.Y2 = cableDropPoint.Y;
-                }               
+                          
             }
             else
             {
@@ -185,16 +173,21 @@ namespace Error_NameNotFound
                 }
             }
         }
-        private void canvas_Drop(object sender, DragEventArgs e)
+        private void canvas_Drop(object sender, DragEventArgs e) 
         {
             if (cableDrag)
             {
-                Workspace.Children.Remove(previewCable);
-                previewCable = null;
+                if (e.Handled == false)
+                {
+                    Point cableDropPoint = e.GetPosition(Workspace);
+                    cableDropPoint.X = (Convert.ToInt32(cableDropPoint.X) / 25) * 25.0;
+                    cableDropPoint.Y = (Convert.ToInt32(cableDropPoint.Y) / 25) * 25.0;
 
-                Cable _cable = new Cable();
-                _cable.SetXY(cableX1,cableY1,cableDropPoint.X,cableDropPoint.Y);
-                Workspace.Children.Add(_cable);
+                    Cable _cable = new Cable(cableX1, cableY1, cableDropPoint.X, cableDropPoint.Y);
+
+                    Workspace.Children.Add(_cable);
+                }
+                cableDrag = false;
             }
             else
             {
