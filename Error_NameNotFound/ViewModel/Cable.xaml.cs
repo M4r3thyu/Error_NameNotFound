@@ -20,13 +20,15 @@ namespace Error_NameNotFound.ViewModel
     /// </summary>
     public partial class Cable : UserControl
     {
+        public int id = 0;
         public Cable()
         {
+            id = MainWindow.id;
+            MainWindow.id++;
             InitializeComponent();
         }
-        public Cable(double X1, double Y1, double X2, double Y2)
+        public Cable(double X1, double Y1, double X2, double Y2):this()
         {
-            InitializeComponent();
             CableUI.X1 = X1;
             CableUI.Y1 = Y1;
             CableUI.X2 = X2;
@@ -43,6 +45,11 @@ namespace Error_NameNotFound.ViewModel
         {
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
+        }
+
+        private void CableUI_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
