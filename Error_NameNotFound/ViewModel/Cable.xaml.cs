@@ -47,7 +47,18 @@ namespace Error_NameNotFound.ViewModel
             CableUI.Y2 = Y2;
         }
 
-        private void CableUI_MouseDown(object sender, MouseButtonEventArgs e)
+        private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.CableDrag = true;
+            
+            MainWindow.CableX1 = CableUI.X2;
+            MainWindow.CableY1 = CableUI.Y2;
+
+            Cable _cable = new Cable();
+            DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
+        }
+
+        private void CableUI_MouseMove(object sender, MouseEventArgs e)
         {
 
         }

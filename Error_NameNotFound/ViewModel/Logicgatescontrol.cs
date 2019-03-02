@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Error_NameNotFound.ViewModel;
 using Error_NameNotFound.Model;
-using System.Drawing;
+
 
 namespace Error_NameNotFound.ViewModel
 {
@@ -70,8 +70,17 @@ namespace Error_NameNotFound.ViewModel
         }
         public void StopCableDrag(object sender, DragEventArgs e)
         {
-            
+
             MainWindow.CableDrag = false;
+            Canvas c = MainWindow.GetCanvas;
+
+            Point p = e.GetPosition(c);
+            p.X = (Convert.ToInt32(p.X) / 25) * 25.0;
+            p.Y = (Convert.ToInt32(p.Y) / 25) * 25.0;
+
+            Cable _cable = new Cable(MainWindow.CableX2, MainWindow.CableY2, p.X, p.Y);
+            c.Children.Add(_cable);
+
             e.Handled = true;
         }
 

@@ -33,9 +33,9 @@ namespace Error_NameNotFound
         public static Canvas GetCanvas;
         private static string gateType;
         private static bool gateFromButton, gateDelete = false,cableDrag=false,cable_xy=false;
-        private static double cableX1, cableY1;
+        private static double cableX1, cableY1, cableX2, cableY2;
         private Image previewImage;
-        private Point gateDropPoint,cableDropPoint;
+        private Point gateDropPoint;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,6 +50,16 @@ namespace Error_NameNotFound
         {
             get => cableY1;
             set => cableY1 = value;
+        }
+        public static double CableX2
+        {
+            get => cableX2;
+            set => cableX2 = value;
+        }
+        public static double CableY2
+        {
+            get => cableY2;
+            set => cableY2 = value;
         }
         public static void Setcurrentgate(int id)
         {
@@ -180,10 +190,11 @@ namespace Error_NameNotFound
                 if (e.Handled == false)
                 {
                     Point cableDropPoint = e.GetPosition(Workspace);
-                    cableDropPoint.X = (Convert.ToInt32(cableDropPoint.X) / 25) * 25.0;
-                    cableDropPoint.Y = (Convert.ToInt32(cableDropPoint.Y) / 25) * 25.0;
+                    cableX2 = (Convert.ToInt32(cableDropPoint.X) / 25) * 25.0;
+                    cableY2 = (Convert.ToInt32(cableDropPoint.Y) / 25) * 25.0;
 
-                    Cable _cable = new Cable(cableX1, cableY1, cableDropPoint.X, cableDropPoint.Y);
+
+                    Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2);
 
                     Workspace.Children.Add(_cable);
                 }
