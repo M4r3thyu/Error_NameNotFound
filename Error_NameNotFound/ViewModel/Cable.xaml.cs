@@ -46,7 +46,14 @@ namespace Error_NameNotFound.ViewModel
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
         }
-
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            if (MainWindow.GateDelete)
+            {
+                MainWindow.RemoveCable(this);
+            }
+        }
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MainWindow.CableDrag = true;

@@ -34,12 +34,18 @@ namespace Error_NameNotFound
         private static string gateType;
         private static bool gateFromButton, gateDelete = false,cableDrag=false,cable_xy=false;
         private static double cableX1, cableY1, cableX2, cableY2;
+        private static Cable previewCable;
         private Image previewImage;
-        private Point gateDropPoint;
+        private Point gateDropPoint,previewCableDropPoint;
         public MainWindow()
         {
             InitializeComponent();
             GetCanvas = Workspace;
+        }
+        public static Cable PreviewCable
+        {
+            get => previewCable;
+            set => previewCable = value;
         }
         public static double CableX1
         {
@@ -118,6 +124,8 @@ namespace Error_NameNotFound
         {
             Workspace.Children.Remove(previewImage);
             previewImage = null;
+            Workspace.Children.Remove(previewCable);
+            previewCable = null;
             if (GateDelete)
             {
                     Mouse.OverrideCursor = null;
@@ -125,25 +133,36 @@ namespace Error_NameNotFound
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
+            if (e.Data.GetDataPresent("Object"))
+            {
+                // These Effects values are used in the drag source's
+                // GiveFeedback event handler to determine which cursor to display.
+                if (e.KeyStates == DragDropKeyStates.ControlKey)
+                {
+                    e.Effects = DragDropEffects.Copy;
+                }
+                else
+                {
+                    e.Effects = DragDropEffects.Move;
+                }
+            }
             if (cableDrag)
             {
-                          
+                previewCableDropPoint = e.GetPosition(Workspace);
+                previewCableDropPoint.X = (Convert.ToInt32(previewCableDropPoint.X) / 25) * 25.0;
+                previewCableDropPoint.Y = (Convert.ToInt32(previewCableDropPoint.Y) / 25) * 25.0;
+                if (previewCable == null)
+                {
+                    previewCable = new Cable(cableX1, cableY1, previewCableDropPoint.X, previewCableDropPoint.Y);
+                    Workspace.Children.Add(previewCable);
+                }
+                else
+                {
+                    previewCable.SetXY2(previewCableDropPoint.X, previewCableDropPoint.Y);
+                }
             }
             else
             {
-                if (e.Data.GetDataPresent("Object"))
-                {
-                    // These Effects values are used in the drag source's
-                    // GiveFeedback event handler to determine which cursor to display.
-                    if (e.KeyStates == DragDropKeyStates.ControlKey)
-                    {
-                        e.Effects = DragDropEffects.Copy;
-                    }
-                    else
-                    {
-                        e.Effects = DragDropEffects.Move;
-                    }
-                }
                 gateDropPoint = e.GetPosition(Workspace);
                 gateDropPoint.X = (Convert.ToInt32(gateDropPoint.X) / 25) * 25.0;
                 gateDropPoint.Y = (Convert.ToInt32(gateDropPoint.Y) / 25) * 25.0;
@@ -187,6 +206,8 @@ namespace Error_NameNotFound
         {
             if (cableDrag)
             {
+                Workspace.Children.Remove(previewCable);
+                previewCable = null;
                 if (e.Handled == false)
                 {
                     Point cableDropPoint = e.GetPosition(Workspace);
@@ -204,7 +225,7 @@ namespace Error_NameNotFound
             {
                 Workspace.Children.Remove(previewImage);
                 previewImage = null;
-                currentGate = gates_UI.IndexOf(gates_UI.FirstOrDefault(c => c.GatesUIindex == currentGate));
+                //currentGate = gates_UI.IndexOf(gates_UI.FirstOrDefault(c => c.GatesUIindex == currentGate));
                 Canvas _canvas = (Canvas)sender;
                 if (_canvas != null && gates_UI[currentGate] != null)
                 {
@@ -260,6 +281,12 @@ namespace Error_NameNotFound
             LogicGates.Remove_connections(currentGate);
             LogicGates.gates_logic.Remove(temp);
             LogicGates.in_or_out = 0;   
+        }
+        public static void RemoveCable(Cable c)
+        {
+            Canvas Workspace = (Canvas)c.Parent;
+            Workspace.Children.Remove(c);
+
         }
         private void Print(object sender, RoutedEventArgs e)
         {
