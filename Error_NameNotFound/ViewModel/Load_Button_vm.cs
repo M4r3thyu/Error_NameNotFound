@@ -70,11 +70,11 @@ namespace Error_NameNotFound.ViewModel
                             switch (merker[5])
                             {
                                 case "ANDUI":
-                                    AND _and = new AND(MainWindow.id);
+                                    AND _and = new AND(MainWindow.id,MainWindow.gates_UI.Count);
                                     MainWindow.gates_UI.Add(_and);
                                     break;
                                 case "ButtonUI":
-                                    LogicButton _logicbutton = new LogicButton(MainWindow.id);
+                                    LogicButton _logicbutton = new LogicButton(MainWindow.id, MainWindow.gates_UI.Count);
                                     MainWindow.gates_UI.Add(_logicbutton);
                                     break;
                                 /*case "CALLIPERUI":

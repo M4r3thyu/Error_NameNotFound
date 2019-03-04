@@ -20,25 +20,32 @@ namespace Error_NameNotFound.ViewModel
 {
     public class Logicgatescontrol : UserControl
     {
-        protected int id;
+        protected int id,gatesUIindex;
         public Logicgatescontrol()
         {
             id = 0;
+            gatesUIindex=0;
         }
-        public Logicgatescontrol(int id) : this()
+        public Logicgatescontrol(int id,int index) : this()
         {
             this.id = id;
+            gatesUIindex = index;
         }
         public int Id
         {
             get => id;
+        }
+        public int GatesUIindex
+        {
+            get => gatesUIindex;
+            set => gatesUIindex=value;
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
             if (MainWindow.GateDelete)
             {
-                MainWindow.RemoveGate(id);
+                MainWindow.RemoveGate(gatesUIindex);
             }
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
