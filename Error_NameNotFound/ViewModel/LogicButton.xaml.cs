@@ -30,7 +30,7 @@ namespace Error_NameNotFound
             InitializeComponent();
             Name = "ButtonUI";
         }
-        public LogicButton(int id,int index) : base(id, index)
+        public LogicButton(int id) : base(id)
         {
             InitializeComponent();
             Name = "ButtonUI";

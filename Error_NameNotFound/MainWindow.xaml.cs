@@ -93,22 +93,22 @@ namespace Error_NameNotFound
         private void GeneratePreview()
         {
             gateFromButton = true;
-            currentGate = gates_UI.Count-1;
             id++;
-
-            DragDrop.DoDragDrop(gates_UI[currentGate], gates_UI[currentGate], DragDropEffects.Copy);
-
+            if (gates_UI[currentGate] != null)
+            {
+                DragDrop.DoDragDrop(gates_UI[currentGate], gates_UI[currentGate], DragDropEffects.Copy);
+            }
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            AND _and = new AND(id,gates_UI.Count);
+            AND _and = new AND(id);
             gateType = "AND";
             gates_UI.Add(_and);
             GeneratePreview();
         }
         private void LogicButton_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            LogicButton _button = new LogicButton(id, gates_UI.Count);
+            LogicButton _button = new LogicButton(id);
             gateType = "LogicButton";
             gates_UI.Add(_button);
             GeneratePreview();
@@ -225,16 +225,21 @@ namespace Error_NameNotFound
             {
                 Workspace.Children.Remove(previewImage);
                 previewImage = null;
+<<<<<<< HEAD
                 //currentGate = gates_UI.IndexOf(gates_UI.FirstOrDefault(c => c.GatesUIindex == currentGate));
+=======
+                currentGate = gates_UI.IndexOf(gates_UI.FirstOrDefault(c => c.Id == currentGate));
+>>>>>>> parent of a0afd8e... fixed gatesUI index problem after removing gates
                 Canvas _canvas = (Canvas)sender;
                 if (_canvas != null && gates_UI[currentGate] != null)
                 {
                     if (gateFromButton)
                     {
+                        currentGate = id - 1;
                         Workspace.Children.Add(gates_UI[currentGate]);
                         Canvas.SetLeft(gates_UI[currentGate], gateDropPoint.X);
                         Canvas.SetTop(gates_UI[currentGate], gateDropPoint.Y);
-                        // set the value to return to the Do DragDrop call
+                        // set the value to return to the DoDragDrop call
                         e.Effects = DragDropEffects.Copy;
                     }
                     else
@@ -242,7 +247,7 @@ namespace Error_NameNotFound
                         if (e.KeyStates == DragDropKeyStates.ControlKey && e.Effects.HasFlag(DragDropEffects.Copy))
                         {
 
-                            AND _and = new AND(id, gates_UI.Count);
+                            AND _and = new AND(id);
                             id++;
                             gates_UI.Add(_and);
                             currentGate = _and.Id;
@@ -267,20 +272,16 @@ namespace Error_NameNotFound
         {
             GateDelete = !GateDelete;
         }
-        public static void RemoveGate(int index)
+        public static void RemoveGate(int id)
         {
-            currentGate = index;
+            currentGate = id;
             Canvas Workspace = (Canvas)gates_UI[currentGate].Parent;
             Workspace.Children.Remove(gates_UI[currentGate]);
             gates_UI.Remove(gates_UI[currentGate]);
-            for(int i = 0; i < gates_UI.Count; i++)
-            {
-                gates_UI[i].GatesUIindex = i;
-            }
             var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == currentGate);
             LogicGates.Remove_connections(currentGate);
             LogicGates.gates_logic.Remove(temp);
-            LogicGates.in_or_out = 0;   
+            LogicGates.in_or_out = 0;
         }
         public static void RemoveCable(Cable c)
         {

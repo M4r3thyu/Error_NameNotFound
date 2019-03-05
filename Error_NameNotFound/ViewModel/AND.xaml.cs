@@ -30,7 +30,7 @@ namespace Error_NameNotFound
             InitializeComponent();
             Name = "ANDUI";
         }
-        public AND(int id,int index) : base(id,index)
+        public AND(int id) : base(id)
         {
             InitializeComponent();
             Name = "ANDUI";
@@ -43,7 +43,7 @@ namespace Error_NameNotFound
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                MainWindow.Setcurrentgate(gatesUIindex);
+                MainWindow.Setcurrentgate(id);
                 MainWindow.SetGateFromButton(false);
                 MainWindow.GateType = "AND";
                 // Package the data.
