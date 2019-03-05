@@ -38,7 +38,8 @@ namespace Error_NameNotFound.ViewModel
             base.OnMouseLeftButtonDown(e);
             if (MainWindow.GateDelete)
             {
-                MainWindow.RemoveGate(id);
+                MainWindow.Setcurrentgate(id);
+                MainWindow.RemoveGate();
             }
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
