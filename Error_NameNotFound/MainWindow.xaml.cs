@@ -36,7 +36,7 @@ namespace Error_NameNotFound
         private static double cableX1, cableY1, cableX2, cableY2;
         private static Cable previewCable;
         private Image previewImage;
-        private Point gateDropPoint,previewCableDropPoint;
+        private Point PreviewGateDropPoint,previewCableDropPoint;
         public MainWindow()
         {
             InitializeComponent();
@@ -164,9 +164,9 @@ namespace Error_NameNotFound
             }
             else
             {
-                gateDropPoint = e.GetPosition(Workspace);
-                gateDropPoint.X = (Convert.ToInt32(gateDropPoint.X) / 25) * 25.0;
-                gateDropPoint.Y = (Convert.ToInt32(gateDropPoint.Y) / 25) * 25.0;
+                PreviewGateDropPoint = e.GetPosition(Workspace);
+                PreviewGateDropPoint.X = (Convert.ToInt32(PreviewGateDropPoint.X) / 25) * 25.0;
+                PreviewGateDropPoint.Y = (Convert.ToInt32(PreviewGateDropPoint.Y) / 25) * 25.0;
                 if (previewImage == null)
                 {
                     previewImage = new Image();
@@ -192,29 +192,30 @@ namespace Error_NameNotFound
                             previewImage.Width = 100;
                             break;
                     }
-                    Canvas.SetLeft(previewImage, gateDropPoint.X);
-                    Canvas.SetTop(previewImage, gateDropPoint.Y);
+                    Canvas.SetLeft(previewImage, PreviewGateDropPoint.X);
+                    Canvas.SetTop(previewImage, PreviewGateDropPoint.Y);
                     Workspace.Children.Add(previewImage);
                 }
                 else
                 {
-                    Canvas.SetLeft(previewImage, gateDropPoint.X);
-                    Canvas.SetTop(previewImage, gateDropPoint.Y);
+                    Canvas.SetLeft(previewImage, PreviewGateDropPoint.X);
+                    Canvas.SetTop(previewImage, PreviewGateDropPoint.Y);
                 }
             }
         }
         private void canvas_Drop(object sender, DragEventArgs e) 
         {
+            Point DropPoint = e.GetPosition(Workspace);
+            DropPoint.X = (Convert.ToInt32(DropPoint.X) / 25) * 25.0;
+            DropPoint.Y = (Convert.ToInt32(DropPoint.Y) / 25) * 25.0;
             if (cableDrag)
             {
                 Workspace.Children.Remove(previewCable);
                 previewCable = null;
                 if (e.Handled == false)
                 {
-                    Point cableDropPoint = e.GetPosition(Workspace);
-                    cableX2 = (Convert.ToInt32(cableDropPoint.X) / 25) * 25.0;
-                    cableY2 = (Convert.ToInt32(cableDropPoint.Y) / 25) * 25.0;
-
+                    cableX2 = DropPoint.X;
+                    cableY2 = DropPoint.Y;
 
                     Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2);
 
@@ -227,12 +228,11 @@ namespace Error_NameNotFound
                 Workspace.Children.Remove(previewImage);
                 previewImage = null;
                 Canvas _canvas = (Canvas)sender;
-
                 if (gateFromButton)
                 {
                     Workspace.Children.Add(gates_UI[currentGate]);
-                    Canvas.SetLeft(gates_UI[currentGate], gateDropPoint.X);
-                    Canvas.SetTop(gates_UI[currentGate], gateDropPoint.Y);
+                    Canvas.SetLeft(gates_UI[currentGate], DropPoint.X);
+                    Canvas.SetTop(gates_UI[currentGate], DropPoint.Y);
                     // set the value to return to the DoDragDrop call
                     e.Effects = DragDropEffects.Copy;
                 }
@@ -247,15 +247,15 @@ namespace Error_NameNotFound
                         gates_UI.Add(_and);
                         currentGate = gates_UI.IndexOf(gates_UI.FirstOrDefault(c => c.Id == id-1));
                         Workspace.Children.Add(gates_UI[currentGate]);
-                        Canvas.SetLeft(gates_UI[currentGate], gateDropPoint.X);
-                        Canvas.SetTop(gates_UI[currentGate], gateDropPoint.Y);
+                        Canvas.SetLeft(gates_UI[currentGate], PreviewGateDropPoint.X);
+                        Canvas.SetTop(gates_UI[currentGate], PreviewGateDropPoint.Y);
                         // set the value to return to the DoDragDrop call
                         e.Effects = DragDropEffects.Copy;
                     }
                     else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                     {
-                        Canvas.SetLeft(gates_UI[currentGate], gateDropPoint.X);
-                        Canvas.SetTop(gates_UI[currentGate], gateDropPoint.Y);
+                        Canvas.SetLeft(gates_UI[currentGate], PreviewGateDropPoint.X);
+                        Canvas.SetTop(gates_UI[currentGate], PreviewGateDropPoint.Y);
                         // set the value to return to the DoDragDrop call
                         e.Effects = DragDropEffects.Move;
                     }
