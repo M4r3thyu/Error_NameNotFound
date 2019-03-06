@@ -312,9 +312,11 @@ namespace Error_NameNotFound
         }
         private void Print(object sender, RoutedEventArgs e)
         {
+            Workspace.Background = System.Windows.Media.Brushes.White;
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() == true)
             { dialog.PrintVisual(Workspace, "Workspace"); }
+            Workspace.Background = System.Windows.Media.Brushes.GhostWhite;
         }
     }
 }

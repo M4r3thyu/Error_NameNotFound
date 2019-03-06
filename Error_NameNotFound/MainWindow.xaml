@@ -49,13 +49,13 @@
         
         <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="3" Background="DarkSlateGray"/>
 
-        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
+        <StackPanel Background="WhiteSmoke" Grid.Row="2" Grid.Column="0" Orientation="Vertical">
             <Button Grid.Row="2" Grid.Column="0" Content="Button" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="LogicButton_Button_PreviewMouseLeftButtonDown"  Name="Button_button" Height="25" BorderBrush="LightSlateGray"/>
             <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="AND_Button_PreviewMouseLeftButtonDown"  Name="AND_button" Height="25" BorderBrush="LightSlateGray"/>
             <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" Name="OR_button" Height="25" BorderBrush="LightSlateGray"/>
         </StackPanel>
 
-        <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="White" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="GhostWhite" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         
         </Canvas>
     </Grid>
