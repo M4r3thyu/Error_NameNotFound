@@ -23,6 +23,7 @@ namespace Error_NameNotFound.ViewModel
     {
         private L_Cable l_cable;
         public int id = 0;
+        public bool direction;
         public Cable()
         {
             InitializeComponent();
@@ -34,12 +35,17 @@ namespace Error_NameNotFound.ViewModel
             Inputbutton_vm.Input_Click(id, 0);
             ChangeColorInOut();
         }
-        public Cable(double X1, double Y1, double X2, double Y2):this()
+        public bool Direction
+        {
+            get => direction;
+        }
+        public Cable(double X1, double Y1, double X2, double Y2,bool direction):this()
         {
             CableUI.X1 = X1;
             CableUI.Y1 = Y1;
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
+            this.direction = direction;
         }
         public void SetXY(double X1, double Y1, double X2, double Y2)
         {
@@ -66,6 +72,7 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.CableDrag = true;
             MainWindow.CableX1 = CableUI.X2;
             MainWindow.CableY1 = CableUI.Y2;
+            MainWindow.CableDirection = !direction;
             Cable _cable = new Cable();
             DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
 

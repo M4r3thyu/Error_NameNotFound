@@ -32,15 +32,20 @@ namespace Error_NameNotFound
         public static int currentGate = 0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
         private static string gateType;
-        private static bool gateFromButton, gateDelete = false,cableDrag=false,cable_xy=false;
+        private static bool gateFromButton, gateDelete = false, cableDrag = false, cableDirection = false;
         private static double cableX1, cableY1, cableX2, cableY2;
         private static Cable previewCable;
         private Image previewImage;
-        private Point PreviewGateDropPoint,previewCableDropPoint;
+        private Point PreviewGateDropPoint, previewCableDropPoint;
         public MainWindow()
         {
             InitializeComponent();
             GetCanvas = Workspace;
+        }
+        public static bool CableDirection
+        {
+            get => cableDirection;
+            set => cableDirection = value;
         }
         public static Cable PreviewCable
         {
@@ -150,11 +155,21 @@ namespace Error_NameNotFound
             if (cableDrag)
             {
                 previewCableDropPoint = e.GetPosition(Workspace);
-                previewCableDropPoint.X = (Convert.ToInt32(previewCableDropPoint.X) / 25) * 25.0;
-                previewCableDropPoint.Y = (Convert.ToInt32(previewCableDropPoint.Y) / 25) * 25.0;
+                if (cableDirection)
+                {
+                    previewCableDropPoint.Y = (Convert.ToInt32(previewCableDropPoint.Y) / 25) * 25.0;
+                    previewCableDropPoint.X = cableX1;
+                }
+                else
+                {
+                    previewCableDropPoint.X = (Convert.ToInt32(previewCableDropPoint.X) / 25) * 25.0;
+                    previewCableDropPoint.Y = cableY1;
+                }
+            
                 if (previewCable == null)
                 {
-                    previewCable = new Cable(cableX1, cableY1, previewCableDropPoint.X, previewCableDropPoint.Y);
+
+                    previewCable = new Cable(cableX1, cableY1, previewCableDropPoint.X, previewCableDropPoint.Y,cableDirection);
                     Workspace.Children.Add(previewCable);
                 }
                 else
@@ -214,12 +229,23 @@ namespace Error_NameNotFound
                 previewCable = null;
                 if (e.Handled == false)
                 {
+
+
                     cableX2 = DropPoint.X;
                     cableY2 = DropPoint.Y;
 
-                    Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2);
-
+                    if (cableDirection)
+                    {
+                        cableX2 = cableX1;
+                    }
+                    else
+                    {
+                        cableY2 = cableY1;
+                    }
+                    Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2, cableDirection);
                     Workspace.Children.Add(_cable);
+
+                    cableDirection = !cableDirection;
                 }
                 cableDrag = false;
             }
