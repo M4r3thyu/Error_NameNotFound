@@ -29,7 +29,7 @@ namespace Error_NameNotFound
     {
         public static List<Logicgatescontrol> gates_UI = new List<Logicgatescontrol>();
         public static List<Cable> cables = new List<Cable>();
-        public static int currentGate = 0, id = 0, prozessid = 1;
+        public static int currentGate = 0,currentcable=0, id = 0, prozessid = 1;
         public static Canvas GetCanvas;
         private static string gateType;
         private static bool gateFromButton, gateDelete = false, cableDrag = false, cableDirection = false;
@@ -72,9 +72,13 @@ namespace Error_NameNotFound
             get => cableY2;
             set => cableY2 = value;
         }
-        public static void Setcurrentgate(int id)
+        public static int Currentgate
         {
-            currentGate = id;
+            set => currentGate = value;
+        }
+        public static int Currentcable
+        {
+            set => currentcable = value;
         }
         public static void SetGateFromButton(bool i)
         {
@@ -242,8 +246,12 @@ namespace Error_NameNotFound
                     {
                         cableY2 = cableY1;
                     }
+
                     Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2, cableDirection);
-                    Workspace.Children.Add(_cable);
+                    cables.Add(_cable);
+                    currentcable = _cable.Id;
+                    currentcable = cables.IndexOf(cables.FirstOrDefault(c => c.Id == currentcable));
+                    Workspace.Children.Add(cables[currentcable]);
 
                     cableDirection = !cableDirection;
                 }
@@ -304,11 +312,19 @@ namespace Error_NameNotFound
             LogicGates.gates_logic.Remove(temp);
             LogicGates.in_or_out = 0;
         }
-        public static void RemoveCable(Cable c)
+        public static void RemoveCable()
         {
-            Canvas Workspace = (Canvas)c.Parent;
-            Workspace.Children.Remove(c);
-
+            currentcable = cables.IndexOf(cables.FirstOrDefault(c => c.Id == currentcable));
+            Canvas Workspace = (Canvas)cables[currentcable].Parent;
+            Workspace.Children.Remove(cables[currentcable]);
+            cables.Remove(cables[currentcable]);
+        }
+        public static void AddCable(Cable _cable)
+        {
+            cables.Add(_cable);
+            currentcable = _cable.Id;
+            currentcable = cables.IndexOf(cables.FirstOrDefault(c => c.Id == currentcable));
+            GetCanvas.Children.Add(cables[currentcable]);
         }
         private void Print(object sender, RoutedEventArgs e)
         {

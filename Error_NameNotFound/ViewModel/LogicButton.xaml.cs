@@ -43,7 +43,7 @@ namespace Error_NameNotFound
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                MainWindow.Setcurrentgate(id);
+                MainWindow.Currentgate=id;
                 MainWindow.SetGateFromButton(false);
                 MainWindow.GateType = "LogicButton";
                 // Package the data.

@@ -22,22 +22,26 @@ namespace Error_NameNotFound.ViewModel
     public partial class Cable : UserControl
     {
         private L_Cable l_cable;
-        public int id = 0;
-        public bool direction;
+        private int id = 0;
+        private bool direction;
         public Cable()
         {
             InitializeComponent();
             Name = "CableUI";
             id = MainWindow.id;
+            MainWindow.id++;
             l_cable = new L_Cable(id, this);
             LogicGates.gates_logic.Add(l_cable);
-            MainWindow.id++;
             Inputbutton_vm.Input_Click(id, 0);
             ChangeColorInOut();
         }
         public bool Direction
         {
             get => direction;
+        }
+        public int Id
+        {
+            get => id;
         }
         public Cable(double X1, double Y1, double X2, double Y2,bool direction):this()
         {
@@ -64,7 +68,8 @@ namespace Error_NameNotFound.ViewModel
             base.OnMouseLeftButtonDown(e);
             if (MainWindow.GateDelete)
             {
-                MainWindow.RemoveCable(this);
+                MainWindow.Currentcable = id;
+                MainWindow.RemoveCable();
             }
         }
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
