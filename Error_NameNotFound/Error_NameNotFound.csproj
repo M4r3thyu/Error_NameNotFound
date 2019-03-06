@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Basemodel.cs" />
+    <Compile Include="Model\Gates\L_Cable.cs" />
     <Compile Include="Model\Gates\L_Counter.cs" />
     <Compile Include="Model\Gates\L_Counter_ms.cs" />
     <Compile Include="ViewModel\Outputbutton_vm.cs" />

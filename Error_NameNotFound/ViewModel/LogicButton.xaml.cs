@@ -61,8 +61,6 @@ namespace Error_NameNotFound
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             bool sucess = Outputbutton_vm.Output_Click(id, 0);
-            if (sucess)
-                output0.Background = System.Windows.Media.Brushes.Yellow;
         }
         public override void ChangeColorInOut()
         {

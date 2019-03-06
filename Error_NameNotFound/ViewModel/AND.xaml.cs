@@ -58,9 +58,6 @@ namespace Error_NameNotFound
         private void Input0_Click(object sender, RoutedEventArgs e)
         {
             bool success = Inputbutton_vm.Input_Click(id, 0);
-            if (success)
-                input0.Background = System.Windows.Media.Brushes.Yellow;
-
             MainWindow.CableX1 = Canvas.GetLeft(this) + 10;
             MainWindow.CableY1= Canvas.GetTop(this)+25;
             StartCableDrag();
@@ -68,20 +65,14 @@ namespace Error_NameNotFound
         private void Input1_Click(object sender, RoutedEventArgs e)
         {
             bool success = Inputbutton_vm.Input_Click(id, 1);
-            if (success)
-                input1.Background = System.Windows.Media.Brushes.Yellow;
         }
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             bool sucess = Outputbutton_vm.Output_Click(id, 0);
-            if (sucess)
-                output0.Background = System.Windows.Media.Brushes.Yellow;
         }
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
             bool sucess = Outputbutton_vm.Output_Click(id, 1);
-            if (sucess)
-                output1.Background = System.Windows.Media.Brushes.Yellow;
         }
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Error_NameNotFound.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,18 @@ namespace Error_NameNotFound.ViewModel
     /// </summary>
     public partial class Cable : UserControl
     {
+        private L_Cable l_cable;
         public int id = 0;
         public Cable()
         {
-            id = MainWindow.id;
-            MainWindow.id++;
             InitializeComponent();
+            Name = "CableUI";
+            id = MainWindow.id;
+            l_cable = new L_Cable(id, this);
+            LogicGates.gates_logic.Add(l_cable);
+            MainWindow.id++;
+            Inputbutton_vm.Input_Click(id, 0);
+            ChangeColorInOut();
         }
         public Cable(double X1, double Y1, double X2, double Y2):this()
         {
@@ -57,17 +64,30 @@ namespace Error_NameNotFound.ViewModel
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MainWindow.CableDrag = true;
-            
             MainWindow.CableX1 = CableUI.X2;
             MainWindow.CableY1 = CableUI.Y2;
-
             Cable _cable = new Cable();
             DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
+
+            Outputbutton_vm.Output_Click(id, 0);
+            ChangeColorInOut();
+
         }
 
         private void CableUI_MouseMove(object sender, MouseEventArgs e)
         {
 
+        }
+        public void ChangeColorInOut()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                // Set property or change UI compomponents.              
+                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
+                    CableUI.Stroke = System.Windows.Media.Brushes.Red;
+                else
+                    CableUI.Stroke = System.Windows.Media.Brushes.MediumPurple;
+            });
         }
     }
 }
