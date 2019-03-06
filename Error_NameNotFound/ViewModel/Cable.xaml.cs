@@ -75,10 +75,8 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.CableDirection = !direction;
             Cable _cable = new Cable();
             DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
-
             Outputbutton_vm.Output_Click(id, 0);
             ChangeColorInOut();
-
         }
 
         private void CableUI_MouseMove(object sender, MouseEventArgs e)

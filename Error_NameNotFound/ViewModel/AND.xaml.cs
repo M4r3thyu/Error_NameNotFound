@@ -54,15 +54,6 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-
-        private void Input0_Click(object sender, RoutedEventArgs e)
-        {
-            bool success = Inputbutton_vm.Input_Click(id, 0);
-        }
-        private void Input1_Click(object sender, RoutedEventArgs e)
-        {
-            bool success = Inputbutton_vm.Input_Click(id, 1);
-        }
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             bool sucess = Outputbutton_vm.Output_Click(id, 0);
@@ -113,15 +104,15 @@ namespace Error_NameNotFound
         }
         private void Input0_Drop(object sender, DragEventArgs e)
         {
-
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
             e.Handled = true;
+            bool success = Inputbutton_vm.Input_Click(id, 0);
         }
         private void Input1_Drop(object sender, DragEventArgs e)
         {
-
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
             e.Handled = true;
+            bool success = Inputbutton_vm.Input_Click(id, 1);
         }
     }
 }
