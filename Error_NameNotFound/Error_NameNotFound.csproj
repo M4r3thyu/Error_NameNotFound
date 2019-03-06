@@ -776,5 +776,8 @@
   <ItemGroup>
     <Resource Include="Pictures\LogicButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Delete-Cursor_Cable_.cur" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

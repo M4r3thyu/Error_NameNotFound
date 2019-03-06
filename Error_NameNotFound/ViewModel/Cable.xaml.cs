@@ -99,5 +99,21 @@ namespace Error_NameNotFound.ViewModel
                     CableUI.Stroke = System.Windows.Media.Brushes.MediumPurple;
             });
         }
+
+        private void CableUI_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (MainWindow.GateDelete)
+            {
+                Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("../Views/Delete-Cursor_Cable_.cur", UriKind.Relative)).Stream);
+            }
+        }
+
+        private void CableUI_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (MainWindow.GateDelete)
+            {
+                Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("../Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
+            }
+        }
     }
 }
