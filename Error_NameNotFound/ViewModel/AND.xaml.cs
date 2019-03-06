@@ -56,14 +56,14 @@ namespace Error_NameNotFound
         }
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            bool sucess = Outputbutton_vm.Output_Click(id, 0);
+            Outputbutton_vm.Output_Click(id, 0);
             MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
             MainWindow.CableY1 = Canvas.GetTop(this) + 75;
             StartCableDrag();
         }
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
-            bool sucess = Outputbutton_vm.Output_Click(id, 1);
+            Outputbutton_vm.Output_Click(id, 1);
             MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
             MainWindow.CableY1 = Canvas.GetTop(this) + 25;
             StartCableDrag();
@@ -106,13 +106,13 @@ namespace Error_NameNotFound
         {
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
             e.Handled = true;
-            bool success = Inputbutton_vm.Input_Click(id, 0);
+            Inputbutton_vm.Input_Click(id, 0);
         }
         private void Input1_Drop(object sender, DragEventArgs e)
         {
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
             e.Handled = true;
-            bool success = Inputbutton_vm.Input_Click(id, 1);
+            Inputbutton_vm.Input_Click(id, 1);
         }
     }
 }

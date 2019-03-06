@@ -37,7 +37,7 @@ namespace Error_NameNotFound.Model
             //        LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
             //        break;
             //}
-            return false;
+            //return false;
         }
     }
 }

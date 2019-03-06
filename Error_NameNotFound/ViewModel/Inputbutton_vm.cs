@@ -37,7 +37,7 @@ namespace Error_NameNotFound.ViewModel
                         }
                     }
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.in_or_out = 0;
+                    //LogicGates.in_or_out = 0;
             //        break;
             //    default:
             //        LogicGates.in_or_out = 0;

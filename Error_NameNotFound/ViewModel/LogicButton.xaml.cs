@@ -63,7 +63,7 @@ namespace Error_NameNotFound
             MainWindow.CableX1 = Canvas.GetLeft(this) + 50;
             MainWindow.CableY1 = Canvas.GetTop(this) + 25;
             StartCableDrag();
-            bool sucess = Outputbutton_vm.Output_Click(id, 0);
+            Outputbutton_vm.Output_Click(id, 0);
         }
         public override void ChangeColorInOut()
         {

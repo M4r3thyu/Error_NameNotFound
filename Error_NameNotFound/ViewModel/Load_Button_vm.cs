@@ -42,10 +42,10 @@ namespace Error_NameNotFound.ViewModel
                     FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
                     fs.Close();
                     MainWindow.GetCanvas.Children.Clear();
-                    MainWindow.gates_UI = new List<Logicgatescontrol>();
+                    MainWindow.Gates_UI = new List<Logicgatescontrol>();
                     LogicGates.gates_logic = new List<LogicGates>();
                     LogicGates.connections = new List<int>();
-                    MainWindow.id = 0;
+                    MainWindow.Id = 0;
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] loadsplit = Loadfiletext.Split('$');
@@ -56,7 +56,7 @@ namespace Error_NameNotFound.ViewModel
                     for (int i = 2; i < bausteine.Length - 1; i++)
                     {
                         merker = bausteine[i].Split(' ');
-                        MainWindow.id = Convert.ToInt32(merker[2]);
+                        MainWindow.Id = Convert.ToInt32(merker[2]);
                         if (merker[3] == "NaN")
                             canvas_Left = 9999999;
                         else
@@ -70,12 +70,12 @@ namespace Error_NameNotFound.ViewModel
                             switch (merker[5])
                             {
                                 case "ANDUI":
-                                    AND _and = new AND(MainWindow.id);
-                                    MainWindow.gates_UI.Add(_and);
+                                    AND _and = new AND(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_and);
                                     break;
                                 case "ButtonUI":
-                                    LogicButton _logicbutton = new LogicButton(MainWindow.id);
-                                    MainWindow.gates_UI.Add(_logicbutton);
+                                    LogicButton _logicbutton = new LogicButton(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_logicbutton);
                                     break;
                                 /*case "CALLIPERUI":
                                     CALLIPER _calliper = new CALLIPER(MainWindow.id);
@@ -397,10 +397,9 @@ namespace Error_NameNotFound.ViewModel
                                     break;
                             }
                             
-                            MainWindow.id++;
-                            MainWindow.GetCanvas.Children.Add(MainWindow.gates_UI[gateindex]);
-                            Canvas.SetLeft(MainWindow.gates_UI[gateindex], canvas_Left);
-                            Canvas.SetTop(MainWindow.gates_UI[gateindex], canvas_Top);
+                            MainWindow.GetCanvas.Children.Add(MainWindow.Gates_UI[gateindex]);
+                            Canvas.SetLeft(MainWindow.Gates_UI[gateindex], canvas_Left);
+                            Canvas.SetTop(MainWindow.Gates_UI[gateindex], canvas_Top);
                             gateindex++;
                         }
                     }

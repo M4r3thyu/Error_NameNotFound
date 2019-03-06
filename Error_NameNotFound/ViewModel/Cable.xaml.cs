@@ -28,10 +28,9 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "CableUI";
-            id = MainWindow.id;
+            id = MainWindow.Id;
             l_cable = new L_Cable(id, this);
             LogicGates.gates_logic.Add(l_cable);
-            MainWindow.id++;
             Inputbutton_vm.Input_Click(id, 0);
             ChangeColorInOut();
         }
