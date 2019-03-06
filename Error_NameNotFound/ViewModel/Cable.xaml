@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Error_NameNotFound.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="3" d:DesignWidth="25">
+             d:DesignHeight="5" d:DesignWidth="5">
     <Grid>
-        <Line X1="0" X2="25" Y1="1.5" Y2="1.5" StrokeThickness="3" Stroke="Black" Name="CableUI" PreviewMouseLeftButtonDown="CableUI_PreviewMouseLeftButtonDown" Cursor="Hand"></Line>
+        <!--<Line X1="0" X2="25" Y1="1.5" Y2="1.5" StrokeThickness="3" Stroke="Black" Name="CableUI" PreviewMouseLeftButtonDown="CableUI_PreviewMouseLeftButtonDown" Cursor="Hand"></Line>-->
+        <Label Height="5" Width="5" Name="CableUI" Background="Black" PreviewMouseLeftButtonDown="CableUI_PreviewMouseLeftButtonDown" Cursor="Hand"/>
     </Grid>
 </UserControl>
