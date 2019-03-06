@@ -70,27 +70,25 @@ namespace Error_NameNotFound.ViewModel
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
         }
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            base.OnMouseLeftButtonDown(e);
             if (MainWindow.GateDelete)
             {
                 MainWindow.Currentcable = id;
                 MainWindow.RemoveCable();
             }
+            else
+            {
+                MainWindow.CableDrag = true;
+                MainWindow.CableX1 = CableUI.X2;
+                MainWindow.CableY1 = CableUI.Y2;
+                MainWindow.CableDirection = !direction;
+                Cable _cable = new Cable();
+                DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
+                Outputbutton_vm.Output_Click(id, 0);
+                ChangeColorInOut();
+            }
         }
-        private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            MainWindow.CableDrag = true;
-            MainWindow.CableX1 = CableUI.X2;
-            MainWindow.CableY1 = CableUI.Y2;
-            MainWindow.CableDirection = !direction;
-            Cable _cable = new Cable();
-            DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
-            Outputbutton_vm.Output_Click(id, 0);
-            ChangeColorInOut();
-        }
-
         private void CableUI_MouseMove(object sender, MouseEventArgs e)
         {
 
