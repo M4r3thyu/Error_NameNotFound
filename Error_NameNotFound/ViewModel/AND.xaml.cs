@@ -111,5 +111,17 @@ namespace Error_NameNotFound
                     output1.Background = System.Windows.Media.Brushes.MediumPurple;
             });
         }
+        private void Input0_Drop(object sender, DragEventArgs e)
+        {
+
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            e.Handled = true;
+        }
+        private void Input1_Drop(object sender, DragEventArgs e)
+        {
+
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
+            e.Handled = true;
+        }
     }
 }

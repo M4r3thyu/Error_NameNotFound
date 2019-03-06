@@ -69,7 +69,7 @@ namespace Error_NameNotFound.ViewModel
 
             DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
         }
-        public void StopCableDrag(object sender, DragEventArgs e)
+        public void StopCableDrag(double x2,double y2)
         {
 
 
@@ -78,14 +78,8 @@ namespace Error_NameNotFound.ViewModel
             c.Children.Remove(MainWindow.PreviewCable);
             MainWindow.PreviewCable = null;
 
-            Point p = e.GetPosition(c);
-            //p.X = (Convert.ToInt32(p.X) / 25) * 25.0;
-            //p.Y = (Convert.ToInt32(p.Y) / 25) * 25.0;
-
-            Cable _cable = new Cable(MainWindow.CableX2, MainWindow.CableY2, p.X, p.Y, MainWindow.CableDirection);
+            Cable _cable = new Cable(MainWindow.CableX1, MainWindow.CableY1, x2, y2, MainWindow.CableDirection);
             c.Children.Add(_cable);
-
-            e.Handled = true;
         }
 
     }
