@@ -28,11 +28,6 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "CableUI";
-            id = MainWindow.Id;
-            l_cable = new L_Cable(id, this);
-            LogicGates.gates_logic.Add(l_cable);
-            Inputbutton_vm.Input_Click(id, 0);
-            ChangeColorInOut();
         }
         public bool Direction
         {
@@ -43,6 +38,19 @@ namespace Error_NameNotFound.ViewModel
             get => id;
         }
         public Cable(double X1, double Y1, double X2, double Y2,bool direction):this()
+        {
+            id = MainWindow.Id;
+            l_cable = new L_Cable(id, this);
+            LogicGates.gates_logic.Add(l_cable);
+            Inputbutton_vm.Input_Click(id, 0);
+            ChangeColorInOut();
+            CableUI.X1 = X1;
+            CableUI.Y1 = Y1;
+            CableUI.X2 = X2;
+            CableUI.Y2 = Y2;
+            this.direction = direction;
+        }
+        public Cable(double X1, double Y1, double X2, double Y2, bool direction,bool preview) : this()
         {
             CableUI.X1 = X1;
             CableUI.Y1 = Y1;

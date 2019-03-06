@@ -72,10 +72,8 @@ namespace Error_NameNotFound.ViewModel
         public void StopCableDrag(double x2,double y2)
         {
             Canvas c = MainWindow.GetCanvas;
-
             c.Children.Remove(MainWindow.PreviewCable);
             MainWindow.PreviewCable = null;
-
             Cable _cable = new Cable(MainWindow.CableX1, MainWindow.CableY1, x2, y2, MainWindow.CableDirection);
             MainWindow.AddCable(_cable);
         }

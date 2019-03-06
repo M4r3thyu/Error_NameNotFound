@@ -37,7 +37,7 @@ namespace Error_NameNotFound
         private static Cable previewCable;
         private Image previewImage;
         private Point PreviewGateDropPoint, previewCableDropPoint;
-        private static int id=0;
+        private static int id = 0;
         private static int prozessid = 1;
         private static int currentcable = 0;
 
@@ -46,12 +46,10 @@ namespace Error_NameNotFound
             get
             {
                 prozessid++;
-                return prozessid-1;
+                return prozessid - 1;
             }
             set { prozessid = value; }
         }
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -62,7 +60,7 @@ namespace Error_NameNotFound
             get
             {
                 id++;
-                return id-1;
+                return id - 1;
             }
             set { id = value; }
         }
@@ -132,7 +130,6 @@ namespace Error_NameNotFound
         public static int CurrentGate { get => currentGate; set => currentGate = value; }
         public static List<Cable> Cables { get => cables; set => cables = value; }
         public static List<Logicgatescontrol> Gates_UI { get => gates_UI; set => gates_UI = value; }
-
         private void GeneratePreview()
         {
             gateFromButton = true;
@@ -161,7 +158,7 @@ namespace Error_NameNotFound
         {
             if (GateDelete)
             {
-                    Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
+                Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
             }
         }
         private void canvas_MouseLeave(object sender, MouseEventArgs e)
@@ -172,7 +169,7 @@ namespace Error_NameNotFound
             previewCable = null;
             if (GateDelete)
             {
-                    Mouse.OverrideCursor = null;
+                Mouse.OverrideCursor = null;
             }
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
@@ -203,11 +200,11 @@ namespace Error_NameNotFound
                     previewCableDropPoint.X = (Convert.ToInt32(previewCableDropPoint.X) / 25) * 25.0;
                     previewCableDropPoint.Y = cableY1;
                 }
-            
+
                 if (previewCable == null)
                 {
 
-                    previewCable = new Cable(cableX1, cableY1, previewCableDropPoint.X, previewCableDropPoint.Y,cableDirection);
+                    previewCable = new Cable(cableX1, cableY1, previewCableDropPoint.X, previewCableDropPoint.Y, cableDirection,false);
                     Workspace.Children.Add(previewCable);
                 }
                 else
@@ -256,7 +253,7 @@ namespace Error_NameNotFound
                 }
             }
         }
-        private void canvas_Drop(object sender, DragEventArgs e) 
+        private void canvas_Drop(object sender, DragEventArgs e)
         {
             Point DropPoint = e.GetPosition(Workspace);
             DropPoint.X = (Convert.ToInt32(DropPoint.X) / 25) * 25.0;
@@ -309,11 +306,11 @@ namespace Error_NameNotFound
                     CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == CurrentGate));
                     if (e.KeyStates == DragDropKeyStates.ControlKey && e.Effects.HasFlag(DragDropEffects.Copy))
                     {
-                        
+
                         AND _and = new AND(id);
                         id++;
                         Gates_UI.Add(_and);
-                        CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == id-1));
+                        CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == id - 1));
                         Workspace.Children.Add(Gates_UI[CurrentGate]);
                         Canvas.SetLeft(Gates_UI[CurrentGate], PreviewGateDropPoint.X);
                         Canvas.SetTop(Gates_UI[CurrentGate], PreviewGateDropPoint.Y);
@@ -344,10 +341,12 @@ namespace Error_NameNotFound
             var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == CurrentGate);
             LogicGates.Remove_connections(CurrentGate);
             LogicGates.gates_logic.Remove(temp);
-            LogicGates.in_or_out = 0;
         }
         public static void RemoveCable()
         {
+            var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == currentcable);
+            LogicGates.Remove_connections(currentcable);
+            LogicGates.gates_logic.Remove(temp);
             currentcable = cables.IndexOf(cables.FirstOrDefault(c => c.Id == currentcable));
             Canvas Workspace = (Canvas)cables[currentcable].Parent;
             Workspace.Children.Remove(cables[currentcable]);
