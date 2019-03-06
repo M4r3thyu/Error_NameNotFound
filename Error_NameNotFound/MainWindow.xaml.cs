@@ -217,7 +217,7 @@ namespace Error_NameNotFound
                     cableX2 = DropPoint.X;
                     cableY2 = DropPoint.Y;
 
-                    Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2);
+                    Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2,true);
 
                     Workspace.Children.Add(_cable);
                 }

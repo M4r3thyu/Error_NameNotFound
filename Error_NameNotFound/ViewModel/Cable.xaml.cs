@@ -20,12 +20,20 @@ namespace Error_NameNotFound.ViewModel
     /// </summary>
     public partial class Cable : UserControl
     {
+        public static bool y = false;
         public int id = 0;
         public double x1,x2,y1,y2;
         public bool x;
         public Cable()
         {
-            x = true;
+            if (y)
+            {
+                x = false;
+            }
+            else
+            {
+                x = true;
+            }
             id = MainWindow.id;
             MainWindow.id++;
             InitializeComponent();
@@ -34,14 +42,16 @@ namespace Error_NameNotFound.ViewModel
             y1 = 0;
             y2 = 0;
         }
-        public Cable(double X1, double Y1, double X2, double Y2):this()
+        public Cable(double X1, double Y1, double X2, double Y2) : this()
         {
-            if(x)
+            if (x)
             {
                 x1 = X1; x2 = X2; y1 = Y1; y2 = Y1;
             }
             else
-                y1 = Y1; y2 = Y2;
+            {
+                y1 = Y1; y2 = Y2; x1 = X1; x2 = X1;
+            }
             ChangeXY();
             /*
             CableUI.X1 = X1;
@@ -50,6 +60,25 @@ namespace Error_NameNotFound.ViewModel
             CableUI.Y2 = Y2;
             */
         }
+        public Cable(double X1, double Y1, double X2, double Y2,bool z):this()
+        {
+            if(x)
+            {
+                x1 = X1; x2 = X2; y1 = Y1; y2 = Y1;
+            }
+            else
+            {
+                y1 = Y1; y2 = Y2;x1 = X1;x2 = X1;
+            }
+            ChangeXY();
+            /*
+            CableUI.X1 = X1;
+            CableUI.Y1 = Y1;
+            CableUI.X2 = X2;
+            CableUI.Y2 = Y2;
+            */
+            y = false;
+        }
         public void SetXY(double X1, double Y1, double X2, double Y2)
         {
             if (x)
@@ -57,7 +86,9 @@ namespace Error_NameNotFound.ViewModel
                 x1 = X1; x2 = X2;
             }
             else
+            {
                 y1 = Y1; y2 = Y2;
+            }
             ChangeXY();
             /*
             CableUI.X1 = X1;
@@ -90,6 +121,7 @@ namespace Error_NameNotFound.ViewModel
         }
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            y = x;
             MainWindow.CableDrag = true;
             if(x)
             {
@@ -108,7 +140,6 @@ namespace Error_NameNotFound.ViewModel
             Cable _cable = new Cable();
             DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
         }
-
         private void CableUI_MouseMove(object sender, MouseEventArgs e)
         {
 
@@ -134,14 +165,14 @@ namespace Error_NameNotFound.ViewModel
             {
                 if (y1 >= y2)
                 {
-                    Canvas.SetLeft(this, x1);
-                    Canvas.SetTop(this, y1);
+                    Canvas.SetLeft(this, x2);
+                    Canvas.SetTop(this, y2);
                     CableUI.Height = y1 - y2;
                 }
                 else
                 {
-                    Canvas.SetLeft(this, x1);
-                    Canvas.SetTop(this, y2);
+                    Canvas.SetLeft(this, x2);
+                    Canvas.SetTop(this, y1);
                     CableUI.Height = y2 - y1;
                 }
             }
