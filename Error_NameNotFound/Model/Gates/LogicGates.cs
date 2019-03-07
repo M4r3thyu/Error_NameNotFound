@@ -93,6 +93,7 @@ namespace Error_NameNotFound.Model
                 connections.Add(inid);  //      2 = connection input id  = inid
                 connections.Add(innr);  //      3 = connection input nr  = innr
                 prozessnr = MainWindow.Prozessid;
+                MainWindow.Prozessid++;
                 Prozesstoken start = new Prozesstoken(prozessnr);
                 // ChangeOutput();
                 return true;

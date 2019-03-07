@@ -43,7 +43,7 @@ namespace Error_NameNotFound
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                MainWindow.Currentgate=id;
+                MainWindow.CurrentGate=id;
                 MainWindow.SetGateFromButton(false);
                 MainWindow.GateType = "AND";
                 // Package the data.
@@ -105,14 +105,14 @@ namespace Error_NameNotFound
         private void Input0_Drop(object sender, DragEventArgs e)
         {
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
-            e.Handled = true;
             Inputbutton_vm.Input_Click(id, 0);
+            e.Handled = true;
         }
         private void Input1_Drop(object sender, DragEventArgs e)
         {
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
-            e.Handled = true;
             Inputbutton_vm.Input_Click(id, 1);
+            e.Handled = true;
         }
     }
 }

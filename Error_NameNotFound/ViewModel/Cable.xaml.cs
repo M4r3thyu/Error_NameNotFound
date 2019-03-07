@@ -40,9 +40,11 @@ namespace Error_NameNotFound.ViewModel
         public Cable(double X1, double Y1, double X2, double Y2,bool direction):this()
         {
             id = MainWindow.Id;
+            MainWindow.Id++;
             l_cable = new L_Cable(id, this);
             LogicGates.gates_logic.Add(l_cable);
             Inputbutton_vm.Input_Click(id, 0);
+            Outputbutton_vm.Output_Click(id, 0);
             ChangeColorInOut();
             CableUI.X1 = X1;
             CableUI.Y1 = Y1;
@@ -79,13 +81,13 @@ namespace Error_NameNotFound.ViewModel
             }
             else
             {
+                Outputbutton_vm.Output_Click(id, 0);
                 MainWindow.CableDrag = true;
                 MainWindow.CableX1 = CableUI.X2;
                 MainWindow.CableY1 = CableUI.Y2;
                 MainWindow.CableDirection = !direction;
                 Cable _cable = new Cable();
                 DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
-                Outputbutton_vm.Output_Click(id, 0);
                 ChangeColorInOut();
             }
         }

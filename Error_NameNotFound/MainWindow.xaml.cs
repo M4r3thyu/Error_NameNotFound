@@ -43,12 +43,9 @@ namespace Error_NameNotFound
 
         public static int Prozessid
         {
-            get
-            {
-                prozessid++;
-                return prozessid - 1;
-            }
-            set { prozessid = value; }
+            get => prozessid;
+            
+            set => prozessid = value;
         }
         public MainWindow()
         {
@@ -57,12 +54,8 @@ namespace Error_NameNotFound
         }
         public static int Id
         {
-            get
-            {
-                id++;
-                return id - 1;
-            }
-            set { id = value; }
+            get => id;
+            set =>  id = value; 
         }
         public static bool CableDirection
         {
@@ -93,15 +86,6 @@ namespace Error_NameNotFound
         {
             get => cableY2;
             set => cableY2 = value;
-        }
-        public static int Currentgate
-        {
-            get
-            {
-                currentGate = id;
-                return currentGate;
-            }
-            set => currentGate = value;
         }
         public static int Currentcable
         {
@@ -142,14 +126,14 @@ namespace Error_NameNotFound
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            AND _and = new AND(id);
+            AND _and = new AND(Id);
             gateType = "AND";
             Gates_UI.Add(_and);
             GeneratePreview();
         }
         private void LogicButton_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            LogicButton _button = new LogicButton(id);
+            LogicButton _button = new LogicButton(Id);
             gateType = "LogicButton";
             Gates_UI.Add(_button);
             GeneratePreview();

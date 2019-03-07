@@ -22,6 +22,7 @@ namespace Error_NameNotFound.Model
             output[0] = !output[0];
             ChangeColor();
             prozessnr = MainWindow.Prozessid;
+            MainWindow.Prozessid++;
             Prozesstoken start = new Prozesstoken(prozessnr);
         }
         public override void ChangeColor()
