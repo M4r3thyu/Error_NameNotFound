@@ -40,6 +40,7 @@ namespace Error_NameNotFound
         private static int id = 0;
         private static int prozessid = 1;
         private static int currentcable = 0;
+        const double ScaleRate = 1.1;
 
         public static int Prozessid
         {
@@ -156,6 +157,22 @@ namespace Error_NameNotFound
                 Mouse.OverrideCursor = null;
             }
         }
+
+        private void canvas_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                st.ScaleX *= ScaleRate;
+                st.ScaleY *= ScaleRate;
+            }
+            else
+            {
+                st.ScaleX /= ScaleRate;
+                st.ScaleY /= ScaleRate;
+            }
+            Workspace.Background = System.Windows.Media.Brushes.GhostWhite;
+        }
+
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("Object"))

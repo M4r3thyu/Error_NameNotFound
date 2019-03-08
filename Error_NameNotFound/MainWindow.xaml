@@ -55,8 +55,10 @@
             <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" Name="OR_button" Height="25" BorderBrush="LightSlateGray"/>
         </StackPanel>
 
-        <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="GhostWhite" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        
+        <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="GhostWhite" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseWheel="canvas_MouseWheel">
+            <Canvas.RenderTransform>
+                <ScaleTransform x:Name="st"></ScaleTransform>
+            </Canvas.RenderTransform>
         </Canvas>
     </Grid>
 </Window>
