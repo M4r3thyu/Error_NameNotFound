@@ -24,6 +24,36 @@ namespace Error_NameNotFound.ViewModel
         private L_Cable l_cable;
         private int id = 0;
         private bool direction;
+        private double x1;
+        private double x2;
+        private double y1;
+        private double y2;
+
+        public double Y2
+        {
+            get { return y2; }
+            set { y2 = value; }
+        }
+
+        public double Y1
+        {
+            get { return y1; }
+            set { y1 = value; }
+        }
+
+        public double X2
+        {
+            get { return x2; }
+            set { x2 = value; }
+        }
+
+
+        public double X1
+        {
+            get { return x1; }
+            set { x1 = value; }
+        }
+
         public Cable()
         {
             InitializeComponent();
@@ -31,12 +61,14 @@ namespace Error_NameNotFound.ViewModel
         }
         public bool Direction
         {
-            get => direction;
+            get => Direction1;
         }
         public int Id
         {
             get => id;
         }
+        public bool Direction1 { get => direction; set => direction = value; }
+
         public Cable(double X1, double Y1, double X2, double Y2,bool direction):this()
         {
             id = MainWindow.Id;
@@ -50,7 +82,31 @@ namespace Error_NameNotFound.ViewModel
             CableUI.Y1 = Y1;
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
-            this.direction = direction;
+            this.Direction1 = direction;
+            this.X1 = X1;
+            this.X2 = X2;
+            this.Y1 = Y1;
+            this.Y2 = Y2;
+        }
+        public Cable(int id,double X1, double X2, double Y1, double Y2, bool direction)
+        {
+            InitializeComponent();
+            Name = "CableUI";
+            this.id = id;
+            l_cable = new L_Cable(id, this);
+            LogicGates.gates_logic.Add(l_cable);
+            //Inputbutton_vm.Input_Click(id, 0);
+            //Outputbutton_vm.Output_Click(id, 0);
+            ChangeColorInOut();
+            CableUI.X1 = X1;
+            CableUI.Y1 = Y1;
+            CableUI.X2 = X2;
+            CableUI.Y2 = Y2;
+            this.Direction1 = direction;
+            this.X1 = X1;
+            this.X2 = X2;
+            this.Y1 = Y1;
+            this.Y2 = Y2;
         }
         public Cable(double X1, double Y1, double X2, double Y2, bool direction,bool preview) : this()
         {
@@ -58,7 +114,7 @@ namespace Error_NameNotFound.ViewModel
             CableUI.Y1 = Y1;
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
-            this.direction = direction;
+            this.Direction1 = direction;
         }
         public void SetXY(double X1, double Y1, double X2, double Y2)
         {
@@ -66,11 +122,17 @@ namespace Error_NameNotFound.ViewModel
             CableUI.Y1 = Y1;
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
+            this.X1 = X1;
+            this.X2 = X2;
+            this.Y1 = Y1;
+            this.Y2 = Y2;
         }
         public void SetXY2(double X2, double Y2)
         {
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
+            this.X2 = X2;
+            this.Y2 = Y2;
         }
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -85,7 +147,7 @@ namespace Error_NameNotFound.ViewModel
                 MainWindow.CableDrag = true;
                 MainWindow.CableX1 = CableUI.X2;
                 MainWindow.CableY1 = CableUI.Y2;
-                MainWindow.CableDirection = !direction;
+                MainWindow.CableDirection = !Direction1;
                 Cable _cable = new Cable();
                 DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
                 ChangeColorInOut();

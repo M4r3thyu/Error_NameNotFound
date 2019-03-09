@@ -44,13 +44,15 @@ namespace Error_NameNotFound.ViewModel
                     MainWindow.GetCanvas.Children.Clear();
                     MainWindow.Gates_UI = new List<Logicgatescontrol>();
                     LogicGates.gates_logic = new List<LogicGates>();
+                    MainWindow.Cables = new List<Cable>();
                     LogicGates.connections = new List<int>();
                     MainWindow.Id = 0;
                     int gateindex = 0;
                     string Loadfiletext = File.ReadAllText(openFileDialog.FileName) as string;
                     string[] loadsplit = Loadfiletext.Split('$');
                     string[] bausteine = loadsplit[0].Split('|');
-                    string[] connections = loadsplit[1].Split('|');
+                    string[] cables = loadsplit[1].Split('|');
+                    string[] connections = loadsplit[2].Split('|');
                     string[] merker;
                     double canvas_Left = 0, canvas_Top = 0;
                     for (int i = 2; i < bausteine.Length - 1; i++)
@@ -402,6 +404,13 @@ namespace Error_NameNotFound.ViewModel
                             Canvas.SetTop(MainWindow.Gates_UI[gateindex], canvas_Top);
                             gateindex++;
                         }
+                    }
+                    for (int i = 2; i < cables.Length-1; i++)
+                    {
+                        string[] split = cables[i].Split(' ');
+                        Cable _cable = new Cable(int.Parse(split[2]), double.Parse(split[4]), double.Parse(split[6]), double.Parse(split[8]), double.Parse(split[10]), bool.Parse(split[12]));
+                        MainWindow.Cables.Add(_cable);
+                        MainWindow.GetCanvas.Children.Add(_cable);
                     }
                     for (int i = 2; i < connections.Length; i++)
                     {

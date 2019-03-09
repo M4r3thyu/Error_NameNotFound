@@ -175,7 +175,7 @@ namespace Error_NameNotFound.Model
         {
             get
             {
-                string allconnections = "| ouputid  outportnr inputid inportnr ";
+                string allconnections = "| (Verbindungen) ouputid  outportnr inputid inportnr ";
                 for (int i = 0; i < connections.Count; i++)
                 {
                     if (i % 4 == 0)
