@@ -204,7 +204,6 @@ namespace Error_NameNotFound
 
                 if (previewCable == null)
                 {
-
                     previewCable = new Cable(cableX1, cableY1, previewCableDropPoint.X, previewCableDropPoint.Y, cableDirection,false);
                     Workspace.Children.Add(previewCable);
                 }
@@ -265,11 +264,8 @@ namespace Error_NameNotFound
                 previewCable = null;
                 if (e.Handled == false)
                 {
-
-
                     cableX2 = DropPoint.X;
                     cableY2 = DropPoint.Y;
-
                     if (cableDirection)
                     {
                         cableX2 = cableX1;
@@ -278,13 +274,11 @@ namespace Error_NameNotFound
                     {
                         cableY2 = cableY1;
                     }
-
                     Cable _cable = new Cable(cableX1, cableY1, cableX2, cableY2, cableDirection);
                     cables.Add(_cable);
                     currentcable = _cable.Id;
                     currentcable = cables.IndexOf(cables.FirstOrDefault(c => c.Id == currentcable));
                     Workspace.Children.Add(cables[currentcable]);
-
                     cableDirection = !cableDirection;
                 }
                 cableDrag = false;
@@ -307,7 +301,6 @@ namespace Error_NameNotFound
                     CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == CurrentGate));
                     if (e.KeyStates == DragDropKeyStates.ControlKey && e.Effects.HasFlag(DragDropEffects.Copy))
                     {
-
                         AND _and = new AND(id);
                         id++;
                         Gates_UI.Add(_and);
@@ -326,7 +319,6 @@ namespace Error_NameNotFound
                         e.Effects = DragDropEffects.Move;
                     }
                 }
-
             }
         }
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
