@@ -63,5 +63,9 @@ namespace Error_NameNotFound.ViewModel
             }
             e.Handled = true;
         }
+        public void ChangeColorInOut()
+        {
+
+        }
     }
 }
