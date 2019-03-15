@@ -139,6 +139,41 @@ namespace Error_NameNotFound
             Gates_UI.Add(_button);
             GeneratePreview();
         }
+        private void OR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            OR _or = new OR(Id);
+            gateType = "OR";
+            Gates_UI.Add(_or);
+            GeneratePreview();
+        }
+        private void NAND_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            NAND _nand = new NAND(Id);
+            gateType = "NAND";
+            Gates_UI.Add(_nand);
+            GeneratePreview();
+        }
+        private void NOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            XOR _nor = new XOR(Id);
+            gateType = "NOR";
+            Gates_UI.Add(_nor);
+            GeneratePreview();
+        }
+        private void XOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ViewModel.XOR _xor = new ViewModel.XOR(Id);
+            gateType = "XOR";
+            Gates_UI.Add(_xor);
+            GeneratePreview();
+        }
+        private void XNOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            XNOR _xnor = new XNOR(Id);
+            gateType = "XNOR";
+            Gates_UI.Add(_xnor);
+            GeneratePreview();
+        }
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
         {
             if (GateDelete)
@@ -174,7 +209,6 @@ namespace Error_NameNotFound
                 
             
         }
-
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("Object"))
@@ -663,12 +697,12 @@ namespace Error_NameNotFound
                         //    previewImage.Height = ;
                         //    previewImage.Width = ;
                         //    break;
-                        //case "OR":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
+                        case "OR":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Or.png", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
                         //case "Oscillator":
                         //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
                         //    previewImage.Source = previewBitmap;
@@ -974,9 +1008,9 @@ namespace Error_NameNotFound
                             //case "NOT":
                             //    _gate = new NOT(id);
                             //    break;
-                            //case "OR":
-                            //    _gate = new OR(id);
-                            //    break;
+                            case "OR":
+                                _gate = new OR(id);
+                                break;
                             //case "Oscillator":
                             //    _gate = new Oscillator(id);
                             //    break;

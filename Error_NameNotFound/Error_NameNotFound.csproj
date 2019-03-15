@@ -750,7 +750,7 @@
     <Compile Include="Model\Gates\L_Register.cs" />
     <Compile Include="Model\Gates\L_Seg7.cs" />
     <Compile Include="Model\Gates\L_Xnor.cs" />
-    <Compile Include="Model\Gates\L_XOr.cs" />
+    <Compile Include="Model\Gates\L_Xor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
