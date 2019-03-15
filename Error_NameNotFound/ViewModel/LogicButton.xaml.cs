@@ -25,15 +25,18 @@ namespace Error_NameNotFound
     public partial class LogicButton : Logicgatescontrol
     {
         private L_Button l_button;
+        private bool On;
         public LogicButton() :base()
         {
             InitializeComponent();
             Name = "ButtonUI";
+            On = false;
         }
         public LogicButton(int id) : base(id)
         {
             InitializeComponent();
             Name = "ButtonUI";
+            On = false;
             l_button = new L_Button(id, this);
             LogicGates.gates_logic.Add(l_button);
             ChangeColorInOut();
@@ -45,7 +48,14 @@ namespace Error_NameNotFound
             {
                 MainWindow.CurrentGate = id;
                 MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "LogicButton";
+                if (On)
+                {
+                    MainWindow.GateType = "LogicButton_On";
+                }
+                else
+                {
+                    MainWindow.GateType = "LogicButton_Off";
+                }
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", ButtonUI.Height);
@@ -54,9 +64,18 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ButtonUI_MouseUp(object sender, MouseButtonEventArgs e)
         {
             l_button.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
+            On = !On;
+            if (On)
+            {
+                ButtonUI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton_On.png", UriKind.Absolute));
+            }
+            else
+            {
+                ButtonUI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton_Off.png", UriKind.Absolute));
+            }
         }
         private void Output0_Click(object sender, RoutedEventArgs e)
         {

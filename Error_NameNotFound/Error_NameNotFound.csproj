@@ -60,6 +60,15 @@
     <Compile Include="Model\Gates\L_Cable.cs" />
     <Compile Include="Model\Gates\L_Counter.cs" />
     <Compile Include="Model\Gates\L_Counter_ms.cs" />
+    <Compile Include="ViewModel\Counter.xaml.cs">
+      <DependentUpon>Counter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Counter_ms.xaml.cs">
+      <DependentUpon>Counter_ms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\NOT.xaml.cs">
+      <DependentUpon>NOT.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Outputbutton_vm.cs" />
     <Compile Include="Model\Prozesstoken.cs" />
     <Compile Include="Model\Gates\L_Register_ms.cs" />
@@ -317,6 +326,14 @@
     <Page Include="ViewModel\Cable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewModel\Counter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\Counter_ms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewModel\FF_DC_c_e_s_r.xaml">
       <SubType>Designer</SubType>
@@ -598,6 +615,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ViewModel\NOT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewModel\OR.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -768,10 +789,22 @@
     <Resource Include="Views\Delete-Cursor.cur" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\LogicButton.png" />
+    <Resource Include="Views\Delete-Cursor_Cable_.cur" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\Delete-Cursor_Cable_.cur" />
+    <Resource Include="Pictures\LogicButton_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\LogicButton_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Calliper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Delete Cursor%28Cable%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Delete Cursor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
