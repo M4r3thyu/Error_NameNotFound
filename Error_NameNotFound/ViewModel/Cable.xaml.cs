@@ -173,7 +173,7 @@ namespace Error_NameNotFound.ViewModel
         {
             if (MainWindow.GateDelete)
             {
-                Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("../Views/Delete-Cursor_Cable_.cur", UriKind.Relative)).Stream);
+                Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("../Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
             }
         }
 

@@ -789,9 +789,6 @@
     <Resource Include="Views\Delete-Cursor.cur" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\Delete-Cursor_Cable_.cur" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pictures\LogicButton_On.png" />
   </ItemGroup>
   <ItemGroup>

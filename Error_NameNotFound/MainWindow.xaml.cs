@@ -160,17 +160,19 @@ namespace Error_NameNotFound
 
         private void canvas_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (e.Delta > 0)
-            {
-                st.ScaleX *= ScaleRate;
-                st.ScaleY *= ScaleRate;
-            }
-            else
-            {
-                st.ScaleX /= ScaleRate;
-                st.ScaleY /= ScaleRate;
-            }
-            Workspace.Background = System.Windows.Media.Brushes.GhostWhite;
+            
+                if (e.Delta > 0)
+                {
+                    st.ScaleX *= ScaleRate;
+                    st.ScaleY *= ScaleRate;
+                }
+                else if (st.ScaleX >= 0.2)
+                {
+                    st.ScaleX /= ScaleRate;
+                    st.ScaleY /= ScaleRate;
+                }
+                
+            
         }
 
         private void canvas_DragOver(object sender, DragEventArgs e)
