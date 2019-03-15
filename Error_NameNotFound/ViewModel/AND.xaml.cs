@@ -82,24 +82,24 @@ namespace Error_NameNotFound
             {
                 // Set property or change UI compomponents.              
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    input0.Background = System.Windows.Media.Brushes.Red;
+                    input0.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    input0.Background = System.Windows.Media.Brushes.MediumPurple;
+                    input0.Background = System.Windows.Media.Brushes.Purple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
-                    input1.Background = System.Windows.Media.Brushes.Red;
+                    input1.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    input1.Background = System.Windows.Media.Brushes.MediumPurple;
+                    input1.Background = System.Windows.Media.Brushes.Purple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.Red;
+                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    output0.Background = System.Windows.Media.Brushes.MediumPurple;
+                    output0.Background = System.Windows.Media.Brushes.Purple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                    output1.Background = System.Windows.Media.Brushes.Red;
+                    output1.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    output1.Background = System.Windows.Media.Brushes.MediumPurple;
+                    output1.Background = System.Windows.Media.Brushes.Purple;
             });
         }
         private void Input0_Drop(object sender, DragEventArgs e)

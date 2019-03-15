@@ -163,9 +163,9 @@ namespace Error_NameNotFound.ViewModel
             {
                 // Set property or change UI compomponents.              
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    CableUI.Stroke = System.Windows.Media.Brushes.Red;
+                    CableUI.Stroke = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    CableUI.Stroke = System.Windows.Media.Brushes.MediumPurple;
+                    CableUI.Stroke = System.Windows.Media.Brushes.Purple;
             });
         }
 
