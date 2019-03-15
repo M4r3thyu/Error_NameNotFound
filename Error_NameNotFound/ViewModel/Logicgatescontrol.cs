@@ -77,6 +77,7 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.PreviewCable = null;
             Cable _cable = new Cable(MainWindow.CableX1, MainWindow.CableY1, x2, y2, MainWindow.CableDirection);
             MainWindow.AddCable(_cable);
+            MainWindow.CableDrag = false;
         }
 
     }
