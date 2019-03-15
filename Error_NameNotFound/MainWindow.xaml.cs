@@ -749,8 +749,6 @@ namespace Error_NameNotFound
                     Workspace.Children.Add(Gates_UI[CurrentGate]);
                     Canvas.SetLeft(Gates_UI[CurrentGate], DropPoint.X);
                     Canvas.SetTop(Gates_UI[CurrentGate], DropPoint.Y);
-                    // set the value to return to the DoDragDrop call
-                    e.Effects = DragDropEffects.Copy;
                 }
                 else
                 {
@@ -995,15 +993,11 @@ namespace Error_NameNotFound
                         Workspace.Children.Add(Gates_UI[CurrentGate]);
                         Canvas.SetLeft(Gates_UI[CurrentGate], PreviewGateDropPoint.X);
                         Canvas.SetTop(Gates_UI[CurrentGate], PreviewGateDropPoint.Y);
-                        // set the value to return to the DoDragDrop call
-                        e.Effects = DragDropEffects.Copy;
                     }
                     else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                     {
                         Canvas.SetLeft(Gates_UI[CurrentGate], PreviewGateDropPoint.X);
                         Canvas.SetTop(Gates_UI[CurrentGate], PreviewGateDropPoint.Y);
-                        // set the value to return to the DoDragDrop call
-                        e.Effects = DragDropEffects.Move;
                     }
                 }
             }
