@@ -48,7 +48,14 @@ namespace Error_NameNotFound
             {
                 MainWindow.CurrentGate = id;
                 MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "LogicButton";
+                if (On)
+                {
+                    MainWindow.GateType = "LogicButton_On";
+                }
+                else
+                {
+                    MainWindow.GateType = "LogicButton_Off";
+                }
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", ButtonUI.Height);
@@ -57,7 +64,7 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ButtonUI_MouseUp(object sender, MouseButtonEventArgs e)
         {
             l_button.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
             On = !On;

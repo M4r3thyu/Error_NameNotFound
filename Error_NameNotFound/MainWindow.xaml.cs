@@ -135,7 +135,7 @@ namespace Error_NameNotFound
         private void LogicButton_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             LogicButton _button = new LogicButton(Id);
-            gateType = "LogicButton";
+            gateType = "LogicButton_Off";
             Gates_UI.Add(_button);
             GeneratePreview();
         }
@@ -229,8 +229,14 @@ namespace Error_NameNotFound
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
-                        case "LogicButton":
+                        case "LogicButton_Off":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton_Off.png", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 50;
+                            previewImage.Width = 50;
+                            break;
+                        case "LogicButton_On":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton_On.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 50;
                             previewImage.Width = 50;
@@ -761,7 +767,8 @@ namespace Error_NameNotFound
                             case "AND":
                                 _gate = new AND(id);
                                 break;
-                            case "LogicButton":
+                            case "LogicButton_On":
+                            case "LogicButton_Off":
                                 _gate = new LogicButton(id);
                                 break;
                             //case "Calliper":
