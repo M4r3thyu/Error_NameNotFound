@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
