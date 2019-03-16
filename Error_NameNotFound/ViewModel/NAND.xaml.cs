@@ -18,31 +18,30 @@ namespace Error_NameNotFound.ViewModel
     /// <summary>
     /// Interaction logic for NAND.xaml
     /// </summary>
-<<<<<<< HEAD
-    public partial class NAND : Logicgatescontrol
-    {
-        //private L_Nand l_nand;
-        public NAND() : base()
-=======
+//<<<<<<< HEAD
+//    public partial class NAND : Logicgatescontrol
+//    {
+//        //private L_Nand l_nand;
+//        public NAND() : base()
+//=======
     public partial class NAND : UserControl
     {
         public NAND()
->>>>>>> parent of 21d4d52... implement other basic Gates
         {
             InitializeComponent();
         }
         public NAND(NAND g)
         {
             InitializeComponent();
-<<<<<<< HEAD
-            Name = "NANDUI";
-            //l_nand = new L_Nand(2, id, this);
-            //LogicGates.gates_logic.Add(l_nand);
-            ChangeColorInOut();
-=======
-            this.NANDUI.Height = g.NANDUI.Height;
-            this.NANDUI.Width = g.NANDUI.Height;
->>>>>>> parent of 21d4d52... implement other basic Gates
+//<<<<<<< HEAD
+//            Name = "NANDUI";
+//            //l_nand = new L_Nand(2, id, this);
+//            //LogicGates.gates_logic.Add(l_nand);
+//            ChangeColorInOut();
+//=======
+//            this.NANDUI.Height = g.NANDUI.Height;
+//            this.NANDUI.Width = g.NANDUI.Height;
+//>>>>>>> parent of 21d4d52... implement other basic Gates
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {

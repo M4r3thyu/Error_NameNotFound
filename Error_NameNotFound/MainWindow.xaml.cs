@@ -139,44 +139,44 @@ namespace Error_NameNotFound
             Gates_UI.Add(_button);
             GeneratePreview();
         }
-<<<<<<< HEAD
+        //<<<<<<< HEAD
         private void OR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            OR _or = new OR(Id);
-            gateType = "OR";
-            Gates_UI.Add(_or);
-            GeneratePreview();
+            //OR _or = new OR(Id);
+            //gateType = "OR";
+            //Gates_UI.Add(_or);
+            //GeneratePreview();
         }
-        private void NAND_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            NAND _nand = new NAND(Id);
-            gateType = "NAND";
-            Gates_UI.Add(_nand);
-            GeneratePreview();
-        }
-        private void NOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            NOR _nor = new NOR(Id);
-            gateType = "NOR";
-            Gates_UI.Add(_nor);
-            GeneratePreview();
-        }
-        private void XOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            XOR _xor = new XOR(Id);
-            gateType = "XOR";
-            Gates_UI.Add(_xor);
-            GeneratePreview();
-        }
-        private void XNOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            XNOR _xnor = new XNOR(Id);
-            gateType = "XNOR";
-            Gates_UI.Add(_xnor);
-            GeneratePreview();
-        }
-=======
->>>>>>> parent of 21d4d52... implement other basic Gates
+                private void NAND_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+                {
+        //            NAND _nand = new NAND(Id);
+        //            gateType = "NAND";
+        //            Gates_UI.Add(_nand);
+        //            GeneratePreview();
+                }
+                private void NOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+                {
+        //            NOR _nor = new NOR(Id);
+        //            gateType = "NOR";
+        //            Gates_UI.Add(_nor);
+        //            GeneratePreview();
+                }
+                private void XOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+                {
+        //            XOR _xor = new XOR(Id);
+        //            gateType = "XOR";
+        //            Gates_UI.Add(_xor);
+        //            GeneratePreview();
+                }
+                private void XNOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+                {
+        //            XNOR _xnor = new XNOR(Id);
+        //            gateType = "XNOR";
+        //            Gates_UI.Add(_xnor);
+        //            GeneratePreview();
+                }
+        //=======
+        //>>>>>>> parent of 21d4d52... implement other basic Gates
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
         {
             if (GateDelete)
