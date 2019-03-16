@@ -10,10 +10,10 @@ using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
-    class Xor : LogicGates
+    class L_Xor : LogicGates
     {
         public ViewModel.XOR v_XOR;
-        public Xor(int input, int id, ViewModel.XOR v_XOR) : base(2, 2,id)      //Output[0] = Normal [1] = Negiert
+        public L_Xor(int input, int id, ViewModel.XOR v_XOR) : base(2, 2,id)      //Output[0] = Normal [1] = Negiert
         {
             this.v_XOR = v_XOR;
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q

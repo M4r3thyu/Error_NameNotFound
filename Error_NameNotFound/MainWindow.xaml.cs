@@ -155,14 +155,14 @@ namespace Error_NameNotFound
         }
         private void NOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            XOR _nor = new XOR(Id);
+            NOR _nor = new NOR(Id);
             gateType = "NOR";
             Gates_UI.Add(_nor);
             GeneratePreview();
         }
         private void XOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ViewModel.XOR _xor = new ViewModel.XOR(Id);
+            XOR _xor = new XOR(Id);
             gateType = "XOR";
             Gates_UI.Add(_xor);
             GeneratePreview();
@@ -192,10 +192,8 @@ namespace Error_NameNotFound
                 Mouse.OverrideCursor = null;
             }
         }
-
         private void canvas_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            
                 if (e.Delta > 0)
                 {
                     st.ScaleX *= ScaleRate;
@@ -206,8 +204,6 @@ namespace Error_NameNotFound
                     st.ScaleX /= ScaleRate;
                     st.ScaleY /= ScaleRate;
                 }
-                
-            
         }
         private void canvas_DragOver(object sender, DragEventArgs e)
         {

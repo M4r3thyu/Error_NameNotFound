@@ -19,9 +19,12 @@ using System.Windows.Threading;
 
 namespace Error_NameNotFound
 {
+    /// <summary>
+    /// Interaction logic for NAND.xaml
+    /// </summary>
     public partial class NAND : Logicgatescontrol
     {
-        private L_Nand l_nand;
+        //private L_Nand l_nand;
         public NAND() : base()
         {
             InitializeComponent();
@@ -31,8 +34,8 @@ namespace Error_NameNotFound
         {
             InitializeComponent();
             Name = "NANDUI";
-            l_nand = new L_Nand(2, id, this);
-            LogicGates.gates_logic.Add(l_nand);
+            //l_nand = new L_Nand(2, id, this);
+            //LogicGates.gates_logic.Add(l_nand);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
