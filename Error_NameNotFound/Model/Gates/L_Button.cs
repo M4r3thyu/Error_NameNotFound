@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
@@ -21,9 +22,9 @@ namespace Error_NameNotFound.Model
         {
             output[0] = !output[0];
             ChangeColor();
-            prozessnr = MainWindow.prozessid;
-            Prozesstoken start = new Prozesstoken(MainWindow.prozessid);
-            MainWindow.prozessid++;
+            prozessnr = MainWindow.Prozessid;
+            MainWindow.Prozessid++;
+            Prozesstoken start = new Prozesstoken(prozessnr);
         }
         public override void ChangeColor()
         {

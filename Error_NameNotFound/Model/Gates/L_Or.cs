@@ -11,9 +11,15 @@ namespace Error_NameNotFound.Model
 {
     class L_Or : LogicGates
     {
-        public L_Or(int input, int id) : base(input, 2,id)      //Output[0] = Normal [1] = Negiert
+        private OR v_OR;
+        public L_Or(int input, int id, OR v_OR) : base(input, 2,id)      //Output[0] = Normal [1] = Negiert
         {
-            output[1] = !output[0];                        //output[0] = Q output[1] = !Q
+            this.v_OR = v_OR;
+            output[1] = !output[0];                           //output[0] = Q output[1] = !Q
+            for (int i = 0; i < input; i++)
+            {
+                this.input[i] = false;
+            }
         }
         override protected void ChangeOutput()
         {
@@ -26,6 +32,15 @@ namespace Error_NameNotFound.Model
             output[0] = merke;
             output[1] = !output[0];
             Output = output;
+        }
+        public override void ChangeColor()
+        {
+            v_OR.ChangeColorInOut();
+        }
+        protected override void basevalue(int inr)
+        {
+            input[inr] = false;
+            ChangeOutput();
         }
     }
 }

@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="50">
     <Grid>
-        <Image Width="50" Height="50" Name="ButtonUI" Source="/Error_NameNotFound;component/Pictures/LogicButton.png" MouseDown="ButtonUI_MouseDown"/>
-        <Button Width="10" Height="10" Name="output0" Click="Output0_Click" Margin="40,20,0,20"/>
+        <Image Width="50" Height="50" Name="ButtonUI" Source="/Error_NameNotFound;component/Pictures/LogicButton_Off.png" MouseUp="ButtonUI_MouseUp"/>
+        <Button Width="10" Height="10" Name="output0" PreviewMouseLeftButtonDown="Output0_Click" Margin="40,20,0,20"/>
     </Grid>
 </vm:Logicgatescontrol>
 

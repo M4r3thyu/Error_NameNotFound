@@ -92,9 +92,9 @@ namespace Error_NameNotFound.Model
                 connections.Add(outnr); //      1 = connection output nr = outnr
                 connections.Add(inid);  //      2 = connection input id  = inid
                 connections.Add(innr);  //      3 = connection input nr  = innr
-                prozessnr = MainWindow.prozessid;
-                Prozesstoken start = new Prozesstoken(MainWindow.prozessid);
-                MainWindow.prozessid++;
+                prozessnr = MainWindow.Prozessid;
+                MainWindow.Prozessid++;
+                Prozesstoken start = new Prozesstoken(prozessnr);
                 // ChangeOutput();
                 return true;
             }
@@ -175,7 +175,7 @@ namespace Error_NameNotFound.Model
         {
             get
             {
-                string allconnections = "| ouputid  outportnr inputid inportnr ";
+                string allconnections = "| (Verbindungen) ouputid  outportnr inputid inportnr ";
                 for (int i = 0; i < connections.Count; i++)
                 {
                     if (i % 4 == 0)

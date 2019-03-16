@@ -12,56 +12,69 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Error_NameNotFound.ViewModel;
+using Error_NameNotFound.Model;
+using System.Drawing;
+using System.Windows.Threading;
 
-namespace Error_NameNotFound.ViewModel
+namespace Error_NameNotFound
 {
     /// <summary>
     /// Interaction logic for Calliper.xaml
     /// </summary>
-    public partial class Calliper : UserControl
+    public partial class Calliper : Logicgatescontrol
     {
-        public Calliper()
+        private L_Calliper l_calliper;
+        public Calliper():base()
         {
             InitializeComponent();
+            Name = "CalliperUI";
         }
-        public Calliper(Calliper g)
+        public Calliper(int id):base(id)
         {
             InitializeComponent();
-            this.CalliperUI.Height = g.CalliperUI.Height;
-            this.CalliperUI.Width = g.CalliperUI.Height;
+            Name = "CalliperUI";
+            l_calliper = new L_Calliper(id, this);
+            LogicGates.gates_logic.Add(l_calliper);
+            ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
+                MainWindow.CurrentGate = id;
+                MainWindow.SetGateFromButton(false);
+                MainWindow.GateType = "Calliper";
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", CalliperUI.Height);
                 data.SetData("Object", this);
-
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
             }
         }
-        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
+        private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            base.OnGiveFeedback(e);
-            // These Effects values are set in the drop target's
-            // DragOver event handler.
-            if (e.Effects.HasFlag(DragDropEffects.Copy))
+            l_calliper.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
+        }
+        private void Output0_Click(object sender, RoutedEventArgs e)
+        {
+            Outputbutton_vm.Output_Click(id, 0);
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 50;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
+            StartCableDrag();
+        }
+        public override void ChangeColorInOut()
+        {
+            Dispatcher.Invoke(() =>
             {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
-            e.Handled = true;
+                // Set property or change UI compomponents.              
+                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
+                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                else
+                    output0.Background = System.Windows.Media.Brushes.Purple;
+            });
         }
     }
 }

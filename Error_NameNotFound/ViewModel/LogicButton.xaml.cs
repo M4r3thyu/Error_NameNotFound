@@ -25,15 +25,18 @@ namespace Error_NameNotFound
     public partial class LogicButton : Logicgatescontrol
     {
         private L_Button l_button;
+        private bool On;
         public LogicButton() :base()
         {
             InitializeComponent();
             Name = "ButtonUI";
+            On = false;
         }
         public LogicButton(int id) : base(id)
         {
             InitializeComponent();
             Name = "ButtonUI";
+            On = false;
             l_button = new L_Button(id, this);
             LogicGates.gates_logic.Add(l_button);
             ChangeColorInOut();
@@ -43,9 +46,16 @@ namespace Error_NameNotFound
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                MainWindow.Setcurrentgate(id);
+                MainWindow.CurrentGate = id;
                 MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "LogicButton";
+                if (On)
+                {
+                    MainWindow.GateType = "LogicButton_On";
+                }
+                else
+                {
+                    MainWindow.GateType = "LogicButton_Off";
+                }
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", ButtonUI.Height);
@@ -54,15 +64,25 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ButtonUI_MouseUp(object sender, MouseButtonEventArgs e)
         {
             l_button.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
+            On = !On;
+            if (On)
+            {
+                ButtonUI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton_On.png", UriKind.Absolute));
+            }
+            else
+            {
+                ButtonUI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/LogicButton_Off.png", UriKind.Absolute));
+            }
         }
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            bool sucess = Outputbutton_vm.Output_Click(id, 0);
-            if (sucess)
-                output0.Background = System.Windows.Media.Brushes.Yellow;
+            Outputbutton_vm.Output_Click(id, 0);
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 50;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
+            StartCableDrag();
         }
         public override void ChangeColorInOut()
         {
@@ -70,9 +90,9 @@ namespace Error_NameNotFound
             {
                 // Set property or change UI compomponents.              
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.Red;
+                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    output0.Background = System.Windows.Media.Brushes.MediumPurple;
+                    output0.Background = System.Windows.Media.Brushes.Purple;
             });
         }
     }

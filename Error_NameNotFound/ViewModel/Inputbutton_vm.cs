@@ -13,19 +13,19 @@ namespace Error_NameNotFound.ViewModel
         public Inputbutton_vm() { }
         public static bool Input_Click(int id, int innr)
         {
-            switch (LogicGates.in_or_out)
-            {
-                case 0:
-                    LogicGates.inid = id;
-                    LogicGates.innr = innr;
-                    if (!LogicGates.Inenabled(innr, id))
-                    {
-                        LogicGates.in_or_out = 2;
-                        return true;
-                        //input0.Background = System.Windows.Media.Brushes.Yellow;
-                    }
-                    break;
-                case 1:                 //output id             inportid  inportnr  ouportnr     
+            //switch (LogicGates.in_or_out)
+            //{
+            //    case 0:
+            //        LogicGates.inid = id;
+            //        LogicGates.innr = innr;
+            //        if (!LogicGates.Inenabled(innr, id))
+            //        {
+            //            LogicGates.in_or_out = 2;
+            //            return true;
+            //            //input0.Background = System.Windows.Media.Brushes.Yellow;
+            //        }
+            //        break;
+            //    case 1:                 //output id             inportid  inportnr  ouportnr     
                     if (!LogicGates.Inenabled(innr, id))
                     {
                         LogicGates.inid = id;
@@ -37,14 +37,14 @@ namespace Error_NameNotFound.ViewModel
                         }
                     }
                     LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.in_or_out = 0;
-                    break;
-                default:
-                    LogicGates.in_or_out = 0;
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
-                    LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
-                    break;
-            }
+                    //LogicGates.in_or_out = 0;
+            //        break;
+            //    default:
+            //        LogicGates.in_or_out = 0;
+            //        LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.outid).ChangeColor();
+            //        LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.inid).ChangeColor();
+            //        break;
+            //}
             return false;
         }
         private void DelConnection_Input()

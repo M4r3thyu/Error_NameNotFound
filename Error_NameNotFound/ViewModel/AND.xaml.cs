@@ -19,9 +19,6 @@ using System.Windows.Threading;
 
 namespace Error_NameNotFound
 {
-    /// <summary>
-    /// Interaction logic for AND.xaml
-    /// </summary>
     public partial class AND : Logicgatescontrol
     {
         private L_And l_and;
@@ -43,7 +40,7 @@ namespace Error_NameNotFound
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                MainWindow.Setcurrentgate(id);
+                MainWindow.CurrentGate = id;
                 MainWindow.SetGateFromButton(false);
                 MainWindow.GateType = "AND";
                 // Package the data.
@@ -54,34 +51,19 @@ namespace Error_NameNotFound
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-
-        private void Input0_Click(object sender, RoutedEventArgs e)
-        {
-            bool success = Inputbutton_vm.Input_Click(id, 0);
-            if (success)
-                input0.Background = System.Windows.Media.Brushes.Yellow;
-
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 10;
-            MainWindow.CableY1= Canvas.GetTop(this)+25;
-            StartCableDrag();
-        }
-        private void Input1_Click(object sender, RoutedEventArgs e)
-        {
-            bool success = Inputbutton_vm.Input_Click(id, 1);
-            if (success)
-                input1.Background = System.Windows.Media.Brushes.Yellow;
-        }
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            bool sucess = Outputbutton_vm.Output_Click(id, 0);
-            if (sucess)
-                output0.Background = System.Windows.Media.Brushes.Yellow;
+            Outputbutton_vm.Output_Click(id, 0);
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 75;
+            StartCableDrag();
         }
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
-            bool sucess = Outputbutton_vm.Output_Click(id, 1);
-            if (sucess)
-                output1.Background = System.Windows.Media.Brushes.Yellow;
+            Outputbutton_vm.Output_Click(id, 1);
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
+            StartCableDrag();
         }
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {
@@ -97,25 +79,37 @@ namespace Error_NameNotFound
             {
                 // Set property or change UI compomponents.              
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    input0.Background = System.Windows.Media.Brushes.Red;
+                    input0.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    input0.Background = System.Windows.Media.Brushes.MediumPurple;
+                    input0.Background = System.Windows.Media.Brushes.Purple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
-                    input1.Background = System.Windows.Media.Brushes.Red;
+                    input1.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    input1.Background = System.Windows.Media.Brushes.MediumPurple;
+                    input1.Background = System.Windows.Media.Brushes.Purple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.Red;
+                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    output0.Background = System.Windows.Media.Brushes.MediumPurple;
+                    output0.Background = System.Windows.Media.Brushes.Purple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                    output1.Background = System.Windows.Media.Brushes.Red;
+                    output1.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
-                    output1.Background = System.Windows.Media.Brushes.MediumPurple;
+                    output1.Background = System.Windows.Media.Brushes.Purple;
             });
+        }
+        private void Input0_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            Inputbutton_vm.Input_Click(id, 0);
+            e.Handled = true;
+        }
+        private void Input1_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
+            Inputbutton_vm.Input_Click(id, 1);
+            e.Handled = true;
         }
     }
 }

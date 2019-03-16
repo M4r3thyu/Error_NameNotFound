@@ -44,22 +44,33 @@ namespace Error_NameNotFound.ViewModel
                     FileStream fs = File.Open(dialog.FileName, FileMode.Create);
                     // XamlWriter.Save(Workspace, fs);
                     fs.Close();
-                    string bausteine = " |  index left top Name | ";
-                    for (int i = 0; i < MainWindow.gates_UI.Count ; i++)//LogicGates.gates_logic.Count
+                    string bausteine = " | (Baussteine) index left top Name | ";
+                    for (int i = 0; i < MainWindow.Gates_UI.Count ; i++)//LogicGates.gates_logic.Count
                     {
-                        var temp = MainWindow.gates_UI[i];
+                        var temp = MainWindow.Gates_UI[i];
 
                         bausteine += " " + LogicGates.gates_logic[i].id + " ";
-                        bausteine += Canvas.GetLeft(MainWindow.gates_UI[i]);
+                        bausteine += Canvas.GetLeft(MainWindow.Gates_UI[i]);
                         bausteine += " ";
-                        bausteine += Canvas.GetTop(MainWindow.gates_UI[i]);
+                        bausteine += Canvas.GetTop(MainWindow.Gates_UI[i]);
                         bausteine += " ";
-                        bausteine += MainWindow.gates_UI[i].Name;
+                        bausteine += MainWindow.Gates_UI[i].Name;
                         bausteine += " | ";
+                    }
+                    string cables = " | (Kabel) index x1 x2 y1 y2 direction | ";
+                    for (int i = 0; i < MainWindow.Cables.Count; i++)
+                    {
+                        cables += " " + MainWindow.Cables[i].Id + " ";
+                        cables += " " + MainWindow.Cables[i].X1 + " ";
+                        cables += " " + MainWindow.Cables[i].X2 + " ";
+                        cables += " " + MainWindow.Cables[i].Y1 + " ";
+                        cables += " " + MainWindow.Cables[i].Y2 + " ";
+                        cables += " " + MainWindow.Cables[i].Direction + " ";
+                        cables += " | "; 
                     }
                     string connections = " ";
                     connections = LogicGates.Get_Connections;
-                    string save = bausteine + " $ " + connections;
+                    string save = bausteine + " $ " + cables + " $ " + connections;
                     File.AppendAllText(dialog.FileName, save);
 
                 }

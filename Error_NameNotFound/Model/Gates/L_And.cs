@@ -21,7 +21,7 @@ namespace Error_NameNotFound.Model
                 this.input[i] = true;
             }
         }
-        override protected void ChangeOutput()
+        protected override void ChangeOutput()
         {
             bool merke = true;
             for (int i = 0; i < input.Count; i++)

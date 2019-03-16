@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
-
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
-    class Xor : LogicGates
+    class L_Xor : LogicGates
     {
-        public Xor(int input, int id) : base(2, 2,id)      //Output[0] = Normal [1] = Negiert
+        public ViewModel.XOR v_XOR;
+        public L_Xor(int input, int id, ViewModel.XOR v_XOR) : base(2, 2,id)      //Output[0] = Normal [1] = Negiert
         {
+            this.v_XOR = v_XOR;
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
         }
         override protected void ChangeOutput()
