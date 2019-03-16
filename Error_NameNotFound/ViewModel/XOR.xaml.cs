@@ -17,7 +17,7 @@ using Error_NameNotFound.Model;
 using System.Drawing;
 using System.Windows.Threading;
 
-namespace Error_NameNotFound
+namespace Error_NameNotFound.ViewModel
 {
     public partial class XOR : Logicgatescontrol
     {

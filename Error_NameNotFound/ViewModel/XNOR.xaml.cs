@@ -17,7 +17,7 @@ using Error_NameNotFound.Model;
 using System.Drawing;
 using System.Windows.Threading;
 
-namespace Error_NameNotFound
+namespace Error_NameNotFound.ViewModel
 {
     public partial class XNOR : Logicgatescontrol
     {
@@ -31,8 +31,8 @@ namespace Error_NameNotFound
         {
             InitializeComponent();
             Name = "XNORUI";
-            l_xnor = new L_Xnor(2, id, this);
-            LogicGates.gates_logic.Add(l_xnor);
+            //l_xnor = new L_Xnor(2, id, this);
+            //LogicGates.gates_logic.Add(l_xnor);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)

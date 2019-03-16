@@ -17,14 +17,11 @@ using Error_NameNotFound.Model;
 using System.Drawing;
 using System.Windows.Threading;
 
-namespace Error_NameNotFound
+namespace Error_NameNotFound.ViewModel
 {
-    /// <summary>
-    /// Interaction logic for NAND.xaml
-    /// </summary>
     public partial class NAND : Logicgatescontrol
     {
-        //private L_Nand l_nand;
+        private L_Nand l_nand;
         public NAND() : base()
         {
             InitializeComponent();

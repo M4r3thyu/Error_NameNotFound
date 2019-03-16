@@ -1,4 +1,4 @@
-﻿ <vm:Logicgatescontrol x:Class="Error_NameNotFound.ViewModel.NAND"
+﻿<vm:Logicgatescontrol x:Class="Error_NameNotFound.ViewModel.NAND"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,10 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
-        <Image Width="100" Height="100" Name="NANDUI" Source="/Error_NameNotFound;component/Pictures/Nand.png"></Image>
-        <Button Width="10" Height="10" Margin="10,20,80,70" Name="input0"  MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
-        <Button Width="10" Height="10" Margin="10,70,80,20" Name="input1"  MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
+        <Image Width="100" Height="100" Name="NANDUI" Source="/Error_NameNotFound;component/Pictures/And.png"></Image>
+        <Button Width="10" Height="10" Margin="10,20,80,70" Name="input0" MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
+        <Button Width="10" Height="10" Margin="10,70,80,20" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
         <Button Width="10" Height="10" Margin="80,20,10,70" Name="output1" PreviewMouseLeftButtonDown="Output1_Click"/>
         <Button Width="10" Height="10" Margin="80,70,10,20" Name="output0" PreviewMouseLeftButtonDown="Output0_Click"/>
     </Grid>
-    </vm:Logicgatescontrol>
+</vm:Logicgatescontrol>
