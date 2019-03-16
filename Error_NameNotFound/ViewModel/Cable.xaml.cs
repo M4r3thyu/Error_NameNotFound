@@ -36,12 +36,7 @@ namespace Error_NameNotFound.ViewModel
         }
         public Cable(double X1, double Y1, double X2, double Y2):this()
         {
-            if(x)
-            {
-                x1 = X1; x2 = X2; y1 = Y1; y2 = Y1;
-            }
-            else
-                y1 = Y1; y2 = Y2;
+            x1 = X1; x2 = X2; y1 = Y1; y2 = Y2;
             ChangeXY();
             /*
             CableUI.X1 = X1;
@@ -52,12 +47,7 @@ namespace Error_NameNotFound.ViewModel
         }
         public void SetXY(double X1, double Y1, double X2, double Y2)
         {
-            if (x)
-            {
-                x1 = X1; x2 = X2;
-            }
-            else
-                y1 = Y1; y2 = Y2;
+            x1 = X1; x2 = X2; y1 = Y1; y2 = Y2;
             ChangeXY();
             /*
             CableUI.X1 = X1;
@@ -68,12 +58,7 @@ namespace Error_NameNotFound.ViewModel
         }
         public void SetXY2(double X2, double Y2)
         {
-            if(x)
-            {
-                x2 = X2;
-            }
-            else
-                y2 = Y2;
+            x2 = X2; y2 = Y2;
             ChangeXY();
             /*
             CableUI.X2 = X2;
@@ -91,16 +76,8 @@ namespace Error_NameNotFound.ViewModel
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MainWindow.CableDrag = true;
-            if(x)
-            {
-                MainWindow.CableX1 = x2;
-                MainWindow.CableY1 = y1;
-            }
-            else
-            {
-                MainWindow.CableX1 = x1;
-                MainWindow.CableY1 = y2;
-            }
+            MainWindow.CableX1 = x2;
+            MainWindow.CableY1 = y2;
             /*
             MainWindow.CableX1 = CableUI.X2;
             MainWindow.CableY1 = CableUI.Y2;
