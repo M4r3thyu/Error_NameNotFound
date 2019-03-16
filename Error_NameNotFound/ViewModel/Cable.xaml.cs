@@ -21,49 +21,30 @@ namespace Error_NameNotFound.ViewModel
     public partial class Cable : UserControl
     {
         public int id = 0;
-        public double x1,x2,y1,y2;
-        public bool x;
         public Cable()
         {
-            x = true;
             id = MainWindow.id;
             MainWindow.id++;
             InitializeComponent();
-            x1 = 0;
-            x2 = 0;
-            y1 = 0;
-            y2 = 0;
         }
         public Cable(double X1, double Y1, double X2, double Y2):this()
         {
-            x1 = X1; x2 = X2; y1 = Y1; y2 = Y2;
-            ChangeXY();
-            /*
             CableUI.X1 = X1;
             CableUI.Y1 = Y1;
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
-            */
         }
         public void SetXY(double X1, double Y1, double X2, double Y2)
         {
-            x1 = X1; x2 = X2; y1 = Y1; y2 = Y2;
-            ChangeXY();
-            /*
             CableUI.X1 = X1;
             CableUI.Y1 = Y1;
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
-            */
         }
         public void SetXY2(double X2, double Y2)
         {
-            x2 = X2; y2 = Y2;
-            ChangeXY();
-            /*
             CableUI.X2 = X2;
             CableUI.Y2 = Y2;
-            */
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
@@ -76,12 +57,10 @@ namespace Error_NameNotFound.ViewModel
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MainWindow.CableDrag = true;
-            MainWindow.CableX1 = x2;
-            MainWindow.CableY1 = y2;
-            /*
+            
             MainWindow.CableX1 = CableUI.X2;
             MainWindow.CableY1 = CableUI.Y2;
-            */
+
             Cable _cable = new Cable();
             DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
         }
@@ -89,39 +68,6 @@ namespace Error_NameNotFound.ViewModel
         private void CableUI_MouseMove(object sender, MouseEventArgs e)
         {
 
-        }
-        private void ChangeXY()
-        {
-            if (x)
-            {
-                if (x1 >= x2)
-                {
-                    Canvas.SetLeft(this, x2);
-                    Canvas.SetTop(this, y1);
-                    CableUI.Width = x1 - x2;
-                }
-                else
-                {
-                    Canvas.SetLeft(this, x1);
-                    Canvas.SetTop(this, y1);
-                    CableUI.Width = x2 - x1;
-                }
-            }
-            else
-            {
-                if (y1 >= y2)
-                {
-                    Canvas.SetLeft(this, x1);
-                    Canvas.SetTop(this, y1);
-                    CableUI.Height = y1 - y2;
-                }
-                else
-                {
-                    Canvas.SetLeft(this, x1);
-                    Canvas.SetTop(this, y2);
-                    CableUI.Height = y2 - y1;
-                }
-            }
         }
     }
 }
