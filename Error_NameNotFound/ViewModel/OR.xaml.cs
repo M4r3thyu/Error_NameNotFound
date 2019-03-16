@@ -19,6 +19,9 @@ using System.Windows.Threading;
 
 namespace Error_NameNotFound
 {
+    /// <summary>
+    /// Interaction logic for OR.xaml
+    /// </summary>
     public partial class OR : Logicgatescontrol
     {
         private L_Or l_or;
@@ -42,7 +45,7 @@ namespace Error_NameNotFound
             {
                 MainWindow.CurrentGate = id;
                 MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "OR";
+                MainWindow.GateType = "AND";
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", ORUI.Height);
@@ -79,24 +82,24 @@ namespace Error_NameNotFound
             {
                 // Set property or change UI compomponents.              
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    input0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    input0.Background = System.Windows.Media.Brushes.Red;
                 else
-                    input0.Background = System.Windows.Media.Brushes.Purple;
+                    input0.Background = System.Windows.Media.Brushes.MediumPurple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
-                    input1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    input1.Background = System.Windows.Media.Brushes.Red;
                 else
-                    input1.Background = System.Windows.Media.Brushes.Purple;
+                    input1.Background = System.Windows.Media.Brushes.MediumPurple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    output0.Background = System.Windows.Media.Brushes.Red;
                 else
-                    output0.Background = System.Windows.Media.Brushes.Purple;
+                    output0.Background = System.Windows.Media.Brushes.MediumPurple;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                    output1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    output1.Background = System.Windows.Media.Brushes.Red;
                 else
-                    output1.Background = System.Windows.Media.Brushes.Purple;
+                    output1.Background = System.Windows.Media.Brushes.MediumPurple;
             });
         }
         private void Input0_Drop(object sender, DragEventArgs e)

@@ -19,6 +19,9 @@ using System.Windows.Threading;
 
 namespace Error_NameNotFound
 {
+    /// <summary>
+    /// Interaction logic for AND.xaml
+    /// </summary>
     public partial class AND : Logicgatescontrol
     {
         private L_And l_and;

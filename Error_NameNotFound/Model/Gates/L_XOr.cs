@@ -12,8 +12,13 @@ namespace Error_NameNotFound.Model
 {
     class L_Xor : LogicGates
     {
+<<<<<<< HEAD
         public ViewModel.XOR v_XOR;
         public L_Xor(int input, int id, ViewModel.XOR v_XOR) : base(2, 2,id)      //Output[0] = Normal [1] = Negiert
+=======
+        public XOR v_XOR;
+        public Xor(int input, int id,XOR v_XOR) : base(2, 2,id)      //Output[0] = Normal [1] = Negiert
+>>>>>>> parent of 21d4d52... implement other basic Gates
         {
             this.v_XOR = v_XOR;
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q

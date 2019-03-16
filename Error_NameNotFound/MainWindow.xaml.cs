@@ -139,6 +139,7 @@ namespace Error_NameNotFound
             Gates_UI.Add(_button);
             GeneratePreview();
         }
+<<<<<<< HEAD
         private void OR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             OR _or = new OR(Id);
@@ -174,6 +175,8 @@ namespace Error_NameNotFound
             Gates_UI.Add(_xnor);
             GeneratePreview();
         }
+=======
+>>>>>>> parent of 21d4d52... implement other basic Gates
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
         {
             if (GateDelete)
@@ -205,6 +208,7 @@ namespace Error_NameNotFound
                     st.ScaleY /= ScaleRate;
                 }
         }
+
         private void canvas_DragOver(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("Object"))
@@ -693,12 +697,12 @@ namespace Error_NameNotFound
                         //    previewImage.Height = ;
                         //    previewImage.Width = ;
                         //    break;
-                        case "OR":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Or.png", UriKind.Absolute));
-                            previewImage.Source = previewBitmap;
-                            previewImage.Height = 100;
-                            previewImage.Width = 100;
-                            break;
+                        //case "OR":
+                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
+                        //    previewImage.Source = previewBitmap;
+                        //    previewImage.Height = ;
+                        //    previewImage.Width = ;
+                        //    break;
                         //case "Oscillator":
                         //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
                         //    previewImage.Source = previewBitmap;
@@ -1004,9 +1008,9 @@ namespace Error_NameNotFound
                             //case "NOT":
                             //    _gate = new NOT(id);
                             //    break;
-                            case "OR":
-                                _gate = new OR(id);
-                                break;
+                            //case "OR":
+                            //    _gate = new OR(id);
+                            //    break;
                             //case "Oscillator":
                             //    _gate = new Oscillator(id);
                             //    break;
