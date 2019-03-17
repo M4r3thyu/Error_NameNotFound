@@ -117,6 +117,7 @@ namespace Error_NameNotFound
         public static List<Logicgatescontrol> Gates_UI { get => gates_UI; set => gates_UI = value; }
         private void GeneratePreview()
         {
+            Gates_UI.Add(NewGateByType());
             gateFromButton = true;
             CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == id));
             id++;
@@ -127,51 +128,72 @@ namespace Error_NameNotFound
         }
         private void AND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            AND _and = new AND(Id);
             gateType = "AND";
-            Gates_UI.Add(_and);
             GeneratePreview();
         }
         private void LogicButton_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            LogicButton _button = new LogicButton(Id);
             gateType = "LogicButton_Off";
-            Gates_UI.Add(_button);
             GeneratePreview();
         }
-        private void OR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void OR_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            OR _or = new OR(Id);
             gateType = "OR";
-            Gates_UI.Add(_or);
             GeneratePreview();
         }
-        private void NAND_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void NAND_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            NAND _nand = new NAND(Id);
             gateType = "NAND";
-            Gates_UI.Add(_nand);
             GeneratePreview();
         }
-        private void NOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void NOR_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            NOR _nor = new NOR(Id);
             gateType = "NOR";
-            Gates_UI.Add(_nor);
             GeneratePreview();
         }
-        private void XOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void XOR_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            XOR _xor = new XOR(Id);
             gateType = "XOR";
-            Gates_UI.Add(_xor);
             GeneratePreview();
         }
-        private void XNOR_button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void XNOR_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            XNOR _xnor = new XNOR(Id);
             gateType = "XNOR";
-            Gates_UI.Add(_xnor);
+            GeneratePreview();
+        }
+        private void Calliper_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Calliper";
+            GeneratePreview();
+        }
+        private void HEX7_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "HEX7";
+            GeneratePreview();
+        }
+        private void Seg7_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Seg7";
+            GeneratePreview();
+        }
+        private void High_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "High";
+            GeneratePreview();
+        }
+        private void Low_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Low";
+            GeneratePreview();
+        }
+        private void Light_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Light";
+            GeneratePreview();
+        }
+        private void Oscillator_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Oscillator";
             GeneratePreview();
         }
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
@@ -273,462 +295,492 @@ namespace Error_NameNotFound
                             previewImage.Height = 50;
                             previewImage.Width = 50;
                             break;
-                        //case "Calliper":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Counter":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Counter_MS":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_E":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_E_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_E_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_E_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS_E":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS_E_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS_E_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS_E_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_MS_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_DC_C_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_E":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_E_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_E_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_E_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS_E":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS_E_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS_E_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS_E_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_MS_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_JK_C_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_E":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_E_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_E_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_E_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS_E":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS_E_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS_E_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS_E_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_MS_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_C_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_RS_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_T_C_MS_E":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_T_C_MS_E_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_T_C_MS_E_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_T_C_MS_E_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_T_C_MS_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_T_C_MS_S":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "FF_T_C_MS_S_R":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Fulladder":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Halfadder":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "HEX7":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "High":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Light":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Low":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "NAND":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "NOR":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "NOT":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
+                        case "Calliper":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Calliper.png", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Counter":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Counter", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Counter_MS":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Counter_ms", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_MS_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_DC_C_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_MS_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_JK_C_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_MS_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_C_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_RS_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_MS_E":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_MS_E_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_MS_E_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_MS_E_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_s_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_MS_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_MS_S":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_s", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "FF_T_C_MS_S_R":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_r", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Fulladder":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Fulladder", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Halfadder":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Halfadder", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "HEX7":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/HEX7.png", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "High":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/High", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Light":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Light", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Low":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Low", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "NAND":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Nand", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "NOR":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Nor", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "NOT":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Not", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
                         case "OR":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Or.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
-                        //case "Oscillator":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Register":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "Seg7":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "XNOR":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
-                        //case "XOR":
-                        //    previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/", UriKind.Absolute));
-                        //    previewImage.Source = previewBitmap;
-                        //    previewImage.Height = ;
-                        //    previewImage.Width = ;
-                        //    break;
+                        case "Oscillator":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Oscillator", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Register":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Register.png", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "Seg7":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Seg7", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "XNOR":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/XNOR", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
+                        case "XOR":
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/XOR", UriKind.Absolute));
+                            previewImage.Source = previewBitmap;
+                            previewImage.Height = 100;
+                            previewImage.Width = 100;
+                            break;
                         default:
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/And.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
@@ -793,241 +845,8 @@ namespace Error_NameNotFound
                     CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == CurrentGate));
                     if (e.KeyStates == DragDropKeyStates.ControlKey && e.Effects.HasFlag(DragDropEffects.Copy))
                     {
-                        Logicgatescontrol _gate;
-                        switch(gateType)
-                        {
-                            case "AND":
-                                _gate = new AND(id);
-                                break;
-                            case "LogicButton_On":
-                            case "LogicButton_Off":
-                                _gate = new LogicButton(id);
-                                break;
-                            //case "Calliper":
-                            //    _gate = new Calliper(id);
-                            //    break;
-                            //case "Counter":
-                            //    _gate = new Counter(id);
-                            //    break;
-                            //case "Counter_MS":
-                            //    _gate = new Counter_ms(id);
-                            //    break;
-                            //case "FF_DC_C":
-                            //    _gate = new FF_DC_c(id);
-                            //    break;
-                            //case "FF_DC_C_E":
-                            //    _gate = new FF_DC_c_e(id);
-                            //    break;
-                            //case "FF_DC_C_E_R":
-                            //    _gate = new FF_DC_c_e_r(id);
-                            //    break;
-                            //case "FF_DC_C_E_S":
-                            //    _gate = new FF_DC_c_e_s(id);
-                            //    break;
-                            //case "FF_DC_C_E_S_R":
-                            //    _gate = new FF_DC_c_e_s_r(id);
-                            //    break;
-                            //case "FF_DC_C_MS":
-                            //    _gate = new FF_DC_c_ms(id);
-                            //    break;
-                            //case "FF_DC_C_MS_R":
-                            //    _gate = new FF_DC_c_ms_r(id);
-                            //    break;
-                            //case "FF_DC_C_MS_E":
-                            //    _gate = new FF_DC_c_ms_e(id);
-                            //    break;
-                            //case "FF_DC_C_MS_E_R":
-                            //    _gate = new FF_DC_c_ms_e_r(id);
-                            //    break;
-                            //case "FF_DC_C_MS_E_S":
-                            //    _gate = new FF_DC_c_ms_e_s(id);
-                            //    break;
-                            //case "FF_DC_C_MS_E_S_R":
-                            //    _gate = new FF_DC_c_ms_e_s_r(id);
-                            //    break;
-                            //case "FF_DC_C_MS_S":
-                            //    _gate = new FF_DC_c_ms_s(id);
-                            //    break;
-                            //case "FF_DC_C_MS_S_R":
-                            //    _gate = new FF_DC_c_ms_s_r(id);
-                            //    break;
-                            //case "FF_DC_C_R":
-                            //    _gate = new FF_DC_c_r(id);
-                            //    break;
-                            //case "FF_DC_C_S":
-                            //    _gate = new FF_DC_c_s(id);
-                            //    break;
-                            //case "FF_DC_C_S_R":
-                            //    _gate = new FF_DC_c_s_r(id);
-                            //    break;
-                            //case "FF_JK_C":
-                            //    _gate = new FF_JK_c(id);
-                            //    break;
-                            //case "FF_JK_C_E":
-                            //    _gate = new FF_JK_c_e(id);
-                            //    break;
-                            //case "FF_JK_C_E_R":
-                            //    _gate = new FF_JK_c_e_r(id);
-                            //    break;
-                            //case "FF_JK_C_E_S":
-                            //    _gate = new FF_JK_c_e_s(id);
-                            //    break;
-                            //case "FF_JK_C_E_S_R":
-                            //    _gate = new FF_JK_c_e_s_r(id);
-                            //    break;
-                            //case "FF_JK_C_MS":
-                            //    _gate = new FF_JK_c_ms(id);
-                            //    break;
-                            //case "FF_JK_C_MS_R":
-                            //    _gate = new FF_JK_c_ms_r(id);
-                            //    break;
-                            //case "FF_JK_C_MS_E":
-                            //    _gate = new FF_JK_c_ms_e(id);
-                            //    break;
-                            //case "FF_JK_C_MS_E_R":
-                            //    _gate = new FF_JK_c_ms_e_r(id);
-                            //    break;
-                            //case "FF_JK_C_MS_E_S":
-                            //    _gate = new FF_JK_c_ms_e_s(id);
-                            //    break;
-                            //case "FF_JK_C_MS_E_S_R":
-                            //    _gate = new FF_JK_c_ms_e_s_r(id);
-                            //    break;
-                            //case "FF_JK_C_MS_S":
-                            //    _gate = new FF_JK_c_ms_s(id);
-                            //    break;
-                            //case "FF_JK_C_MS_S_R":
-                            //    _gate = new FF_JK_c_ms_s_r(id);
-                            //    break;
-                            //case "FF_JK_C_R":
-                            //    _gate = new FF_JK_c_r(id);
-                            //    break;
-                            //case "FF_JK_C_S":
-                            //    _gate = new FF_JK_c_s(id);
-                            //    break;
-                            //case "FF_JK_C_S_R":
-                            //    _gate = new FF_JK_c_s_r(id);
-                            //    break;
-                            //case "FF_RS_C":
-                            //    _gate = new FF_RS_c(id);
-                            //    break;
-                            //case "FF_RS_C_E":
-                            //    _gate = new FF_RS_c_e(id);
-                            //    break;
-                            //case "FF_RS_C_E_R":
-                            //    _gate = new FF_RS_c_e_r(id);
-                            //    break;
-                            //case "FF_RS_C_E_S":
-                            //    _gate = new FF_RS_c_e_s(id);
-                            //    break;
-                            //case "FF_RS_C_E_S_R":
-                            //    _gate = new FF_RS_c_e_s_r(id);
-                            //    break;
-                            //case "FF_RS_C_MS":
-                            //    _gate = new FF_RS_c_ms(id);
-                            //    break;
-                            //case "FF_RS_C_MS_R":
-                            //    _gate = new FF_RS_c_ms_r(id);
-                            //    break;
-                            //case "FF_RS_C_MS_E":
-                            //    _gate = new FF_RS_c_ms_e(id);
-                            //    break;
-                            //case "FF_RS_C_MS_E_R":
-                            //    _gate = new FF_RS_c_ms_e_r(id);
-                            //    break;
-                            //case "FF_RS_C_MS_E_S":
-                            //    _gate = new FF_RS_c_ms_e_s(id);
-                            //    break;
-                            //case "FF_RS_C_MS_E_S_R":
-                            //    _gate = new FF_RS_c_ms_e_s_r(id);
-                            //    break;
-                            //case "FF_RS_C_MS_S":
-                            //    _gate = new FF_RS_c_ms_s(id);
-                            //    break;
-                            //case "FF_RS_C_MS_S_R":
-                            //    _gate = new FF_RS_c_ms_s_r(id);
-                            //    break;
-                            //case "FF_RS_C_R":
-                            //    _gate = new FF_RS_c_r(id);
-                            //    break;
-                            //case "FF_RS_C_S":
-                            //    _gate = new FF_RS_c_s(id);
-                            //    break;
-                            //case "FF_RS_C_S_R":
-                            //    _gate = new FF_RS_c_s_r(id);
-                            //    break;
-                            //case "FF_RS_R":
-                            //    _gate = new FF_RS_r(id);
-                            //    break;
-                            //case "FF_RS_S":
-                            //    _gate = new FF_RS_s(id);
-                            //    break;
-                            //case "FF_RS_S_R":
-                            //    _gate = new FF_RS_s_r(id);
-                            //    break;
-                            //case "FF_T_C_MS_E":
-                            //    _gate = new FF_T_c_ms_e(id);
-                            //    break;
-                            //case "FF_T_C_MS_E_R":
-                            //    _gate = new FF_T_c_ms_e_r(id);
-                            //    break;
-                            //case "FF_T_C_MS_E_S":
-                            //    _gate = new FF_T_c_ms_e_s(id);
-                            //    break;
-                            //case "FF_T_C_MS_E_S_R":
-                            //    _gate = new FF_T_c_ms_e_s_r(id);
-                            //    break;
-                            //case "Fulladder":
-                            //    _gate = new Fulladder(id);
-                            //    break;
-                            //case "Halfadder":
-                            //    _gate = new Halfadder(id);
-                            //    break;
-                            //case "HEX7":
-                            //    _gate = new HEX7(id);
-                            //    break;
-                            //case "High":
-                            //    _gate = new High(id);
-                            //    break;
-                            //case "Light":
-                            //    _gate = new Light(id);
-                            //    break;
-                            //case "Low":
-                            //    _gate = new Low(id);
-                            //    break;
-                            //case "NAND":
-                            //    _gate = new NAND(id);
-                            //    break;
-                            //case "NOR":
-                            //    _gate = new NOR(id);
-                            //    break;
-                            //case "NOT":
-                            //    _gate = new NOT(id);
-                            //    break;
-                            case "OR":
-                                _gate = new OR(id);
-                                break;
-                            //case "Oscillator":
-                            //    _gate = new Oscillator(id);
-                            //    break;
-                            //case "Register":
-                            //    _gate = new Register(id);
-                            //    break;
-                            //case "Seg7":
-                            //    _gate = new Seg7(id);
-                            //    break;
-                            //case "XNOR":
-                            //    _gate = new XNOR(id);
-                            //    break;
-                            //case "XOR":
-                            //    _gate = new XOR(id);
-                            //    break;
-                            default:
-                                _gate = new AND(id);
-                                break;
-                        }
+                        Gates_UI.Add(NewGateByType());
                         id++;
-                        Gates_UI.Add(_gate);
                         CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == id - 1));
                         Workspace.Children.Add(Gates_UI[CurrentGate]);
                         Canvas.SetLeft(Gates_UI[CurrentGate], PreviewGateDropPoint.X);
@@ -1079,6 +898,261 @@ namespace Error_NameNotFound
             if (dialog.ShowDialog() == true)
             { dialog.PrintVisual(Workspace, "Workspace"); }
             Workspace.Background = System.Windows.Media.Brushes.GhostWhite;
+        }
+        private Logicgatescontrol NewGateByType()
+        {
+            Logicgatescontrol _gate;
+            switch (gateType)
+            {
+                case "AND":
+                    _gate = new AND(id);
+                    break;
+                case "LogicButton_On":
+                case "LogicButton_Off":
+                    _gate = new LogicButton(id);
+                    break;
+                case "Calliper":
+                    _gate = new Calliper(id);
+                    break;
+                //case "Counter":
+                //    _gate = new Counter(id);
+                //    break;
+                //case "Counter_MS":
+                //    _gate = new Counter_ms(id);
+                //    break;
+                //case "FF_DC_C":
+                //    _gate = new FF_DC_c(id);
+                //    break;
+                //case "FF_DC_C_E":
+                //    _gate = new FF_DC_c_e(id);
+                //    break;
+                //case "FF_DC_C_E_R":
+                //    _gate = new FF_DC_c_e_r(id);
+                //    break;
+                //case "FF_DC_C_E_S":
+                //    _gate = new FF_DC_c_e_s(id);
+                //    break;
+                //case "FF_DC_C_E_S_R":
+                //    _gate = new FF_DC_c_e_s_r(id);
+                //    break;
+                //case "FF_DC_C_MS":
+                //    _gate = new FF_DC_c_ms(id);
+                //    break;
+                //case "FF_DC_C_MS_R":
+                //    _gate = new FF_DC_c_ms_r(id);
+                //    break;
+                //case "FF_DC_C_MS_E":
+                //    _gate = new FF_DC_c_ms_e(id);
+                //    break;
+                //case "FF_DC_C_MS_E_R":
+                //    _gate = new FF_DC_c_ms_e_r(id);
+                //    break;
+                //case "FF_DC_C_MS_E_S":
+                //    _gate = new FF_DC_c_ms_e_s(id);
+                //    break;
+                //case "FF_DC_C_MS_E_S_R":
+                //    _gate = new FF_DC_c_ms_e_s_r(id);
+                //    break;
+                //case "FF_DC_C_MS_S":
+                //    _gate = new FF_DC_c_ms_s(id);
+                //    break;
+                //case "FF_DC_C_MS_S_R":
+                //    _gate = new FF_DC_c_ms_s_r(id);
+                //    break;
+                //case "FF_DC_C_R":
+                //    _gate = new FF_DC_c_r(id);
+                //    break;
+                //case "FF_DC_C_S":
+                //    _gate = new FF_DC_c_s(id);
+                //    break;
+                //case "FF_DC_C_S_R":
+                //    _gate = new FF_DC_c_s_r(id);
+                //    break;
+                //case "FF_JK_C":
+                //    _gate = new FF_JK_c(id);
+                //    break;
+                //case "FF_JK_C_E":
+                //    _gate = new FF_JK_c_e(id);
+                //    break;
+                //case "FF_JK_C_E_R":
+                //    _gate = new FF_JK_c_e_r(id);
+                //    break;
+                //case "FF_JK_C_E_S":
+                //    _gate = new FF_JK_c_e_s(id);
+                //    break;
+                //case "FF_JK_C_E_S_R":
+                //    _gate = new FF_JK_c_e_s_r(id);
+                //    break;
+                //case "FF_JK_C_MS":
+                //    _gate = new FF_JK_c_ms(id);
+                //    break;
+                //case "FF_JK_C_MS_R":
+                //    _gate = new FF_JK_c_ms_r(id);
+                //    break;
+                //case "FF_JK_C_MS_E":
+                //    _gate = new FF_JK_c_ms_e(id);
+                //    break;
+                //case "FF_JK_C_MS_E_R":
+                //    _gate = new FF_JK_c_ms_e_r(id);
+                //    break;
+                //case "FF_JK_C_MS_E_S":
+                //    _gate = new FF_JK_c_ms_e_s(id);
+                //    break;
+                //case "FF_JK_C_MS_E_S_R":
+                //    _gate = new FF_JK_c_ms_e_s_r(id);
+                //    break;
+                //case "FF_JK_C_MS_S":
+                //    _gate = new FF_JK_c_ms_s(id);
+                //    break;
+                //case "FF_JK_C_MS_S_R":
+                //    _gate = new FF_JK_c_ms_s_r(id);
+                //    break;
+                //case "FF_JK_C_R":
+                //    _gate = new FF_JK_c_r(id);
+                //    break;
+                //case "FF_JK_C_S":
+                //    _gate = new FF_JK_c_s(id);
+                //    break;
+                //case "FF_JK_C_S_R":
+                //    _gate = new FF_JK_c_s_r(id);
+                //    break;
+                //case "FF_RS":
+                //    _gate = new FF_RS(id);
+                //    break;
+                //case "FF_RS_C":
+                //    _gate = new FF_RS_c(id);
+                //    break;
+                //case "FF_RS_C_E":
+                //    _gate = new FF_RS_c_e(id);
+                //    break;
+                //case "FF_RS_C_E_R":
+                //    _gate = new FF_RS_c_e_r(id);
+                //    break;
+                //case "FF_RS_C_E_S":
+                //    _gate = new FF_RS_c_e_s(id);
+                //    break;
+                //case "FF_RS_C_E_S_R":
+                //    _gate = new FF_RS_c_e_s_r(id);
+                //    break;
+                //case "FF_RS_C_MS":
+                //    _gate = new FF_RS_c_ms(id);
+                //    break;
+                //case "FF_RS_C_MS_R":
+                //    _gate = new FF_RS_c_ms_r(id);
+                //    break;
+                //case "FF_RS_C_MS_E":
+                //    _gate = new FF_RS_c_ms_e(id);
+                //    break;
+                //case "FF_RS_C_MS_E_R":
+                //    _gate = new FF_RS_c_ms_e_r(id);
+                //    break;
+                //case "FF_RS_C_MS_E_S":
+                //    _gate = new FF_RS_c_ms_e_s(id);
+                //    break;
+                //case "FF_RS_C_MS_E_S_R":
+                //    _gate = new FF_RS_c_ms_e_s_r(id);
+                //    break;
+                //case "FF_RS_C_MS_S":
+                //    _gate = new FF_RS_c_ms_s(id);
+                //    break;
+                //case "FF_RS_C_MS_S_R":
+                //    _gate = new FF_RS_c_ms_s_r(id);
+                //    break;
+                //case "FF_RS_C_R":
+                //    _gate = new FF_RS_c_r(id);
+                //    break;
+                //case "FF_RS_C_S":
+                //    _gate = new FF_RS_c_s(id);
+                //    break;
+                //case "FF_RS_C_S_R":
+                //    _gate = new FF_RS_c_s_r(id);
+                //    break;
+                //case "FF_RS_R":
+                //    _gate = new FF_RS_r(id);
+                //    break;
+                //case "FF_RS_S":
+                //    _gate = new FF_RS_s(id);
+                //    break;
+                //case "FF_RS_S_R":
+                //    _gate = new FF_RS_s_r(id);
+                //    break;
+                //case "FF_T_C_E":
+                //    _gate = new FF_T_c_e(id);
+                //    break;
+                //case "FF_T_C_E":
+                //    _gate = new FF_T_c_e(id);
+                //    break;
+                //case "FF_T_C_E_R":
+                //    _gate = new FF_T_c_e_r(id);
+                //    break;
+                //case "FF_T_C_E_S":
+                //    _gate = new FF_T_c_e_s(id);
+                //    break;
+                //case "FF_T_C_E_S_R":
+                //    _gate = new FF_T_c_e_s_r(id);
+                //    break;
+                //case "FF_T_C_MS_E":
+                //    _gate = new FF_T_c_ms_e(id);
+                //    break;
+                //case "FF_T_C_MS_E_R":
+                //    _gate = new FF_T_c_ms_e_r(id);
+                //    break;
+                //case "FF_T_C_MS_E_S":
+                //    _gate = new FF_T_c_ms_e_s(id);
+                //    break;
+                //case "FF_T_C_MS_E_S_R":
+                //    _gate = new FF_T_c_ms_e_s_r(id);
+                //    break;
+                //case "Fulladder":
+                //    _gate = new Fulladder(id);
+                //    break;
+                //case "Halfadder":
+                //    _gate = new Halfadder(id);
+                //    break;
+                case "HEX7":
+                    _gate = new HEX7(id);
+                    break;
+                case "High":
+                    _gate = new High(id);
+                    break;
+                case "Light":
+                    _gate = new Light(id);
+                    break;
+                case "Low":
+                    _gate = new Low(id);
+                    break;
+                case "NAND":
+                    _gate = new NAND(id);
+                    break;
+                case "NOR":
+                    _gate = new NOR(id);
+                    break;
+                //case "NOT":
+                //    _gate = new NOT(id);
+                //    break;
+                case "OR":
+                    _gate = new OR(id);
+                    break;
+                case "Oscillator":
+                    _gate = new Oscillator(id);
+                    break;
+                //case "Register":
+                //    _gate = new Register(id);
+                //    break;
+                case "Seg7":
+                    _gate = new Seg7(id);
+                    break;
+                case "XNOR":
+                    _gate = new XNOR(id);
+                    break;
+                case "XOR":
+                    _gate = new XOR(id);
+                    break;
+                default:
+                    _gate = new AND(id);
+                    break;
+            }
+            return _gate;
         }
     }
 }
