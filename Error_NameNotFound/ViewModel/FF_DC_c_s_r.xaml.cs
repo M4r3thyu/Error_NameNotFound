@@ -30,38 +30,38 @@ namespace Error_NameNotFound.ViewModel
             this.FF_DC_c_s_rUI.Height = g.FF_DC_c_s_rUI.Height;
             this.FF_DC_c_s_rUI.Width = g.FF_DC_c_s_rUI.Height;
         }
-    protected override void OnMouseMove(MouseEventArgs e)
-    {
-        base.OnMouseMove(e);
-        if (e.LeftButton == MouseButtonState.Pressed)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
-            // Package the data.
-            DataObject data = new DataObject();
-            data.SetData("Double", FF_DC_c_s_rUI.Height);
-            data.SetData("Object", this);
+            base.OnMouseMove(e);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // Package the data.
+                DataObject data = new DataObject();
+                data.SetData("Double", FF_DC_c_s_rUI.Height);
+                data.SetData("Object", this);
 
-            // Inititate the drag-and-drop operation.
-            DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                // Inititate the drag-and-drop operation.
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+            }
+        }
+        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
+        {
+            base.OnGiveFeedback(e);
+            // These Effects values are set in the drop target's
+            // DragOver event handler.
+            if (e.Effects.HasFlag(DragDropEffects.Copy))
+            {
+                Mouse.SetCursor(Cursors.Cross);
+            }
+            else if (e.Effects.HasFlag(DragDropEffects.Move))
+            {
+                Mouse.SetCursor(Cursors.Hand);
+            }
+            else
+            {
+                Mouse.SetCursor(Cursors.No);
+            }
+            e.Handled = true;
         }
     }
-    protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
-    {
-        base.OnGiveFeedback(e);
-        // These Effects values are set in the drop target's
-        // DragOver event handler.
-        if (e.Effects.HasFlag(DragDropEffects.Copy))
-        {
-            Mouse.SetCursor(Cursors.Cross);
-        }
-        else if (e.Effects.HasFlag(DragDropEffects.Move))
-        {
-            Mouse.SetCursor(Cursors.Hand);
-        }
-        else
-        {
-            Mouse.SetCursor(Cursors.No);
-        }
-        e.Handled = true;
-    }
-}
 }

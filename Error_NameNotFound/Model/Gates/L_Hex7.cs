@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
     class L_Hex7 : LogicGates
     {                                           // Output[] 1= Licht an Input[] wertichkeit -> 2^0/1/2/3/4
-        public L_Hex7(int id) : base(4, 7,id)              //  0_
-        {                                       // 1|2_|3
-            output = input;                     // 4|5_|6
+        public HEX7 v_Hex7;
+        public L_Hex7(int id, HEX7 v_Hex7) : base(4, 7,id)              //  0_
+        {                                                               // 1|2_|3
+            this.v_Hex7 = v_Hex7;                                       // 4|5_|6
+            for (int i = 0; i < 4; i++)
+            {
+                this.input[i] = false;
+            }
         }
         override protected void ChangeOutput()
         {
@@ -200,6 +206,16 @@ namespace Error_NameNotFound.Model
                     break;
             }
             Output = output;
+            ChangeColor();
+        }
+        public override void ChangeColor()
+        {
+            //v_Hex7.ChangeColorInOut();
+        }
+        protected override void basevalue(int inr)
+        {
+            input[inr] = false;
+            ChangeOutput();
         }
     }
 }

@@ -4,14 +4,21 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
     class L_FF_RS_c_s : LogicGates
     {
-        public L_FF_RS_c_s(int id) : base(4, 2,id) // input 0=S, 1=R, 2=C 3=set
+        public FF_RS_c_s v_FF_RS_c_s;
+        public L_FF_RS_c_s(int id, FF_RS_c_s v_FF_RS_c_s) : base(4, 2,id) // input 0=S, 1=R, 2=C 3=set
         {
+            this.v_FF_RS_c_s = v_FF_RS_c_s;
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
+            for (int i = 0; i < 4; i++)
+            {
+                this.input[i] = false;
+            }
         }
         protected override void ChangeOutput()
         {
@@ -45,7 +52,17 @@ namespace Error_NameNotFound.Model
                     }
                 }
             }
-            
+
+            ChangeColor();
+        }
+        public override void ChangeColor()
+        {
+            //v_FF_RS_c_s.ChangeColorInOut();
+        }
+        protected override void basevalue(int inr)
+        {
+            input[inr] = false;
+            ChangeOutput();
         }
     }
 }
