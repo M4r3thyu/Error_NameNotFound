@@ -31,8 +31,8 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "XNORUI";
-            //l_xnor = new L_Xnor(2, id, this);
-            //LogicGates.gates_logic.Add(l_xnor);
+            l_xnor = new L_Xnor(id, this);
+            LogicGates.gates_logic.Add(l_xnor);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)

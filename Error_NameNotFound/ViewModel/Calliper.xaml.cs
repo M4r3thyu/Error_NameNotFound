@@ -57,6 +57,7 @@ namespace Error_NameNotFound
         private void ButtonUI_MouseDown(object sender, MouseButtonEventArgs e)
         {
             l_calliper.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
+            CalliperUI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/Calliper_pressed.png", UriKind.Absolute));
         }
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
@@ -75,6 +76,12 @@ namespace Error_NameNotFound
                 else
                     output0.Background = System.Windows.Media.Brushes.Purple;
             });
+        }
+
+        private void CalliperUI_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            l_calliper.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);
+            CalliperUI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/Calliper.png", UriKind.Absolute));
         }
     }
 }

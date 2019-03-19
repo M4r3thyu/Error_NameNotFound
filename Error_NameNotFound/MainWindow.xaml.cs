@@ -298,407 +298,407 @@ namespace Error_NameNotFound
                         case "Calliper":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Calliper.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
-                            previewImage.Height = 100;
-                            previewImage.Width = 100;
+                            previewImage.Height = 50;
+                            previewImage.Width = 50;
                             break;
                         case "Counter":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Counter", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Counter.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "Counter_MS":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Counter_ms", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Counter_ms.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_MS_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_ms_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_DC_C_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_DC_c_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_MS_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_JK_C_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_MS_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_ms_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_C_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_c_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_RS_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_RS_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_MS_E":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_MS_E_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_MS_E_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_MS_E_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_s_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_s_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_MS_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_MS_S":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_s", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_s.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "FF_T_C_MS_S_R":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_r", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_T_c_ms_e_r.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "Fulladder":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Fulladder", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Fulladder.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "Halfadder":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Halfadder", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Halfadder.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
@@ -710,37 +710,37 @@ namespace Error_NameNotFound
                             previewImage.Width = 100;
                             break;
                         case "High":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/High", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/High.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "Light":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Light", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Light.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "Low":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Low", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Low.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "NAND":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Nand", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Nand.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "NOR":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Nor", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Nor.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "NOT":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Not", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Not.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
@@ -752,7 +752,7 @@ namespace Error_NameNotFound
                             previewImage.Width = 100;
                             break;
                         case "Oscillator":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Oscillator", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Oscillator.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
@@ -764,19 +764,19 @@ namespace Error_NameNotFound
                             previewImage.Width = 100;
                             break;
                         case "Seg7":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Seg7", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Seg7.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "XNOR":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/XNOR", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/XNOR.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
                             break;
                         case "XOR":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/XOR", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/XOR.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;
@@ -799,6 +799,12 @@ namespace Error_NameNotFound
                 }
             }
         }
+
+        private void AND_button_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+
+        }
+
         private void canvas_Drop(object sender, DragEventArgs e)
         {
             Point DropPoint = e.GetPosition(Workspace);

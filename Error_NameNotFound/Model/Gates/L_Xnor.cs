@@ -34,7 +34,7 @@ namespace Error_NameNotFound.Model
         }
         public override void ChangeColor()
         {
-            //v_Xnor.ChangeColorInOut();
+            v_Xnor.ChangeColorInOut();
         }
         protected override void basevalue(int inr)
         {

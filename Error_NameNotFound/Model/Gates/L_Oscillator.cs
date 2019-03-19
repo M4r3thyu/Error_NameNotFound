@@ -16,13 +16,13 @@ namespace Error_NameNotFound.Model
         private Oscillator v_Oscillator;
         private Thread t;
         private int timeout;
-        public L_Oscillator(int id, Oscillator v_Oscillator) : base(2, 1,id)
+        public L_Oscillator(int id, Oscillator v_Oscillator) : base(1, 2,id)
         {
             this.v_Oscillator = v_Oscillator;
             t = new Thread(new ThreadStart(ChangeOutput));
             t.Start();
             timeout = 1000;
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 1; i++)
             {
                 this.input[i] = false;
             }
@@ -38,6 +38,7 @@ namespace Error_NameNotFound.Model
         {
             while (true)
             {
+                output[1] = output[0];
                 output[0] = !output[0];
                 Thread.Sleep(timeout);
                 ChangeColor();
@@ -45,7 +46,7 @@ namespace Error_NameNotFound.Model
         }
         public override void ChangeColor()
         {
-            //v_Not.ChangeColorInOut();
+            v_Oscillator.ChangeColorInOut();
         }
         protected override void basevalue(int inr)
         {

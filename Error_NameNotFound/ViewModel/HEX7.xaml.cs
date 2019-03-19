@@ -31,8 +31,8 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "HEX7UI";
-            //l_hex7 = new L_HEX7(2, id, this);
-            //LogicGates.gates_logic.Add(l_hex7);
+            l_hex7 = new L_Hex7(id, this);
+            LogicGates.gates_logic.Add(l_hex7);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)

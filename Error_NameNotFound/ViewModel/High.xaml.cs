@@ -31,8 +31,8 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "HighUI";
-            //l_hight = new L_High(2, id, this);
-            //LogicGates.gates_logic.Add(l_high);
+            l_high = new L_High(id, this);
+            LogicGates.gates_logic.Add(l_high);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -58,58 +58,16 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.CableY1 = Canvas.GetTop(this) + 75;
             StartCableDrag();
         }
-        private void Output1_Click(object sender, RoutedEventArgs e)
-        {
-            Outputbutton_vm.Output_Click(id, 1);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
-            StartCableDrag();
-        }
-        private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
-        {
-            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
-        }
-        private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
-        {
-            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
-        }
         public override void ChangeColorInOut()
         {
             Dispatcher.Invoke(() =>
             {
                 // Set property or change UI compomponents.              
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    input0.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
-                    input0.Background = System.Windows.Media.Brushes.Purple;
-
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
-                    input1.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
-                    input1.Background = System.Windows.Media.Brushes.Purple;
-
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
                     output0.Background = System.Windows.Media.Brushes.GreenYellow;
                 else
                     output0.Background = System.Windows.Media.Brushes.Purple;
-
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                    output1.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
-                    output1.Background = System.Windows.Media.Brushes.Purple;
             });
-        }
-        private void Input0_Drop(object sender, DragEventArgs e)
-        {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
-            Inputbutton_vm.Input_Click(id, 0);
-            e.Handled = true;
-        }
-        private void Input1_Drop(object sender, DragEventArgs e)
-        {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
-            Inputbutton_vm.Input_Click(id, 1);
-            e.Handled = true;
         }
     }
 }

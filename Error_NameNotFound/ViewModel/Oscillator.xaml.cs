@@ -31,8 +31,8 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "OscillatorUI";
-            //l_oscillator = new L_Oscillator(2, id, this);
-            //LogicGates.gates_logic.Add(l_oscillator);
+            l_oscillator = new L_Oscillator(id, this);
+            LogicGates.gates_logic.Add(l_oscillator);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -65,29 +65,11 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.CableY1 = Canvas.GetTop(this) + 25;
             StartCableDrag();
         }
-        private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
-        {
-            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
-        }
-        private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
-        {
-            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
-        }
         public override void ChangeColorInOut()
         {
             Dispatcher.Invoke(() =>
             {
                 // Set property or change UI compomponents.              
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    input0.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
-                    input0.Background = System.Windows.Media.Brushes.Purple;
-
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
-                    input1.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
-                    input1.Background = System.Windows.Media.Brushes.Purple;
-
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
                     output0.Background = System.Windows.Media.Brushes.GreenYellow;
                 else

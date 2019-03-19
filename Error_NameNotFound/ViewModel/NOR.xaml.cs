@@ -31,8 +31,8 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "NORUI";
-            //l_nor = new L_Nor(2, id, this);
-            //LogicGates.gates_logic.Add(l_nor);
+            l_nor = new L_Nor(2, id, this);
+            LogicGates.gates_logic.Add(l_nor);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)

@@ -30,7 +30,7 @@ namespace Error_NameNotFound.Model
         }
         public override void ChangeColor()
         {
-            //v_Light.ChangeColorInOut();
+            v_Light.ChangeColorInOut();
         }
         protected override void basevalue(int inr)
         {

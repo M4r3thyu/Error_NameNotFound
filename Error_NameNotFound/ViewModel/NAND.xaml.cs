@@ -31,8 +31,8 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "NANDUI";
-            //l_nand = new L_Nand(2, id, this);
-            //LogicGates.gates_logic.Add(l_nand);
+            l_nand = new L_Nand(2, id, this);
+            LogicGates.gates_logic.Add(l_nand);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)

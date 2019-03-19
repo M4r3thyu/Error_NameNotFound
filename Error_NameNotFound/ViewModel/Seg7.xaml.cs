@@ -31,8 +31,8 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "Seg7UI";
-            //l_seg7 = new L_Seg7(2, id, this);
-            //LogicGates.gates_logic.Add(l_seg7);
+            l_seg7 = new L_Seg7(id, this);
+            LogicGates.gates_logic.Add(l_seg7);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
