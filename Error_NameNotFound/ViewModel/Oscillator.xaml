@@ -7,8 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
-        <Image Width="100" Height="100" Name="OscillatorUI" Source="/Error_NameNotFound;component/Pictures/Oscillator.png"></Image>
-        <Button Width="10" Height="10" Margin="80,20,10,70" Name="output1" PreviewMouseLeftButtonDown="Output1_Click"/>
-        <Button Width="10" Height="10" Margin="80,70,10,20" Name="output0" PreviewMouseLeftButtonDown="Output0_Click"/>
+        <Image Width="100" Height="100" Name="OscillatorUI" Source="/Error_NameNotFound;component/Pictures/Oscillator.png" Grid.ColumnSpan="2"/>
+        <TextBlock Name="Intervall" Text="Intervall:" Grid.ColumnSpan="2" Margin="25,23,25,60" TextAlignment="Center"/>
+        <TextBox Name="Timeout" Grid.ColumnSpan="2" Margin="30,40,30,43" TextAlignment="Center" TextChanged="Timeout_TextChanged"/>
+        <Button Width="10" Height="10" Margin="80,20,10,70" Name="output1" PreviewMouseLeftButtonDown="Output1_Click" Grid.ColumnSpan="2" />
+        <Button Width="10" Height="10" Margin="80,70,10,20" Name="output0" PreviewMouseLeftButtonDown="Output0_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </vm:Logicgatescontrol>

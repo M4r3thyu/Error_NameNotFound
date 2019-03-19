@@ -34,6 +34,7 @@ namespace Error_NameNotFound.ViewModel
             l_oscillator = new L_Oscillator(id, this);
             LogicGates.gates_logic.Add(l_oscillator);
             ChangeColorInOut();
+            Timeout.Text = "1000";
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -71,14 +72,14 @@ namespace Error_NameNotFound.ViewModel
             {
                 // Set property or change UI compomponents.              
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
                     output0.Background = System.Windows.Media.Brushes.Purple;
+                else
+                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
 
                 if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                    output1.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
                     output1.Background = System.Windows.Media.Brushes.Purple;
+                else
+                    output1.Background = System.Windows.Media.Brushes.GreenYellow;
             });
         }
         private void Input0_Drop(object sender, DragEventArgs e)
@@ -92,6 +93,21 @@ namespace Error_NameNotFound.ViewModel
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
             Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
+        }
+        private void Timeout_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (int.Parse(Timeout.Text) > 9999)
+                    Timeout.Text = "9999";
+                if (int.Parse(Timeout.Text) <= 0)
+                    Timeout.Text = "1";
+                l_oscillator.Timeout = int.Parse(Timeout.Text);
+            }
+            catch (Exception x)
+            {
+               // MessageBox.Show("Unhandled Error occoured \n" + x.Message);
+            }
         }
     }
 }

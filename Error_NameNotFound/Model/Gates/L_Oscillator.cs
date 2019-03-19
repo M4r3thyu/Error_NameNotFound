@@ -27,17 +27,18 @@ namespace Error_NameNotFound.Model
                 this.input[i] = false;
             }
         }
-
         public int Timeout
         {
             get { return timeout; }
             set { timeout = value; }
         }
-
         protected override void ChangeOutput()
         {
             while (true)
             {
+                prozessnr = MainWindow.Prozessid;
+                MainWindow.Prozessid++;
+                Prozesstoken start = new Prozesstoken(prozessnr);
                 output[1] = output[0];
                 output[0] = !output[0];
                 Thread.Sleep(timeout);
