@@ -19,6 +19,7 @@ namespace Error_NameNotFound.Model
         private static bool muell = false;
         public bool in0, in1, in2, in3, in4, in5, in6, in7;
         public int id, prozessnr;
+        private bool delete = false;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
         public LogicGates(int input, int output, int id)        //Konstruktor benötigt eine inputanzahl, eine outputanzahl, eine einzigartige id
@@ -185,6 +186,9 @@ namespace Error_NameNotFound.Model
                 return allconnections;
             }
         }
+
+        public bool Delete { get => delete; set => delete = value; }
+
         public static void Remove_connections(int id)               //löscht alle verbindngen die mit diesem baustein zu tun haben
         {
             for (int i = 0; i < connections.Count - 3; i += 4)

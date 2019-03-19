@@ -875,11 +875,6 @@ namespace Error_NameNotFound
             }
         }
 
-        private void AND_button_ContextMenuOpening(object sender, ContextMenuEventArgs e)
-        {
-
-        }
-
         private void canvas_Drop(object sender, DragEventArgs e)
         {
             Point DropPoint = e.GetPosition(Workspace);
@@ -947,11 +942,15 @@ namespace Error_NameNotFound
         }
         public static void RemoveGate()
         {
+            string name = "";
             CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == CurrentGate));
+            name=Gates_UI[CurrentGate].Name;
             Canvas Workspace = (Canvas)Gates_UI[CurrentGate].Parent;
             Workspace.Children.Remove(Gates_UI[CurrentGate]);
             Gates_UI.Remove(Gates_UI[CurrentGate]);
             var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == CurrentGate);
+            if (name == "OscillatorUI")
+                temp.Delete = true;
             LogicGates.Remove_connections(CurrentGate);
             LogicGates.gates_logic.Remove(temp);
         }
