@@ -31,7 +31,7 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "FF_T_C_MS_E_RUI";
-            l_FF_T_c_ms_e_r = new L_FF_T_c_ms_e_r(2, id, this);
+            l_FF_T_c_ms_e_r = new L_FF_T_c_ms_e_r(id, this);
             LogicGates.gates_logic.Add(l_FF_T_c_ms_e_r);
             ChangeColorInOut();
         }

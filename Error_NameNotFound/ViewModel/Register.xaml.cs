@@ -31,7 +31,7 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "Register";
-            l_register = new L_Register(2, id, this);
+            l_register = new L_Register(5,5, id, this);
             LogicGates.gates_logic.Add(l_register);
             ChangeColorInOut();
         }

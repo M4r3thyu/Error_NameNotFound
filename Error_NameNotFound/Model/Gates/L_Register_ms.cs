@@ -11,11 +11,11 @@ namespace Error_NameNotFound.Model
 {
     class L_Register_ms : LogicGates
     {
-        //private Register_ms v_Register_ms;
+        private Register_ms v_Register_ms;
         private bool ms;
-        public L_Register_ms(int input, int output, int id/*,Register_ms v_Register_ms*/) : base(input, output,id) // input 0=C, 1=M, 2=R 3=1D
+        public L_Register_ms(int input, int output, int id,Register_ms v_Register_ms) : base(input, output,id) // input 0=C, 1=M, 2=R 3=1D
         {
-            //this.v_Register_ms = v_Register_ms;
+            this.v_Register_ms = v_Register_ms;
             ms = false;
             for (int i = 0; i < input; i++)
             {
@@ -64,7 +64,7 @@ namespace Error_NameNotFound.Model
         }
         public override void ChangeColor()
         {
-            //v_Register_ms.ChangeColorInOut();
+            v_Register_ms.ChangeColorInOut();
         }
         protected override void basevalue(int inr)
         {

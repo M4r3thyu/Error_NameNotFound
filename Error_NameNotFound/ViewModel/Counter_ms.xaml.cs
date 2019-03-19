@@ -31,7 +31,7 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "Counter_MS";
-            l_counter_ms = new L_Counter_ms(2, id, this);
+            l_counter_ms = new L_Counter_ms(5,5, id, this);
             LogicGates.gates_logic.Add(l_counter_ms);
             ChangeColorInOut();
         }

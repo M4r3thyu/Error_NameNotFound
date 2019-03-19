@@ -31,7 +31,7 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             Name = "Halfadder";
-            l_halfadder = new L_Halfadder(2, id, this);
+            l_halfadder = new L_Halfadder(id, this);
             LogicGates.gates_logic.Add(l_halfadder);
             ChangeColorInOut();
         }
