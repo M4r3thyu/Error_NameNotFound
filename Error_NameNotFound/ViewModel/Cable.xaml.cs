@@ -161,11 +161,15 @@ namespace Error_NameNotFound.ViewModel
         {
             Dispatcher.Invoke(() =>
             {
-                // Set property or change UI compomponents.              
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    CableUI.Stroke = System.Windows.Media.Brushes.GreenYellow;
-                else
-                    CableUI.Stroke = System.Windows.Media.Brushes.Purple;
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    // Set property or change UI compomponents.              
+                    if (temp.Input[0])
+                        CableUI.Stroke = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        CableUI.Stroke = System.Windows.Media.Brushes.Purple;
+                }
             });
         }
 
