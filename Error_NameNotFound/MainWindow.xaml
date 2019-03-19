@@ -74,6 +74,7 @@
                     <StackPanel>
                         <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="AND_Button_PreviewMouseLeftButtonDown"  Name="AND_button" Height="25" BorderBrush="LightSlateGray"/>
                         <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="OR_Button_PreviewMouseLeftButtonDown" Name="OR_button" Height="25" BorderBrush="LightSlateGray"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="NOT" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="NOT_Button_PreviewMouseLeftButtonDown"  Name="NOT_button" Height="25" BorderBrush="LightSlateGray"/>
                         <Button Grid.Row="2" Grid.Column="0" Content="NAND" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="NAND_Button_PreviewMouseLeftButtonDown" Name="NAND_button" Height="25" BorderBrush="LightSlateGray"/>
                         <Button Grid.Row="2" Grid.Column="0" Content="NOR" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="NOR_Button_PreviewMouseLeftButtonDown" Name="NOR_button" Height="25" BorderBrush="LightSlateGray"/>
                         <Button Grid.Row="2" Grid.Column="0" Content="XOR" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="XOR_Button_PreviewMouseLeftButtonDown" Name="XOR_button" Height="25" BorderBrush="LightSlateGray"/>
@@ -82,10 +83,61 @@
                 </Expander>
                 <Expander  HorizontalContentAlignment="Stretch">
                     <Expander.Header>
-                        <TextBlock TextAlignment="Center">FF's</TextBlock>
+                        <TextBlock TextAlignment="Center">Advanced</TextBlock>
                     </Expander.Header>
                     <StackPanel>
-                        <Button Height="1000"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="Counter" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Counter_Button_PreviewMouseLeftButtonDown"  Name="Counter_button" Height="25" BorderBrush="LightSlateGray"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="Counter_MS" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Counter_MS_Button_PreviewMouseLeftButtonDown"  Name="Counter_MS_button" Height="25" BorderBrush="LightSlateGray"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="Register" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Register_Button_PreviewMouseLeftButtonDown"  Name="Register_button" Height="25" BorderBrush="LightSlateGray"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="Register_MS" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Register_MS_Button_PreviewMouseLeftButtonDown"  Name="Register_MS_button" Height="25" BorderBrush="LightSlateGray"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="Halfadder" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Halfadder_Button_PreviewMouseLeftButtonDown"  Name="Halfadder_button" Height="25" BorderBrush="LightSlateGray"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="Fulladder" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="Fulladder_Button_PreviewMouseLeftButtonDown"  Name="Fulladder_button" Height="25" BorderBrush="LightSlateGray"/>
+                    </StackPanel>
+                </Expander>
+                <Expander  HorizontalContentAlignment="Stretch">
+                    <Expander.Header>
+                        <TextBlock TextAlignment="Center">FlipFlops</TextBlock>
+                    </Expander.Header>
+                    <StackPanel>
+                        <Expander  HorizontalContentAlignment="Stretch">
+                            <Expander.Header>
+                                <TextBlock TextAlignment="Center">RS</TextBlock>
+                            </Expander.Header>
+                            <StackPanel>
+
+                            </StackPanel>
+                        </Expander>
+                        <Expander  HorizontalContentAlignment="Stretch">
+                            <Expander.Header>
+                                <TextBlock TextAlignment="Center">JK</TextBlock>
+                            </Expander.Header>
+                            <StackPanel>
+
+                            </StackPanel>
+                        </Expander>
+                        <Expander  HorizontalContentAlignment="Stretch">
+                            <Expander.Header>
+                                <TextBlock TextAlignment="Center">DC</TextBlock>
+                            </Expander.Header>
+                            <StackPanel>
+
+                            </StackPanel>
+                        </Expander>
+                        <Expander  HorizontalContentAlignment="Stretch">
+                            <Expander.Header>
+                                <TextBlock TextAlignment="Center">T</TextBlock>
+                            </Expander.Header>
+                            <StackPanel>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_E" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_E_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_E_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_E_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_E_R_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_E_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_E_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_E_S_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_E_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_E_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_E_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_E_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_MS_E" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_MS_E_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_MS_E_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_MS_E_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_MS_E_R_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_MS_E_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_MS_E_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_MS_E_S_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_MS_E_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_T_C_MS_E_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_T_C_MS_E_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_T_C_MS_E_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                            </StackPanel>
+                        </Expander>
                     </StackPanel>
                 </Expander>
             </StackPanel>

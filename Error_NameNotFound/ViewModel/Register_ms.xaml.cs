@@ -19,20 +19,20 @@ using System.Windows.Threading;
 
 namespace Error_NameNotFound.ViewModel
 {
-    public partial class NOT : Logicgatescontrol
+    public partial class Register_ms : Logicgatescontrol
     {
-        private L_Not l_not;
-        public NOT() : base()
+        private L_Register_ms l_register_ms;
+        public Register_ms() : base()
         {
             InitializeComponent();
-            Name = "NOTUI";
+            Name = "Register_MSUI";
         }
-        public NOT(int id) : base(id)
+        public Register_ms(int id) : base(id)
         {
             InitializeComponent();
-            Name = "NOT";
-            l_not = new L_Not(2, id, this);
-            LogicGates.gates_logic.Add(l_not);
+            Name = "Register_MS";
+            l_register_ms = new L_Register_ms(2, id, this);
+            LogicGates.gates_logic.Add(l_register_ms);
             ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -42,10 +42,10 @@ namespace Error_NameNotFound.ViewModel
             {
                 MainWindow.CurrentGate = id;
                 MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "NOT";
+                MainWindow.GateType = "Register_MS";
                 // Package the data.
                 DataObject data = new DataObject();
-                data.SetData("Double", NOTUI.Height);
+                data.SetData("Double", Register_MSUI.Height);
                 data.SetData("Object", this);
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);

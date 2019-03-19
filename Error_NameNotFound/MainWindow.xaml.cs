@@ -196,6 +196,81 @@ namespace Error_NameNotFound
             gateType = "Oscillator";
             GeneratePreview();
         }
+        private void NOT_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "NOT";
+            GeneratePreview();
+        }
+        private void Counter_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Counter";
+            GeneratePreview();
+        }
+        private void Counter_MS_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Counter_MS";
+            GeneratePreview();
+        }
+        private void Register_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Register";
+            GeneratePreview();
+        }
+        private void Register_MS_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Register_MS";
+            GeneratePreview();
+        }
+        private void Halfadder_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Halfadder";
+            GeneratePreview();
+        }
+        private void Fulladder_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "Fulladder";
+            GeneratePreview();
+        }
+        private void FF_T_C_E_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_E";
+            GeneratePreview();
+        }
+        private void FF_T_C_E_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_E_R";
+            GeneratePreview();
+        }
+        private void FF_T_C_E_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_E_S";
+            GeneratePreview();
+        }
+        private void FF_T_C_E_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_E_S_R";
+            GeneratePreview();
+        }
+        private void FF_T_C_MS_E_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_MS_E";
+            GeneratePreview();
+        }
+        private void FF_T_C_MS_E_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_MS_E_R";
+            GeneratePreview();
+        }
+        private void FF_T_C_MS_E_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_MS_E_S";
+            GeneratePreview();
+        }
+        private void FF_T_C_MS_E_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_T_C_MS_E_S_R";
+            GeneratePreview();
+        }
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
         {
             if (GateDelete)
@@ -920,12 +995,12 @@ namespace Error_NameNotFound
                 case "Calliper":
                     _gate = new Calliper(id);
                     break;
-                //case "Counter":
-                //    _gate = new Counter(id);
-                //    break;
-                //case "Counter_MS":
-                //    _gate = new Counter_ms(id);
-                //    break;
+                case "Counter":
+                    _gate = new Counter(id);
+                    break;
+                case "Counter_MS":
+                    _gate = new Counter_ms(id);
+                    break;
                 //case "FF_DC_C":
                 //    _gate = new FF_DC_c(id);
                 //    break;
@@ -1109,12 +1184,12 @@ namespace Error_NameNotFound
                 //case "FF_T_C_MS_E_S_R":
                 //    _gate = new FF_T_c_ms_e_s_r(id);
                 //    break;
-                //case "Fulladder":
-                //    _gate = new Fulladder(id);
-                //    break;
-                //case "Halfadder":
-                //    _gate = new Halfadder(id);
-                //    break;
+                case "Fulladder":
+                    _gate = new Fulladder(id);
+                    break;
+                case "Halfadder":
+                    _gate = new Halfadder(id);
+                    break;
                 case "HEX7":
                     _gate = new HEX7(id);
                     break;
@@ -1133,18 +1208,21 @@ namespace Error_NameNotFound
                 case "NOR":
                     _gate = new NOR(id);
                     break;
-                //case "NOT":
-                //    _gate = new NOT(id);
-                //    break;
+                case "NOT":
+                    _gate = new NOT(id);
+                    break;
                 case "OR":
                     _gate = new OR(id);
                     break;
                 case "Oscillator":
                     _gate = new Oscillator(id);
                     break;
-                //case "Register":
-                //    _gate = new Register(id);
-                //    break;
+                case "Register":
+                    _gate = new Register(id);
+                    break;
+                case "Register_MS":
+                    _gate = new Register_ms(id);
+                    break;
                 case "Seg7":
                     _gate = new Seg7(id);
                     break;

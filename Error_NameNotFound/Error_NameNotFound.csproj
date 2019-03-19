@@ -303,6 +303,9 @@
     <Compile Include="ViewModel\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Register_ms.xaml.cs">
+      <DependentUpon>Register_ms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\Save_Button_vm.cs" />
     <Compile Include="ViewModel\Seg7.xaml.cs">
@@ -646,6 +649,10 @@
     <Page Include="ViewModel\Register.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="ViewModel\Register_ms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewModel\Seg7.xaml">
       <SubType>Designer</SubType>
@@ -1033,6 +1040,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\Xor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Register_ms.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
