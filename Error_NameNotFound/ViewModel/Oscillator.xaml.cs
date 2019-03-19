@@ -22,10 +22,12 @@ namespace Error_NameNotFound.ViewModel
     public partial class Oscillator : Logicgatescontrol
     {
         private L_Oscillator l_oscillator;
+        private bool textboxIsUsed;
         public Oscillator() : base()
         {
             InitializeComponent();
             Name = "OscillatorUI";
+            textboxIsUsed = false;
         }
         public Oscillator(int id) : base(id)
         {
@@ -38,18 +40,21 @@ namespace Error_NameNotFound.ViewModel
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (!textboxIsUsed)
             {
-                MainWindow.CurrentGate = id;
-                MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "Oscillator";
-                // Package the data.
-                DataObject data = new DataObject();
-                data.SetData("Double", OscillatorUI.Height);
-                data.SetData("Object", this);
-                // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
+                base.OnMouseMove(e);
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    MainWindow.CurrentGate = id;
+                    MainWindow.SetGateFromButton(false);
+                    MainWindow.GateType = "Oscillator";
+                    // Package the data.
+                    DataObject data = new DataObject();
+                    data.SetData("Double", OscillatorUI.Height);
+                    data.SetData("Object", this);
+                    // Inititate the drag-and-drop operation.
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
+                }
             }
         }
         private void Output0_Click(object sender, RoutedEventArgs e)
@@ -108,6 +113,16 @@ namespace Error_NameNotFound.ViewModel
             {
                // MessageBox.Show("Unhandled Error occoured \n" + x.Message);
             }
+        }
+
+        private void Timeout_MouseEnter(object sender, MouseEventArgs e)
+        {
+            textboxIsUsed = true;
+        }
+
+        private void Timeout_MouseLeave(object sender, MouseEventArgs e)
+        {
+            textboxIsUsed = false;
         }
     }
 }
