@@ -43,8 +43,9 @@ namespace Error_NameNotFound.Model
                 output[0] = !output[0];
                 Thread.Sleep(timeout);
                 ChangeColor();
-                while (MainWindow.GateDelete);
-                if(Delete)
+                while (MainWindow.GateDelete)
+                    Thread.Sleep(100);
+                if (Delete)
                     break;
             }
         }

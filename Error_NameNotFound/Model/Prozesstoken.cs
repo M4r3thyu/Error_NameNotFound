@@ -56,6 +56,10 @@ namespace Error_NameNotFound.Model
                 else
                     break;
                 Thread.Sleep(timeout);
+                while (MainWindow.GateDelete)
+                {
+                    Thread.Sleep(100);
+                }
             }
         }
     }

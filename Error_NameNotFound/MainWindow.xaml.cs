@@ -943,12 +943,12 @@ namespace Error_NameNotFound
         public static void RemoveGate()
         {
             string name = "";
+            var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == CurrentGate);
             CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == CurrentGate));
             name=Gates_UI[CurrentGate].Name;
             Canvas Workspace = (Canvas)Gates_UI[CurrentGate].Parent;
             Workspace.Children.Remove(Gates_UI[CurrentGate]);
             Gates_UI.Remove(Gates_UI[CurrentGate]);
-            var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == CurrentGate);
             if (name == "OscillatorUI")
                 temp.Delete = true;
             LogicGates.Remove_connections(CurrentGate);

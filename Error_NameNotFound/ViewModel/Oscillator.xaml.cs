@@ -75,16 +75,20 @@ namespace Error_NameNotFound.ViewModel
         {
             Dispatcher.Invoke(() =>
             {
-                // Set property or change UI compomponents.              
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.Purple;
-                else
-                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if(temp!=null)
+                {
+                    if (temp.Output[0])
+                        output0.Background = System.Windows.Media.Brushes.Purple;
+                    else
+                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
 
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                    output1.Background = System.Windows.Media.Brushes.Purple;
-                else
-                    output1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    if (temp.Output[1])
+                        output1.Background = System.Windows.Media.Brushes.Purple;
+                    else
+                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
+                }
+                // Set property or change UI compomponents.              
             });
         }
         private void Input0_Drop(object sender, DragEventArgs e)
