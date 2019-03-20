@@ -11,11 +11,10 @@ namespace Error_NameNotFound.Model
 {
     class L_FF_JK_c_s_r : LogicGates
     {
-        public FF_JK_c_ms_s_r v_FF_JK_c_ms_s_r;
-        public L_FF_JK_c_s_r(int id, FF_JK_c_ms_s_r v_FF_JK_c_ms_s_r) : base(5, 2,id) // input 0=J, 1=K, 2=C 3=set 4=reset
+        public FF_JK_c_s_r v_FF_JK_c_s_r;
+        public L_FF_JK_c_s_r(int id, FF_JK_c_s_r v_FF_JK_c_s_r) : base(5, 2,id) // input 0=J, 1=K, 2=C 3=set 4=reset
         {
-            this.v_FF_JK_c_ms_s_r = v_FF_JK_c_ms_s_r;
-            output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            this.v_FF_JK_c_s_r = v_FF_JK_c_s_r;
             for (int i = 0; i < 5; i++)
             {
                 this.input[i] = false;
