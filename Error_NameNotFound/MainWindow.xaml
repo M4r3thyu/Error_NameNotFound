@@ -131,7 +131,22 @@
                                 <TextBlock TextAlignment="Center">JK</TextBlock>
                             </Expander.Header>
                             <StackPanel>
-
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_E" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_E_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_E_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_E_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_E_R_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_E_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_E_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_E_S_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_E_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_E_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_E_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_E_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_MS_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS_E" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_E_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_MS_E_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS_E_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_E_R_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_MS_E_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS_E_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_E_S_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_MS_E_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS_E_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_E_S_R_Button_PreviewMouseLeftButtonDown"  Name="_FF_JK_C_MS_E_S_Rbutton" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_R_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_MS_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_S_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_MS_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_MS_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_MS_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_MS_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_R_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_S_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_JK_C_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_JK_C_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_JK_C_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
                             </StackPanel>
                         </Expander>
                         <Expander  HorizontalContentAlignment="Stretch">
@@ -139,7 +154,22 @@
                                 <TextBlock TextAlignment="Center">DC</TextBlock>
                             </Expander.Header>
                             <StackPanel>
-
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_E" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_E_Button_PreviewMouseLeftButtonDown"  Name="FF_v_C_E_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_E_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_E_R_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_E_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_E_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_E_S_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_E_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_E_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_E_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_E_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_MS_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS_E" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_E_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_MS_E_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS_E_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_E_R_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_MS_E_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS_E_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_E_S_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_MS_E_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS_E_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_E_S_R_Button_PreviewMouseLeftButtonDown"  Name="_FF_DC_C_MS_E_S_Rbutton" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_R_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_MS_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_S_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_MS_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_MS_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_MS_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_MS_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_R_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_R_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_S" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_S_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_S_button" Height="25" BorderBrush="LightSlateGray"/>
+                                <Button Grid.Row="2" Grid.Column="0" Content="_FF_DC_C_S_R" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="FF_DC_C_S_R_Button_PreviewMouseLeftButtonDown"  Name="FF_DC_C_S_R_button" Height="25" BorderBrush="LightSlateGray"/>
                             </StackPanel>
                         </Expander>
                         <Expander  HorizontalContentAlignment="Stretch">

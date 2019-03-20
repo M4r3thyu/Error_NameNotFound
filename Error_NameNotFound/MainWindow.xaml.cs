@@ -371,6 +371,166 @@ namespace Error_NameNotFound
             gateType = "FF_RS_S_R";
             GeneratePreview();
         }
+        private void FF_JK_C_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C";
+            GeneratePreview();
+        }
+        private void FF_JK_C_E_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_E";
+            GeneratePreview();
+        }
+        private void FF_JK_C_E_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_E_R";
+            GeneratePreview();
+        }
+        private void FF_JK_C_E_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_E_S";
+            GeneratePreview();
+        }
+        private void FF_JK_C_E_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_E_S_R";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_E_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS_E";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_E_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS_E_R";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_E_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS_E_S";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_E_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS_E_S_R";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS_R";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS_S";
+            GeneratePreview();
+        }
+        private void FF_JK_C_MS_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_MS_S_R";
+            GeneratePreview();
+        }
+        private void FF_JK_C_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_R";
+            GeneratePreview();
+        }
+        private void FF_JK_C_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_S";
+            GeneratePreview();
+        }
+        private void FF_JK_C_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_JK_C_S_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C";
+            GeneratePreview();
+        }
+        private void FF_DC_C_E_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_E";
+            GeneratePreview();
+        }
+        private void FF_DC_C_E_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_E_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_E_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_E_S";
+            GeneratePreview();
+        }
+        private void FF_DC_C_E_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_E_S_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_E_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS_E";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_E_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS_E_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_E_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS_E_S";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_E_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS_E_S_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS_S";
+            GeneratePreview();
+        }
+        private void FF_DC_C_MS_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_MS_S_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_R";
+            GeneratePreview();
+        }
+        private void FF_DC_C_S_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_S";
+            GeneratePreview();
+        }
+        private void FF_DC_C_S_R_Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            gateType = "FF_DC_C_S_R";
+            GeneratePreview();
+        }
         private void canvas_MouseEnter(object sender, MouseEventArgs e)
         {
             if (GateDelete)
@@ -1106,102 +1266,102 @@ namespace Error_NameNotFound
                 case "Counter_MS":
                     _gate = new Counter_ms(id);
                     break;
-                //case "FF_DC_C":
-                //    _gate = new FF_DC_c(id);
-                //    break;
-                //case "FF_DC_C_E":
-                //    _gate = new FF_DC_c_e(id);
-                //    break;
-                //case "FF_DC_C_E_R":
-                //    _gate = new FF_DC_c_e_r(id);
-                //    break;
-                //case "FF_DC_C_E_S":
-                //    _gate = new FF_DC_c_e_s(id);
-                //    break;
-                //case "FF_DC_C_E_S_R":
-                //    _gate = new FF_DC_c_e_s_r(id);
-                //    break;
-                //case "FF_DC_C_MS":
-                //    _gate = new FF_DC_c_ms(id);
-                //    break;
-                //case "FF_DC_C_MS_R":
-                //    _gate = new FF_DC_c_ms_r(id);
-                //    break;
-                //case "FF_DC_C_MS_E":
-                //    _gate = new FF_DC_c_ms_e(id);
-                //    break;
-                //case "FF_DC_C_MS_E_R":
-                //    _gate = new FF_DC_c_ms_e_r(id);
-                //    break;
-                //case "FF_DC_C_MS_E_S":
-                //    _gate = new FF_DC_c_ms_e_s(id);
-                //    break;
-                //case "FF_DC_C_MS_E_S_R":
-                //    _gate = new FF_DC_c_ms_e_s_r(id);
-                //    break;
-                //case "FF_DC_C_MS_S":
-                //    _gate = new FF_DC_c_ms_s(id);
-                //    break;
-                //case "FF_DC_C_MS_S_R":
-                //    _gate = new FF_DC_c_ms_s_r(id);
-                //    break;
-                //case "FF_DC_C_R":
-                //    _gate = new FF_DC_c_r(id);
-                //    break;
-                //case "FF_DC_C_S":
-                //    _gate = new FF_DC_c_s(id);
-                //    break;
-                //case "FF_DC_C_S_R":
-                //    _gate = new FF_DC_c_s_r(id);
-                //    break;
-                //case "FF_JK_C":
-                //    _gate = new FF_JK_c(id);
-                //    break;
-                //case "FF_JK_C_E":
-                //    _gate = new FF_JK_c_e(id);
-                //    break;
-                //case "FF_JK_C_E_R":
-                //    _gate = new FF_JK_c_e_r(id);
-                //    break;
-                //case "FF_JK_C_E_S":
-                //    _gate = new FF_JK_c_e_s(id);
-                //    break;
-                //case "FF_JK_C_E_S_R":
-                //    _gate = new FF_JK_c_e_s_r(id);
-                //    break;
-                //case "FF_JK_C_MS":
-                //    _gate = new FF_JK_c_ms(id);
-                //    break;
-                //case "FF_JK_C_MS_R":
-                //    _gate = new FF_JK_c_ms_r(id);
-                //    break;
-                //case "FF_JK_C_MS_E":
-                //    _gate = new FF_JK_c_ms_e(id);
-                //    break;
-                //case "FF_JK_C_MS_E_R":
-                //    _gate = new FF_JK_c_ms_e_r(id);
-                //    break;
-                //case "FF_JK_C_MS_E_S":
-                //    _gate = new FF_JK_c_ms_e_s(id);
-                //    break;
-                //case "FF_JK_C_MS_E_S_R":
-                //    _gate = new FF_JK_c_ms_e_s_r(id);
-                //    break;
-                //case "FF_JK_C_MS_S":
-                //    _gate = new FF_JK_c_ms_s(id);
-                //    break;
-                //case "FF_JK_C_MS_S_R":
-                //    _gate = new FF_JK_c_ms_s_r(id);
-                //    break;
-                //case "FF_JK_C_R":
-                //    _gate = new FF_JK_c_r(id);
-                //    break;
-                //case "FF_JK_C_S":
-                //    _gate = new FF_JK_c_s(id);
-                //    break;
-                //case "FF_JK_C_S_R":
-                //    _gate = new FF_JK_c_s_r(id);
-                //    break;
+                case "FF_DC_C":
+                    _gate = new FF_DC_c(id);
+                    break;
+                case "FF_DC_C_E":
+                    _gate = new FF_DC_c_e(id);
+                    break;
+                case "FF_DC_C_E_R":
+                    _gate = new FF_DC_c_e_r(id);
+                    break;
+                case "FF_DC_C_E_S":
+                    _gate = new FF_DC_c_e_s(id);
+                    break;
+                case "FF_DC_C_E_S_R":
+                    _gate = new FF_DC_c_e_s_r(id);
+                    break;
+                case "FF_DC_C_MS":
+                    _gate = new FF_DC_c_ms(id);
+                    break;
+                case "FF_DC_C_MS_R":
+                    _gate = new FF_DC_c_ms_r(id);
+                    break;
+                case "FF_DC_C_MS_E":
+                    _gate = new FF_DC_c_ms_e(id);
+                    break;
+                case "FF_DC_C_MS_E_R":
+                    _gate = new FF_DC_c_ms_e_r(id);
+                    break;
+                case "FF_DC_C_MS_E_S":
+                    _gate = new FF_DC_c_ms_e_s(id);
+                    break;
+                case "FF_DC_C_MS_E_S_R":
+                    _gate = new FF_DC_c_ms_e_s_r(id);
+                    break;
+                case "FF_DC_C_MS_S":
+                    _gate = new FF_DC_c_ms_s(id);
+                    break;
+                case "FF_DC_C_MS_S_R":
+                    _gate = new FF_DC_c_ms_s_r(id);
+                    break;
+                case "FF_DC_C_R":
+                    _gate = new FF_DC_c_r(id);
+                    break;
+                case "FF_DC_C_S":
+                    _gate = new FF_DC_c_s(id);
+                    break;
+                case "FF_DC_C_S_R":
+                    _gate = new FF_DC_c_s_r(id);
+                    break;
+                case "FF_JK_C":
+                    _gate = new FF_JK_c(id);
+                    break;
+                case "FF_JK_C_E":
+                    _gate = new FF_JK_c_e(id);
+                    break;
+                case "FF_JK_C_E_R":
+                    _gate = new FF_JK_c_e_r(id);
+                    break;
+                case "FF_JK_C_E_S":
+                    _gate = new FF_JK_c_e_s(id);
+                    break;
+                case "FF_JK_C_E_S_R":
+                    _gate = new FF_JK_c_e_s_r(id);
+                    break;
+                case "FF_JK_C_MS":
+                    _gate = new FF_JK_c_ms(id);
+                    break;
+                case "FF_JK_C_MS_R":
+                    _gate = new FF_JK_c_ms_r(id);
+                    break;
+                case "FF_JK_C_MS_E":
+                    _gate = new FF_JK_c_ms_e(id);
+                    break;
+                case "FF_JK_C_MS_E_R":
+                    _gate = new FF_JK_c_ms_e_r(id);
+                    break;
+                case "FF_JK_C_MS_E_S":
+                    _gate = new FF_JK_c_ms_e_s(id);
+                    break;
+                case "FF_JK_C_MS_E_S_R":
+                    _gate = new FF_JK_c_ms_e_s_r(id);
+                    break;
+                case "FF_JK_C_MS_S":
+                    _gate = new FF_JK_c_ms_s(id);
+                    break;
+                case "FF_JK_C_MS_S_R":
+                    _gate = new FF_JK_c_ms_s_r(id);
+                    break;
+                case "FF_JK_C_R":
+                    _gate = new FF_JK_c_r(id);
+                    break;
+                case "FF_JK_C_S":
+                    _gate = new FF_JK_c_s(id);
+                    break;
+                case "FF_JK_C_S_R":
+                    _gate = new FF_JK_c_s_r(id);
+                    break;
                 case "FF_RS":
                     _gate = new FF_RS(id);
                     break;
