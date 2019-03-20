@@ -83,266 +83,234 @@ namespace Error_NameNotFound.ViewModel
                                     Calliper _calliper = new Calliper(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_calliper);
                                     break;
-                                /*case "CounterUI":
-                                    CounterUI _counter = new CounterUI(MainWindow.Id);
+                                case "CounterUI":
+                                    Counter _counter = new Counter(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_counter);
                                     break;
                                 case "Counter_MSUI":
-                                    Counter_MSUI _counter_ms = new Counter_MSUI(MainWindow.Id);
+                                    Counter_ms _counter_ms = new Counter_ms(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_counter_ms);
                                     break;
                                 case "FF_DC_CUI":
-                                    FF_DC_C _ff_dc_c = new FF_DC_C(MainWindow.Id);
+                                    FF_DC_c _ff_dc_c = new FF_DC_c(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c);
                                     break;
                                 case "FF_DC_C_EUI":
-                                    FF_DC_C_E _ff_dc_c_e = new FF_DC_C_E(MainWindow.Id);
+                                    FF_DC_c_e _ff_dc_c_e = new FF_DC_c_e(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_e);
                                     break;
                                 case "FF_DC_C_E_RUI":
-                                    FF_DC_C_E_R _ff_dc_c_e_r = new FF_DC_C_E_R(MainWindow.Id);
+                                    FF_DC_c_e_r _ff_dc_c_e_r = new FF_DC_c_e_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_e_r);
                                     break;
                                 case "FF_DC_C_E_SUI":
-                                    FF_DC_C_E_S _ff_dc_c_e_s = new FF_DC_C_E_S(MainWindow.Id);
+                                    FF_DC_c_e_s _ff_dc_c_e_s = new FF_DC_c_e_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_e_s);
                                     break;
                                 case "FF_DC_C_E_S_RUI":
-                                    FF_DC_C_E_S_R _ff_dc_c_e_s_r = new FF_DC_C_E_S_R(MainWindow.Id);
+                                    FF_DC_c_e_s_r _ff_dc_c_e_s_r = new FF_DC_c_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_e_s_r);
                                     break;
                                 case "FF_DC_C_MSUI":
-                                    FF_DC_C_E_MS _ff_dc_c_e_ms = new FF_DC_C_E_MS(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_dc_c_e_ms);
+                                    FF_DC_c_ms _ff_dc_c_ms = new FF_DC_c_ms(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_dc_c_ms);
                                     break;
                                 case "FF_DC_C_MS_RUI":
-                                    FF_DC_C_E_MS _ff_dc_c_e_ms = new FF_DC_C_E_MS(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_dc_c_e_ms);
+                                    FF_DC_c_ms_r _ff_dc_c_ms_r = new FF_DC_c_ms_r(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_dc_c_ms_r);
                                     break;
                                 case "FF_DC_C_MS_EUI":
-                                    FF_DC_C_MS_E _ff_dc_c_ms_e = new FF_DC_C_MS_E(MainWindow.Id);
+                                    FF_DC_c_ms_e _ff_dc_c_ms_e = new FF_DC_c_ms_e(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_ms_e);
                                     break;
                                 case "FF_DC_C_MS_E_RUI":
-                                    FF_DC_C_MS_E_R _ff_dc_c_ms_e_r = new FF_DC_C_MS_E_R(MainWindow.Id);
+                                    FF_DC_c_ms_e_r _ff_dc_c_ms_e_r = new FF_DC_c_ms_e_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_ms_e_r);
                                     break;
                                 case "FF_DC_C_MS_E_SUI":
-                                    FF_DC_C_MS_E_S _ff_dc_c_ms_e_s = new FF_DC_C_MS_E_S(MainWindow.Id);
+                                    FF_DC_c_ms_e_s _ff_dc_c_ms_e_s = new FF_DC_c_ms_e_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_ms_e_s);
                                     break;
                                 case "FF_DC_C_MS_E_S_RUI":
-                                    FF_DC_C_MS_E_S_R _ff_dc_c_ms_e_s_r = new FF_DC_C_MS_E_S_R(MainWindow.Id);
+                                    FF_DC_c_ms_e_s_r _ff_dc_c_ms_e_s_r = new FF_DC_c_ms_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_ms_e_s_r);
                                     break;
-                                case "FF_DC_C_MS_RUI":
-                                    FF_DC_C_MS_R _ff_dc_c_ms_r = new FF_DC_C_MS_R(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_dc_c_ms_r);
-                                    break;
                                 case "FF_DC_C_MS_SUI":
-                                    FF_DC_C_MS_S _ff_dc_c_ms_s = new FF_DC_C_MS_S(MainWindow.Id);
+                                    FF_DC_c_ms_s _ff_dc_c_ms_s = new FF_DC_c_ms_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_ms_s);
                                     break;
                                 case "FF_DC_C_MS_S_RUI":
-                                    FF_DC_C_MS_S_R _ff_dc_c_ms_s_r = new FF_DC_C_MS_S_R(MainWindow.Id);
+                                    FF_DC_c_ms_s_r _ff_dc_c_ms_s_r = new FF_DC_c_ms_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_ms_s_r);
                                     break;
                                 case "FF_DC_C_RUI":
-                                    FF_DC_C_R _ff_dc_c_r = new FF_DC_C_R(MainWindow.Id);
+                                    FF_DC_c_r _ff_dc_c_r = new FF_DC_c_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_r);
                                     break;
                                 case "FF_DC_C_SUI":
-                                    FF_DC_C_S _ff_dc_c_s = new FF_DC_C_S(MainWindow.Id);
+                                    FF_DC_c_s _ff_dc_c_s = new FF_DC_c_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_s);
                                     break;
                                 case "FF_DC_C_S_RUI":
-                                    FF_DC_C_S_R _ff_dc_c_s_r = new FF_DC_C_S_R(MainWindow.Id);
+                                    FF_DC_c_s_r _ff_dc_c_s_r = new FF_DC_c_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_dc_c_s_r);
                                     break;
                                 case "FF_JK_CUI":
-                                    FF_JK_C _ff_jk_c = new FF_JK_C(MainWindow.Id);
+                                    FF_JK_c _ff_jk_c = new FF_JK_c(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c);
                                     break;
                                 case "FF_JK_C_EUI":
-                                    FF_JK_C_E _ff_jk_c_e = new FF_JK_C_E(MainWindow.Id);
+                                    FF_JK_c_e _ff_jk_c_e = new FF_JK_c_e(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_e);
                                     break;
                                 case "FF_JK_C_E_RUI":
-                                    FF_JK_C_E_R _ff_jk_c_e_r = new FF_JK_C_E_R(MainWindow.Id);
+                                    FF_JK_c_e_r _ff_jk_c_e_r = new FF_JK_c_e_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_e_r);
                                     break;
                                 case "FF_JK_C_E_SUI":
-                                    FF_JK_C_E_S _ff_jk_c_e_s = new FF_JK_C_E_S(MainWindow.Id);
+                                    FF_JK_c_e_s _ff_jk_c_e_s = new FF_JK_c_e_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_e_s);
                                     break;
                                 case "FF_JK_C_E_S_RUI":
-                                    FF_JK_C_E_S_R _ff_jk_c_e_s_r = new FF_JK_C_E_S_R(MainWindow.Id);
+                                    FF_JK_c_e_s_r _ff_jk_c_e_s_r = new FF_JK_c_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_e_s_r);
                                     break;
-                                case "FF_JK_C_MSUI":
-                                    FF_JK_C_E_MS _ff_jk_c_e_ms = new FF_JK_C_E_MS(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_jk_c_e_ms);
-                                    break;
-                                case "FF_JK_C_MS_RUI":
-                                    FF_JK_C_E_MS _ff_jk_c_e_ms = new FF_JK_C_E_MS(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_jk_c_e_ms);
-                                    break;
                                 case "FF_JK_C_MS_EUI":
-                                    FF_JK_C_MS_E _ff_jk_c_ms_e = new FF_JK_C_MS_E(MainWindow.Id);
+                                    FF_JK_c_ms_e _ff_jk_c_ms_e = new FF_JK_c_ms_e(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_e);
                                     break;
                                 case "FF_JK_C_MS_E_RUI":
-                                    FF_JK_C_MS_E_R _ff_jk_c_ms_e_r = new FF_JK_C_MS_E_R(MainWindow.Id);
+                                    FF_JK_c_ms_e_r _ff_jk_c_ms_e_r = new FF_JK_c_ms_e_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_e_r);
                                     break;
                                 case "FF_JK_C_MS_E_SUI":
-                                    FF_JK_C_MS_E_S _ff_jk_c_ms_e_s = new FF_JK_C_MS_E_S(MainWindow.Id);
+                                    FF_JK_c_ms_e_s _ff_jk_c_ms_e_s = new FF_JK_c_ms_e_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_e_s);
                                     break;
                                 case "FF_JK_C_MS_E_S_RUI":
-                                    FF_JK_C_MS_E_S_R _ff_jk_c_ms_e_s_r = new FF_JK_C_MS_E_S_R(MainWindow.Id);
+                                    FF_JK_c_ms_e_s_r _ff_jk_c_ms_e_s_r = new FF_JK_c_ms_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_e_s_r);
                                     break;
                                 case "FF_JK_C_MS_RUI":
-                                    FF_JK_C_MS_R _ff_jk_c_ms_r = new FF_JK_C_MS_R(MainWindow.Id);
+                                    FF_JK_c_ms_r _ff_jk_c_ms_r = new FF_JK_c_ms_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_r);
                                     break;
                                 case "FF_JK_C_MS_SUI":
-                                    FF_JK_C_MS_S _ff_jk_c_ms_s = new FF_JK_C_MS_S(MainWindow.Id);
+                                    FF_JK_c_ms_s _ff_jk_c_ms_s = new FF_JK_c_ms_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_s);
                                     break;
                                 case "FF_JK_C_MS_S_RUI":
-                                    FF_JK_C_MS_S_R _ff_jk_c_ms_s_r = new FF_JK_C_MS_S_R(MainWindow.Id);
+                                    FF_JK_c_ms_s_r _ff_jk_c_ms_s_r = new FF_JK_c_ms_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_s_r);
                                     break;
                                 case "FF_JK_C_RUI":
-                                    FF_JK_C_R _ff_jk_c_r = new FF_JK_C_R(MainWindow.Id);
+                                    FF_JK_c_r _ff_jk_c_r = new FF_JK_c_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_r);
                                     break;
                                 case "FF_JK_C_SUI":
-                                    FF_JK_C_S _ff_jk_c_s = new FF_JK_C_S(MainWindow.Id);
+                                    FF_JK_c_s _ff_jk_c_s = new FF_JK_c_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_s);
                                     break;
                                 case "FF_JK_C_S_RUI":
-                                    FF_JK_C_S_R _ff_jk_c_s_r = new FF_JK_C_S_R(MainWindow.Id);
+                                    FF_JK_c_s_r _ff_jk_c_s_r = new FF_JK_c_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_s_r);
                                     break;
                                     case "FF_RS_CUI":
-                                    FF_RS_C _ff_rs_c = new FF_RS_C(MainWindow.Id);
+                                    FF_RS_c _ff_rs_c = new FF_RS_c(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c);
                                     break;
                                 case "FF_RS_C_EUI":
-                                    FF_RS_C_E _ff_rs_c_e = new FF_RS_C_E(MainWindow.Id);
+                                    FF_RS_c_e _ff_rs_c_e = new FF_RS_c_e(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_e);
                                     break;
                                 case "FF_RS_C_E_RUI":
-                                    FF_RS_C_E_R _ff_rs_c_e_r = new FF_RS_C_E_R(MainWindow.Id);
+                                    FF_RS_c_e_r _ff_rs_c_e_r = new FF_RS_c_e_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_e_r);
                                     break;
                                 case "FF_RS_C_E_SUI":
-                                    FF_RS_C_E_S _ff_rs_c_e_s = new FF_RS_C_E_S(MainWindow.Id);
+                                    FF_RS_c_e_s _ff_rs_c_e_s = new FF_RS_c_e_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_e_s);
                                     break;
                                 case "FF_RS_C_E_S_RUI":
-                                    FF_RS_C_E_S_R _ff_rs_c_e_s_r = new FF_RS_C_E_S_R(MainWindow.Id);
+                                    FF_RS_c_e_s_r _ff_rs_c_e_s_r = new FF_RS_c_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_e_s_r);
                                     break;
-                                case "FF_RS_C_MSUI":
-                                    FF_RS_C_E_MS _ff_rs_c_e_ms = new FF_RS_C_E_MS(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_rs_c_e_ms);
-                                    break;
-                                case "FF_RS_C_MS_RUI":
-                                    FF_RS_C_E_MS _ff_rs_c_e_ms = new FF_RS_C_E_MS(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_rs_c_e_ms);
-                                    break;
                                 case "FF_RS_C_MS_EUI":
-                                    FF_RS_C_MS_E _ff_rs_c_ms_e = new FF_RS_C_MS_E(MainWindow.Id);
+                                    FF_RS_c_ms_e _ff_rs_c_ms_e = new FF_RS_c_ms_e(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_e);
                                     break;
                                 case "FF_RS_C_MS_E_RUI":
-                                    FF_RS_C_MS_E_R _ff_rs_c_ms_e_r = new FF_RS_C_MS_E_R(MainWindow.Id);
+                                    FF_RS_c_ms_e_r _ff_rs_c_ms_e_r = new FF_RS_c_ms_e_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_e_r);
                                     break;
                                 case "FF_RS_C_MS_E_SUI":
-                                    FF_RS_C_MS_E_S _ff_rs_c_ms_e_s = new FF_RS_C_MS_E_S(MainWindow.Id);
+                                    FF_RS_c_ms_e_s _ff_rs_c_ms_e_s = new FF_RS_c_ms_e_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_e_s);
                                     break;
                                 case "FF_RS_C_MS_E_S_RUI":
-                                    FF_RS_C_MS_E_S_R _ff_rs_c_ms_e_s_r = new FF_RS_C_MS_E_S_R(MainWindow.Id);
+                                    FF_RS_c_ms_e_s_r _ff_rs_c_ms_e_s_r = new FF_RS_c_ms_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_e_s_r);
                                     break;
                                 case "FF_RS_C_MS_RUI":
-                                    FF_RS_C_MS_R _ff_rs_c_ms_r = new FF_RS_C_MS_R(MainWindow.Id);
+                                    FF_RS_c_ms_r _ff_rs_c_ms_r = new FF_RS_c_ms_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_r);
                                     break;
                                 case "FF_RS_C_MS_SUI":
-                                    FF_RS_C_MS_S _ff_rs_c_ms_s = new FF_RS_C_MS_S(MainWindow.Id);
+                                    FF_RS_c_ms_s _ff_rs_c_ms_s = new FF_RS_c_ms_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_s);
                                     break;
                                 case "FF_RS_C_MS_S_RUI":
-                                    FF_RS_C_MS_S_R _ff_rs_c_ms_s_r = new FF_RS_C_MS_S_R(MainWindow.Id);
+                                    FF_RS_c_ms_s_r _ff_rs_c_ms_s_r = new FF_RS_c_ms_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_s_r);
                                     break;
                                 case "FF_RS_C_RUI":
-                                    FF_RS_C_R _ff_rs_c_r = new FF_RS_C_R(MainWindow.Id);
+                                    FF_RS_c_r _ff_rs_c_r = new FF_RS_c_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_r);
                                     break;
                                 case "FF_RS_C_SUI":
-                                    FF_RS_C_S _ff_rs_c_s = new FF_RS_C_S(MainWindow.Id);
+                                    FF_RS_c_s _ff_rs_c_s = new FF_RS_c_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_s);
                                     break;
                                 case "FF_RS_C_S_RUI":
-                                    FF_RS_C_S_R _ff_rs_c_s_r = new FF_RS_C_S_R(MainWindow.Id);
+                                    FF_RS_c_s_r _ff_rs_c_s_r = new FF_RS_c_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_s_r);
                                     break;
                                 case "FF_RS_RUI":
-                                    FF_RS_R _ff_rs_r = new FF_RS_R(MainWindow.Id);
+                                    FF_RS_r _ff_rs_r = new FF_RS_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_r);
                                     break;
                                 case "FF_RS_SUI":
-                                    FF_RS_S _ff_rs_s = new FF_RS_S(MainWindow.Id);
+                                    FF_RS_s _ff_rs_s = new FF_RS_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_s);
                                     break;
                                 case "FF_RS_S_RUI":
-                                    FF_RS_S_R _ff_rs_s_r = new FF_RS_S_R(MainWindow.Id);
+                                    FF_RS_s_r _ff_rs_s_r = new FF_RS_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_s_r);
                                     break;
                                 case "FF_T_C_MS_EUI":
-                                    FF_T_C_MS_E _ff_t_c_ms_e = new FF_T_C_MS_E(MainWindow.Id);
+                                    FF_T_c_ms_e _ff_t_c_ms_e = new FF_T_c_ms_e(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_t_c_ms_e);
                                     break;
                                 case "FF_T_C_MS_E_RUI":
-                                    FF_T_C_MS_E_R _ff_t_c_ms_e_r = new FF_T_C_MS_E_R(MainWindow.Id);
+                                    FF_T_c_ms_e_r _ff_t_c_ms_e_r = new FF_T_c_ms_e_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_t_c_ms_e_r);
                                     break;
                                 case "FF_T_C_MS_E_SUI":
-                                    FF_T_C_MS_E_S _ff_t_c_ms_e_s = new FF_T_C_MS_E_S(MainWindow.Id);
+                                    FF_T_c_ms_e_s _ff_t_c_ms_e_s = new FF_T_c_ms_e_s(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_t_c_ms_e_s);
                                     break;
                                 case "FF_T_C_MS_E_S_RUI":
-                                    FF_T_C_MS_E_S_R _ff_t_c_ms_e_s_r = new FF_T_C_MS_E_S_R(MainWindow.Id);
+                                    FF_T_c_ms_e_s_r _ff_t_c_ms_e_s_r = new FF_T_c_ms_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_t_c_ms_e_s_r);
                                     break;
-                                case "FF_T_C_MS_RUI":
-                                    FF_T_C_MS_R _ff_t_c_ms_r = new FF_T_C_MS_R(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_t_c_ms_r);
-                                    break;
-                                case "FF_T_C_MS_SUI":
-                                    FF_T_C_MS_S _ff_t_c_ms_s = new FF_T_C_MS_S(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_t_c_ms_s);
-                                    break;
-                                case "FF_T_C_MS_S_RUI":
-                                    FF_T_C_MS_S_R _ff_t_c_ms_s_r = new FF_T_C_MS_S_R(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_ff_t_c_ms_s_r);
-                                    break;
                                 case "FULLADDERUI":
-                                    Fulladder _fulladder = new Fuladder(MainWindow.Id);
+                                    Fulladder _fulladder = new Fulladder(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_fulladder);
                                     break;
                                 case "HALFADDERUI":
                                     Halfadder _halfadder = new Halfadder(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_halfadder);
-                                    break;*/
+                                    break;
                                 case "Hex7UI":
                                     HEX7 _hex7 = new HEX7(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_hex7);
