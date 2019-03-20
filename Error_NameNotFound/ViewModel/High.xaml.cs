@@ -62,11 +62,15 @@ namespace Error_NameNotFound.ViewModel
         {
             Dispatcher.Invoke(() =>
             {
-                // Set property or change UI compomponents.              
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.GreenYellow;
-                else
-                    output0.Background = System.Windows.Media.Brushes.Purple;
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    // Set property or change UI compomponents.              
+                    if (temp.Output[0])
+                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output0.Background = System.Windows.Media.Brushes.Purple;
+                }
             });
         }
     }
