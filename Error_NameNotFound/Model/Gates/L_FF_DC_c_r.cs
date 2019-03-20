@@ -43,7 +43,7 @@ namespace Error_NameNotFound.Model
         }
         public override void ChangeColor()
         {
-            //v_FF_DC_c_r.ChangeColorInOut();
+            v_FF_DC_c_r.ChangeColorInOut();
         }
         protected override void basevalue(int inr)
         {

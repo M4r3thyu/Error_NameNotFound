@@ -47,7 +47,7 @@ namespace Error_NameNotFound.Model
         }
         public override void ChangeColor()
         {
-            //v_Fulladder.ChangeColorInOut();
+            v_Fulladder.ChangeColorInOut();
         }
         protected override void basevalue(int inr)
         {
