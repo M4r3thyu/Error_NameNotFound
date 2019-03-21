@@ -29,12 +29,16 @@ namespace Error_NameNotFound
         public LogicButton() :base()
         {
             InitializeComponent();
+            anz_input = 0;
+            anz_output = 1;
             Name = "ButtonUI";
             On = false;
         }
         public LogicButton(int id) : base(id)
         {
             InitializeComponent();
+            anz_input = 0;
+            anz_output = 1;
             Name = "ButtonUI";
             On = false;
             l_button = new L_Button(id, this);
@@ -83,21 +87,6 @@ namespace Error_NameNotFound
             MainWindow.CableX1 = Canvas.GetLeft(this) + 50;
             MainWindow.CableY1 = Canvas.GetTop(this) + 25;
             StartCableDrag();
-        }
-        public override void ChangeColorInOut()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-                if (temp != null)
-                {
-                    // Set property or change UI compomponents.              
-                    if (temp.Output[0])
-                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        output0.Background = System.Windows.Media.Brushes.Purple;
-                }
-            });
         }
     }
 }

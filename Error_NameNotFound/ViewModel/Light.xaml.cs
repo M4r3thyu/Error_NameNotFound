@@ -25,11 +25,15 @@ namespace Error_NameNotFound.ViewModel
         public Light() : base()
         {
             InitializeComponent();
+            anz_input = 1;
+            anz_output = 0;
             Name = "LightUI";
         }
         public Light(int id) : base(id)
         {
             InitializeComponent();
+            anz_input = 1;
+            anz_output = 0;
             Name = "LightUI";
             l_light = new L_Light(id, this);
             LogicGates.gates_logic.Add(l_light);
@@ -54,21 +58,6 @@ namespace Error_NameNotFound.ViewModel
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
-        }
-        public override void ChangeColorInOut()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-                if (temp != null)
-                {
-                    // Set property or change UI compomponents.              
-                    if (temp.Input[0])
-                        input0.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        input0.Background = System.Windows.Media.Brushes.Purple;
-                }
-            });
         }
         private void Input0_Drop(object sender, DragEventArgs e)
         {

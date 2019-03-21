@@ -18,7 +18,7 @@ namespace Error_NameNotFound.Model
             this.v_FF_RS_c_e_r = v_FF_RS_c_e_r;
             output[1] = !output[0];                        //output[0] = Q output[1] = !Q
             ms = false;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 this.input[i] = false;
             }

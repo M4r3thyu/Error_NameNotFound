@@ -25,11 +25,15 @@ namespace Error_NameNotFound.ViewModel
         public FF_RS_c_s_r() : base()
         {
             InitializeComponent();
+            anz_input = 5;
+            anz_output = 2;
             Name = "FF_RS_C_S_RUI";
         }
         public FF_RS_c_s_r(int id) : base(id)
         {
             InitializeComponent();
+            anz_input = 5;
+            anz_output = 2;
             Name = "FF_RS_C_S_RUI";
             l_FF_RS_c_s_r = new L_FF_RS_c_s_r(id, this);
             LogicGates.gates_logic.Add(l_FF_RS_c_s_r);
@@ -72,36 +76,6 @@ namespace Error_NameNotFound.ViewModel
         private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
-        }
-        public override void ChangeColorInOut()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-                if (temp != null)
-                {
-                    // Set property or change UI compomponents.              
-                    if (temp.Input[0])
-                        input0.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        input0.Background = System.Windows.Media.Brushes.Purple;
-
-                    if (temp.Input[1])
-                        input1.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        input1.Background = System.Windows.Media.Brushes.Purple;
-
-                    if (temp.Output[0])
-                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        output0.Background = System.Windows.Media.Brushes.Purple;
-
-                    if (temp.Output[1])
-                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        output1.Background = System.Windows.Media.Brushes.Purple;
-                }
-            });
         }
         private void Input0_Drop(object sender, DragEventArgs e)
         {

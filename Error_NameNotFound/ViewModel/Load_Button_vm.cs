@@ -75,11 +75,15 @@ namespace Error_NameNotFound.ViewModel
                                     AND _and = new AND(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_and);
                                     break;
+                                case "NOTUI":
+                                    NOT _not = new NOT(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_not);
+                                    break;
                                 case "ButtonUI":
                                     LogicButton _logicbutton = new LogicButton(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_logicbutton);
                                     break;
-                                case "CALLIPERUI":
+                                case "CalliperUI":
                                     Calliper _calliper = new Calliper(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_calliper);
                                     break;
@@ -191,6 +195,10 @@ namespace Error_NameNotFound.ViewModel
                                     FF_JK_c_ms_e_s_r _ff_jk_c_ms_e_s_r = new FF_JK_c_ms_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_e_s_r);
                                     break;
+                                case "FF_JK_C_MSUI":
+                                    FF_JK_c_ms _ff_jk_c_ms = new FF_JK_c_ms(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_jk_c_ms);
+                                    break;
                                 case "FF_JK_C_MS_RUI":
                                     FF_JK_c_ms_r _ff_jk_c_ms_r = new FF_JK_c_ms_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_ms_r);
@@ -215,7 +223,11 @@ namespace Error_NameNotFound.ViewModel
                                     FF_JK_c_s_r _ff_jk_c_s_r = new FF_JK_c_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_jk_c_s_r);
                                     break;
-                                    case "FF_RS_CUI":
+                                case "FF_RSUI":
+                                    FF_RS _ff_rs = new FF_RS(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_rs);
+                                    break;
+                                case "FF_RS_CUI":
                                     FF_RS_c _ff_rs_c = new FF_RS_c(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c);
                                     break;
@@ -250,6 +262,10 @@ namespace Error_NameNotFound.ViewModel
                                 case "FF_RS_C_MS_E_S_RUI":
                                     FF_RS_c_ms_e_s_r _ff_rs_c_ms_e_s_r = new FF_RS_c_ms_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_rs_c_ms_e_s_r);
+                                    break;
+                                case "FF_RS_C_MSUI":
+                                    FF_RS_c_ms _ff_rs_c_ms = new FF_RS_c_ms(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_rs_c_ms);
                                     break;
                                 case "FF_RS_C_MS_RUI":
                                     FF_RS_c_ms_r _ff_rs_c_ms_r = new FF_RS_c_ms_r(MainWindow.Id);
@@ -303,15 +319,31 @@ namespace Error_NameNotFound.ViewModel
                                     FF_T_c_ms_e_s_r _ff_t_c_ms_e_s_r = new FF_T_c_ms_e_s_r(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_ff_t_c_ms_e_s_r);
                                     break;
-                                case "FULLADDERUI":
+                                case "FF_T_C_EUI":
+                                    FF_T_c_e _ff_t_c_e = new FF_T_c_e(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_t_c_e);
+                                    break;
+                                case "FF_T_C_E_RUI":
+                                    FF_T_c_e_r _ff_t_c_e_r = new FF_T_c_e_r(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_t_c_e_r);
+                                    break;
+                                case "FF_T_C_E_SUI":
+                                    FF_T_c_e_s _ff_t_c_e_s = new FF_T_c_e_s(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_t_c_e_s);
+                                    break;
+                                case "FF_T_C_E_S_RUI":
+                                    FF_T_c_e_s_r _ff_t_c_e_s_r = new FF_T_c_e_s_r(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_ff_t_c_e_s_r);
+                                    break;
+                                case "FulladderUI":
                                     Fulladder _fulladder = new Fulladder(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_fulladder);
                                     break;
-                                case "HALFADDERUI":
+                                case "HalfadderUI":
                                     Halfadder _halfadder = new Halfadder(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_halfadder);
                                     break;
-                                case "Hex7UI":
+                                case "HEX7UI":
                                     HEX7 _hex7 = new HEX7(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_hex7);
                                     break;
@@ -335,10 +367,6 @@ namespace Error_NameNotFound.ViewModel
                                     NOR _nor = new NOR(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_nor);
                                     break;
-                                /*case "NOTUI":
-                                    NOT _not = new NOT(MainWindow.Id);
-                                    MainWindow.Gates_UI.Add(_not);
-                                    break;*/
                                 case "ORUI":
                                     OR _or = new OR(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_or);
@@ -347,10 +375,14 @@ namespace Error_NameNotFound.ViewModel
                                     Oscillator _oscillator = new Oscillator(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_oscillator);
                                     break;
-                                /*case "REGISTERUI":
+                                case "RegisterUI":
                                     Register _register = new Register(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_register);
-                                    break;*/
+                                    break;
+                                case "Register_MSUI":
+                                    Register_ms _register_ms = new Register_ms(MainWindow.Id);
+                                    MainWindow.Gates_UI.Add(_register_ms);
+                                    break;
                                 case "Seg7UI":
                                     Seg7 _seg7 = new Seg7(MainWindow.Id);
                                     MainWindow.Gates_UI.Add(_seg7);
@@ -364,6 +396,7 @@ namespace Error_NameNotFound.ViewModel
                                     MainWindow.Gates_UI.Add(_xor);
                                     break;
                                 default:
+                                    MessageBox.Show("missing"+merker[5]);
                                     break;
                             }
                             
@@ -371,6 +404,7 @@ namespace Error_NameNotFound.ViewModel
                             Canvas.SetLeft(MainWindow.Gates_UI[gateindex], canvas_Left);
                             Canvas.SetTop(MainWindow.Gates_UI[gateindex], canvas_Top);
                             gateindex++;
+                            MainWindow.Id++;
                         }
                     }
                     for (int i = 2; i < cables.Length-1; i++)

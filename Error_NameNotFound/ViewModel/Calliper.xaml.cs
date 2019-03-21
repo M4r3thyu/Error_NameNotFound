@@ -28,11 +28,15 @@ namespace Error_NameNotFound
         public Calliper():base()
         {
             InitializeComponent();
+            anz_input = 0;
+            anz_output = 1;
             Name = "CalliperUI";
         }
         public Calliper(int id):base(id)
         {
             InitializeComponent();
+            anz_input = 0;
+            anz_output = 1;
             Name = "CalliperUI";
             l_calliper = new L_Calliper(id, this);
             LogicGates.gates_logic.Add(l_calliper);
@@ -66,22 +70,6 @@ namespace Error_NameNotFound
             MainWindow.CableY1 = Canvas.GetTop(this) + 25;
             StartCableDrag();
         }
-        public override void ChangeColorInOut()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-                if(temp!=null)
-                {
-                    // Set property or change UI compomponents.              
-                    if (temp.Output[0])
-                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        output0.Background = System.Windows.Media.Brushes.Purple;
-                }
-            });
-        }
-
         private void CalliperUI_MouseUp(object sender, MouseButtonEventArgs e)
         {
             l_calliper.Inputset(!LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0], 0);

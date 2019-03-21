@@ -22,6 +22,9 @@ namespace Error_NameNotFound.ViewModel
     {
         protected int id;
         protected int connectedCablesCount;
+        protected int anz_input;
+        protected int anz_output;
+
         public Logicgatescontrol()
         {
             id = 0;
@@ -62,7 +65,6 @@ namespace Error_NameNotFound.ViewModel
             }
             e.Handled = true;
         }
-        public virtual void ChangeColorInOut() { }
         public void StartCableDrag()
         {
             MainWindow.CableDrag = true;
@@ -137,6 +139,57 @@ namespace Error_NameNotFound.ViewModel
                     }
                 }
             }
+        }
+        public void ChangeColorInOut()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    try
+                    {
+                        // Set property or change UI compomponents.              
+                        for (int i = 0; i < anz_input; i++)
+                        {
+                            if (temp.Input[i])
+                            {
+                                Button myButton = (Button)FindName("input"+i);
+                                myButton.Background = System.Windows.Media.Brushes.GreenYellow;
+                            }
+                            else
+                            {
+                                Button myButton = (Button)FindName("input"+i);
+                                myButton.Background = System.Windows.Media.Brushes.Purple;
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                    try
+                    {
+                        for (int i = 0; i < anz_output; i++)
+                        {
+                            if (temp.Output[i])
+                            {
+                                Button myButton = (Button)FindName("output" + i);
+                                myButton.Background = System.Windows.Media.Brushes.GreenYellow;
+                            }
+                            else
+                            {
+                                Button myButton = (Button)FindName("output" + i);
+                                myButton.Background = System.Windows.Media.Brushes.Purple;
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            });
         }
     }
 }

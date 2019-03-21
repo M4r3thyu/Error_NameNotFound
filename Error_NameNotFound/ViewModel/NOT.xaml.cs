@@ -25,12 +25,16 @@ namespace Error_NameNotFound.ViewModel
         public NOT() : base()
         {
             InitializeComponent();
+            anz_input = 1;
+            anz_output = 1;
             Name = "NOTUI";
         }
         public NOT(int id) : base(id)
         {
             InitializeComponent();
-            Name = "NOT";
+            anz_input = 1;
+            anz_output = 1;
+            Name = "NOTUI";
             l_not = new L_Not(id, this);
             LogicGates.gates_logic.Add(l_not);
             ChangeColorInOut();
@@ -72,26 +76,6 @@ namespace Error_NameNotFound.ViewModel
         private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
-        }
-        public override void ChangeColorInOut()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-                if (temp != null)
-                {
-                    // Set property or change UI compomponents.              
-                    if (temp.Input[0])
-                        input0.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        input0.Background = System.Windows.Media.Brushes.Purple;
-
-                    if (temp.Output[0])
-                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        output0.Background = System.Windows.Media.Brushes.Purple;
-                }
-            });
         }
         private void Input0_Drop(object sender, DragEventArgs e)
         {

@@ -192,11 +192,12 @@
             </StackPanel>
             
         </ScrollViewer>
-
-        <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="GhostWhite" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseWheel="canvas_MouseWheel" Width="10000" Height="10000">
-            <Canvas.RenderTransform>
-                <ScaleTransform x:Name="st"></ScaleTransform>
-            </Canvas.RenderTransform>
-        </Canvas>
+        <ScrollViewer Grid.Row="2" Grid.Column="2" VerticalScrollBarVisibility="Visible" SelectiveScrollingGrid.SelectiveScrollingOrientation="Both" HorizontalScrollBarVisibility="Visible">
+            <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="GhostWhite" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseWheel="canvas_MouseWheel" Width="10000" Height="10000">
+                <Canvas.RenderTransform>
+                    <ScaleTransform x:Name="st"></ScaleTransform>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </ScrollViewer>
     </Grid>
 </Window>

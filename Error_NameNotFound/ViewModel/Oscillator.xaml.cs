@@ -26,12 +26,16 @@ namespace Error_NameNotFound.ViewModel
         public Oscillator() : base()
         {
             InitializeComponent();
+            anz_input = 0;
+            anz_output = 2;
             Name = "OscillatorUI";
             textboxIsUsed = false;
         }
         public Oscillator(int id) : base(id)
         {
             InitializeComponent();
+            anz_input = 0;
+            anz_output = 2;
             Name = "OscillatorUI";
             l_oscillator = new L_Oscillator(id, this);
             LogicGates.gates_logic.Add(l_oscillator);
@@ -70,26 +74,6 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
             MainWindow.CableY1 = Canvas.GetTop(this) + 25;
             StartCableDrag();
-        }
-        public override void ChangeColorInOut()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
-                if(temp!=null)
-                {
-                    if (temp.Output[0])
-                        output0.Background = System.Windows.Media.Brushes.Purple;
-                    else
-                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
-
-                    if (temp.Output[1])
-                        output1.Background = System.Windows.Media.Brushes.Purple;
-                    else
-                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
-                }
-                // Set property or change UI compomponents.              
-            });
         }
         private void Input0_Drop(object sender, DragEventArgs e)
         {
