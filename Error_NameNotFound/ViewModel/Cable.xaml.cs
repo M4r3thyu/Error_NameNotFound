@@ -28,17 +28,17 @@ namespace Error_NameNotFound.ViewModel
         private double x2;
         private double y1;
         private double y2;
-        private double differenceToGatepositionX;
-        private double differenceToGatepositionY;
+        //private double differenceToGatepositionX;
+        //private double differenceToGatepositionY;
 
-        public double DifferenceToGatepositionX
-        {
-            get => differenceToGatepositionX;
-        }
-        public double DifferenceToGatepositionY
-        {
-            get => differenceToGatepositionY;
-        }
+        //public double DifferenceToGatepositionX
+        //{
+        //    get => differenceToGatepositionX;
+        //}
+        //public double DifferenceToGatepositionY
+        //{
+        //    get => differenceToGatepositionY;
+        //}
 
         public double Y2
         {

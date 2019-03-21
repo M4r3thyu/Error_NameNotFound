@@ -80,7 +80,7 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.AddCable(_cable);
             MainWindow.CableDrag = false;
         }
-        public void UpdateCablepositions(double gatepositionX,double gatepositionY)
+        public void UpdateCablepositions(double gatepositionXnew,double gatepositionYnew, double gatepositionXold, double gatepositionYold)
         {
             bool yCableIsConnnected=false; //<=
             bool yCableHasAdditionalConnections=false; //<=
@@ -104,8 +104,11 @@ namespace Error_NameNotFound.ViewModel
                     oldCablepositionX2 = c[i].X2;
                     oldCablepositionY2 = c[i].Y2;
 
-                    c[i].X2 = gatepositionX + c[i].DifferenceToGatepositionX;
-                    c[i].Y2 = gatepositionY + c[i].DifferenceToGatepositionY;
+                    c[i].X2 = gatepositionXnew + (oldCablepositionX2 - gatepositionXold);
+                    c[i].Y2 = gatepositionYnew + (oldCablepositionY2 - gatepositionYold);
+
+                    //c[i].X2 = gatepositionXnew + c[i].DifferenceToGatepositionX;
+                    //c[i].Y2 = gatepositionYnew + c[i].DifferenceToGatepositionY;
 
                     if (c[i].Y2 != oldCablepositionY2)
                     {
