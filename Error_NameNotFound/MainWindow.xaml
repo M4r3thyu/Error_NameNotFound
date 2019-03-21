@@ -73,7 +73,7 @@
                     </Expander.Header>
                     <StackPanel>
                         <Button Grid.Row="2" Grid.Column="0" Content="AND" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="AND_Button_PreviewMouseLeftButtonDown"  Name="AND_button" Height="25" BorderBrush="LightSlateGray"/>
-                        <Button Grid.Row="2" Grid.Column="0" Content="Or" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="OR_Button_PreviewMouseLeftButtonDown" Name="OR_button" Height="25" BorderBrush="LightSlateGray"/>
+                        <Button Grid.Row="2" Grid.Column="0" Content="OR" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="OR_Button_PreviewMouseLeftButtonDown" Name="OR_button" Height="25" BorderBrush="LightSlateGray"/>
                         <Button Grid.Row="2" Grid.Column="0" Content="NOT" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="NOT_Button_PreviewMouseLeftButtonDown"  Name="NOT_button" Height="25" BorderBrush="LightSlateGray"/>
                         <Button Grid.Row="2" Grid.Column="0" Content="NAND" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="NAND_Button_PreviewMouseLeftButtonDown" Name="NAND_button" Height="25" BorderBrush="LightSlateGray"/>
                         <Button Grid.Row="2" Grid.Column="0" Content="NOR" Margin="2" VerticalAlignment="Top" PreviewMouseLeftButtonDown="NOR_Button_PreviewMouseLeftButtonDown" Name="NOR_button" Height="25" BorderBrush="LightSlateGray"/>
