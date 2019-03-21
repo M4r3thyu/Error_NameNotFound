@@ -86,20 +86,10 @@ namespace Error_NameNotFound.ViewModel
                     else
                         input0.Background = System.Windows.Media.Brushes.Purple;
 
-                    if (temp.Input[1])
-                        input1.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        input1.Background = System.Windows.Media.Brushes.Purple;
-
                     if (temp.Output[0])
                         output0.Background = System.Windows.Media.Brushes.GreenYellow;
                     else
                         output0.Background = System.Windows.Media.Brushes.Purple;
-
-                    if (temp.Output[1])
-                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
-                    else
-                        output1.Background = System.Windows.Media.Brushes.Purple;
                 }
             });
         }
