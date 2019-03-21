@@ -12,56 +12,121 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Error_NameNotFound.ViewModel;
+using Error_NameNotFound.Model;
+using System.Drawing;
+using System.Windows.Threading;
 
 namespace Error_NameNotFound.ViewModel
 {
-    /// <summary>
-    /// Interaction logic for Oscillator.xaml
-    /// </summary>
-    public partial class Oscillator : UserControl
+    public partial class Oscillator : Logicgatescontrol
     {
-        public Oscillator()
+        private L_Oscillator l_oscillator;
+        private bool textboxIsUsed;
+        public Oscillator() : base()
         {
             InitializeComponent();
+            Name = "OscillatorUI";
+            textboxIsUsed = false;
         }
-        public Oscillator(Oscillator g)
+        public Oscillator(int id) : base(id)
         {
             InitializeComponent();
-            this.OscillatorUI.Height = g.OscillatorUI.Height;
-            this.OscillatorUI.Width = g.OscillatorUI.Height;
+            Name = "OscillatorUI";
+            l_oscillator = new L_Oscillator(id, this);
+            LogicGates.gates_logic.Add(l_oscillator);
+            ChangeColorInOut();
+            Timeout.Text = "1000";
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (!textboxIsUsed)
             {
-                // Package the data.
-                DataObject data = new DataObject();
-                data.SetData("Double", OscillatorUI.Height);
-                data.SetData("Object", this);
-
-                // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                base.OnMouseMove(e);
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    MainWindow.CurrentGate = id;
+                    MainWindow.SetGateFromButton(false);
+                    MainWindow.GateType = "Oscillator";
+                    // Package the data.
+                    DataObject data = new DataObject();
+                    data.SetData("Double", OscillatorUI.Height);
+                    data.SetData("Object", this);
+                    // Inititate the drag-and-drop operation.
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
+                }
             }
         }
-        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
+        private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            base.OnGiveFeedback(e);
-            // These Effects values are set in the drop target's
-            // DragOver event handler.
-            if (e.Effects.HasFlag(DragDropEffects.Copy))
+            Outputbutton_vm.Output_Click(id, 0);
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 75;
+            StartCableDrag();
+        }
+        private void Output1_Click(object sender, RoutedEventArgs e)
+        {
+            Outputbutton_vm.Output_Click(id, 1);
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
+            StartCableDrag();
+        }
+        public override void ChangeColorInOut()
+        {
+            Dispatcher.Invoke(() =>
             {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if(temp!=null)
+                {
+                    if (temp.Output[0])
+                        output0.Background = System.Windows.Media.Brushes.Purple;
+                    else
+                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
+
+                    if (temp.Output[1])
+                        output1.Background = System.Windows.Media.Brushes.Purple;
+                    else
+                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
+                }
+                // Set property or change UI compomponents.              
+            });
+        }
+        private void Input0_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            Inputbutton_vm.Input_Click(id, 0);
             e.Handled = true;
+        }
+        private void Input1_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
+            Inputbutton_vm.Input_Click(id, 1);
+            e.Handled = true;
+        }
+        private void Timeout_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (int.Parse(Timeout.Text) > 9999)
+                    Timeout.Text = "9999";
+                if (int.Parse(Timeout.Text) <= 0)
+                    Timeout.Text = "1";
+                l_oscillator.Timeout = int.Parse(Timeout.Text);
+            }
+            catch (Exception x)
+            {
+               // MessageBox.Show("Unhandled Error occoured \n" + x.Message);
+            }
+        }
+
+        private void Timeout_MouseEnter(object sender, MouseEventArgs e)
+        {
+            textboxIsUsed = true;
+        }
+
+        private void Timeout_MouseLeave(object sender, MouseEventArgs e)
+        {
+            textboxIsUsed = false;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Error_NameNotFound.Model
         private static bool muell = false;
         public bool in0, in1, in2, in3, in4, in5, in6, in7;
         public int id, prozessnr;
+        private bool delete = false;
         protected ObservableCollection<bool> input;
         protected ObservableCollection<bool> output;
         public LogicGates(int input, int output, int id)        //Konstruktor benötigt eine inputanzahl, eine outputanzahl, eine einzigartige id
@@ -185,6 +186,9 @@ namespace Error_NameNotFound.Model
                 return allconnections;
             }
         }
+
+        public bool Delete { get => delete; set => delete = value; }
+
         public static void Remove_connections(int id)               //löscht alle verbindngen die mit diesem baustein zu tun haben
         {
             for (int i = 0; i < connections.Count - 3; i += 4)
@@ -270,6 +274,57 @@ namespace Error_NameNotFound.Model
                 }
             }
         }
+        //public static void Get_Input_cables(int id) //oid onr iid inr
+        //{
+        //    //List<int> incables = new List<int>();
+        //    for (int i = 0; i < connections.Count; i += 4)
+        //    {
+        //        if (id == connections[i])
+        //        {
+        //            //cable x id=connections[i + 2] haengt am eingang connections[i + 1] vom bewegten Baustein
+        //            for (int j = 0; j < connections.Count; j += 4)
+        //            {
+        //                if (id == connections[i+2])
+        //                {
+        //                    //Cable y id=connections[j + 2] Haengt am x cable
+        //                }
+        //            }
+        //        }
+        //    }
+        //    //int lenght = incables.Count;
+        //    //for (int j = 0; j < lenght; j += 2)
+        //    //{
+        //    //    id = incables[j];
+              
+        //    //}
+        //    //return incables;
+        //}
+        //public static List<int> Get_Output_cables(int id)//oid onr iid inr
+        //{
+        //    List<int> outcables = new List<int>();
+        //    for (int i = 2; i < connections.Count; i += 4)
+        //    {
+        //        if (id == connections[i])
+        //        {
+        //            outcables.Add(connections[i - 2]);
+        //            outcables.Add(connections[i + 1]);
+        //        }
+        //    }
+        //    int lenght = outcables.Count;
+        //    for (int j = 0; j < lenght; j += 2)
+        //    {
+        //        id = outcables[j];
+        //        for (int i = 2; i < connections.Count; i += 4)
+        //        {
+        //            if (id == connections[i])
+        //            {
+        //                outcables.Add(connections[i - 2]);
+        //                outcables.Add(connections[i + 1]);
+        //            }
+        //        }
+        //    }
+        //    return outcables;
+        //}
         virtual public void ChangeColor()
         { }
         virtual protected void basevalue(int inr)

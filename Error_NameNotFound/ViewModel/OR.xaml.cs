@@ -80,26 +80,30 @@ namespace Error_NameNotFound
         {
             Dispatcher.Invoke(() =>
             {
-                // Set property or change UI compomponents.              
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[0])
-                    input0.Background = System.Windows.Media.Brushes.Red;
-                else
-                    input0.Background = System.Windows.Media.Brushes.MediumPurple;
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    // Set property or change UI compomponents.              
+                    if (temp.Input[0])
+                        input0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        input0.Background = System.Windows.Media.Brushes.Purple;
 
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Input[1])
-                    input1.Background = System.Windows.Media.Brushes.Red;
-                else
-                    input1.Background = System.Windows.Media.Brushes.MediumPurple;
+                    if (temp.Input[1])
+                        input1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        input1.Background = System.Windows.Media.Brushes.Purple;
 
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[0])
-                    output0.Background = System.Windows.Media.Brushes.Red;
-                else
-                    output0.Background = System.Windows.Media.Brushes.MediumPurple;
+                    if (temp.Output[0])
+                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output0.Background = System.Windows.Media.Brushes.Purple;
 
-                if (LogicGates.gates_logic.FirstOrDefault(c => c.id == id).Output[1])
-                    output1.Background = System.Windows.Media.Brushes.Red;
-                else
-                    output1.Background = System.Windows.Media.Brushes.MediumPurple;
+                    if (temp.Output[1])
+                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output1.Background = System.Windows.Media.Brushes.Purple;
+                }
             });
         }
         private void Input0_Drop(object sender, DragEventArgs e)

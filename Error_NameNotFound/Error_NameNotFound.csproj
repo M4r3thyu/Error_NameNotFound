@@ -303,6 +303,9 @@
     <Compile Include="ViewModel\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Register_ms.xaml.cs">
+      <DependentUpon>Register_ms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Releasedate_vm.cs" />
     <Compile Include="ViewModel\Save_Button_vm.cs" />
     <Compile Include="ViewModel\Seg7.xaml.cs">
@@ -647,6 +650,10 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+    <Page Include="ViewModel\Register_ms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewModel\Seg7.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -802,6 +809,240 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\Delete Cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Calliper_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Counter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Counter_ms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_ms_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_DC_c_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_ms_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_JK_c_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_ms_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_c_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_RS_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_ms_e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_ms_e_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_ms_e_s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\FF_T_c_ms_e_s_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Fulladder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Halfadder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\HEX7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\High.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Nand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Nor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Not.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Oscillator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Seg7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Xnor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Xor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Register_ms.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

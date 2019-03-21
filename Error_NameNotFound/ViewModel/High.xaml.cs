@@ -12,56 +12,66 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Error_NameNotFound.ViewModel;
+using Error_NameNotFound.Model;
+using System.Drawing;
+using System.Windows.Threading;
 
 namespace Error_NameNotFound.ViewModel
 {
-    /// <summary>
-    /// Interaction logic for High.xaml
-    /// </summary>
-    public partial class High : UserControl
+    public partial class High : Logicgatescontrol
     {
-        public High()
+        private L_High l_high;
+        public High() : base()
         {
             InitializeComponent();
+            Name = "HighUI";
         }
-        public High(High g)
+        public High(int id) : base(id)
         {
             InitializeComponent();
-            this.HighUI.Height = g.HighUI.Height;
-            this.HighUI.Width = g.HighUI.Height;
+            Name = "HighUI";
+            l_high = new L_High(id, this);
+            LogicGates.gates_logic.Add(l_high);
+            ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
+                MainWindow.CurrentGate = id;
+                MainWindow.SetGateFromButton(false);
+                MainWindow.GateType = "High";
                 // Package the data.
                 DataObject data = new DataObject();
                 data.SetData("Double", HighUI.Height);
                 data.SetData("Object", this);
-
                 // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
+        private void Output0_Click(object sender, RoutedEventArgs e)
         {
-            base.OnGiveFeedback(e);
-            // These Effects values are set in the drop target's
-            // DragOver event handler.
-            if (e.Effects.HasFlag(DragDropEffects.Copy))
+            Outputbutton_vm.Output_Click(id, 0);
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 75;
+            StartCableDrag();
+        }
+        public override void ChangeColorInOut()
+        {
+            Dispatcher.Invoke(() =>
             {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
-            e.Handled = true;
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    // Set property or change UI compomponents.              
+                    if (temp.Output[0])
+                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output0.Background = System.Windows.Media.Brushes.Purple;
+                }
+            });
         }
     }
 }

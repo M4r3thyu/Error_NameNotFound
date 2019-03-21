@@ -27,8 +27,10 @@ namespace Error_NameNotFound.ViewModel
         public XNOR(XNOR g)
         {
             InitializeComponent();
-            this.XNORUI.Height = g.XNORUI.Height;
-            this.XNORUI.Width = g.XNORUI.Height;
+            Name = "XNORUI";
+            l_xnor = new L_Xnor(id, this);
+            LogicGates.gates_logic.Add(l_xnor);
+            ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -51,16 +53,42 @@ namespace Error_NameNotFound.ViewModel
             // DragOver event handler.
             if (e.Effects.HasFlag(DragDropEffects.Copy))
             {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    // Set property or change UI compomponents.              
+                    if (temp.Input[0])
+                        input0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        input0.Background = System.Windows.Media.Brushes.Purple;
+
+                    if (temp.Input[1])
+                        input1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        input1.Background = System.Windows.Media.Brushes.Purple;
+
+                    if (temp.Output[0])
+                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output0.Background = System.Windows.Media.Brushes.Purple;
+
+                    if (temp.Output[1])
+                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output1.Background = System.Windows.Media.Brushes.Purple;
+                }
+            });
+        }
+        private void Input0_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            Inputbutton_vm.Input_Click(id, 0);
+            e.Handled = true;
+        }
+        private void Input1_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
+            Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
         }
     }

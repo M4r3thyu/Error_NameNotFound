@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
@@ -32,6 +33,7 @@ namespace Error_NameNotFound.Model
             output[0] = merke;
             output[1] = !output[0];
             Output = output;
+            ChangeColor();
         }
         public override void ChangeColor()
         {

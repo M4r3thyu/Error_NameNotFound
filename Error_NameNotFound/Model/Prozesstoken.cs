@@ -40,22 +40,29 @@ namespace Error_NameNotFound.Model
                             if (LogicGates.connections[i] == temp2[x].id)
                             {
                                 var temp1 = LogicGates.gates_logic.FirstOrDefault(c => c.id == LogicGates.connections[i + 2]);
-                                if (temp1.Input[LogicGates.connections[i + 3]] != temp2[x].Output[LogicGates.connections[i + 1]])
+                                if (temp1 != null)
                                 {
-                                    temp1.Inputset(temp2[x].Output[LogicGates.connections[i + 1]], LogicGates.connections[i + 3]);
-                                    temp1.prozessnr = prozessnr;
+                                    if (temp1.Input[LogicGates.connections[i + 3]] != temp2[x].Output[LogicGates.connections[i + 1]])
+                                    {
+                                        temp1.Inputset(temp2[x].Output[LogicGates.connections[i + 1]], LogicGates.connections[i + 3]);
+                                        temp1.prozessnr = prozessnr;
+                                    }
+                                    if (temp1 == temp2[x])
+                                        same = false;
                                 }
-                                if (temp1 == temp2[x])
-                                    same = false;
                             }
                         }
-                        if(same)
+                        if (same)
                             temp2[x].prozessnr = 0;
                     }
                 }
                 else
                     break;
                 Thread.Sleep(timeout);
+                while (MainWindow.GateDelete)
+                {
+                    Thread.Sleep(100);
+                }
             }
         }
     }

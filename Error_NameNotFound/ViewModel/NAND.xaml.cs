@@ -15,33 +15,20 @@ using System.Windows.Shapes;
 
 namespace Error_NameNotFound.ViewModel
 {
-    /// <summary>
-    /// Interaction logic for NAND.xaml
-    /// </summary>
-//<<<<<<< HEAD
-//    public partial class NAND : Logicgatescontrol
-//    {
-//        //private L_Nand l_nand;
-//        public NAND() : base()
-//=======
-    public partial class NAND : UserControl
+    public partial class NAND : Logicgatescontrol
     {
-        public NAND()
+        private L_Nand l_nand;
+        public NAND() : base()
         {
             InitializeComponent();
         }
         public NAND(NAND g)
         {
             InitializeComponent();
-//<<<<<<< HEAD
-//            Name = "NANDUI";
-//            //l_nand = new L_Nand(2, id, this);
-//            //LogicGates.gates_logic.Add(l_nand);
-//            ChangeColorInOut();
-//=======
-//            this.NANDUI.Height = g.NANDUI.Height;
-//            this.NANDUI.Width = g.NANDUI.Height;
-//>>>>>>> parent of 21d4d52... implement other basic Gates
+            Name = "NANDUI";
+            l_nand = new L_Nand(2, id, this);
+            LogicGates.gates_logic.Add(l_nand);
+            ChangeColorInOut();
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -64,16 +51,42 @@ namespace Error_NameNotFound.ViewModel
             // DragOver event handler.
             if (e.Effects.HasFlag(DragDropEffects.Copy))
             {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Hand);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    // Set property or change UI compomponents.              
+                    if (temp.Input[0])
+                        input0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        input0.Background = System.Windows.Media.Brushes.Purple;
+
+                    if (temp.Input[1])
+                        input1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        input1.Background = System.Windows.Media.Brushes.Purple;
+
+                    if (temp.Output[0])
+                        output0.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output0.Background = System.Windows.Media.Brushes.Purple;
+
+                    if (temp.Output[1])
+                        output1.Background = System.Windows.Media.Brushes.GreenYellow;
+                    else
+                        output1.Background = System.Windows.Media.Brushes.Purple;
+                }
+            });
+        }
+        private void Input0_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            Inputbutton_vm.Input_Click(id, 0);
+            e.Handled = true;
+        }
+        private void Input1_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
+            Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
         }
     }

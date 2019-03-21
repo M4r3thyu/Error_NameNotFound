@@ -5,14 +5,21 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
     class L_FF_JK_c : LogicGates
     {
-        public L_FF_JK_c(int id) : base(3, 2,id) // input 0=J, 1=K, 2=C
+        public FF_JK_c v_FF_JK_c;
+        public L_FF_JK_c(int id, FF_JK_c v_FF_JK_c) : base(3, 2, id) // input 0=J, 1=K, 2=C
         {
+            this.v_FF_JK_c = v_FF_JK_c;
             output[1] = !output[0];                         //output[0] = Q output[1] = !Q
+            for (int i = 0; i < 3; i++)
+            {
+                this.input[i] = false;
+            }
         }
         protected override void ChangeOutput()
         {
@@ -29,6 +36,16 @@ namespace Error_NameNotFound.Model
                 }
                 output[1] = !output[0];
             }
+            ChangeColor();
+        }
+        public override void ChangeColor()
+        {
+            v_FF_JK_c.ChangeColorInOut();
+        }
+        protected override void basevalue(int inr)
+        {
+            input[inr] = false;
+            ChangeOutput();
         }
     }
 }

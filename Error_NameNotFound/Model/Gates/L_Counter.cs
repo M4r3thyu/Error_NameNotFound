@@ -5,13 +5,20 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Drawing;
+using Error_NameNotFound.ViewModel;
 
 namespace Error_NameNotFound.Model
 {
     class L_Counter : LogicGates
     {
-        public L_Counter(int input, int output,int id) : base(input, output,id) // input 0=C, 1=M, 2=R
+        public Counter v_Counter;
+        public L_Counter(int input, int output,int id, Counter v_Counter) : base(input, output,id) // input 0=C, 1=M, 2=R
         {
+            this.v_Counter = v_Counter;
+            for (int i = 0; i < input; i++)
+            {
+                this.input[i] = false;
+            }
         }
         protected override void ChangeOutput()
         {
@@ -48,6 +55,16 @@ namespace Error_NameNotFound.Model
                     }
                 }
             }
+            ChangeColor();
+        }
+        public override void ChangeColor()
+        {
+            v_Counter.ChangeColorInOut();
+        }
+        protected override void basevalue(int inr)
+        {
+            input[inr] = false;
+            ChangeOutput();
         }
     }
 }
