@@ -21,6 +21,7 @@ namespace Error_NameNotFound.ViewModel
     public class Logicgatescontrol : UserControl
     {
         protected int id;
+        protected int connectedCablesCount;
         public Logicgatescontrol()
         {
             id = 0;
@@ -79,6 +80,60 @@ namespace Error_NameNotFound.ViewModel
             MainWindow.AddCable(_cable);
             MainWindow.CableDrag = false;
         }
+        public void UpdateCablepositions(double gatepositionX,double gatepositionY)
+        {
+            bool yCableIsConnnected=false; //<=
+            bool yCableHasAdditionalConnections=false; //<=
 
+            Canvas Workspace = MainWindow.GetCanvas;
+
+            double oldCablepositionX1;
+            double oldCablepositionY1;
+            double oldCablepositionX2;
+            double oldCablepositionY2;
+
+            if (connectedCablesCount != 0)
+            {
+                Cable[] c = new Cable[10]; //<=
+
+                for (int i=0;i>connectedCablesCount;i++)
+                {
+                    
+                    oldCablepositionX1 = c[i].X1;
+                    oldCablepositionY1 = c[i].Y1;
+                    oldCablepositionX2 = c[i].X2;
+                    oldCablepositionY2 = c[i].Y2;
+
+                    c[i].X2 = gatepositionX + c[i].DifferenceToGatepositionX;
+                    c[i].Y2 = gatepositionY + c[i].DifferenceToGatepositionY;
+
+                    if (c[i].Y2 != oldCablepositionY2)
+                    {
+                        c[i].Y1 = c[i].Y2;
+
+                        if (yCableIsConnnected)
+                        {
+                            if (yCableHasAdditionalConnections)
+                            {
+                                Cable yCableNew = new Cable(oldCablepositionX1,oldCablepositionY1,oldCablepositionX1,c[i].Y2,true);
+                                MainWindow.Cables.Add(yCableNew);
+                                int cablesIndex = MainWindow.Cables.IndexOf(MainWindow.Cables.FirstOrDefault(l => l.Id == yCableNew.Id));
+                                Workspace.Children.Add(MainWindow.Cables[cablesIndex]);
+
+                                /*logic Connection Update
+                                
+                            
+                                */
+                            }
+                            else
+                            {
+                                Cable yCable = new Cable(); //<=
+                                yCable.Y2 = c[i].Y2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
