@@ -16,12 +16,12 @@ namespace Error_NameNotFound.Model
             this.prozessnr = prozessnr;
             t = new Thread(new ThreadStart(Prozesscycle));
             t.Start();
-
+            t.Priority = System.Threading.ThreadPriority.Lowest;
         }
         public void Prozesscycle()
         {
             timeout = 10;
-            while (true)
+            while (t.IsAlive)
             {
                 same = true;
                 var temp2 = LogicGates.gates_logic.FindAll(c => c.prozessnr == prozessnr);

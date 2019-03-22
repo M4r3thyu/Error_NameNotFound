@@ -84,8 +84,17 @@ namespace Error_NameNotFound.ViewModel
         }
         public void UpdateCablepositions(double gatepositionXnew,double gatepositionYnew, double gatepositionXold, double gatepositionYold)
         {
-            bool yCableIsConnnected=false; //<=
-            bool yCableHasAdditionalConnections=false; //<=
+            List<Cable> x_cables = new List<Cable>();
+            connectedCablesCount = 0;
+            for (int i = 0; i < LogicGates.connections.Count; i += 4)
+            {
+                if (id == LogicGates.connections[i])
+                {
+                    connectedCablesCount++;
+                    x_cables.Add(MainWindow.Cables.FirstOrDefault(c => c.Id == LogicGates.connections[i + 2]));   // haengt am eingang connections[i + 1] vom bewegten Baustein
+                }
+            }
+           
 
             Canvas Workspace = MainWindow.GetCanvas;
 
@@ -96,44 +105,74 @@ namespace Error_NameNotFound.ViewModel
 
             if (connectedCablesCount != 0)
             {
-                Cable[] c = new Cable[10]; //<=
+                //Cable[] c = new Cable[10]; //<=
 
                 for (int i=0;i>connectedCablesCount;i++)
                 {
                     
-                    oldCablepositionX1 = c[i].X1;
-                    oldCablepositionY1 = c[i].Y1;
-                    oldCablepositionX2 = c[i].X2;
-                    oldCablepositionY2 = c[i].Y2;
+                    oldCablepositionX1 = x_cables[i].X1;
+                    oldCablepositionY1 = x_cables[i].Y1;
+                    oldCablepositionX2 = x_cables[i].X2;
+                    oldCablepositionY2 = x_cables[i].Y2;
 
-                    c[i].X2 = gatepositionXnew + (oldCablepositionX2 - gatepositionXold);
-                    c[i].Y2 = gatepositionYnew + (oldCablepositionY2 - gatepositionYold);
+                    x_cables[i].X2 = gatepositionXnew + (oldCablepositionX2 - gatepositionXold);
+                    x_cables[i].Y2 = gatepositionYnew + (oldCablepositionY2 - gatepositionYold);
 
                     //c[i].X2 = gatepositionXnew + c[i].DifferenceToGatepositionX;
                     //c[i].Y2 = gatepositionYnew + c[i].DifferenceToGatepositionY;
 
-                    if (c[i].Y2 != oldCablepositionY2)
+                    if (x_cables[i].Y2 != oldCablepositionY2)
                     {
-                        c[i].Y1 = c[i].Y2;
-
+                        x_cables[i].Y1 = x_cables[i].Y2;
+                        bool yCableIsConnnected =false; //<= if x has cable as inbound connection
+                        bool yCableHasAdditionalConnections=false; //<= if y has more than 1 outbound connections
+                        Cable y_cable = null;
+                        for (int j = 0; j < LogicGates.connections.Count; j += 4)                                       //Abfrage if x comes from a gate (! y cable connected)
+                        {
+                            if (x_cables[i].Id == LogicGates.connections[j + 2])
+                            {
+                                y_cable = MainWindow.Cables.FirstOrDefault(c => c.Id == LogicGates.connections[j + 2]);
+                                yCableIsConnnected = true;
+                                for (int k = 0; k < LogicGates.connections.Count; k++)                                  //Abfrage if y cable has more than 1 output id (Additional connections)
+                                {
+                                    if (y_cable.Id == LogicGates.connections[k + 2])
+                                    {
+                                        if(x_cables[i].Id != LogicGates.connections[k])
+                                        {
+                                            yCableHasAdditionalConnections = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         if (yCableIsConnnected)
                         {
                             if (yCableHasAdditionalConnections)
                             {
-                                Cable yCableNew = new Cable(oldCablepositionX1,oldCablepositionY1,oldCablepositionX1,c[i].Y2,true);
+                                Outputbutton_vm.Output_Click(x_cables[i].Id, 0);
+                                Cable yCableNew = new Cable(oldCablepositionX1,oldCablepositionY1,oldCablepositionX1,x_cables[i].Y2,true);
                                 MainWindow.Cables.Add(yCableNew);
                                 int cablesIndex = MainWindow.Cables.IndexOf(MainWindow.Cables.FirstOrDefault(l => l.Id == yCableNew.Id));
                                 Workspace.Children.Add(MainWindow.Cables[cablesIndex]);
-
+                                for (int j = 0; j < LogicGates.connections.Count; j+=4)
+                                {
+                                    if (x_cables[i].Id == LogicGates.connections[j + 2])
+                                        LogicGates.connections[j] = yCableNew.Id;
+                                }
                                 /*logic Connection Update
-                                
-                            
+                                    cable y id = 0
+                                    cable x id = 1
+                                    new y cable id = 2
+                                    00 10 --> 20 10 
+                                    added connection 
+                                    00 20
                                 */
                             }
                             else
                             {
-                                Cable yCable = new Cable(); //<=
-                                yCable.Y2 = c[i].Y2;
+                                //Cable yCable = new Cable(); //<=
+                                y_cable.Y2 = x_cables[i].Y2;
                             }
                         }
                     }

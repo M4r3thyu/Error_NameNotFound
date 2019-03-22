@@ -34,7 +34,7 @@ namespace Error_NameNotFound.Model
         }
         protected override void ChangeOutput()
         {
-            while (true)
+            while (t.IsAlive)
             {
                 prozessnr = MainWindow.Prozessid;
                 MainWindow.Prozessid++;

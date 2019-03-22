@@ -274,57 +274,6 @@ namespace Error_NameNotFound.Model
                 }
             }
         }
-        //public static void Get_Input_cables(int id) //oid onr iid inr
-        //{
-        //    //List<int> incables = new List<int>();
-        //    for (int i = 0; i < connections.Count; i += 4)
-        //    {
-        //        if (id == connections[i])
-        //        {
-        //            //cable x id=connections[i + 2] haengt am eingang connections[i + 1] vom bewegten Baustein
-        //            for (int j = 0; j < connections.Count; j += 4)
-        //            {
-        //                if (id == connections[i+2])
-        //                {
-        //                    //Cable y id=connections[j + 2] Haengt am x cable
-        //                }
-        //            }
-        //        }
-        //    }
-        //    //int lenght = incables.Count;
-        //    //for (int j = 0; j < lenght; j += 2)
-        //    //{
-        //    //    id = incables[j];
-              
-        //    //}
-        //    //return incables;
-        //}
-        //public static List<int> Get_Output_cables(int id)//oid onr iid inr
-        //{
-        //    List<int> outcables = new List<int>();
-        //    for (int i = 2; i < connections.Count; i += 4)
-        //    {
-        //        if (id == connections[i])
-        //        {
-        //            outcables.Add(connections[i - 2]);
-        //            outcables.Add(connections[i + 1]);
-        //        }
-        //    }
-        //    int lenght = outcables.Count;
-        //    for (int j = 0; j < lenght; j += 2)
-        //    {
-        //        id = outcables[j];
-        //        for (int i = 2; i < connections.Count; i += 4)
-        //        {
-        //            if (id == connections[i])
-        //            {
-        //                outcables.Add(connections[i - 2]);
-        //                outcables.Add(connections[i + 1]);
-        //            }
-        //        }
-        //    }
-        //    return outcables;
-        //}
         virtual public void ChangeColor()
         { }
         virtual protected void basevalue(int inr)
