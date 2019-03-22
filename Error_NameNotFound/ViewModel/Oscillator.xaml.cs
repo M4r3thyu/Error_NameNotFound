@@ -93,11 +93,11 @@ namespace Error_NameNotFound.ViewModel
             {
                 if (int.Parse(Timeout.Text) > 9999)
                     Timeout.Text = "9999";
-                if (int.Parse(Timeout.Text) <= 0)
-                    Timeout.Text = "1";
+                if (int.Parse(Timeout.Text) <= 100)
+                    Timeout.Text = "100";
                 l_oscillator.Timeout = int.Parse(Timeout.Text);
             }
-            catch (Exception x)
+            catch (Exception)
             {
                // MessageBox.Show("Unhandled Error occoured \n" + x.Message);
             }

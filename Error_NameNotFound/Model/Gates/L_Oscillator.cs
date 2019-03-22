@@ -41,8 +41,8 @@ namespace Error_NameNotFound.Model
                 Prozesstoken start = new Prozesstoken(prozessnr);
                 output[1] = output[0];
                 output[0] = !output[0];
-                Thread.Sleep(timeout);
                 ChangeColor();
+                Thread.Sleep(timeout);
                 while (MainWindow.GateDelete)
                     Thread.Sleep(100);
                 if (Delete)
