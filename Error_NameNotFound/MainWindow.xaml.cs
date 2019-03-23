@@ -1191,13 +1191,14 @@ namespace Error_NameNotFound
                         id++;
                         CurrentGate = Gates_UI.IndexOf(Gates_UI.FirstOrDefault(c => c.Id == id - 1));
                         Workspace.Children.Add(Gates_UI[CurrentGate]);
-                        Canvas.SetLeft(Gates_UI[CurrentGate], PreviewGateDropPoint.X);
-                        Canvas.SetTop(Gates_UI[CurrentGate], PreviewGateDropPoint.Y);
+                        Canvas.SetLeft(Gates_UI[CurrentGate], DropPoint.X);
+                        Canvas.SetTop(Gates_UI[CurrentGate], DropPoint.Y);
                     }
                     else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                     {
-                        Canvas.SetLeft(Gates_UI[CurrentGate], PreviewGateDropPoint.X);
-                        Canvas.SetTop(Gates_UI[CurrentGate], PreviewGateDropPoint.Y);
+                        gates_UI[currentGate].UpdateCablepositions(Canvas.GetLeft(Gates_UI[CurrentGate]), Canvas.GetTop(Gates_UI[CurrentGate]), DropPoint.X, DropPoint.Y);
+                        Canvas.SetLeft(Gates_UI[CurrentGate], DropPoint.X);
+                        Canvas.SetTop(Gates_UI[CurrentGate], DropPoint.Y);
                     }
                 }
             }
