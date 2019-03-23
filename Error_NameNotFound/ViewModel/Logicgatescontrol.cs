@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Error_NameNotFound.ViewModel;
 using Error_NameNotFound.Model;
-
+using System.Windows.Threading;
 
 namespace Error_NameNotFound.ViewModel
 {
@@ -181,7 +181,7 @@ namespace Error_NameNotFound.ViewModel
         }
         public void ChangeColorInOut()
         {
-            Dispatcher.Invoke(() =>
+            Dispatcher.BeginInvoke((Action)delegate ()
             {
                 var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
                 if (temp != null)
@@ -228,7 +228,7 @@ namespace Error_NameNotFound.ViewModel
 
                     }
                 }
-            });
+            }, DispatcherPriority.SystemIdle);
         }
     }
 }

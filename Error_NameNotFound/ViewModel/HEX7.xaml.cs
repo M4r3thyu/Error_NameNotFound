@@ -89,5 +89,25 @@ namespace Error_NameNotFound.ViewModel
             Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
         }
+
+        private void DelConnection_Input2(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DelConnection_Input3(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Input2_Drop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void Input3_Drop(object sender, DragEventArgs e)
+        {
+
+        }
     }
 }

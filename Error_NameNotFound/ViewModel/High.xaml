@@ -4,10 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="100">
+             mc:Ignorable="d" Height="50" Width="50">
     <Grid>
-        <Image Width="100" Height="100" Name="HighUI" Source="/Error_NameNotFound;component/Pictures/High.png"/>
-        <Button Width="10" Height="10" Margin="80,70,10,20" Name="output0" PreviewMouseLeftButtonDown="Output0_Click"/>
+        <Image Name="HighUI" Source="/Error_NameNotFound;component/Pictures/High.png"/>
+        <Button Width="10" Height="10" Margin="45,20,-5,20" Name="output0" PreviewMouseLeftButtonDown="Output0_Click"/>
     </Grid>
 </vm:Logicgatescontrol>

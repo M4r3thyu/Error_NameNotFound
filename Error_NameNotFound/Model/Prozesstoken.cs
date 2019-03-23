@@ -57,11 +57,14 @@ namespace Error_NameNotFound.Model
                     }
                 }
                 else
+                {
                     t.Abort();
-                Thread.Sleep(timeout);
+                    break;
+                }
+                Thread.Yield(); //Thread.Sleep(timeout);
                 while (MainWindow.GateDelete)
                 {
-                    Thread.Sleep(100);
+                    Thread.Yield();//Thread.Sleep(100);
                 }
             }
         }

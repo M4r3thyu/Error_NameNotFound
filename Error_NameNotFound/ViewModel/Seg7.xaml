@@ -5,12 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="100">
+             d:DesignHeight="125" Width="80">
     <Grid>
-        <Image Width="100" Height="100" Name="Seg7UI" Source="/Error_NameNotFound;component/Pictures/Seg7.png"></Image>
-        <Button Width="10" Height="10" Margin="10,20,80,70" Name="input0" MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
-        <Button Width="10" Height="10" Margin="10,70,80,20" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
-        <Button Width="10" Height="10" Margin="80,20,10,70" Name="output1" PreviewMouseLeftButtonDown="Output1_Click"/>
-        <Button Width="10" Height="10" Margin="80,70,10,20" Name="output0" PreviewMouseLeftButtonDown="Output0_Click"/>
+        <Image Name="Seg7UI" Source="/Error_NameNotFound;component/Pictures/Seg7.png" Height="125"/>
+        <Button Width="10" Height="10" Margin="-5,20,75,95" Name="input0" MouseRightButtonDown="DelConnection_Input0" AllowDrop="true" Drop="Input0_Drop"/>
+        <Button Width="10" Height="10" Margin="-5,45,75,70" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
+        <Button Width="10" Height="10" Margin="-5,70,75,45" Name="input2" MouseRightButtonDown="DelConnection_Input2" AllowDrop="true" Drop="Input2_Drop"/>
+        <Button Width="10" Height="10" Margin="-5,95,75,20" Name="input3" MouseRightButtonDown="DelConnection_Input3" AllowDrop="true" Drop="Input3_Drop"/>
+        <Button Width="10" Height="10" Margin="-5,45,75,70" Name="input4" MouseRightButtonDown="DelConnection_Input4" AllowDrop="true" Drop="Input4_Drop" />
+        <Button Width="10" Height="10" Margin="-5,70,75,45" Name="input5" MouseRightButtonDown="DelConnection_Input5" AllowDrop="true" Drop="Input5_Drop"/>
+        <Button Width="10" Height="10" Margin="-5,95,75,20" Name="input6" MouseRightButtonDown="DelConnection_Input6" AllowDrop="true" Drop="Input6_Drop"/>
     </Grid>
 </vm:Logicgatescontrol>

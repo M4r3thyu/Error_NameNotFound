@@ -33,7 +33,7 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             anz_input = 7;
-            anz_output = 7;
+            anz_output = 0;
             Name = "Seg7UI";
             l_seg7 = new L_Seg7(id, this);
             LogicGates.gates_logic.Add(l_seg7);
@@ -88,6 +88,61 @@ namespace Error_NameNotFound.ViewModel
             StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
             Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
+        }
+
+        private void Input2_Drop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void Input3_Drop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void Input4_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DelConnection_Input6(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Input6_Drop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void Input5_Drop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void DelConnection_Input2(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DelConnection_Input3(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DelConnection_Input4(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DelConnection_Input5(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Input4_Drop(object sender, DragEventArgs e)
+        {
+
         }
     }
 }
