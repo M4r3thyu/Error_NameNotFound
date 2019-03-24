@@ -1047,8 +1047,8 @@ namespace Error_NameNotFound
                         case "High":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/High.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
-                            previewImage.Height = 100;
-                            previewImage.Width = 100;
+                            previewImage.Height = 50;
+                            previewImage.Width = 50;
                             break;
                         case "Light":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Light.png", UriKind.Absolute));
@@ -1059,8 +1059,8 @@ namespace Error_NameNotFound
                         case "Low":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Low.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
-                            previewImage.Height = 100;
-                            previewImage.Width = 100;
+                            previewImage.Height = 50;
+                            previewImage.Width = 50;
                             break;
                         case "NAND":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Nand.png", UriKind.Absolute));

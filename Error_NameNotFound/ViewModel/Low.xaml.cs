@@ -58,14 +58,7 @@ namespace Error_NameNotFound.ViewModel
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             Outputbutton_vm.Output_Click(id, 0);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 75;
-            StartCableDrag();
-        }
-        private void Output1_Click(object sender, RoutedEventArgs e)
-        {
-            Outputbutton_vm.Output_Click(id, 1);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 55;
             MainWindow.CableY1 = Canvas.GetTop(this) + 25;
             StartCableDrag();
         }
