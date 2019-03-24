@@ -15,8 +15,8 @@ namespace Error_NameNotFound.Model
         {
             this.prozessnr = prozessnr;
             t = new Thread(new ThreadStart(Prozesscycle));
-            t.Start();
             t.Priority = System.Threading.ThreadPriority.Lowest;
+            t.Start();
         }
         public void Prozesscycle()
         {
@@ -25,7 +25,7 @@ namespace Error_NameNotFound.Model
             {
                 same = true;
                 var temp2 = LogicGates.gates_logic.FindAll(c => c.prozessnr == prozessnr);
-                if (temp2 != null)
+                if (temp2.Count > 0)
                 {
                     for (int x = 0; x < temp2.Count; x++)
                     {
@@ -58,15 +58,16 @@ namespace Error_NameNotFound.Model
                 }
                 else
                 {
-                    t.Abort();
                     break;
+                    t.Abort();
                 }
-                Thread.Yield(); Thread.Sleep(timeout);
+                Thread.Sleep(timeout); //Thread.Yield(); 
                 while (MainWindow.GateDelete)
                 {
-                    Thread.Yield();//Thread.Sleep(100);
+                    Thread.Sleep(100);//Thread.Yield();
                 }
             }
+            
         }
     }
 }

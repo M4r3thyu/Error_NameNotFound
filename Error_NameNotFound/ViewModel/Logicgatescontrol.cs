@@ -93,9 +93,13 @@ namespace Error_NameNotFound.ViewModel
                     connectedCablesCount++;
                     x_cables.Add(MainWindow.Cables.FirstOrDefault(c => c.Id == LogicGates.connections[i + 2]));   // haengt am eingang connections[i + 1] vom bewegten Baustein
                 }
+                if (id == LogicGates.connections[i+2])
+                {
+                    connectedCablesCount++;
+                    x_cables.Add(MainWindow.Cables.FirstOrDefault(c => c.Id == LogicGates.connections[i + 2]));   // haengt am eingang connections[i + 1] vom bewegten Baustein
+                }
             }
            
-
             Canvas Workspace = MainWindow.GetCanvas;
 
             double oldCablepositionX1;
