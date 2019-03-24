@@ -93,18 +93,16 @@ namespace Error_NameNotFound.ViewModel
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 6);
         }
-
         private void Input6_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(Canvas.GetLeft(this) +50, Canvas.GetTop(this) + 140);
+            StopCableDrag(Canvas.GetLeft(this) +50, Canvas.GetTop(this) + 135);
             Inputbutton_vm.Input_Click(id, 6);
             e.Handled = true;
         }
-
         private void Input5_Drop(object sender, DragEventArgs e)
         {
             StopCableDrag(Canvas.GetLeft(this) +85, Canvas.GetTop(this) + 100);
-            Inputbutton_vm.Input_Click(id, 4);
+            Inputbutton_vm.Input_Click(id, 5);
             e.Handled = true;
         }
 
@@ -131,7 +129,7 @@ namespace Error_NameNotFound.ViewModel
         private void Input4_Drop(object sender, DragEventArgs e)
         {
             StopCableDrag(Canvas.GetLeft(this) +85, Canvas.GetTop(this) +25);
-            Inputbutton_vm.Input_Click(id, 5);
+            Inputbutton_vm.Input_Click(id, 4);
             e.Handled = true;
         }
     }
