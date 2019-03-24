@@ -1051,7 +1051,7 @@ namespace Error_NameNotFound
                             previewImage.Width = 50;
                             break;
                         case "Light":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Light.png", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/LightOff.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
                             previewImage.Width = 100;

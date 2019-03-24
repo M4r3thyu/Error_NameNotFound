@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="100">
+             d:DesignHeight="50" d:DesignWidth="50">
     <Grid>
-        <Image Width="100" Height="100" Name="LightUI" Source="/Error_NameNotFound;component/Pictures/Light.png"></Image>
-        <Button Width="10" Height="10" Margin="10,20,80,70" Name="input0" MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
+        <Image Width="50" Height="50" Name="LightUI" Source="/Error_NameNotFound;component/Pictures/LightOff.png"></Image>
+        <Button Width="10" Height="10" Margin="0,20,40,20" Name="input0" MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
     </Grid>
 </vm:Logicgatescontrol>

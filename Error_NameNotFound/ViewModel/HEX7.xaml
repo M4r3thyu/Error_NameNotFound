@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="100" Width="74.792">
+             d:DesignHeight="125" Width="80">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
