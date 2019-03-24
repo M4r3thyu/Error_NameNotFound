@@ -1041,8 +1041,8 @@ namespace Error_NameNotFound
                         case "HEX7":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/HEX7.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
-                            previewImage.Height = 100;
-                            previewImage.Width = 100;
+                            previewImage.Height = 125;
+                            previewImage.Width = 80;
                             break;
                         case "High":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/High.png", UriKind.Absolute));
@@ -1053,8 +1053,8 @@ namespace Error_NameNotFound
                         case "Light":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/LightOff.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
-                            previewImage.Height = 100;
-                            previewImage.Width = 100;
+                            previewImage.Height = 50;
+                            previewImage.Width = 50;
                             break;
                         case "Low":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Low.png", UriKind.Absolute));
@@ -1107,8 +1107,8 @@ namespace Error_NameNotFound
                         case "Seg7":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/Seg7.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
-                            previewImage.Height = 100;
-                            previewImage.Width = 100;
+                            previewImage.Height = 125;
+                            previewImage.Width = 80;
                             break;
                         case "XNOR":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/XNOR.png", UriKind.Absolute));

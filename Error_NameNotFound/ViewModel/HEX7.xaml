@@ -7,14 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="125" Width="80">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Image Height="100" Name="HEX7UI" Source="/Error_NameNotFound;component/Pictures/HEX7.png" Margin="0,0,-2,0" Grid.RowSpan="2"/>
-        <Button Width="10" Height="10" Margin="0,20,65,50" Name="input0" MouseRightButtonDown="DelConnection_Input0" AllowDrop="true" Drop="Input0_Drop"/>
-        <Button Width="10" Height="10" Margin="0,45,65,25" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
-        <Button Width="10" Height="10" Margin="0,70,65,0" Name="input2" MouseRightButtonDown="DelConnection_Input2" AllowDrop="true" Drop="Input2_Drop"/>
-        <Button Width="10" Height="10" Margin="0,15,65,-5" Name="input3" MouseRightButtonDown="DelConnection_Input3" AllowDrop="true" Drop="Input3_Drop" Grid.Row="1"/>
+        <Image Height="125" Width="80" Name="HEX7UI" Source="/Error_NameNotFound;component/Pictures/HEX7.png"/>
+        <Button Width="10" Height="10" Margin="-5,20,75,95" Name="input0" MouseRightButtonDown="DelConnection_Input0" AllowDrop="true" Drop="Input0_Drop"/>
+        <Button Width="10" Height="10" Margin="-5,45,75,70" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
+        <Button Width="10" Height="10" Margin="-5,70,75,45" Name="input2" MouseRightButtonDown="DelConnection_Input2" AllowDrop="true" Drop="Input2_Drop"/>
+        <Button Width="10" Height="10" Margin="-5,95,75,20" Name="input3" MouseRightButtonDown="DelConnection_Input3" AllowDrop="true" Drop="Input3_Drop"/>
     </Grid>
 </vm:Logicgatescontrol>
