@@ -55,20 +55,6 @@ namespace Error_NameNotFound.ViewModel
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        private void Output0_Click(object sender, RoutedEventArgs e)
-        {
-            Outputbutton_vm.Output_Click(id, 0);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 75;
-            StartCableDrag();
-        }
-        private void Output1_Click(object sender, RoutedEventArgs e)
-        {
-            Outputbutton_vm.Output_Click(id, 1);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
-            StartCableDrag();
-        }
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
@@ -79,70 +65,74 @@ namespace Error_NameNotFound.ViewModel
         }
         private void Input0_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            StopCableDrag(Canvas.GetLeft(this)-5, Canvas.GetTop(this)+25);
             Inputbutton_vm.Input_Click(id, 0);
             e.Handled = true;
         }
         private void Input1_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
+            StopCableDrag(Canvas.GetLeft(this)-5, Canvas.GetTop(this)+75);
             Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
         }
 
         private void Input2_Drop(object sender, DragEventArgs e)
         {
-
+            StopCableDrag(Canvas.GetLeft(this) - 5, Canvas.GetTop(this) + 100);
+            Inputbutton_vm.Input_Click(id, 2);
+            e.Handled = true;
         }
 
         private void Input3_Drop(object sender, DragEventArgs e)
         {
-
+            StopCableDrag(Canvas.GetLeft(this)+50, Canvas.GetTop(this)-5);
+            Inputbutton_vm.Input_Click(id, 3);
+            e.Handled = true;
         }
-
-        private void Input4_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void DelConnection_Input6(object sender, MouseButtonEventArgs e)
         {
-
+            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 6);
         }
 
         private void Input6_Drop(object sender, DragEventArgs e)
         {
-
+            StopCableDrag(Canvas.GetLeft(this) +50, Canvas.GetTop(this) + 140);
+            Inputbutton_vm.Input_Click(id, 6);
+            e.Handled = true;
         }
 
         private void Input5_Drop(object sender, DragEventArgs e)
         {
-
+            StopCableDrag(Canvas.GetLeft(this) +85, Canvas.GetTop(this) + 100);
+            Inputbutton_vm.Input_Click(id, 4);
+            e.Handled = true;
         }
 
         private void DelConnection_Input2(object sender, MouseButtonEventArgs e)
         {
-
+            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 2);
         }
 
         private void DelConnection_Input3(object sender, MouseButtonEventArgs e)
         {
-
+            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 3);
         }
 
         private void DelConnection_Input4(object sender, MouseButtonEventArgs e)
         {
-
+            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 4);
         }
 
         private void DelConnection_Input5(object sender, MouseButtonEventArgs e)
         {
-
+            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 5);
         }
 
         private void Input4_Drop(object sender, DragEventArgs e)
         {
-
+            StopCableDrag(Canvas.GetLeft(this) +85, Canvas.GetTop(this) +25);
+            Inputbutton_vm.Input_Click(id, 5);
+            e.Handled = true;
         }
     }
 }

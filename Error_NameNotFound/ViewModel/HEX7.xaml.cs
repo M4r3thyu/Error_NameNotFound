@@ -102,7 +102,7 @@ namespace Error_NameNotFound.ViewModel
 
         private void Input2_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(Canvas.GetLeft(this)-5, Canvas.GetTop(this) + 70);
+            StopCableDrag(Canvas.GetLeft(this)-5, Canvas.GetTop(this) + 75);
             Inputbutton_vm.Input_Click(id, 2);
             e.Handled = true;
         }

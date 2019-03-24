@@ -1196,7 +1196,7 @@ namespace Error_NameNotFound
                     }
                     else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                     {
-                        gates_UI[currentGate].UpdateCablepositions(Canvas.GetLeft(Gates_UI[CurrentGate]), Canvas.GetTop(Gates_UI[CurrentGate]), DropPoint.X, DropPoint.Y);
+                        //gates_UI[currentGate].UpdateCablepositions(Canvas.GetLeft(Gates_UI[CurrentGate]), Canvas.GetTop(Gates_UI[CurrentGate]), DropPoint.X, DropPoint.Y);
                         Canvas.SetLeft(Gates_UI[CurrentGate], DropPoint.X);
                         Canvas.SetTop(Gates_UI[CurrentGate], DropPoint.Y);
                     }
