@@ -65,6 +65,39 @@ namespace Error_NameNotFound.ViewModel
             Inputbutton_vm.Input_Click(id, 0);
             e.Handled = true;
         }
+        public override void ChangeColorInOut()
+        {
+            Dispatcher.BeginInvoke((Action)delegate ()
+            {
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    try
+                    {
+                        // Set property or change UI compomponents.              
+                        for (int i = 0; i < anz_input; i++)
+                        {
+                            if (temp.Input[i])
+                            {
+                                Button myButton = (Button)FindName("input" + i);
+                                myButton.Background = System.Windows.Media.Brushes.GreenYellow;
+                                LightUI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/LightOn.png", UriKind.Absolute));
+                            }
+                            else
+                            {
+                                Button myButton = (Button)FindName("input" + i);
+                                myButton.Background = System.Windows.Media.Brushes.Purple;
+                                LightUI.Source=new BitmapImage(new Uri("pack://application:,,,/Pictures/LightOff.png", UriKind.Absolute));
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }, DispatcherPriority.SystemIdle);
+        }
     }
 }
 

@@ -183,7 +183,7 @@ namespace Error_NameNotFound.ViewModel
                 }
             }
         }
-        public void ChangeColorInOut()
+        public virtual void ChangeColorInOut()
         {
             Dispatcher.BeginInvoke((Action)delegate ()
             {
