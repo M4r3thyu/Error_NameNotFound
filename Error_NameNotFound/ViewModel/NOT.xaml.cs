@@ -59,34 +59,17 @@ namespace Error_NameNotFound.ViewModel
         {
             Outputbutton_vm.Output_Click(id, 0);
             MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 75;
-            StartCableDrag();
-        }
-        private void Output1_Click(object sender, RoutedEventArgs e)
-        {
-            Outputbutton_vm.Output_Click(id, 1);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 50;
             StartCableDrag();
         }
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
         {
             LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 0);
         }
-        private void DelConnection_Input1(object sender, MouseButtonEventArgs e)
-        {
-            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 1);
-        }
         private void Input0_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 50);
             Inputbutton_vm.Input_Click(id, 0);
-            e.Handled = true;
-        }
-        private void Input1_Drop(object sender, DragEventArgs e)
-        {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
-            Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
         }
     }
