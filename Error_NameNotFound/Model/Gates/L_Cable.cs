@@ -28,5 +28,15 @@ namespace Error_NameNotFound.Model
         {
             v_cable.ChangeColorInOut();
         }
+        public void del()
+        {
+            output[0] = false;
+            ChangeColor();
+        }
+        protected override void basevalue(int inr)
+        {
+            input[inr] = false;
+            ChangeOutput();
+        }
     }
 }
