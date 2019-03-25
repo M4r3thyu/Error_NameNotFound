@@ -33,7 +33,7 @@ namespace Error_NameNotFound.ViewModel
         {
             InitializeComponent();
             anz_input = 4;
-            anz_output = 7;
+            anz_output = 0;
             Name = "HEX7UI";
             l_hex7 = new L_Hex7(id, this);
             LogicGates.gates_logic.Add(l_hex7);
@@ -112,6 +112,76 @@ namespace Error_NameNotFound.ViewModel
             StopCableDrag(Canvas.GetLeft(this) -5, Canvas.GetTop(this) + 100);
             Inputbutton_vm.Input_Click(id, 3);
             e.Handled = true;
+        }
+        public override void ChangeColorInOut()
+        {
+            Dispatcher.BeginInvoke((Action)delegate ()
+            {
+                var temp = LogicGates.gates_logic.FirstOrDefault(c => c.id == id);
+                if (temp != null)
+                {
+                    try
+                    {
+                        int hexausgabe = 0;
+                        // Set property or change UI compomponents.              
+                        for (int i = 0; i < anz_input; i++)
+                        {
+                            if (temp.Input[i])
+                            {
+                                Button myButton = (Button)FindName("input" + i);
+                                myButton.Background = System.Windows.Media.Brushes.GreenYellow;
+                                if (i <= 1)
+                                    hexausgabe += i + 1;
+                                if(i==2)
+                                    hexausgabe += 4;
+                                if(i==3)
+                                    hexausgabe += 8;
+                            }
+                            else
+                            {
+                                Button myButton = (Button)FindName("input" + i);
+                                myButton.Background = System.Windows.Media.Brushes.Purple;
+                            }
+                        }
+                        switch (hexausgabe)
+                        {
+                            case 1:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex1.png", UriKind.Absolute));
+                                break;
+                            case 2:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex2.png", UriKind.Absolute));
+                                break;
+                            case 3:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex3.png", UriKind.Absolute));
+                                break;
+                            case 4:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex4.png", UriKind.Absolute));
+                                break;
+                            case 5:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex5.png", UriKind.Absolute));
+                                break;
+                            case 6:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex6.png", UriKind.Absolute));
+                                break;
+                            case 7:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex7_7.png", UriKind.Absolute));
+                                break;
+                            case 8:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex8.png", UriKind.Absolute));
+                                break;
+                            case 9:
+                                HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex9.png", UriKind.Absolute));
+                                break;
+                            default: HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/HEX7.png", UriKind.Absolute));
+                                break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }, DispatcherPriority.SystemIdle);
         }
     }
 }

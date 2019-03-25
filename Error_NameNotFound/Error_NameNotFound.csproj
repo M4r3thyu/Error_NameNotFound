@@ -1082,5 +1082,18 @@
   <ItemGroup>
     <Resource Include="Pictures\LightOn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hex1.png" />
+    <Resource Include="Pictures\hex2.png" />
+    <Resource Include="Pictures\hex3.png" />
+    <Resource Include="Pictures\hex4.png" />
+    <Resource Include="Pictures\hex5.png" />
+    <Resource Include="Pictures\hex6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hex7_7.png" />
+    <Resource Include="Pictures\hex8.png" />
+    <Resource Include="Pictures\hex9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
