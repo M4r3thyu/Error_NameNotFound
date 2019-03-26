@@ -790,7 +790,7 @@ namespace Error_NameNotFound
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 100;
-                            previewImage.Width = 100;
+                            previewImage.Width = 200;
                             break;
                         case "FF_JK_C_MS_E_R":
                             previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/FF_JK_c_ms_e_r.png", UriKind.Absolute));

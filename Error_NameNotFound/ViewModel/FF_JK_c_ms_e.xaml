@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="100">
+             d:DesignHeight="100" d:DesignWidth="200">
     <Grid>
-        <Image Width="100" Height="100" Name="FF_JK_C_MS_EUI" Source="/Error_NameNotFound;component/Pictures/FF_JK_c_ms_e.png"></Image>
+        <Image Width="200" Height="100" Name="FF_JK_C_MS_EUI" Source="/Error_NameNotFound;component/Pictures/FF_JK_c_ms_e.png"></Image>
         <Button Width="10" Height="10" Margin="10,20,80,70" Name="input0" MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
         <Button Width="10" Height="10" Margin="10,70,80,20" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
         <Button Width="10" Height="10" Margin="80,20,10,70" Name="output1" PreviewMouseLeftButtonDown="Output1_Click"/>

@@ -200,5 +200,21 @@ namespace Error_NameNotFound.ViewModel
                 Mouse.OverrideCursor = new Cursor(Application.GetResourceStream(new Uri("../Views/Delete-Cursor.cur", UriKind.Relative)).Stream);
             }
         }
+
+        private void CableUI_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(X1, Y1);
+            Inputbutton_vm.Input_Click(id, 0);
+            e.Handled = true;
+        }
+        public void StopCableDrag(double x2, double y2)
+        {
+            Canvas c = MainWindow.GetCanvas;
+            c.Children.Remove(MainWindow.PreviewCable);
+            MainWindow.PreviewCable = null;
+            Cable _cable = new Cable(MainWindow.CableX1, MainWindow.CableY1, x2, y2, MainWindow.CableDirection);
+            MainWindow.AddCable(_cable);
+            MainWindow.CableDrag = false;
+        }
     }
 }

@@ -58,15 +58,15 @@ namespace Error_NameNotFound.ViewModel
         private void Output0_Click(object sender, RoutedEventArgs e)
         {
             Outputbutton_vm.Output_Click(id, 0);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 75;
+            MainWindow.CableX1 = Canvas.GetLeft(this) + 50;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 105;
             StartCableDrag();
         }
         private void Output1_Click(object sender, RoutedEventArgs e)
         {
             Outputbutton_vm.Output_Click(id, 1);
-            MainWindow.CableX1 = Canvas.GetLeft(this) + 90;
-            MainWindow.CableY1 = Canvas.GetTop(this) + 25;
+            MainWindow.CableX1 = Canvas.GetLeft(this) -5;
+            MainWindow.CableY1 = Canvas.GetTop(this) + 50;
             StartCableDrag();
         }
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)
@@ -79,15 +79,27 @@ namespace Error_NameNotFound.ViewModel
         }
         private void Input0_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 25);
+            StopCableDrag(Canvas.GetLeft(this) + 25, Canvas.GetTop(this) -5);
             Inputbutton_vm.Input_Click(id, 0);
             e.Handled = true;
         }
         private void Input1_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(Canvas.GetLeft(this) + 10, Canvas.GetTop(this) + 75);
+            StopCableDrag(Canvas.GetLeft(this) + 75, Canvas.GetTop(this) -5);
             Inputbutton_vm.Input_Click(id, 1);
             e.Handled = true;
+        }
+
+        private void Input2_Drop(object sender, DragEventArgs e)
+        {
+            StopCableDrag(Canvas.GetLeft(this) + 105, Canvas.GetTop(this) + 50);
+            Inputbutton_vm.Input_Click(id, 2);
+            e.Handled = true;
+        }
+
+        private void DelConnection_Input2(object sender, MouseButtonEventArgs e)
+        {
+            LogicGates.gates_logic.FirstOrDefault(c => c.id == id).DelConnections(id, 2);
         }
     }
 }
