@@ -1140,6 +1140,17 @@ namespace Error_NameNotFound
                 }
             }
         }
+        private void KeyDown_w(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+                GateDelete = !GateDelete;
+            if(Keyboard.IsKeyDown(Key.LeftCtrl)&& Keyboard.IsKeyDown(Key.S))
+                Save_Button_vm.QuickSave();
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.O))
+                Load_Button_vm.QuickLoad();
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.P))
+                Print(Workspace,e);
+        }
 
         private void canvas_Drop(object sender, DragEventArgs e)
         {
@@ -1240,11 +1251,16 @@ namespace Error_NameNotFound
         }
         private void Print(object sender, RoutedEventArgs e)
         {
-            Workspace.Background = System.Windows.Media.Brushes.White;
+            Workspace.Background = Brushes.White;
             PrintDialog dialog = new PrintDialog();
             if (dialog.ShowDialog() == true)
-            { dialog.PrintVisual(Workspace, "Workspace"); }
-            Workspace.Background = System.Windows.Media.Brushes.GhostWhite;
+            {
+                Size pageSize = new Size(ScrollWorkspace.ExtentHeight, ScrollWorkspace.ViewportWidth);
+                ScrollWorkspace.Measure(pageSize);
+                ScrollWorkspace.Arrange(new Rect(5, 5, pageSize.Width, pageSize.Height));
+                dialog.PrintVisual(Workspace, "Workspace");
+            }
+            Workspace.Background = Brushes.GhostWhite;
         }
         private Logicgatescontrol NewGateByType()
         {

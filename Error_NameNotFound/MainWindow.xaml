@@ -7,11 +7,12 @@
         xmlns:vm="clr-namespace:Error_NameNotFound.ViewModel"
         xmlns:local="clr-namespace:Error_NameNotFound"
         mc:Ignorable="d"
-        Title="ERROR: Name not Found">
-    <Grid>
+        Title="ERROR: Name not Found"
+        KeyDown="KeyDown_w">
+    <Grid Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -192,8 +193,9 @@
             </StackPanel>
             
         </ScrollViewer>
-        <ScrollViewer Grid.Row="2" Grid.Column="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+        <ScrollViewer Name="ScrollWorkspace" Grid.Row="2" Grid.Column="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
             <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="GhostWhite" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseWheel="canvas_MouseWheel" Width="10000" MaxWidth="20000" Height="10000" MaxHeight="20000">
+                <!--<Rectangle Height="29.7cm" Width="21cm" Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
                 <Canvas.RenderTransform>
                     <ScaleTransform x:Name="st"></ScaleTransform>
                 </Canvas.RenderTransform>
