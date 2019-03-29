@@ -148,6 +148,8 @@ namespace Error_NameNotFound.ViewModel
         }
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Point mouse = new Point();
+            mouse = Mouse.GetPosition(MainWindow.GetCanvas);
             if (MainWindow.GateDelete)
             {
                 MainWindow.Currentcable = id;
@@ -157,17 +159,13 @@ namespace Error_NameNotFound.ViewModel
             {
                 Outputbutton_vm.Output_Click(id, 0);
                 MainWindow.CableDrag = true;
-                MainWindow.CableX1 = CableUI.X2;
-                MainWindow.CableY1 = CableUI.Y2;
+                MainWindow.CableX1 = Convert.ToInt32(mouse.X / 25) * 25.0;
+                MainWindow.CableY1 = Convert.ToInt32(mouse.Y / 25) * 25.0;
                 MainWindow.CableDirection = !Direction1;
                 Cable _cable = new Cable();
                 DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
                 ChangeColorInOut();
             }
-        }
-        private void CableUI_MouseMove(object sender, MouseEventArgs e)
-        {
-
         }
         public void ChangeColorInOut()
         {
@@ -203,7 +201,9 @@ namespace Error_NameNotFound.ViewModel
 
         private void CableUI_Drop(object sender, DragEventArgs e)
         {
-            StopCableDrag(X1, Y1);
+            Point mouse = new Point();
+            mouse = Mouse.GetPosition(MainWindow.GetCanvas);
+            StopCableDrag(Convert.ToInt32(mouse.X/25)*25, Convert.ToInt32(mouse.Y / 25) * 25);
             Inputbutton_vm.Input_Click(id, 0);
             e.Handled = true;
         }
