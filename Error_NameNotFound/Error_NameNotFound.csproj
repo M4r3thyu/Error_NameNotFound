@@ -286,6 +286,7 @@
     <Compile Include="ViewModel\Halfadder.xaml.cs">
       <DependentUpon>Halfadder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Help_vm.cs" />
     <Compile Include="ViewModel\HEX7.xaml.cs">
       <DependentUpon>HEX7.xaml</DependentUpon>
     </Compile>

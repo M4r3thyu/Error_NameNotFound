@@ -35,8 +35,15 @@
                         </MenuItem.DataContext>
                     </MenuItem>
                     <MenuItem Header="Print"  Click="Print"/>
-                </MenuItem> 
-            </Menu> 
+                </MenuItem>
+            </Menu>
+            <Menu>
+                <MenuItem Header="Help" Height="20" Background="LightGray" Command="{Binding ClickCommand}">
+                    <MenuItem.DataContext>
+                        <vm:Help_vm/>
+                    </MenuItem.DataContext>
+                </MenuItem>
+            </Menu>
         </StackPanel>
         <Border Grid.ColumnSpan="3" Grid.Row="0" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
 
@@ -47,7 +54,7 @@
         </StackPanel>
         <views:Releasedate_v Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Right"/>
         <Border Grid.ColumnSpan="3" Grid.Row="1" BorderBrush="Purple" BorderThickness="0.5" VerticalAlignment="Bottom"/>
-        
+
         <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="3" Background="DarkSlateGray"/>
 
         <ScrollViewer Background="WhiteSmoke" Grid.Row="2" Grid.Column="0">
@@ -191,7 +198,7 @@
                     </StackPanel>
                 </Expander>
             </StackPanel>
-            
+
         </ScrollViewer>
         <ScrollViewer Name="ScrollWorkspace" Grid.Row="2" Grid.Column="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
             <Canvas x:FieldModifier="public" Grid.Row="2" Grid.Column="2" x:Name="Workspace" Background="GhostWhite" AllowDrop="True" DragOver="canvas_DragOver" Drop="canvas_Drop" MouseEnter="canvas_MouseEnter" MouseLeave="canvas_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseWheel="canvas_MouseWheel" Width="10000" MaxWidth="20000" Height="10000" MaxHeight="20000">
