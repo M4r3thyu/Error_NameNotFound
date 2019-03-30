@@ -14,7 +14,7 @@ namespace Error_NameNotFound.ViewModel
 {
     class Help_vm : Basemodel
     {
-        private static string help = "Zoom: \t\t\tShift+Mousweel \nSaveFile: \t\t\tLeftCtrl+S \nOpenFile: \t\tLeftCtrl+O \nPrint: \t\t\tLeftCtrl+P \nAdd Copy of Gate: \tLeftCtrl+MouseDrag \nAdd CableBranch: \t\tLeftShift+MouseDrag \nDelete Gate: \t\tDel \nHelp: \t\t\t?";
+        private static string help = "Zoom: \t\t\tLeftCtrl+Mousweel \nSaveFile: \t\t\tLeftCtrl+S \nOpenFile: \t\tLeftCtrl+O \nPrint: \t\t\tLeftCtrl+P \nAdd Copy of Gate: \tLeftCtrl+MouseDrag \nAdd CableBranch: \t\tLeftShift+MouseDrag \nDelete Gate: \t\tDel \nHelp: \t\t\t?";
         public Help_vm()
         { }
         private ICommand clickCommand;
