@@ -8,7 +8,8 @@
         xmlns:local="clr-namespace:Error_NameNotFound"
         mc:Ignorable="d"
         Title="ERROR: Name not Found"
-        KeyDown="KeyDown_w">
+        KeyDown="KeyDown_window"
+        KeyUp="Keyup_window">
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>

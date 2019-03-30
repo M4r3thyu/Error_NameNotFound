@@ -1140,8 +1140,10 @@ namespace Error_NameNotFound
                 }
             }
         }
-        private void KeyDown_w(object sender, KeyEventArgs e)
+        private void KeyDown_window(object sender, KeyEventArgs e)
         {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl))
+                ScrollWorkspace.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
             if (e.Key == Key.Delete)
                 GateDelete = !GateDelete;
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.S))
@@ -1152,6 +1154,12 @@ namespace Error_NameNotFound
                 Print(Workspace, e);
             if (Keyboard.IsKeyDown(Key.OemQuestion))
                 MessageBox.Show(Help_vm.Help_message,"Help");
+        }
+
+        private void Keyup_window(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyUp(Key.LeftCtrl))
+                ScrollWorkspace.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
         }
 
         private void canvas_Drop(object sender, DragEventArgs e)
