@@ -148,26 +148,23 @@ namespace Error_NameNotFound.ViewModel
         }
         private void CableUI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (Keyboard.IsKeyDown(Key.LeftShift))
+            Point mouse = new Point();
+            mouse = Mouse.GetPosition(MainWindow.GetCanvas);
+            if (MainWindow.GateDelete)
             {
-                Point mouse = new Point();
-                mouse = Mouse.GetPosition(MainWindow.GetCanvas);
-                if (MainWindow.GateDelete)
-                {
-                    MainWindow.Currentcable = id;
-                    MainWindow.RemoveCable();
-                }
-                else
-                {
-                    Outputbutton_vm.Output_Click(id, 0);
-                    MainWindow.CableDrag = true;
-                    MainWindow.CableX1 = Convert.ToInt32(mouse.X / 25) * 25.0;
-                    MainWindow.CableY1 = Convert.ToInt32(mouse.Y / 25) * 25.0;
-                    MainWindow.CableDirection = !Direction1;
-                    Cable _cable = new Cable();
-                    DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
-                    ChangeColorInOut();
-                }
+                MainWindow.Currentcable = id;
+                MainWindow.RemoveCable();
+            }
+            else if (Keyboard.IsKeyDown(Key.LeftShift))
+            {
+                Outputbutton_vm.Output_Click(id, 0);
+                MainWindow.CableDrag = true;
+                MainWindow.CableX1 = Convert.ToInt32(mouse.X / 25) * 25.0;
+                MainWindow.CableY1 = Convert.ToInt32(mouse.Y / 25) * 25.0;
+                MainWindow.CableDirection = !Direction1;
+                Cable _cable = new Cable();
+                DragDrop.DoDragDrop(_cable, _cable, DragDropEffects.Move);
+                ChangeColorInOut();
             }
         }
         public void ChangeColorInOut()
