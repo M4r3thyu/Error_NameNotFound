@@ -41,18 +41,21 @@ namespace Error_NameNotFound.ViewModel
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (!textboxIsUsed)
             {
-                MainWindow.CurrentGate = id;
-                MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "Seg7";
-                // Package the data.
-                DataObject data = new DataObject();
-                data.SetData("Double", Seg7UI.Height);
-                data.SetData("Object", this);
-                // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
+                base.OnMouseMove(e);
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    MainWindow.CurrentGate = id;
+                    MainWindow.SetGateFromButton(false);
+                    MainWindow.GateType = "Seg7";
+                    // Package the data.
+                    DataObject data = new DataObject();
+                    data.SetData("Double", Seg7UI.Height);
+                    data.SetData("Object", this);
+                    // Inititate the drag-and-drop operation.
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
+                }
             }
         }
         private void DelConnection_Input0(object sender, MouseButtonEventArgs e)

@@ -41,18 +41,21 @@ namespace Error_NameNotFound.ViewModel
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (!textboxIsUsed)
             {
-                MainWindow.CurrentGate = id;
-                MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "FF_RS_C_MS_E_S_R";
-                // Package the data.
-                DataObject data = new DataObject();
-                data.SetData("Double", FF_RS_C_MS_E_S_RUI.Height);
-                data.SetData("Object", this);
-                // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
+                base.OnMouseMove(e);
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    MainWindow.CurrentGate = id;
+                    MainWindow.SetGateFromButton(false);
+                    MainWindow.GateType = "FF_RS_C_MS_E_S_R";
+                    // Package the data.
+                    DataObject data = new DataObject();
+                    data.SetData("Double", FF_RS_C_MS_E_S_RUI.Height);
+                    data.SetData("Object", this);
+                    // Inititate the drag-and-drop operation.
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
+                }
             }
         }
         private void Output0_Click(object sender, RoutedEventArgs e)

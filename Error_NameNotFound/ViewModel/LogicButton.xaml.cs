@@ -47,25 +47,28 @@ namespace Error_NameNotFound
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (!textboxIsUsed)
             {
-                MainWindow.CurrentGate = id;
-                MainWindow.SetGateFromButton(false);
-                if (On)
+                base.OnMouseMove(e);
+                if (e.LeftButton == MouseButtonState.Pressed)
                 {
-                    MainWindow.GateType = "LogicButton_On";
+                    MainWindow.CurrentGate = id;
+                    MainWindow.SetGateFromButton(false);
+                    if (On)
+                    {
+                        MainWindow.GateType = "LogicButton_On";
+                    }
+                    else
+                    {
+                        MainWindow.GateType = "LogicButton_Off";
+                    }
+                    // Package the data.
+                    DataObject data = new DataObject();
+                    data.SetData("Double", ButtonUI.Height);
+                    data.SetData("Object", this);
+                    // Inititate the drag-and-drop operation.
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
                 }
-                else
-                {
-                    MainWindow.GateType = "LogicButton_Off";
-                }
-                // Package the data.
-                DataObject data = new DataObject();
-                data.SetData("Double", ButtonUI.Height);
-                data.SetData("Object", this);
-                // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
         private void ButtonUI_MouseUp(object sender, MouseButtonEventArgs e)

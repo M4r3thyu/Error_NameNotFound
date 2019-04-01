@@ -22,7 +22,6 @@ namespace Error_NameNotFound.ViewModel
     public partial class Oscillator : Logicgatescontrol
     {
         private L_Oscillator l_oscillator;
-        private bool textboxIsUsed;
         public Oscillator() : base()
         {
             InitializeComponent();
@@ -99,18 +98,8 @@ namespace Error_NameNotFound.ViewModel
             }
             catch (Exception)
             {
-               // MessageBox.Show("Unhandled Error occoured \n" + x.Message);
+
             }
-        }
-
-        private void Timeout_MouseEnter(object sender, MouseEventArgs e)
-        {
-            textboxIsUsed = true;
-        }
-
-        private void Timeout_MouseLeave(object sender, MouseEventArgs e)
-        {
-            textboxIsUsed = false;
         }
     }
 }

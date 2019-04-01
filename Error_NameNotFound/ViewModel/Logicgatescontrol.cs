@@ -24,14 +24,18 @@ namespace Error_NameNotFound.ViewModel
         protected int connectedCablesCount;
         protected int anz_input;
         protected int anz_output;
+        protected bool textboxIsUsed;
+
 
         public Logicgatescontrol()
         {
             id = 0;
+            textboxIsUsed = false;
         }
         public Logicgatescontrol(int id) : this()
         {
             this.id = id;
+            textboxIsUsed = false;
         }
         public int Id
         {
@@ -182,6 +186,15 @@ namespace Error_NameNotFound.ViewModel
                     }
                 }
             }
+        }
+        protected void Timeout_MouseEnter(object sender, MouseEventArgs e)
+        {
+            textboxIsUsed = true;
+        }
+
+        protected void Timeout_MouseLeave(object sender, MouseEventArgs e)
+        {
+            textboxIsUsed = false;
         }
         public virtual void ChangeColorInOut()
         {

@@ -41,18 +41,21 @@ namespace Error_NameNotFound
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (!textboxIsUsed)
             {
-                MainWindow.CurrentGate = id;
-                MainWindow.SetGateFromButton(false);
-                MainWindow.GateType = "OR";
-                // Package the data.
-                DataObject data = new DataObject();
-                data.SetData("Double", ORUI.Height);
-                data.SetData("Object", this);
-                // Inititate the drag-and-drop operation.
-                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                base.OnMouseMove(e);
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    MainWindow.CurrentGate = id;
+                    MainWindow.SetGateFromButton(false);
+                    MainWindow.GateType = "OR";
+                    // Package the data.
+                    DataObject data = new DataObject();
+                    data.SetData("Double", ORUI.Height);
+                    data.SetData("Object", this);
+                    // Inititate the drag-and-drop operation.
+                    DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                }
             }
         }
         private void Output0_Click(object sender, RoutedEventArgs e)
