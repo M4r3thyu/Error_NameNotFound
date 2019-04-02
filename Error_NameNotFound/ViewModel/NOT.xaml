@@ -8,6 +8,7 @@
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
         <Image Width="100" Height="100" Name="NOTUI" Source="/Error_NameNotFound;component/Pictures/Not.png"></Image>
+        <TextBox Margin="10,70,25,15" TextAlignment="Center" MouseEnter="Timeout_MouseEnter" MouseLeave="Timeout_MouseLeave" FontSize="13" Text="Not" MaxWidth="64" MaxHeight="15" Padding="0,-3,0,0"/>
         <Button Width="10" Height="10" Margin="-5,45,95,45" Name="input0" MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
         <Button Width="10" Height="10" Margin="95,45,-5,45" Name="output0" PreviewMouseLeftButtonDown="Output0_Click"/>
     </Grid>
