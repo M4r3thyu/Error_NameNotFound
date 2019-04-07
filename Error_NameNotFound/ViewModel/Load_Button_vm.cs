@@ -41,6 +41,7 @@ namespace Error_NameNotFound.ViewModel
                 {
                     FileStream fs = File.Open(openFileDialog.FileName, mode: FileMode.Open, access: FileAccess.Read);
                     fs.Close();
+                    fs.Dispose();
                     MainWindow.GetCanvas.Children.Clear();
                     MainWindow.Gates_UI = new List<Logicgatescontrol>();
                     LogicGates.gates_logic = new List<LogicGates>();

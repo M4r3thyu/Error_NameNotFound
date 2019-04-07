@@ -38,7 +38,7 @@ namespace Error_NameNotFound.ViewModel
             {
                 SaveFileDialog dialog = new SaveFileDialog()
                 {
-                    Filter = "Xaml Files(*.logic)|*.logic|All(*.*)|*"
+                    Filter = "Logic Files(*.logic)|*.logic|All(*.*)|*"
                 };
                 if (dialog.ShowDialog() == true)
                 {
@@ -46,8 +46,9 @@ namespace Error_NameNotFound.ViewModel
                     path = dialog.FileName;
                     // XamlWriter.Save(Workspace, fs);
                     fs.Close();
+                    fs.Dispose();
                     string bausteine = " | (Baussteine) index left top Name | ";
-                    for (int i = 0; i < MainWindow.Gates_UI.Count ; i++)//LogicGates.gates_logic.Count
+                    for (int i = 0; i < MainWindow.Gates_UI.Count ; i++)//LogicGates.gates_logic.Count  //Auflistung aller Gates auf dem Canvas
                     {
                         var temp = MainWindow.Gates_UI[i];
 
