@@ -19,6 +19,7 @@ using System.Xml;
 using Error_NameNotFound.Model;
 using Error_NameNotFound.ViewModel;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Error_NameNotFound
 {
@@ -598,6 +599,8 @@ namespace Error_NameNotFound
                 }
                 else
                 {
+                    Debug.Print(previewCableDropPoint.X + " "+ previewCableDropPoint.Y);
+                    Debug.Print("Hallo");
                     previewCable.SetXY2(previewCableDropPoint.X, previewCableDropPoint.Y);
                 }
             }

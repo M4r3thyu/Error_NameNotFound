@@ -8,7 +8,7 @@
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
         <Image Width="100" Height="100" Name="FulladderUI" Source="/Error_NameNotFound;component/Pictures/Fulladder.png"></Image>
-        <TextBox Margin="10,68,10,17" TextAlignment="Center" MouseEnter="Timeout_MouseEnter" MouseLeave="Timeout_MouseLeave" FontSize="13" Text="Halfadder" MaxWidth="64" MaxHeight="15" Padding="0,-3,0,0"/>
+        <TextBox Margin="10,68,10,17" TextAlignment="Center" MouseEnter="Timeout_MouseEnter" MouseLeave="Timeout_MouseLeave" FontSize="13" Text="Fulladder" MaxWidth="64" MaxHeight="15" Padding="0,-3,0,0"/>
         <Button Width="10" Height="10" Margin="20,-5,70,95" Name="input0" MouseRightButtonDown="DelConnection_Input0" RenderTransformOrigin="0.875,0.625" AllowDrop="true" Drop="Input0_Drop"/>
         <Button Width="10" Height="10" Margin="70,-5,20,95" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
         <Button Width="10" Height="10" Margin="95,45,-5,45" Name="input2" MouseRightButtonDown="DelConnection_Input2" AllowDrop="true" Drop="Input2_Drop" />
