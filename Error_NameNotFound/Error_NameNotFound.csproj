@@ -1096,5 +1096,23 @@
     <Resource Include="Pictures\hex8.png" />
     <Resource Include="Pictures\hex9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hexA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hexB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hexC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hexD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hexE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hexF.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
