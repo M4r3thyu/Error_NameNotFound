@@ -1042,7 +1042,7 @@ namespace Error_NameNotFound
                             previewImage.Width = 100;
                             break;
                         case "HEX7":
-                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/HEX7.png", UriKind.Absolute));
+                            previewBitmap = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex0.png", UriKind.Absolute));
                             previewImage.Source = previewBitmap;
                             previewImage.Height = 125;
                             previewImage.Width = 80;
