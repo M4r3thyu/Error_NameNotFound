@@ -1027,9 +1027,6 @@
     <Resource Include="Pictures\Halfadder.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\HEX7.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pictures\High.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1113,6 +1110,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\hexF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\hex0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
