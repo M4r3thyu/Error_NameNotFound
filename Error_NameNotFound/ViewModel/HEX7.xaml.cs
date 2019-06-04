@@ -193,7 +193,7 @@ namespace Error_NameNotFound.ViewModel
                             case 15:
                                 HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hexF.png", UriKind.Absolute));
                                 break;
-                            default: HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/HEX7.png", UriKind.Absolute));
+                            default: HEX7UI.Source = new BitmapImage(new Uri("pack://application:,,,/Pictures/hex0.png", UriKind.Absolute));
                                 break;
                         }
                     }

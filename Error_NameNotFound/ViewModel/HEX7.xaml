@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="125" Width="80">
     <Grid>
-        <Image Height="125" Width="80" Name="HEX7UI" Source="/Error_NameNotFound;component/Pictures/HEX7.png"/>
+        <Image Height="125" Width="80" Name="HEX7UI" Source="/Error_NameNotFound;component/Pictures/hex0.png" Margin="-5,0,5,0"/>
         <Button Width="10" Height="10" Margin="-5,20,75,95" Name="input0" MouseRightButtonDown="DelConnection_Input0" AllowDrop="true" Drop="Input0_Drop"/>
         <Button Width="10" Height="10" Margin="-5,45,75,70" Name="input1" MouseRightButtonDown="DelConnection_Input1" AllowDrop="true" Drop="Input1_Drop" />
         <Button Width="10" Height="10" Margin="-5,70,75,45" Name="input2" MouseRightButtonDown="DelConnection_Input2" AllowDrop="true" Drop="Input2_Drop"/>
