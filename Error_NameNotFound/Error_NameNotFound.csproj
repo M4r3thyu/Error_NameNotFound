@@ -286,7 +286,7 @@
     <Compile Include="ViewModel\Halfadder.xaml.cs">
       <DependentUpon>Halfadder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Help_vm.cs" />
+    <Compile Include="Model\Help.cs" />
     <Compile Include="ViewModel\HEX7.xaml.cs">
       <DependentUpon>HEX7.xaml</DependentUpon>
     </Compile>
@@ -297,7 +297,7 @@
     <Compile Include="ViewModel\Light.xaml.cs">
       <DependentUpon>Light.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Load_Button_vm.cs" />
+    <Compile Include="Model\Load.cs" />
     <Compile Include="ViewModel\LogicButton.xaml.cs">
       <DependentUpon>LogicButton.xaml</DependentUpon>
     </Compile>
@@ -327,8 +327,8 @@
     <Compile Include="ViewModel\Register_ms.xaml.cs">
       <DependentUpon>Register_ms.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Releasedate_vm.cs" />
-    <Compile Include="ViewModel\Save_Button_vm.cs" />
+    <Compile Include="Model\Releasedate_vm.cs" />
+    <Compile Include="Model\Save.cs" />
     <Compile Include="ViewModel\Seg7.xaml.cs">
       <DependentUpon>Seg7.xaml</DependentUpon>
     </Compile>
